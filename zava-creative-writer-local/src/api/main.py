@@ -20,7 +20,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Contoso Creative Writer — powered by Foundry Local"}
+    return {"message": "Zava Creative Writer — powered by Foundry Local"}
 
 
 @app.post("/api/article")

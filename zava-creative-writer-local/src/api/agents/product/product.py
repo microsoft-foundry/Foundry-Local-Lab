@@ -78,6 +78,6 @@ def find_products(context: str):
 
 
 if __name__ == "__main__":
-    context = "Can you use a selection of tents and backpacks as context?"
+    context = "Can you use a selection of power tools and paints as context?"
     result = find_products(context)
     print(json.dumps(result, indent=2))

@@ -56,7 +56,7 @@ def edit(article, feedback):
 
 if __name__ == "__main__":
     result = edit(
-        "This is a sample article about camping trends in winter.",
-        "Could use more detail about gear recommendations.",
+        "This is a sample article about DIY home improvement trends.",
+        "Could use more detail about tool recommendations.",
     )
     print(json.dumps(result, indent=2))

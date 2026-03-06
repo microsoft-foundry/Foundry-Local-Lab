@@ -21,7 +21,8 @@ By the end of this workshop you will be able to:
 | 3 | Build a Retrieval-Augmented Generation (RAG) pipeline that grounds answers in your own data |
 | 4 | Create AI agents with persistent instructions and personas |
 | 5 | Orchestrate multi-agent workflows with feedback loops |
-| 6 | Explore a production capstone app — the Contoso Creative Writer |
+| 6 | Explore a production capstone app — the Zava Creative Writer |
+| 7 | Transcribe audio with Whisper — speech-to-text on-device (requires Foundry Local v0.8.101 or earlier) |
 
 ---
 
@@ -149,9 +150,9 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 
 ---
 
-### Part 6: Contoso Creative Writer — Capstone Application
+### Part 6: Zava Creative Writer — Capstone Application
 
-**Lab guide:** [`labs/part6-contoso-creative-writer.md`](labs/part6-contoso-creative-writer.md)
+**Lab guide:** [`labs/part6-zava-creative-writer.md`](labs/part6-zava-creative-writer.md)
 
 - A production-style multi-agent app with 4 specialized agents
 - Sequential pipeline with evaluator-driven feedback loops
@@ -162,9 +163,22 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 
 | Language | Directory | Description |
 |----------|-----------|-------------|
-| Python | `contoso-creative-writer-local/src/api/` | FastAPI web service with orchestrator |
-| JavaScript | `contoso-creative-writer-local/src/javascript/` | Node.js CLI application |
-| C# | `contoso-creative-writer-local/src/csharp/` | .NET 9 console application |
+| Python | `zava-creative-writer-local/src/api/` | FastAPI web service with orchestrator |
+| JavaScript | `zava-creative-writer-local/src/javascript/` | Node.js CLI application |
+| C# | `zava-creative-writer-local/src/csharp/` | .NET 9 console application |
+
+---
+
+### Part 7: Voice Transcription with Whisper
+
+**Lab guide:** [`labs/part7-whisper-voice-transcription.md`](labs/part7-whisper-voice-transcription.md)
+
+- Speech-to-text transcription using OpenAI Whisper running locally
+- Privacy-first audio processing — audio never leaves your device
+- Python, JavaScript, and C# tracks with `client.audio.transcriptions.create()` (Python/JS) and `AudioClient.TranscribeAudioAsync()` (C#)
+- Includes Zava-themed sample audio files for hands-on practice
+
+> **Note:** Requires Foundry Local **v0.8.101 or earlier**. Whisper models are not available in newer Foundry Local versions.
 
 ---
 
@@ -190,7 +204,7 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 │   ├── foundry-local-rag.mjs     # RAG pipeline
 │   ├── foundry-local-multi-agent.mjs # Multi-agent workflow
 │   └── package.json
-├── contoso-creative-writer-local/ # Production multi-agent app
+├── zava-creative-writer-local/ # Production multi-agent app
 │   └── src/api/
 │       ├── main.py                # FastAPI server
 │       ├── orchestrator.py        # Pipeline coordinator
@@ -202,7 +216,12 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 │   ├── part3-rag-fundamentals.md
 │   ├── part4-single-agents.md
 │   ├── part5-multi-agent-workflows.md
-│   └── part6-contoso-creative-writer.md
+│   ├── part6-zava-creative-writer.md
+│   └── part7-whisper-voice-transcription.md
+├── samples/
+│   └── audio/                     # Zava-themed WAV files for Part 7
+│       ├── generate_samples.py    # TTS script (pyttsx3) to create WAVs
+│       └── README.md              # Sample descriptions
 └── README.md
 ```
 
@@ -217,6 +236,7 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 | Foundry Local GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
 | Getting started guide | [Microsoft Learn — Foundry Local](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-local/get-started) |
 | Microsoft Agent Framework | [Microsoft Learn — Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
+| OpenAI Whisper | [github.com/openai/whisper](https://github.com/openai/whisper) |
 
 ---
 

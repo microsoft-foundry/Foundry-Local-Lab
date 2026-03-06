@@ -261,7 +261,7 @@ Design a multi-agent pipeline for a different domain. Here are some ideas:
 
 ## Orchestration Patterns
 
-Here are orchestration patterns that apply to any multi-agent system (explored in depth in [Part 6](part6-contoso-creative-writer.md)):
+Here are orchestration patterns that apply to any multi-agent system (explored in depth in [Part 6](part6-zava-creative-writer.md)):
 
 ### Sequential Pipeline
 
@@ -273,7 +273,7 @@ Each agent processes the output of the previous one. Simple and predictable.
 
 ![Feedback Loop](../images/part5-feedback-loop.png)
 
-An evaluator agent can trigger re-execution of earlier stages. The Contoso Writer uses this: the editor can send feedback back to the researcher and writer.
+An evaluator agent can trigger re-execution of earlier stages. The Zava Writer uses this: the editor can send feedback back to the researcher and writer.
 
 ### Shared Context
 
@@ -292,10 +292,10 @@ All agents share a single `foundry_config` so they use the same model and endpoi
 | Feedback loops | An evaluator can trigger retries for higher quality |
 | Structured output | JSON-formatted responses enable reliable agent-to-agent communication |
 | Orchestration | A coordinator manages the pipeline sequence and error handling |
-| Production patterns | Applied in [Part 6: Contoso Creative Writer](part6-contoso-creative-writer.md) |
+| Production patterns | Applied in [Part 6: Zava Creative Writer](part6-zava-creative-writer.md) |
 
 ---
 
 ## Next Steps
 
-Continue to [Part 6: Contoso Creative Writer — Capstone Application](part6-contoso-creative-writer.md) to explore a production-style multi-agent app with 4 specialized agents, streaming output, product search, and feedback loops — available in Python, JavaScript, and C#.
+Continue to [Part 6: Zava Creative Writer — Capstone Application](part6-zava-creative-writer.md) to explore a production-style multi-agent app with 4 specialized agents, streaming output, product search, and feedback loops — available in Python, JavaScript, and C#.

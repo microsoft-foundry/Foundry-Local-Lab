@@ -1,5 +1,5 @@
 /**
- * Contoso Creative Writer — Foundry Local (JavaScript)
+ * Zava Creative Writer — Foundry Local (JavaScript)
  *
  * Shared configuration: starts the service, ensures the model is cached,
  * loads it, and exports the OpenAI client + model ID for all agents.

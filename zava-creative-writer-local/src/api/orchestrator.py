@@ -159,8 +159,8 @@ def test_create_article(research_context, product_context, assignment_context):
                 print(f'Article: {article}')
     
 if __name__ == "__main__":
-    research_context = "Can you find the latest camping trends and what folks are doing in the winter?"
-    product_context = "Can you use a selection of tents and sleeping bags as context?"
+    research_context = "Can you find the latest DIY home improvement trends and weekend renovation projects?"
+    product_context = "Can you use a selection of power tools and paints as context?"
     assignment_context = '''Write a fun and engaging article that includes the research and product information. 
     The article should be between 800 and 1000 words.
     Make sure to cite sources in the article as you mention the research not at the end.'''

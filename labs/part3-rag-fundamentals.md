@@ -33,8 +33,8 @@ By the end of this lab you will be able to:
 Without RAG, an LLM can only answer from its training data — which may be outdated, incomplete, or missing your private information:
 
 ```
-User: "What is Contoso's return policy?"
-LLM:  "I don't have information about Contoso's return policy."  ← No context!
+User: "What is Zava's return policy?"
+LLM:  "I don't have information about Zava's return policy."  ← No context!
 ```
 
 With RAG, you **retrieve** relevant documents first, then **augment** the prompt with that context before **generating** a response:

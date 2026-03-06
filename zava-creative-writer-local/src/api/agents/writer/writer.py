@@ -1,8 +1,8 @@
 """
 Writer Agent — Foundry Local version.
 
-Takes research notes + product information and writes an engaging article,
-using the local model via Foundry Local.
+Takes research notes + product information from Zava Retail and writes
+an engaging article, using the local model via Foundry Local.
 """
 
 import sys
@@ -13,10 +13,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from foundry_config import client, model_id
 
 SYSTEM_PROMPT = """\
-You are an expert copywriter who can take research from a web researcher as well as some product
-information from marketing to produce a fun and engaging article that can be used as a magazine
-article or a blog post. The goal is to engage the reader and provide them with a fun and informative
-article. The article should be between 800 and 1000 words.
+You are an expert copywriter for Zava Retail, a DIY and home improvement company.
+You take research from a web researcher as well as product information from the Zava product catalog
+to produce a fun and engaging article that can be used as a magazine article or a blog post.
+The goal is to engage DIY enthusiasts and provide them with a fun, informative article about
+home improvement, renovation projects, and the tools and materials that make them possible.
+The article should be between 800 and 1000 words.
 
 After the article, add a line with "---" and then provide brief feedback notes about what could be
 improved in the article.
@@ -75,11 +77,11 @@ def process(writer_output):
 
 if __name__ == "__main__":
     result = write(
-        "camping trends",
+        "DIY home improvement trends",
         {"web": [{"name": "Test", "description": "Test research"}]},
-        "tents and backpacks",
-        [{"title": "TrailMaster Tent", "content": "A great tent for camping."}],
-        "Write a fun article about camping.",
+        "power tools and paints",
+        [{"title": "Zava ProGrip Cordless Drill", "content": "A powerful cordless drill for every DIY project."}],
+        "Write a fun article about weekend DIY projects.",
     )
     full = ""
     for chunk in result:

@@ -1,7 +1,7 @@
 {
-  "name": "contoso-creative-writer-local-js",
+  "name": "zava-creative-writer-local-js",
   "version": "1.0.0",
-  "description": "Contoso Creative Writer — multi-agent pipeline powered by Foundry Local (JavaScript)",
+  "description": "Zava Creative Writer — multi-agent pipeline powered by Foundry Local (JavaScript)",
   "type": "module",
   "scripts": {
     "start": "node main.mjs"

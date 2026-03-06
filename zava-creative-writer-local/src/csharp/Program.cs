@@ -1,4 +1,4 @@
-// Contoso Creative Writer — C# Console Application
+// Zava Creative Writer — C# Console Application
 // Multi-agent pipeline: Researcher → Product → Writer → Editor
 // with feedback loop (max 2 retries).
 //
@@ -46,26 +46,26 @@ var chatClient = openAiClient.GetChatClient(modelId);
 // ── Product catalog (embedded) ──────────────────────────────────────────
 var products = new[]
 {
-    new Product("1", "TrailMaster X4 Tent",
-        "Unveiling the TrailMaster X4 Tent from OutdoorLiving, your home away from home for your next camping adventure. Crafted from durable polyester, this tent boasts a spacious interior perfect for four occupants. Water-resistant construction with accompanying rainfly adds extra weather protection."),
-    new Product("8", "Alpine Explorer Tent",
-        "Welcome to the joy of camping with the Alpine Explorer Tent! This robust, 8-person, 3-season marvel from AlpineGear features a straightforward setup, detachable divider for privacy, numerous mesh windows, and waterproof assurance."),
-    new Product("16", "TrailLite Daypack",
-        "Step up your hiking game with HikeMate's TrailLite Daypack. Built for comfort and efficiency, this lightweight and durable backpack offers a spacious main compartment, multiple pockets, water-resistant fabric, and integrated hydration system."),
-    new Product("2", "Adventurer Pro Backpack",
-        "Venture into the wilderness with the HikeMate's Adventurer Pro Backpack! Uniquely designed with ergonomic comfort, 40L capacity wrapped in durable nylon, multiple compartments, hydration system compatibility, and reflective accents."),
-    new Product("9", "SummitClimber Backpack",
-        "Introducing the HikeMate SummitClimber Backpack — 60-liter capacity, ergonomic design, adjustable hip belt, padded shoulder straps, integrated rain cover, hydration system compatibility, and reflective accents for low-light visibility.")
+    new Product("1", "Zava ProGrip Cordless Drill",
+        "Take on any DIY project with the Zava ProGrip Cordless Drill. Equipped with a brushless motor and 20V lithium-ion battery, this drill delivers up to 500 in-lbs of torque. Two-speed gearbox, integrated LED work light, ergonomic soft-grip handle, and keyless chuck accepting bits up to 1/2 inch."),
+    new Product("2", "Zava UltraSmooth Interior Paint",
+        "Transform any room with Zava UltraSmooth Interior Paint. Low-VOC, water-based latex paint with exceptional one-coat coverage. Available in over 200 designer colours with a velvety matte finish. Built-in primer, splatter-resistant consistency, and easy soap-and-water cleanup."),
+    new Product("3", "Zava TitanLock Tool Chest",
+        "Keep your workshop organised with the Zava TitanLock Tool Chest. Heavy-gauge steel with powder-coated finish, five ball-bearing drawer slides, integrated power strip, lockable drawers, foam liner inserts, and rolling casters with brakes."),
+    new Product("4", "Zava EcoBoard Composite Decking",
+        "Build the backyard of your dreams with Zava EcoBoard Composite Decking. Made from 95% recycled materials, resists rot, warping, and insect damage. Hidden fastener grooves, slip-resistant surface, available in six nature-inspired shades. 25-year structural warranty."),
+    new Product("5", "Zava BrightBeam LED Work Light",
+        "Light up any job site with the Zava BrightBeam LED Work Light. 5,000 lumens, 120-degree beam angle, rugged aluminium housing, IP65 weather rating, adjustable tripod stand, and stepless dimmer control. 50,000-hour rated lifespan.")
 };
 
 // ── Default inputs ──────────────────────────────────────────────────────
-var researchContext = "Can you find the latest camping trends and what folks are doing in the winter?";
-var productContext = "Can you use a selection of tents and backpacks as context?";
+var researchContext = "Can you find the latest DIY home improvement trends and weekend renovation projects?";
+var productContext = "Can you use a selection of power tools and paints as context?";
 var assignment = "Write a fun and engaging article that includes the research and product information. The article should be between 800 and 1000 words.";
 
 var sep = new string('=', 60);
 Console.WriteLine(sep);
-Console.WriteLine("Contoso Creative Writer — Multi-Agent Pipeline");
+Console.WriteLine("Zava Creative Writer — Multi-Agent Pipeline");
 Console.WriteLine(sep);
 
 var feedback = "No Feedback";
@@ -262,10 +262,12 @@ string RunWriter(string resContext, string research, string prodContext, List<Pr
         """;
 
     var systemPrompt = """
-        You are an expert copywriter who can take research from a web researcher as well as some product
-        information from marketing to produce a fun and engaging article that can be used as a magazine
-        article or a blog post. The goal is to engage the reader and provide them with a fun and informative
-        article. The article should be between 800 and 1000 words.
+        You are an expert copywriter for Zava Retail, a DIY and home improvement company.
+        You take research from a web researcher as well as product information from the Zava product catalog
+        to produce a fun and engaging article that can be used as a magazine article or a blog post.
+        The goal is to engage DIY enthusiasts and provide them with a fun, informative article about
+        home improvement, renovation projects, and the tools and materials that make them possible.
+        The article should be between 800 and 1000 words.
 
         After the article, add a line with "---" and then provide brief feedback notes about what could be
         improved in the article.

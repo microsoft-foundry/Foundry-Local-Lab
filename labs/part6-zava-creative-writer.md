@@ -1,8 +1,8 @@
 ![Foundry Local](https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg)
 
-# Part 6: Contoso Creative Writer — Capstone Application
+# Part 6: Zava Creative Writer — Capstone Application
 
-> **Goal:** Explore a production-style multi-agent application where four specialized agents collaborate to produce magazine-quality articles — running entirely on your device with Foundry Local.
+> **Goal:** Explore a production-style multi-agent application where four specialized agents collaborate to produce magazine-quality articles for Zava Retail DIY — running entirely on your device with Foundry Local.
 
 This is the **capstone lab** of the workshop. It brings together everything you've learned — SDK integration (Part 2), retrieval from local data (Part 3), agent personas (Part 4), and multi-agent orchestration (Part 5) — into a complete application available in **Python**, **JavaScript**, and **C#**.
 
@@ -10,7 +10,7 @@ This is the **capstone lab** of the workshop. It brings together everything you'
 
 ## What You'll Explore
 
-| Concept | Where in the Contoso Writer |
+| Concept | Where in the Zava Writer |
 |---------|----------------------------|
 | 4-step model loading | Shared config module bootstraps Foundry Local |
 | RAG-style retrieval | Product agent searches a local catalog |
@@ -23,9 +23,9 @@ This is the **capstone lab** of the workshop. It brings together everything you'
 
 ## Architecture
 
-The Contoso Creative Writer uses a **sequential pipeline with evaluator-driven feedback**. All three language implementations follow the same architecture:
+The Zava Creative Writer uses a **sequential pipeline with evaluator-driven feedback**. All three language implementations follow the same architecture:
 
-![Contoso Creative Writer Architecture](../images/part6-contoso-architecture.png)
+![Zava Creative Writer Architecture](../images/part6-zava-architecture.png)
 
 ### The Four Agents
 
@@ -56,7 +56,7 @@ The Contoso Creative Writer uses a **sequential pipeline with evaluator-driven f
 
 ## Exercises
 
-### Exercise 1 — Run the Contoso Creative Writer
+### Exercise 1 — Run the Zava Creative Writer
 
 Choose your language and run the application:
 
@@ -67,7 +67,7 @@ The Python version runs as a **web service** with a REST API, demonstrating how 
 
 **Setup:**
 ```bash
-cd contoso-creative-writer-local/src/api
+cd zava-creative-writer-local/src/api
 pip install -r requirements.txt
 ```
 
@@ -81,9 +81,9 @@ uvicorn main:app --reload
 curl -X POST http://localhost:8000/api/article \
   -H "Content-Type: application/json" \
   -d '{
-    "research": "winter camping trends",
-    "products": "outdoor gear",
-    "assignment": "Write an article about winter camping for outdoor enthusiasts"
+    "research": "DIY home improvement trends",
+    "products": "power tools and paints",
+    "assignment": "Write an article about weekend renovation projects for DIY enthusiasts"
   }'
 ```
 
@@ -98,7 +98,7 @@ The JavaScript version runs as a **CLI application**, printing agent progress an
 
 **Setup:**
 ```bash
-cd contoso-creative-writer-local/src/javascript
+cd zava-creative-writer-local/src/javascript
 npm install
 ```
 
@@ -122,7 +122,7 @@ The C# version runs as a **.NET console application** with the same pipeline and
 
 **Setup:**
 ```bash
-cd contoso-creative-writer-local/src/csharp
+cd zava-creative-writer-local/src/csharp
 dotnet restore
 ```
 
@@ -167,7 +167,7 @@ Each language implementation has the same logical components. Compare the struct
 | File | Purpose |
 |------|---------|
 | `Program.cs` | Complete pipeline: model loading, agents, orchestrator, feedback loop |
-| `ContosoCreativeWriter.csproj` | .NET 9 project with Foundry Local + OpenAI packages |
+| `ZavaCreativeWriter.csproj` | .NET 9 project with Foundry Local + OpenAI packages |
 
 > **Design note:** Python separates each agent into its own file/directory (good for larger teams). JavaScript uses one module per agent (good for medium projects). C# keeps everything in a single file with local functions (good for self-contained examples). In production, choose the pattern that fits your team's conventions.
 
@@ -364,10 +364,11 @@ Congratulations — you've completed the Foundry Local Workshop! You've gone fro
 | 3 | Built a RAG pipeline with local knowledge retrieval |
 | 4 | Created AI agents with personas and structured output |
 | 5 | Orchestrated multi-agent pipelines with feedback loops |
-| 6 | Explored a production capstone app — the Contoso Creative Writer |
+| 6 | Explored a production capstone app — the Zava Creative Writer |
 
 **Next steps:**
+- Continue to [Part 7: Voice Transcription with Whisper](part7-whisper-voice-transcription.md) to explore speech-to-text on-device
 - Try different models (`phi-4-mini`, `deepseek-r1-7b`) to compare quality and speed
-- Build a frontend UI for the Contoso Writer API (Python version)
+- Build a frontend UI for the Zava Writer API (Python version)
 - Create your own multi-agent application for a domain you care about
 - Deploy to the cloud by swapping Foundry Local for Azure AI Foundry — same code, different endpoint

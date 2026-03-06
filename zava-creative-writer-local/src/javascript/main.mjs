@@ -1,5 +1,5 @@
 /**
- * Contoso Creative Writer — Orchestrator (JavaScript)
+ * Zava Creative Writer — Orchestrator (JavaScript)
  *
  * Runs the multi-agent pipeline: Researcher → Product → Writer → Editor
  * with an optional feedback loop (max 2 retries).
@@ -12,11 +12,11 @@ import { findProducts } from "./product.mjs";
 import { write, processWriterOutput } from "./writer.mjs";
 import { edit } from "./editor.mjs";
 
-// ── Default inputs ──────────────────────────────────────────────────────
+// ── Default inputs ──────────────────────────────────────────────────────────────────
 const researchContext =
-  "Can you find the latest camping trends and what folks are doing in the winter?";
+  "Can you find the latest DIY home improvement trends and weekend renovation projects?";
 const productContext =
-  "Can you use a selection of tents and backpacks as context?";
+  "Can you use a selection of power tools and paints as context?";
 const assignment =
   "Write a fun and engaging article that includes the research and product information. " +
   "The article should be between 800 and 1000 words.";
@@ -25,7 +25,7 @@ const SEP = "=".repeat(60);
 
 async function run() {
   console.log(SEP);
-  console.log("Contoso Creative Writer — Multi-Agent Pipeline");
+  console.log("Zava Creative Writer — Multi-Agent Pipeline");
   console.log(SEP);
 
   let feedback = "No Feedback";

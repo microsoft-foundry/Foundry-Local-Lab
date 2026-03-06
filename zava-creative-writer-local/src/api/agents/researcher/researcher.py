@@ -65,7 +65,7 @@ def research(instructions: str, feedback: str = "No feedback"):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        instructions = "Can you find the latest camping trends and what folks are doing in the winter?"
+        instructions = "Can you find the latest DIY home improvement trends and weekend renovation projects?"
     else:
         instructions = sys.argv[1]
     result = execute_research(instructions=instructions)

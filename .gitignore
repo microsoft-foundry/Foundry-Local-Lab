@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Generated audio samples (regenerate with: python samples/audio/generate_samples.py)
+samples/audio/*.wav
+
 # C extensions
 *.so
 
