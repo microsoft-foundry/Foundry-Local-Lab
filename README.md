@@ -31,7 +31,7 @@ By the end of this workshop you will be able to:
 |-------------|---------|
 | **Hardware** | 8 GB RAM minimum (16 GB recommended); AVX2-capable CPU or a supported GPU |
 | **OS** | Windows 10/11 (x64/ARM), Windows Server 2025, or macOS 13+ |
-| **Foundry Local CLI** | Install via `winget install Microsoft.FoundryLocal` (Windows) or `brew install foundrylocal` (macOS). See the [getting started guide](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-local/get-started) for details. |
+| **Foundry Local CLI** | Install via `winget install Microsoft.FoundryLocal` (Windows) or `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). See the [getting started guide](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-local/get-started) for details. |
 | **Language runtime** | **Python 3.9+** and/or **.NET 9.0+** and/or **Node.js 18+** |
 | **Git** | For cloning this repository |
 

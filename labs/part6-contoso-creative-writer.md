@@ -367,7 +367,7 @@ Congratulations — you've completed the Foundry Local Workshop! You've gone fro
 | 6 | Explored a production capstone app — the Contoso Creative Writer |
 
 **Next steps:**
-- Try different models (`phi-4-mini`, `deepseek-r1`) to compare quality and speed
+- Try different models (`phi-4-mini`, `deepseek-r1-7b`) to compare quality and speed
 - Build a frontend UI for the Contoso Writer API (Python version)
 - Create your own multi-agent application for a domain you care about
 - Deploy to the cloud by swapping Foundry Local for Azure AI Foundry — same code, different endpoint

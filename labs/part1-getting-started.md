@@ -74,7 +74,7 @@ You'll see models like:
 - `phi-3.5-mini` — Microsoft's 3.8B parameter model (fast, good quality)
 - `phi-4-mini` — Newer, more capable Phi model
 - `qwen2.5-0.5b` — Very small and fast (good for low-resource devices)
-- `deepseek-r1` — Strong reasoning model
+- `deepseek-r1-7b` — Strong reasoning model
 
 > **What is a model alias?** Aliases like `phi-3.5-mini` are shortcuts. When you use an alias, Foundry Local automatically downloads the best variant for your specific hardware (CUDA for NVIDIA GPUs, CPU-optimized otherwise). You never need to worry about picking the right variant.
 
