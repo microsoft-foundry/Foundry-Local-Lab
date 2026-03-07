@@ -23,7 +23,7 @@ By the end of this workshop you will be able to:
 | 5 | Create AI agents with persistent instructions and personas |
 | 6 | Orchestrate multi-agent workflows with feedback loops |
 | 7 | Explore a production capstone app — the Zava Creative Writer |
-| 8 | Transcribe audio with Whisper — speech-to-text on-device (requires Foundry Local v0.8.101 or earlier) |
+| 8 | Transcribe audio with Whisper — speech-to-text on-device using the Foundry Local SDK |
 
 ---
 
@@ -191,7 +191,7 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 - Python, JavaScript, and C# tracks with `client.audio.transcriptions.create()` (Python/JS) and `AudioClient.TranscribeAudioAsync()` (C#)
 - Includes Zava-themed sample audio files for hands-on practice
 
-> **Note:** Requires Foundry Local **v0.8.101 or earlier**. Whisper models are not available in newer Foundry Local versions.
+> **Note:** This lab uses the **Foundry Local SDK** to programmatically download and load the Whisper model, then sends audio to the local OpenAI-compatible endpoint for transcription. The Whisper model (`whisper`) is listed in the Foundry Local catalog and runs entirely on-device — no cloud API keys or network access required.
 
 ---
 
