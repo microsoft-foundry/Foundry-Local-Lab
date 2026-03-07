@@ -3,8 +3,8 @@ __pycache__/
 *.py[codz]
 *$py.class
 
-# Generated audio samples (regenerate with: python samples/audio/generate_samples.py)
-samples/audio/*.wav
+# Generated audio samples — committed for easy workshop use
+# Regenerate with: python samples/audio/generate_samples.py
 
 # C extensions
 *.so
