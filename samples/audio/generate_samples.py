@@ -1,5 +1,5 @@
 """
-Generate sample WAV files for Part 7 — Whisper Voice Transcription lab.
+Generate sample WAV files for Part 9 — Whisper Voice Transcription lab.
 
 Scenarios are based on Zava DIY products (ProGrip Drill, UltraSmooth Paint,
 TitanLock Tool Chest, EcoBoard Decking, BrightBeam LED Work Light).

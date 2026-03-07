@@ -1,12 +1,12 @@
 ![Foundry Local](https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg)
 
-# Part 8: Voice Transcription with Whisper and Foundry Local
+# Part 9: Voice Transcription with Whisper and Foundry Local
 
 > **Goal:** Use the OpenAI Whisper model running locally through Foundry Local to transcribe audio files - completely on-device, no cloud required.
 
 ## Overview
 
-Foundry Local isn't just for text generation - it also supports **speech-to-text** models. In this lab you'll use the **OpenAI Whisper Medium** model to transcribe audio files entirely on your machine. This is ideal for scenarios like transcribing Zava customer service calls, product review recordings, or workshop planning sessions where audio data must never leave your device.
+Foundry Local is not just for text generation; it also supports **speech-to-text** models. In this lab you will use the **OpenAI Whisper Medium** model to transcribe audio files entirely on your machine. This is ideal for scenarios like transcribing Zava customer service calls, product review recordings, or workshop planning sessions where audio data must never leave your device.
 
 
 ---
@@ -48,7 +48,7 @@ The OpenAI Whisper model is a general-purpose speech recognition model trained o
 - The SDK provides an `AudioClient` (separate from the `ChatClient` used for text models)
 - The API is **OpenAI-compatible** - same `POST /v1/audio/transcriptions` endpoint format
 
-![Whisper Transcription Architecture](../images/part8-whisper-architecture.png)
+![Whisper Transcription Architecture](../images/part9-whisper-architecture.png)
 
 ### Whisper Model Variants
 
@@ -524,7 +524,7 @@ dotnet run -- ..\samples\audio\zava-workshop-setup.wav
 | `audioClient.TranscribeAudioAsync(path)` | Transcribe an audio file |
 | `result.Text` | The transcribed text |
 
-> **C# vs Python/JS:** The C# track uses the `WinML` package for in-process transcription, while Python and JavaScript use the Foundry Local service with the OpenAI-compatible audio transcription endpoint.
+> **C# vs Python/JS:** The C# track uses the `WinML` package for in-process transcription, whilst Python and JavaScript use the Foundry Local service with the OpenAI-compatible audio transcription endpoint.
 
 </details>
 
@@ -881,7 +881,7 @@ Try these modifications to deepen your understanding:
 
 ## Workshop Complete!
 
-Congratulations - you've completed the full Foundry Local Workshop! You've gone from installing the CLI to building chat apps, RAG pipelines, multi-agent systems, and now speech-to-text transcription - all running entirely on your device.
+Congratulations - you have completed the full Foundry Local Workshop! You have gone from installing the CLI to building chat apps, RAG pipelines, multi-agent systems, and now speech-to-text transcription - all running entirely on your device.
 
 | Part | What You Built |
 |------|---------------|

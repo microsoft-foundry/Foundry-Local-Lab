@@ -8,7 +8,7 @@
 
 In Part 1 you used the **Foundry Local CLI** to download and run models interactively. The CLI is great for exploration, but when you build real applications you need **programmatic control**. The Foundry Local SDK gives you that - it manages the **control plane** (starting the service, discovering models, downloading, loading) so your application code can focus on the **data plane** (sending prompts, receiving completions).
 
-This lab teaches you the full SDK API surface across Python, JavaScript, and C#. By the end you'll understand every method available and when to use each one.
+This lab teaches you the full SDK API surface across Python, JavaScript, and C#. By the end you will understand every method available and when to use each one.
 
 ## Learning Objectives
 
@@ -46,7 +46,7 @@ By the end of this lab you will be able to:
 | **Automation** | Shell scripts | Native language integration |
 | **Deployment** | Requires CLI on end-user machine | C# SDK can be self-contained (no CLI needed) |
 
-> **Key insight:** The SDK handles the entire lifecycle - starting the service, checking the cache, downloading missing models, loading them, and discovering the endpoint - in a few lines of code. Your application doesn't need to parse CLI output or manage subprocesses.
+> **Key insight:** The SDK handles the entire lifecycle: starting the service, checking the cache, downloading missing models, loading them, and discovering the endpoint, in a few lines of code. Your application does not need to parse CLI output or manage subprocesses.
 
 ---
 
@@ -298,7 +298,7 @@ foreach (var model in models)
 | `catalog.GetCachedModelsAsync()` | List downloaded models |
 | `catalog.GetLoadedModelsAsync()` | List currently loaded models |
 
-> **C# Architecture Note:** The C# SDK v0.8.0+ redesign makes the application **self-contained** - it doesn't require the Foundry Local CLI on the end-user's machine. The SDK handles model management and inference natively.
+> **C# Architecture Note:** The C# SDK v0.8.0+ redesign makes the application **self-contained**; it does not require the Foundry Local CLI on the end-user's machine. The SDK handles model management and inference natively.
 
 </details>
 
@@ -542,7 +542,7 @@ if (info) {
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `alias` | string | Short name (e.g., `phi-3.5-mini`) |
+| `alias` | string | Short name (e.g. `phi-3.5-mini`) |
 | `id` | string | Unique model identifier |
 | `version` | string | Model version |
 | `task` | string | `chat-completions` or `automatic-speech-recognition` |
@@ -572,11 +572,11 @@ alias = "qwen2.5-0.5b"  # Small model for quick testing
 manager = FoundryLocalManager()
 manager.start_service()
 
-# 1. Check what's in the catalog
+# 1. Check what is in the catalog
 catalog = manager.list_catalog_models()
 print(f"Catalog: {len(catalog)} models")
 
-# 2. Check what's already downloaded
+# 2. Check what is already downloaded
 cached = manager.list_cached_models()
 print(f"Cached: {len(cached)} models")
 for m in cached:
@@ -587,7 +587,7 @@ print(f"\nDownloading {alias}...")
 manager.download_model(alias)
 print("Download complete")
 
-# 4. Verify it's in the cache now
+# 4. Verify it is in the cache now
 cached = manager.list_cached_models()
 print(f"Cached after download: {len(cached)} models")
 
@@ -596,7 +596,7 @@ print(f"\nLoading {alias}...")
 loaded_info = manager.load_model(alias)
 print(f"Loaded: {loaded_info.id}")
 
-# 6. Check what's loaded
+# 6. Check what is loaded
 loaded = manager.list_loaded_models()
 print(f"\nLoaded models: {len(loaded)}")
 for m in loaded:

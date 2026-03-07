@@ -4,9 +4,9 @@
 
 ## Overview
 
-In Part 1 you used the Foundry Local CLI to run models interactively. In Part 2 you explored the full SDK API surface. Now you'll learn to **integrate Foundry Local into your applications** using the SDK and the OpenAI-compatible API.
+In Part 1 you used the Foundry Local CLI to run models interactively. In Part 2 you explored the full SDK API surface. Now you will learn to **integrate Foundry Local into your applications** using the SDK and the OpenAI-compatible API.
 
-Foundry Local provides SDKs for three languages. Choose the one you're most comfortable with - the concepts are identical across all three.
+Foundry Local provides SDKs for three languages. Choose the one you are most comfortable with - the concepts are identical across all three.
 
 ## Learning Objectives
 
@@ -33,7 +33,7 @@ Install **one** of the following language runtimes:
 
 ## Concept: How the SDK Works
 
-The Foundry Local SDK manages the **control plane** (starting the service, downloading models), while the OpenAI SDK handles the **data plane** (sending prompts, receiving completions).
+The Foundry Local SDK manages the **control plane** (starting the service, downloading models), whilst the OpenAI SDK handles the **data plane** (sending prompts, receiving completions).
 
 ![SDK Architecture](../images/part2-sdk-architecture.png)
 

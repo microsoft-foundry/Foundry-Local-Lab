@@ -70,7 +70,7 @@ Foundry Local includes a catalog of pre-optimised open-source models. List them:
 foundry model list
 ```
 
-You'll see models like:
+You will see models like:
 - `phi-3.5-mini` - Microsoft's 3.8B parameter model (fast, good quality)
 - `phi-4-mini` - Newer, more capable Phi model
 - `qwen2.5-0.5b` - Very small and fast (good for low-resource devices)
@@ -95,7 +95,7 @@ The first time you run this, Foundry Local will:
 Try asking it some questions:
 ```
 You: What is the golden ratio?
-You: Can you explain it like I'm 10 years old?
+You: Can you explain it as if I were 10 years old?
 You: Write a haiku about mathematics
 ```
 

@@ -3,7 +3,7 @@ using Microsoft.AI.Foundry.Local;
 namespace Examples;
 
 /// <summary>
-/// Part 8: Whisper voice transcription with Foundry Local.
+/// Part 9: Whisper voice transcription with Foundry Local.
 /// Transcribes WAV audio files using the OpenAI Whisper model running locally.
 /// Uses the Foundry Local SDK's built-in audio client.
 /// </summary>

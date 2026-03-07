@@ -4,11 +4,11 @@
 
 > **Goal:** Explore a production-style multi-agent application where four specialised agents collaborate to produce magazine-quality articles for Zava Retail DIY - running entirely on your device with Foundry Local.
 
-This is the **capstone lab** of the workshop. It brings together everything you've learned - SDK integration (Part 3), retrieval from local data (Part 4), agent personas (Part 5), and multi-agent orchestration (Part 6) - into a complete application available in **Python**, **JavaScript**, and **C#**.
+This is the **capstone lab** of the workshop. It brings together everything you have learned - SDK integration (Part 3), retrieval from local data (Part 4), agent personas (Part 5), and multi-agent orchestration (Part 6) - into a complete application available in **Python**, **JavaScript**, and **C#**.
 
 ---
 
-## What You'll Explore
+## What You Will Explore
 
 | Concept | Where in the Zava Writer |
 |---------|----------------------------|
@@ -114,7 +114,7 @@ npm install
 node main.mjs
 ```
 
-You'll see:
+You will see:
 1. Foundry Local model loading (with progress bar if downloading)
 2. Each agent executing in sequence with status messages
 3. The article streamed to the console in real time
@@ -305,7 +305,7 @@ Try changing one agent's behaviour and observe how it affects the pipeline:
 | **New research topic** | Change the default `researchContext` to a different subject |
 | **JSON-only researcher** | Make the researcher return 10 items instead of 3-5 |
 
-> **Tip:** Since all three languages implement the same architecture, you can make the same modification in whichever language you're most comfortable with.
+> **Tip:** Since all three languages implement the same architecture, you can make the same modification in whichever language you are most comfortable with.
 
 ---
 
@@ -360,4 +360,4 @@ The key insight: **Foundry Local replaces the cloud backend, not the application
 
 ## Next Step
 
-Continue to [Part 8: Voice Transcription with Whisper](part8-whisper-voice-transcription.md) to explore speech-to-text on-device using the Foundry Local SDK.
+Continue to [Part 8: Evaluation-Led Development](part8-evaluation-led-development.md) to build a systematic evaluation framework for your agents, using golden datasets, rule-based checks, and LLM-as-judge scoring.

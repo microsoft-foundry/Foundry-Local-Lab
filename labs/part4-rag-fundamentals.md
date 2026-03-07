@@ -6,7 +6,7 @@
 
 Large Language Models are powerful, but they only know what was in their training data. **Retrieval-Augmented Generation (RAG)** solves this by giving the model relevant context at query time - pulled from your own documents, databases, or knowledge bases.
 
-In this lab you'll build a complete RAG pipeline that runs **entirely on your device** using Foundry Local. No cloud services, no vector databases, no embeddings API - just local retrieval and a local model.
+In this lab you will build a complete RAG pipeline that runs **entirely on your device** using Foundry Local. No cloud services, no vector databases, no embeddings API - just local retrieval and a local model.
 
 ## Learning Objectives
 
@@ -34,14 +34,14 @@ Without RAG, an LLM can only answer from its training data - which may be outdat
 
 ```
 User: "What is Zava's return policy?"
-LLM:  "I don't have information about Zava's return policy."  ← No context!
+LLM:  "I do not have information about Zava's return policy."  ← No context!
 ```
 
 With RAG, you **retrieve** relevant documents first, then **augment** the prompt with that context before **generating** a response:
 
 ![RAG Pipeline](../images/part3-rag-pipeline.png)
 
-The key insight: **the model doesn't need to "know" the answer - it just needs to read the right documents.**
+The key insight: **the model does not need to "know" the answer; it just needs to read the right documents.**
 
 ---
 
@@ -207,7 +207,7 @@ private static List<(string Title, string Content)> Retrieve(string query, int t
 3. Sort by overlap score (highest first)
 4. Return the top-k most relevant chunks
 
-> **Trade-off:** Keyword overlap is simple but limited - it doesn't understand synonyms or meaning. Production RAG systems typically use **embedding vectors** and a **vector database** for semantic search. But keyword overlap is a great starting point and requires no extra dependencies.
+> **Trade-off:** Keyword overlap is simple but limited; it does not understand synonyms or meaning. Production RAG systems typically use **embedding vectors** and a **vector database** for semantic search. However, keyword overlap is a great starting point and requires no extra dependencies.
 
 ---
 
@@ -226,7 +226,7 @@ system_prompt = (
 
 Key design decisions:
 - **"ONLY the information provided"** - prevents the model from hallucinating facts not in the context
-- **"If the context does not contain enough information, say so"** - encourages honest "I don't know" answers
+- **"If the context does not contain enough information, say so"** - encourages honest "I do not know" answers
 - The context is placed in the system message so it shapes all responses
 
 ---
@@ -283,12 +283,12 @@ Notice how the model's answer is **grounded** in the retrieved context - it only
 
 Try these modifications to deepen your understanding:
 
-1. **Change the question** - ask something that IS in the knowledge base vs. something that ISN'T:
+1. **Change the question** - ask something that IS in the knowledge base versus something that IS NOT:
    ```python
    question = "What programming languages does Foundry Local support?"  # ← In context
    question = "How much does Foundry Local cost?"                       # ← Not in context
    ```
-   Does the model correctly say "I don't know" when the answer isn't in the context?
+   Does the model correctly say "I do not know" when the answer is not in the context?
 
 2. **Add a new knowledge chunk** - append a new entry to `KNOWLEDGE_BASE`:
    ```python
@@ -312,7 +312,7 @@ Try these modifications to deepen your understanding:
 
 ## Deep Dive: Optimizing RAG for On-Device Performance
 
-Running RAG on-device introduces constraints you don't face in the cloud - limited RAM, no dedicated GPU (CPU/NPU execution), and a small model context window. The design decisions below directly address these constraints and are based on patterns from production-style local RAG applications built with Foundry Local.
+Running RAG on-device introduces constraints you do not face in the cloud: limited RAM, no dedicated GPU (CPU/NPU execution), and a small model context window. The design decisions below directly address these constraints and are based on patterns from production-style local RAG applications built with Foundry Local.
 
 ### Chunking Strategy: Fixed-Size Sliding Window
 
@@ -327,7 +327,7 @@ Chunking - how you split documents into pieces - is one of the most impactful de
 The overlap works like a sliding window: each new chunk starts 25 tokens before the previous one ended, so sentences that span chunk boundaries appear in both chunks.
 
 > **Why not other strategies?**
-> - **Sentence-based splitting** produces unpredictable chunk sizes - some safety procedures are single long sentences that wouldn't split well
+> - **Sentence-based splitting** produces unpredictable chunk sizes; some safety procedures are single long sentences that would not split well
 > - **Section-aware splitting** (on `##` headings) creates wildly different chunk sizes - some too small, others too large for the model's context window
 > - **Semantic chunking** (embedding-based topic detection) gives the best retrieval quality, but requires a second model in memory alongside Phi-3.5 Mini - risky on hardware with 8-16 GB shared memory
 
@@ -361,7 +361,7 @@ Fewer retrieved chunks means less context for the model to process, which reduce
 
 ### Single Model in Memory
 
-One of the most important principles for on-device RAG: **keep only one model loaded**. If you use an embedding model for retrieval *and* a language model for generation, you're splitting limited NPU/RAM resources between two models. Lightweight retrieval (keyword overlap, TF-IDF) avoids this entirely:
+One of the most important principles for on-device RAG: **keep only one model loaded**. If you use an embedding model for retrieval *and* a language model for generation, you are splitting limited NPU/RAM resources between two models. Lightweight retrieval (keyword overlap, TF-IDF) avoids this entirely:
 
 - No embedding model competing with the LLM for memory
 - Faster cold start - only one model to load
@@ -420,7 +420,7 @@ These design choices combine to deliver responsive RAG on consumer hardware:
 | **Retrieval latency** | ~5ms | ~1ms | ~100-500ms |
 | **Scale** | 5 documents | Hundreds of documents | Millions of documents |
 
-The patterns you learn here - retrieve, augment, generate - are the same at any scale. The retrieval method improves, but the overall architecture stays identical. The middle column shows what's achievable on-device with lightweight techniques - often the sweet spot for local applications where you trade cloud-scale for privacy, offline capability, and zero latency to external services.
+The patterns you learn here (retrieve, augment, generate) are the same at any scale. The retrieval method improves, but the overall architecture stays identical. The middle column shows what is achievable on-device with lightweight techniques, often the sweet spot for local applications where you trade cloud-scale for privacy, offline capability, and zero latency to external services.
 
 ---
 

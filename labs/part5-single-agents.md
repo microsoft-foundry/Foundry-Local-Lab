@@ -280,7 +280,7 @@ Modify the agent's `instructions` to create a different persona. Try each one an
 **Try it:**
 1. Pick a persona from the table above
 2. Replace the `instructions` string in the code
-3. Adjust the user prompt to match (e.g., ask the code reviewer to review a function)
+3. Adjust the user prompt to match (e.g. ask the code reviewer to review a function)
 4. Run the example again and compare the output
 
 > **Tip:** The quality of an agent depends heavily on the instructions. Specific, well-structured instructions produce better results than vague ones.
@@ -432,7 +432,7 @@ Notice how the agent remembers previous turns - ask a follow-up question and see
 
 ### Exercise 5 - Structured Output
 
-Instruct the agent to always respond in a specific format (e.g., JSON) and parse the result:
+Instruct the agent to always respond in a specific format (e.g. JSON) and parse the result:
 
 <details>
 <summary><strong>🐍 Python - JSON output</strong></summary>
@@ -517,4 +517,4 @@ catch (JsonException)
 
 ## Next Steps
 
-In **[Part 6: Multi-Agent Workflows](part6-multi-agent-workflows.md)**, you'll combine multiple agents into a coordinated pipeline where each agent has a specialised role.
+In **[Part 6: Multi-Agent Workflows](part6-multi-agent-workflows.md)**, you will combine multiple agents into a coordinated pipeline where each agent has a specialised role.

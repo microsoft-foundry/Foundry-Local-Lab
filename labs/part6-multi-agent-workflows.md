@@ -131,7 +131,7 @@ Each agent has a distinct persona:
 | Agent | Instructions (summary) |
 |-------|----------------------|
 | Researcher | "Provide key facts, statistics, and background. Organise as bullet points." |
-| Writer | "Write an engaging blog post (3-4 paragraphs) from the research notes. Don't invent facts." |
+| Writer | "Write an engaging blog post (3-4 paragraphs) from the research notes. Do not invent facts." |
 | Editor | "Review for clarity, grammar, and factual consistency. Verdict: ACCEPT or REVISE." |
 
 **3. Data flows between agents**
@@ -173,7 +173,7 @@ Extend the pipeline by adding a new agent. Choose one:
 
 | Agent | Purpose | Instructions |
 |-------|---------|-------------|
-| **Fact-Checker** | Verify claims in the article | `"You verify factual claims. For each claim, state whether it's supported by the research notes. Return JSON with verified/unverified items."` |
+| **Fact-Checker** | Verify claims in the article | `"You verify factual claims. For each claim, state whether it is supported by the research notes. Return JSON with verified/unverified items."` |
 | **Headline Writer** | Create catchy titles | `"Generate 5 headline options for the article. Vary style: informative, clickbait, question, listicle, emotional."` |
 | **Social Media** | Create promotional posts | `"Create 3 social media posts promoting this article: one for Twitter (280 chars), one for LinkedIn (professional tone), one for Instagram (casual with emoji suggestions)."` |
 
