@@ -110,8 +110,8 @@ def create(research_context, product_context, assignment_context):
         yield ("message", f"Sending editor feedback ({retry_count + 1})...")
 
         # Regenerate with feedback loop
-        researchFeedback = editor_response.get("researchFeedback", "No Feedback")
-        editorFeedback = editor_response.get("editorFeedback", "No Feedback")
+        researchFeedback = editor_response.get("researchFeedback", "No Feedback")[:500]
+        editorFeedback = editor_response.get("editorFeedback", "No Feedback")[:500]
 
         research_result = researcher.research(research_context, researchFeedback)
         yield complete_message("researcher", research_result)

@@ -104,7 +104,9 @@ while (editorResponse.Decision.StartsWith("revise", StringComparison.OrdinalIgno
     Console.WriteLine($"\n--- Revision {retryCount} ---");
 
     var resFeedback = editorResponse.ResearchFeedback ?? "No Feedback";
+    if (resFeedback.Length > 500) resFeedback = resFeedback[..500];
     var edFeedback = editorResponse.EditorFeedback ?? "No Feedback";
+    if (edFeedback.Length > 500) edFeedback = edFeedback[..500];
 
     Console.WriteLine("[Researcher] Re-researching with feedback...");
     researchResult = RunResearcher(researchContext, resFeedback);
@@ -220,6 +222,11 @@ List<Product> KeywordSearch(string query, int topK)
 
 string RunWriter(string resContext, string research, string prodContext, List<Product> prods, string assign, string fb)
 {
+    const int maxResearchChars = 1500;
+    const int maxProductChars = 150;
+    const int maxFeedbackChars = 500;
+    const int maxTokens = 1500;
+
     // Build context strings
     var researchLines = "";
     try
@@ -239,9 +246,13 @@ string RunWriter(string resContext, string research, string prodContext, List<Pr
     {
         researchLines = $"- {research}\n";
     }
+    if (researchLines.Length > maxResearchChars)
+        researchLines = researchLines[..maxResearchChars];
 
     var productLines = string.Join("\n", prods.Select(p =>
-        $"- {p.Title}: {(p.Content.Length > 200 ? p.Content[..200] : p.Content)}"));
+        $"- {p.Title}: {(p.Content.Length > maxProductChars ? p.Content[..maxProductChars] : p.Content)}"));
+
+    var trimmedFeedback = fb.Length > maxFeedbackChars ? fb[..maxFeedbackChars] : fb;
 
     var userMessage = $"""
         # Assignment
@@ -260,7 +271,7 @@ string RunWriter(string resContext, string research, string prodContext, List<Pr
         {productLines}
 
         # Feedback from editor
-        {fb}
+        {trimmedFeedback}
         """;
 
     var systemPrompt = """
@@ -283,16 +294,23 @@ string RunWriter(string resContext, string research, string prodContext, List<Pr
             new SystemChatMessage(systemPrompt),
             new UserChatMessage(userMessage)
         },
-        new ChatCompletionOptions { MaxOutputTokenCount = 2000 });
+        new ChatCompletionOptions { MaxOutputTokenCount = maxTokens });
 
-    foreach (var update in completionUpdates)
+    try
     {
-        if (update.ContentUpdate.Count > 0)
+        foreach (var update in completionUpdates)
         {
-            var text = update.ContentUpdate[0].Text;
-            Console.Write(text);
-            result.Append(text);
+            if (update.ContentUpdate.Count > 0)
+            {
+                var text = update.ContentUpdate[0].Text;
+                Console.Write(text);
+                result.Append(text);
+            }
         }
+    }
+    catch (Exception ex) when (ex.Message.Contains("Premature") || ex.Message.Contains("closed"))
+    {
+        Console.WriteLine("\n[Writer] Stream closed early \u2014 using partial output.");
     }
 
     return result.ToString();

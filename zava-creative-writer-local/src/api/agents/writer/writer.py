@@ -13,6 +13,12 @@ import logging
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from foundry_config import client, model_id
 
+# Keep prompts within the model's context window on revision passes
+MAX_RESEARCH_CHARS = 1500
+MAX_PRODUCT_CHARS = 150
+MAX_FEEDBACK_CHARS = 500
+MAX_TOKENS = 1500
+
 SYSTEM_PROMPT = """\
 You are an expert copywriter for Zava Retail, a DIY and home improvement company.
 You take research from a web researcher as well as product information from the Zava product catalog
@@ -36,11 +42,14 @@ def write(researchContext, research, productContext, products, assignment, feedb
     elif isinstance(research, list):
         for item in research:
             research_text += f"- {item.get('name', '')}: {item.get('description', '')}\n"
+    research_text = research_text[:MAX_RESEARCH_CHARS]
 
     product_text = ""
     if isinstance(products, list):
         for p in products:
-            product_text += f"- {p.get('title', '')}: {p.get('content', '')[:200]}\n"
+            product_text += f"- {p.get('title', '')}: {p.get('content', '')[:MAX_PRODUCT_CHARS]}\n"
+
+    trimmed_feedback = (feedback or "No Feedback")[:MAX_FEEDBACK_CHARS]
 
     user_message = (
         f"# Assignment\n{assignment}\n\n"
@@ -48,7 +57,7 @@ def write(researchContext, research, productContext, products, assignment, feedb
         f"# Web Research\n{research_text}\n\n"
         f"# Product Context\n{productContext}\n\n"
         f"# Products\n{product_text}\n\n"
-        f"# Feedback from editor\n{feedback}"
+        f"# Feedback from editor\n{trimmed_feedback}"
     )
 
     try:
@@ -58,7 +67,7 @@ def write(researchContext, research, productContext, products, assignment, feedb
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_message},
             ],
-            max_tokens=2000,
+            max_tokens=MAX_TOKENS,
             stream=True,
         )
         for chunk in stream:

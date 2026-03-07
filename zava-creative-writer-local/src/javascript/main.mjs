@@ -81,8 +81,8 @@ async function run() {
     console.log(`\n--- Revision ${retryCount} ---`);
 
     const researchFeedback =
-      editorResponse.researchFeedback || "No Feedback";
-    const editorFeedback = editorResponse.editorFeedback || "No Feedback";
+      (editorResponse.researchFeedback || "No Feedback").slice(0, 500);
+    const editorFeedback = (editorResponse.editorFeedback || "No Feedback").slice(0, 500);
 
     console.log("[Researcher] Re-researching with feedback...");
     researchResult = await research(researchContext, researchFeedback);
