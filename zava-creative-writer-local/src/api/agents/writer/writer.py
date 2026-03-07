@@ -7,6 +7,7 @@ an engaging article, using the local model via Foundry Local.
 
 import sys
 from pathlib import Path
+import logging
 
 # Add api root to path so we can import foundry_config
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
@@ -63,8 +64,10 @@ def write(researchContext, research, productContext, products, assignment, feedb
         for chunk in stream:
             if chunk.choices[0].delta.content is not None:
                 yield chunk.choices[0].delta.content
-    except Exception as e:
-        yield f"An exception occurred: {e}"
+    except Exception:
+        # Log full exception details server-side, but return a generic message to the user.
+        logging.exception("Writer agent encountered an error while generating the article.")
+        yield "An internal error occurred while generating the article."
 
 
 def process(writer_output):
