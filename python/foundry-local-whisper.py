@@ -30,44 +30,20 @@ else:
         print("Run 'python samples/audio/generate_samples.py' first to generate them.")
         sys.exit(1)
 
-# Step 1: Start the Foundry Local service
-print("Starting Foundry Local service...")
-manager = FoundryLocalManager()
-manager.start_service()
-
-# Step 2: Check if the model is already downloaded
-cached = manager.list_cached_models()
-catalog_info = manager.get_model_info(model_alias)
-is_cached = any(m.id == catalog_info.id for m in cached) if catalog_info else False
-
-if is_cached:
-    print(f"Model already downloaded: {model_alias}")
-else:
-    print(f"Downloading model: {model_alias} (this may take several minutes)...")
-    def on_progress(progress):
-        bar_width = 30
-        filled = int(progress / 100 * bar_width)
-        bar = "\u2588" * filled + "\u2591" * (bar_width - filled)
-        sys.stdout.write(f"\rDownloading: [{bar}] {progress:.1f}%")
-        if progress >= 100:
-            sys.stdout.write("\n")
-        sys.stdout.flush()
-    manager.download_model(model_alias, progress_callback=on_progress)
-    print(f"Download complete: {model_alias}")
-
-# Step 3: Load the model into memory
-print(f"Loading model: {model_alias}...")
-manager.load_model(model_alias)
+# Step 1: Bootstrap — starts the service, downloads, and loads the model
+print(f"Initializing Foundry Local with model: {model_alias}...")
+manager = FoundryLocalManager(model_alias)
 model_id = manager.get_model_info(model_alias).id
-print(f"Model loaded: {model_id}")
+print(f"Model ready: {model_id}")
+print(f"Endpoint: {manager.endpoint}")
 
-# Step 4: Create the OpenAI client pointing to the local service
+# Step 2: Create the OpenAI client pointing to the local service
 client = openai.OpenAI(
     base_url=manager.endpoint,
     api_key=manager.api_key
 )
 
-# Step 5: Transcribe each audio file
+# Step 3: Transcribe each audio file
 for audio_path in audio_files:
     filename = os.path.basename(audio_path)
     print(f"\n{'=' * 60}")

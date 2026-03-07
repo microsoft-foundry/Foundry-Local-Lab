@@ -50,55 +50,20 @@ if (process.argv[2]) {
   }
 }
 
-/**
- * Renders a CLI progress bar for model download.
- * @param {number} progress - Download progress percentage (0-100).
- */
-function renderProgressBar(progress) {
-  const barWidth = 30;
-  const filled = Math.round((progress / 100) * barWidth);
-  const empty = barWidth - filled;
-  const bar = "\u2588".repeat(filled) + "\u2591".repeat(empty);
-  process.stdout.write(`\r[Download] [${bar}] ${progress.toFixed(1)}%`);
-  if (progress >= 100) {
-    process.stdout.write("\n");
-  }
-}
-
-// Step 1: Start the Foundry Local service
-console.log("Starting Foundry Local service...");
+// Step 1: Bootstrap — starts the service, downloads, and loads the model
+console.log(`Initializing Foundry Local with model: ${modelAlias}...`);
 const manager = new FoundryLocalManager();
-await manager.startService();
+const modelInfo = await manager.init(modelAlias);
+console.log(`Model ready: ${modelInfo.id}`);
+console.log(`Endpoint: ${manager.endpoint}`);
 
-// Step 2: Check if the model is already downloaded
-const cachedModels = await manager.listCachedModels();
-const catalogInfo = await manager.getModelInfo(modelAlias);
-const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
-
-if (isAlreadyCached) {
-  console.log(`Model already downloaded: ${modelAlias}`);
-} else {
-  console.log(
-    `Downloading model: ${modelAlias} (this may take several minutes)...`
-  );
-  await manager.downloadModel(modelAlias, undefined, false, (progress) => {
-    renderProgressBar(progress);
-  });
-  console.log(`Download complete: ${modelAlias}`);
-}
-
-// Step 3: Load the model into memory
-console.log(`Loading model: ${modelAlias}...`);
-const modelInfo = await manager.loadModel(modelAlias);
-console.log(`Model loaded: ${modelInfo.id}`);
-
-// Step 4: Create the OpenAI client pointing to the local service
+// Step 2: Create the OpenAI client pointing to the local service
 const client = new OpenAI({
   baseURL: manager.endpoint,
   apiKey: manager.apiKey,
 });
 
-// Step 5: Transcribe each audio file
+// Step 3: Transcribe each audio file
 for (const audioPath of audioFiles) {
   const filename = path.basename(audioPath);
   console.log(`\n${"=".repeat(60)}`);

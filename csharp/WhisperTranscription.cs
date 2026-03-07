@@ -1,14 +1,11 @@
 using Microsoft.AI.Foundry.Local;
-using OpenAI;
-using OpenAI.Audio;
-using System.ClientModel;
 
 namespace Examples;
 
 /// <summary>
 /// Part 8: Whisper voice transcription with Foundry Local.
 /// Transcribes WAV audio files using the OpenAI Whisper model running locally.
-/// Uses the OpenAI-compatible audio transcription API endpoint.
+/// Uses the Foundry Local SDK's built-in audio client.
 /// </summary>
 public static class WhisperTranscription
 {
@@ -78,16 +75,10 @@ public static class WhisperTranscription
         // Step 4: Load the model into memory
         Console.WriteLine($"Loading model: {alias}...");
         await model.LoadAsync(default);
-        Console.WriteLine($"Loaded model: {model.Id}");
-        Console.WriteLine($"Endpoint: {manager.Urls[0]}\n");
+        Console.WriteLine($"Loaded model: {model.Id}\n");
 
-        // Step 5: Create OpenAI client pointing to the local service
-        var key = new ApiKeyCredential("foundry-local");
-        var client = new OpenAIClient(key, new OpenAIClientOptions
-        {
-            Endpoint = new Uri(manager.Urls[0])
-        });
-        var audioClient = client.GetAudioClient(model.Id);
+        // Step 5: Get the audio client from the Foundry Local SDK
+        var audioClient = await model.GetAudioClientAsync();
 
         // Step 6: Transcribe each audio file
         foreach (var audioPath in audioFiles)
@@ -97,10 +88,8 @@ public static class WhisperTranscription
             Console.WriteLine($"File: {filename}");
             Console.WriteLine(new string('=', 60));
 
-            await using var stream = File.OpenRead(audioPath);
-            var result = await audioClient.TranscribeAudioAsync(stream, filename);
-
-            Console.WriteLine(result.Value.Text);
+            var result = await audioClient.TranscribeAudioAsync(audioPath);
+            Console.WriteLine(result.Text);
             Console.WriteLine();
         }
 
