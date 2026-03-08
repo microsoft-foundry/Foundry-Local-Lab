@@ -25,7 +25,7 @@ This is the **capstone lab** of the workshop. It brings together everything you 
 
 The Zava Creative Writer uses a **sequential pipeline with evaluator-driven feedback**. All three language implementations follow the same architecture:
 
-![Zava Creative Writer Architecture](../images/part6-zava-architecture.png)
+![Zava Creative Writer Architecture](../images/part7-zava-architecture.png)
 
 ### The Four Agents
 
@@ -247,16 +247,22 @@ All agents import `{ client, modelId } from "./foundryConfig.mjs"`.
 <summary><strong>💜 C# - top of Program.cs</strong></summary>
 
 ```csharp
-var manager = await FoundryLocalManager.StartServiceAsync();
+await FoundryLocalManager.CreateAsync(new Configuration { AppName = "ZavaCreativeWriter" }, null, default);
+var manager = FoundryLocalManager.Instance;
+await manager.StartWebServiceAsync(default);
 
-var cachedModels = await manager.ListCachedModelsAsync();
-var catalogInfo = await manager.GetModelInfoAsync(aliasOrModelId: alias);
-var isCached = cachedModels.Any(m => m.ModelId == catalogInfo?.ModelId);
+var catalog = await manager.GetCatalogAsync(default);
+var catalogModel = await catalog.GetModelAsync(alias, default);
+var isCached = await catalogModel.IsCachedAsync(default);
 if (!isCached)
-    await manager.DownloadModelAsync(aliasOrModelId: alias);
+    await catalogModel.DownloadAsync(null, default);
 
-var model = await manager.LoadModelAsync(aliasOrModelId: alias);
-var chatClient = new OpenAIClient(key, options).GetChatClient(model?.ModelId);
+await catalogModel.LoadAsync(default);
+var key = new ApiKeyCredential("foundry-local");
+var chatClient = new OpenAIClient(key, new OpenAIClientOptions
+{
+    Endpoint = new Uri(manager.Urls[0])
+}).GetChatClient(catalogModel.Id);
 ```
 
 The `chatClient` is then passed to all agent functions in the same file.

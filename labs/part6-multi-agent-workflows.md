@@ -8,7 +8,7 @@
 
 A single agent can handle many tasks, but complex workflows benefit from **Specialisation**. Instead of one agent trying to research, write, and edit simultaneously, you break the work into focused roles:
 
-![Multi-Agent Workflow](../images/part5-multi-agent-flow.png)
+![Multi-Agent Workflow](../images/part6-multi-agent-flow.png)
 
 | Pattern | Description |
 |---------|-------------|
@@ -101,7 +101,7 @@ All agents share the same Foundry Local model:
 
 ```python
 # Python - FoundryLocalClient handles everything
-from agent_framework.microsoft import FoundryLocalClient
+from agent_framework_foundry_local import FoundryLocalClient
 
 client = FoundryLocalClient(model_id="phi-4-mini")
 ```
@@ -116,12 +116,12 @@ const client = new OpenAI({
 
 ```csharp
 // C# - OpenAIClient pointed at Foundry Local
-var key = new ApiKeyCredential(manager.ApiKey);
+var key = new ApiKeyCredential("foundry-local");
 var client = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = manager.Endpoint
+    Endpoint = new Uri(manager.Urls[0])
 });
-var chatClient = client.GetChatClient(model?.ModelId);
+var chatClient = client.GetChatClient(model.Id);
 ```
 
 **2. specialised instructions**
@@ -268,19 +268,19 @@ Here are orchestration patterns that apply to any multi-agent system (explored i
 
 ### Sequential Pipeline
 
-![Sequential Pipeline](../images/part5-sequential-pipeline.png)
+![Sequential Pipeline](../images/part6-sequential-pipeline.png)
 
 Each agent processes the output of the previous one. Simple and predictable.
 
 ### Feedback Loop
 
-![Feedback Loop](../images/part5-feedback-loop.png)
+![Feedback Loop](../images/part6-feedback-loop.png)
 
 An evaluator agent can trigger re-execution of earlier stages. The Zava Writer uses this: the editor can send feedback back to the researcher and writer.
 
 ### Shared Context
 
-![Shared Context](../images/part5-shared-context.png)
+![Shared Context](../images/part6-shared-context.png)
 
 All agents share a single `foundry_config` so they use the same model and endpoint.
 

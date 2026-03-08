@@ -6,7 +6,7 @@ using System.ClientModel;
 namespace Examples;
 
 /// <summary>
-/// Part 2: Basic streaming chat completion with Foundry Local.
+/// Part 3: Basic streaming chat completion with Foundry Local.
 /// </summary>
 public static class BasicChat
 {

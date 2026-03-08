@@ -35,7 +35,7 @@ Install **one** of the following language runtimes:
 
 The Foundry Local SDK manages the **control plane** (starting the service, downloading models), whilst the OpenAI SDK handles the **data plane** (sending prompts, receiving completions).
 
-![SDK Architecture](../images/part2-sdk-architecture.png)
+![SDK Architecture](../images/part3-sdk-architecture.png)
 
 ---
 
@@ -254,12 +254,16 @@ var alias = "phi-3.5-mini";
 
 // Step 1: Start the Foundry Local service
 Console.WriteLine("Starting Foundry Local service...");
-var manager = await FoundryLocalManager.StartServiceAsync();
+await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+var manager = FoundryLocalManager.Instance;
+await manager.StartWebServiceAsync(default);
 
-// Step 2: Check if the model is already downloaded
-var cachedModels = await manager.ListCachedModelsAsync();
-var catalogInfo = await manager.GetModelInfoAsync(aliasOrModelId: alias);
-var isCached = cachedModels.Any(m => m.ModelId == catalogInfo?.ModelId);
+// Step 2: Get the model from the catalog
+var catalog = await manager.GetCatalogAsync(default);
+var model = await catalog.GetModelAsync(alias, default);
+
+// Step 3: Check if the model is already downloaded
+var isCached = await model.IsCachedAsync(default);
 
 if (isCached)
 {
@@ -268,24 +272,24 @@ if (isCached)
 else
 {
     Console.WriteLine($"Downloading model: {alias} (this may take several minutes)...");
-    await manager.DownloadModelAsync(aliasOrModelId: alias);
+    await model.DownloadAsync(null, default);
     Console.WriteLine($"Download complete: {alias}");
 }
 
-// Step 3: Load the model into memory
+// Step 4: Load the model into memory
 Console.WriteLine($"Loading model: {alias}...");
-var model = await manager.LoadModelAsync(aliasOrModelId: alias);
-Console.WriteLine($"Loaded model: {model?.ModelId}");
-Console.WriteLine($"Endpoint: {manager.Endpoint}");
+await model.LoadAsync(default);
+Console.WriteLine($"Loaded model: {model.Id}");
+Console.WriteLine($"Endpoint: {manager.Urls[0]}");
 
 // Create OpenAI client pointing to the LOCAL Foundry service
-var key = new ApiKeyCredential(manager.ApiKey);
+var key = new ApiKeyCredential("foundry-local");
 var client = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = manager.Endpoint  // Dynamic port - never hardcode!
+    Endpoint = new Uri(manager.Urls[0])  // Dynamic port - never hardcode!
 });
 
-var chatClient = client.GetChatClient(model?.ModelId);
+var chatClient = client.GetChatClient(model.Id);
 
 // Stream a chat completion
 var completionUpdates = chatClient.CompleteChatStreaming("What is the golden ratio?");
@@ -429,13 +433,16 @@ Console.WriteLine(response.Value.Content[0].Text);
 
 | Method | Purpose |
 |--------|---------|
-| `FoundryLocalManager.StartServiceAsync()` | Start the Foundry Local service |
-| `manager.ListCachedModelsAsync()` | List models downloaded on your device |
-| `manager.GetModelInfoAsync(alias)` | Get model ID and metadata |
-| `manager.DownloadModelAsync(alias)` | Download a model |
-| `manager.LoadModelAsync(alias)` | Load a model into memory |
-| `manager.Endpoint` | Get the dynamic endpoint URI |
-| `manager.ApiKey` | Get the API key (placeholder for local) |
+| `FoundryLocalManager.CreateAsync(config)` | Create and initialize the manager |
+| `manager.StartWebServiceAsync()` | Start the Foundry Local web service |
+| `manager.GetCatalogAsync()` | Get the model catalog |
+| `catalog.ListModelsAsync()` | List all available models |
+| `catalog.GetModelAsync(alias)` | Get a specific model by alias |
+| `model.IsCachedAsync()` | Check if a model is downloaded |
+| `model.DownloadAsync()` | Download a model |
+| `model.LoadAsync()` | Load a model into memory |
+| `manager.Urls[0]` | Get the dynamic endpoint URL |
+| `new ApiKeyCredential("foundry-local")` | API key credential for local |
 
 </details>
 

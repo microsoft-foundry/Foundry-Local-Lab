@@ -7,7 +7,7 @@ using System.ClientModel;
 namespace Examples;
 
 /// <summary>
-/// Part 4: Single AI agent using the Microsoft Agent Framework.
+/// Part 5: Single AI agent using the Microsoft Agent Framework.
 /// Uses the AsAIAgent() extension from Microsoft.Agents.AI.OpenAI
 /// to create a proper AIAgent backed by Foundry Local.
 /// </summary>

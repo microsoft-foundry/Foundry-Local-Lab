@@ -12,7 +12,7 @@ An AI agent wraps a language model with **system instructions** that define its 
 - **Memory** - conversation history across turns
 - **Specialisation** - focused behaviour driven by well-crafted instructions
 
-![ChatAgent Pattern](../images/part4-agent-pattern.png)
+![ChatAgent Pattern](../images/part5-agent-pattern.png)
 
 ---
 
@@ -74,7 +74,7 @@ python foundry-local-with-agf.py
 
 ```python
 import asyncio
-from agent_framework.microsoft import FoundryLocalClient
+from agent_framework_foundry_local import FoundryLocalClient
 
 async def main():
     alias = "phi-4-mini"
@@ -220,27 +220,30 @@ using System.ClientModel;
 
 // 1. Start Foundry Local and load a model
 var alias = "phi-4-mini";
-var manager = await FoundryLocalManager.StartServiceAsync();
+await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+var manager = FoundryLocalManager.Instance;
+await manager.StartWebServiceAsync(default);
 
-var cachedModels = await manager.ListCachedModelsAsync();
-var catalogInfo = await manager.GetModelInfoAsync(aliasOrModelId: alias);
-var isCached = cachedModels.Any(m => m.ModelId == catalogInfo?.ModelId);
+var catalog = await manager.GetCatalogAsync(default);
+var model = await catalog.GetModelAsync(alias, default);
+
+var isCached = await model.IsCachedAsync(default);
 if (!isCached)
 {
     Console.WriteLine($"Downloading model: {alias}...");
-    await manager.DownloadModelAsync(aliasOrModelId: alias);
+    await model.DownloadAsync(null, default);
 }
-var model = await manager.LoadModelAsync(aliasOrModelId: alias);
+await model.LoadAsync(default);
 
-var key = new ApiKeyCredential(manager.ApiKey);
+var key = new ApiKeyCredential("foundry-local");
 var client = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = manager.Endpoint
+    Endpoint = new Uri(manager.Urls[0])
 });
 
 // 2. Create an AIAgent using the Agent Framework extension method
 AIAgent joker = client
-    .GetChatClient(model?.ModelId)
+    .GetChatClient(model.Id)
     .AsAIAgent(
         instructions: "You are good at telling jokes. Keep your jokes short and family-friendly.",
         name: "Joker"
@@ -296,7 +299,7 @@ Extend the example to support a multi-turn chat loop so you can have a back-and-
 
 ```python
 import asyncio
-from agent_framework.microsoft import FoundryLocalClient
+from agent_framework_foundry_local import FoundryLocalClient
 
 async def main():
     client = FoundryLocalClient(model_id="phi-4-mini")
@@ -384,26 +387,29 @@ using OpenAI;
 using System.ClientModel;
 
 var alias = "phi-4-mini";
-var manager = await FoundryLocalManager.StartServiceAsync();
+await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+var manager = FoundryLocalManager.Instance;
+await manager.StartWebServiceAsync(default);
 
-var cachedModels = await manager.ListCachedModelsAsync();
-var catalogInfo = await manager.GetModelInfoAsync(aliasOrModelId: alias);
-var isCached = cachedModels.Any(m => m.ModelId == catalogInfo?.ModelId);
+var catalog = await manager.GetCatalogAsync(default);
+var model = await catalog.GetModelAsync(alias, default);
+
+var isCached = await model.IsCachedAsync(default);
 if (!isCached)
 {
     Console.WriteLine($"Downloading model: {alias}...");
-    await manager.DownloadModelAsync(aliasOrModelId: alias);
+    await model.DownloadAsync(null, default);
 }
-var model = await manager.LoadModelAsync(aliasOrModelId: alias);
+await model.LoadAsync(default);
 
-var key = new ApiKeyCredential(manager.ApiKey);
+var key = new ApiKeyCredential("foundry-local");
 var client = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = manager.Endpoint
+    Endpoint = new Uri(manager.Urls[0])
 });
 
 AIAgent agent = client
-    .GetChatClient(model?.ModelId)
+    .GetChatClient(model.Id)
     .AsAIAgent(
         instructions: "You are a helpful assistant.",
         name: "Assistant"
@@ -440,7 +446,7 @@ Instruct the agent to always respond in a specific format (e.g. JSON) and parse 
 ```python
 import asyncio
 import json
-from agent_framework.microsoft import FoundryLocalClient
+from agent_framework_foundry_local import FoundryLocalClient
 
 async def main():
     client = FoundryLocalClient(model_id="phi-4-mini")

@@ -7,7 +7,7 @@ using System.ClientModel;
 namespace Examples;
 
 /// <summary>
-/// Part 5: Multi-agent workflow — Researcher → Writer → Editor pipeline.
+/// Part 6: Multi-agent workflow — Researcher → Writer → Editor pipeline.
 /// Three AIAgent instances collaborate sequentially to produce a reviewed blog post.
 /// Uses the Microsoft Agent Framework's AsAIAgent() extension method.
 /// </summary>

@@ -6,7 +6,7 @@ using System.ClientModel;
 namespace Examples;
 
 /// <summary>
-/// Part 3: Retrieval-Augmented Generation (RAG) running entirely on-device.
+/// Part 4: Retrieval-Augmented Generation (RAG) running entirely on-device.
 /// A small knowledge base is searched with keyword overlap, and the most
 /// relevant chunks are injected into the prompt as context.
 /// </summary>

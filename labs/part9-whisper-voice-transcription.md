@@ -216,15 +216,17 @@ var alias = "whisper-medium";
 
 // Start the service
 Console.WriteLine("Starting Foundry Local service...");
-var manager = await FoundryLocalManager.StartServiceAsync();
+await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+var manager = FoundryLocalManager.Instance;
+await manager.StartWebServiceAsync(default);
 
-// Check catalog info
-var info = await manager.GetModelInfoAsync(aliasOrModelId: alias);
-Console.WriteLine($"Model: {info?.ModelId}");
+// Get model from catalog
+var catalog = await manager.GetCatalogAsync(default);
+var model = await catalog.GetModelAsync(alias, default);
+Console.WriteLine($"Model: {model.Id}");
 
 // Check if already cached
-var cached = await manager.ListCachedModelsAsync();
-var isCached = cached.Any(m => m.ModelId == info?.ModelId);
+var isCached = await model.IsCachedAsync(default);
 
 if (isCached)
 {
@@ -233,13 +235,13 @@ if (isCached)
 else
 {
     Console.WriteLine("Downloading Whisper model (this may take several minutes)...");
-    await manager.DownloadModelAsync(aliasOrModelId: alias);
+    await model.DownloadAsync(null, default);
     Console.WriteLine("Download complete.");
 }
 
 // Load the model into memory
-var model = await manager.LoadModelAsync(aliasOrModelId: alias);
-Console.WriteLine($"Whisper model loaded. Endpoint: {manager.Endpoint}");
+await model.LoadAsync(default);
+Console.WriteLine($"Whisper model loaded: {model.Id}");
 ```
 
 </details>

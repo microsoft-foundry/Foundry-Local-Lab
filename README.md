@@ -23,7 +23,8 @@ By the end of this workshop you will be able to:
 | 5 | Create AI agents with persistent instructions and personas |
 | 6 | Orchestrate multi-agent workflows with feedback loops |
 | 7 | Explore a production capstone app - the Zava Creative Writer |
-| 8 | Transcribe audio with Whisper - speech-to-text on-device using the Foundry Local SDK |
+| 8 | Build evaluation frameworks with golden datasets and LLM-as-judge scoring |
+| 9 | Transcribe audio with Whisper - speech-to-text on-device using the Foundry Local SDK |
 
 ---
 
@@ -192,6 +193,14 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 - Extends the Zava Editor agent pattern from Part 7 into an offline test suite
 - Python, JavaScript, and C# tracks
 
+**Code samples:**
+
+| Language | File | Description |
+|----------|------|-------------|
+| Python | `python/foundry-local-eval.py` | Evaluation framework |
+| C# | `csharp/AgentEvaluation.cs` | Evaluation framework |
+| JavaScript | `javascript/foundry-local-eval.mjs` | Evaluation framework |
+
 ---
 
 ### Part 9: Voice Transcription with Whisper
@@ -202,6 +211,14 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 - Privacy-first audio processing - audio never leaves your device
 - Python, JavaScript, and C# tracks with `client.audio.transcriptions.create()` (Python/JS) and `AudioClient.TranscribeAudioAsync()` (C#)
 - Includes Zava-themed sample audio files for hands-on practice
+
+**Code samples:**
+
+| Language | File | Description |
+|----------|------|-------------|
+| Python | `python/foundry-local-whisper.py` | Whisper voice transcription |
+| C# | `csharp/WhisperTranscription.cs` | Whisper voice transcription |
+| JavaScript | `javascript/foundry-local-whisper.mjs` | Whisper voice transcription |
 
 > **Note:** This lab uses the **Foundry Local SDK** to programmatically download and load the Whisper model, then sends audio to the local OpenAI-compatible endpoint for transcription. The Whisper model (`whisper`) is listed in the Foundry Local catalog and runs entirely on-device - no cloud API keys or network access required.
 

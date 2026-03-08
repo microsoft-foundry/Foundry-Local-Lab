@@ -39,7 +39,7 @@ LLM:  "I do not have information about Zava's return policy."  ← No context!
 
 With RAG, you **retrieve** relevant documents first, then **augment** the prompt with that context before **generating** a response:
 
-![RAG Pipeline](../images/part3-rag-pipeline.png)
+![RAG Pipeline](../images/part4-rag-pipeline.png)
 
 The key insight: **the model does not need to "know" the answer; it just needs to read the right documents.**
 
