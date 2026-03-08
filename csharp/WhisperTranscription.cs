@@ -1,4 +1,5 @@
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Examples;
 
@@ -12,7 +13,7 @@ public static class WhisperTranscription
     public static async Task RunAsync(string[] args)
     {
         var alias = "whisper-medium";
-        var samplesDir = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "samples", "audio");
+        var samplesDir = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "samples", "audio");
 
         // Determine which files to transcribe
         string[] audioFiles;
@@ -50,7 +51,12 @@ public static class WhisperTranscription
 
         // Step 1: Start the Foundry Local service
         Console.WriteLine("Starting Foundry Local service...");
-        await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+        await FoundryLocalManager.CreateAsync(
+            new Configuration
+            {
+                AppName = "FoundryLocalSamples",
+                Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+            }, NullLogger.Instance, default);
         var manager = FoundryLocalManager.Instance;
         await manager.StartWebServiceAsync(default);
 

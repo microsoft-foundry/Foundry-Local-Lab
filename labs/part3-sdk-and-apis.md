@@ -246,6 +246,7 @@ node foundry-local.mjs
 
 ```csharp
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 using OpenAI;
 using OpenAI.Chat;
 using System.ClientModel;
@@ -254,7 +255,12 @@ var alias = "phi-3.5-mini";
 
 // Step 1: Start the Foundry Local service
 Console.WriteLine("Starting Foundry Local service...");
-await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+await FoundryLocalManager.CreateAsync(
+    new Configuration
+    {
+        AppName = "FoundryLocalSamples",
+        Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+    }, NullLogger.Instance, default);
 var manager = FoundryLocalManager.Instance;
 await manager.StartWebServiceAsync(default);
 
@@ -286,7 +292,7 @@ Console.WriteLine($"Endpoint: {manager.Urls[0]}");
 var key = new ApiKeyCredential("foundry-local");
 var client = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = new Uri(manager.Urls[0])  // Dynamic port - never hardcode!
+    Endpoint = new Uri(manager.Urls[0] + "/v1")  // Dynamic port - never hardcode!
 });
 
 var chatClient = client.GetChatClient(model.Id);

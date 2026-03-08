@@ -1,4 +1,5 @@
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Agents.AI;
 using OpenAI;
 using OpenAI.Chat;
@@ -15,11 +16,16 @@ public static class MultiAgent
 {
     public static async Task RunAsync()
     {
-        var alias = "phi-4-mini";
+        var alias = "phi-3.5-mini";
 
         // Step 1: Start the Foundry Local service
         Console.WriteLine("Starting Foundry Local service...");
-        await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+        await FoundryLocalManager.CreateAsync(
+            new Configuration
+            {
+                AppName = "FoundryLocalSamples",
+                Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+            }, NullLogger.Instance, default);
         var manager = FoundryLocalManager.Instance;
         await manager.StartWebServiceAsync(default);
 
@@ -50,7 +56,7 @@ public static class MultiAgent
         var key = new ApiKeyCredential("foundry-local");
         var openAiClient = new OpenAIClient(key, new OpenAIClientOptions
         {
-            Endpoint = new Uri(manager.Urls[0])
+            Endpoint = new Uri(manager.Urls[0] + "/v1")
         });
         var chatClient = openAiClient.GetChatClient(model.Id);
 
@@ -90,13 +96,13 @@ public static class MultiAgent
         // Step 1 — Research
         Console.WriteLine("\n[Researcher] Gathering information...");
         var researchNotes = await researcher.RunAsync(
-            $"Research the following topic and provide key facts:\n{topic}");
+            $"Research the following topic and provide 5 key facts as bullet points:\n{topic}");
         Console.WriteLine($"\n--- Research Notes ---\n{researchNotes}\n");
 
         // Step 2 — Write
         Console.WriteLine("[Writer] Drafting the article...");
         var draft = await writer.RunAsync(
-            $"Write a blog post based on these research notes:\n\n{researchNotes}");
+            $"Write a short blog post (2-3 paragraphs) based on these research notes:\n\n{researchNotes}");
         Console.WriteLine($"\n--- Draft Article ---\n{draft}\n");
 
         // Step 3 — Edit

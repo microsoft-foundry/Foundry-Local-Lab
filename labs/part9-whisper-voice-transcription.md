@@ -211,12 +211,18 @@ dotnet add package Microsoft.AI.Foundry.Local
 
 ```csharp
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 
 var alias = "whisper-medium";
 
 // Start the service
 Console.WriteLine("Starting Foundry Local service...");
-await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+await FoundryLocalManager.CreateAsync(
+    new Configuration
+    {
+        AppName = "FoundryLocalSamples",
+        Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+    }, NullLogger.Instance, default);
 var manager = FoundryLocalManager.Instance;
 await manager.StartWebServiceAsync(default);
 
@@ -526,6 +532,7 @@ Replace the contents of `Program.cs`:
 
 ```csharp
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 
 // --- Configuration ---
 var modelAlias = "whisper-medium";
@@ -540,55 +547,36 @@ if (!File.Exists(audioFile))
 
 // --- Step 1: Initialize Foundry Local ---
 Console.WriteLine("Initializing Foundry Local...");
-
-var config = new Configuration
-{
-    AppName = "WhisperDemo",
-    LogLevel = LogLevel.Information
-};
-
-await FoundryLocalManager.CreateAsync(config);
+await FoundryLocalManager.CreateAsync(
+    new Configuration
+    {
+        AppName = "WhisperDemo",
+        Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+    }, NullLogger.Instance, default);
 var manager = FoundryLocalManager.Instance;
-
-// Ensure execution providers are available
-await manager.EnsureEpsDownloadedAsync();
+await manager.StartWebServiceAsync(default);
 
 // --- Step 2: Load the Whisper model ---
 Console.WriteLine($"Loading model: {modelAlias}...");
+var catalog = await manager.GetCatalogAsync(default);
+var model = await catalog.GetModelAsync(modelAlias, default);
 
-var catalog = await manager.GetCatalogAsync()
-    ?? throw new Exception("Failed to get model catalog.");
-
-var model = await catalog.GetModelAsync(modelAlias)
-    ?? throw new Exception($"Model '{modelAlias}' not found in catalog.");
-
-// Prefer CPU variant for broadest compatibility
-var cpuVariant = model.Variants
-    .FirstOrDefault(v => v.Info.Runtime?.DeviceType == DeviceType.CPU);
-
-if (cpuVariant != null)
+// Download if needed
+var isCached = await model.IsCachedAsync(default);
+if (!isCached)
 {
-    model.SelectVariant(cpuVariant);
+    Console.WriteLine("Downloading model...");
+    await model.DownloadAsync(null, default);
 }
-
-// Download if needed (shows progress)
-Console.WriteLine("Downloading model if needed...");
-await model.DownloadAsync(progress =>
-{
-    if (progress % 10 == 0)
-        Console.Write(".");
-});
-Console.WriteLine();
 
 // Load model into memory
 Console.WriteLine("Loading model into memory...");
-await model.LoadAsync();
+await model.LoadAsync(default);
 
 // --- Step 3: Transcribe audio ---
 Console.WriteLine($"Transcribing: {audioFile}");
 
-var audioClient = await model.GetAudioClientAsync()
-    ?? throw new Exception("Failed to get audio client.");
+var audioClient = await model.GetAudioClientAsync();
 
 var result = await audioClient.TranscribeAudioAsync(audioFile);
 
@@ -744,7 +732,12 @@ The C# approach is fundamentally different - it uses Windows ML for in-process t
 
 ```csharp
 // 1. Create the manager with configuration
-await FoundryLocalManager.CreateAsync(config, null, default);
+await FoundryLocalManager.CreateAsync(
+    new Configuration
+    {
+        AppName = "WhisperDemo",
+        Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+    }, NullLogger.Instance, default);
 var manager = FoundryLocalManager.Instance;
 await manager.StartWebServiceAsync(default);
 

@@ -1,4 +1,5 @@
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 using OpenAI;
 using OpenAI.Chat;
 using System.ClientModel;
@@ -112,6 +113,10 @@ public static class AgentEvaluation
     private static async Task<JudgeResult> LlmJudge(
         ChatClient chatClient, string question, string response)
     {
+        // Truncate long responses to stay within context limits
+        if (response.Length > 1500)
+            response = response[..1500] + "...";
+
         var messages = new List<ChatMessage>
         {
             new SystemChatMessage(JudgeSystemPrompt),
@@ -186,7 +191,11 @@ public static class AgentEvaluation
         // Start Foundry Local
         Console.WriteLine("\nStarting Foundry Local service...");
         await FoundryLocalManager.CreateAsync(
-            new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+            new Configuration
+            {
+                AppName = "FoundryLocalSamples",
+                Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+            }, NullLogger.Instance, default);
         var manager = FoundryLocalManager.Instance;
         await manager.StartWebServiceAsync(default);
 
@@ -213,7 +222,7 @@ public static class AgentEvaluation
         var key = new ApiKeyCredential("foundry-local");
         var openAiClient = new OpenAIClient(key, new OpenAIClientOptions
         {
-            Endpoint = new Uri(manager.Urls[0])
+            Endpoint = new Uri(manager.Urls[0] + "/v1")
         });
         var chatClient = openAiClient.GetChatClient(model.Id);
 
@@ -253,7 +262,16 @@ public static class AgentEvaluation
                     Console.WriteLine($"    Keywords missing: {string.Join(", ", ruleScores.KeywordsMissing)}");
 
                 // LLM-as-judge scoring
-                var judgeResult = await LlmJudge(chatClient, testCase.Input, response);
+                JudgeResult judgeResult;
+                try
+                {
+                    judgeResult = await LlmJudge(chatClient, testCase.Input, response);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"    LLM judge error: {ex.Message}");
+                    judgeResult = new JudgeResult(3, "Judge unavailable — defaulting to 3");
+                }
                 var reasoning = judgeResult.Reasoning.Length > 80
                     ? judgeResult.Reasoning[..80] + "..."
                     : judgeResult.Reasoning;

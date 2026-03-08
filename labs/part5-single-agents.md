@@ -214,13 +214,19 @@ dotnet run agent
 
 ```csharp
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Agents.AI;
 using OpenAI;
 using System.ClientModel;
 
 // 1. Start Foundry Local and load a model
-var alias = "phi-4-mini";
-await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+var alias = "phi-3.5-mini";
+await FoundryLocalManager.CreateAsync(
+    new Configuration
+    {
+        AppName = "FoundryLocalSamples",
+        Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+    }, NullLogger.Instance, default);
 var manager = FoundryLocalManager.Instance;
 await manager.StartWebServiceAsync(default);
 
@@ -238,7 +244,7 @@ await model.LoadAsync(default);
 var key = new ApiKeyCredential("foundry-local");
 var client = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = new Uri(manager.Urls[0])
+    Endpoint = new Uri(manager.Urls[0] + "/v1")
 });
 
 // 2. Create an AIAgent using the Agent Framework extension method
@@ -382,12 +388,18 @@ main();
 
 ```csharp
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Agents.AI;
 using OpenAI;
 using System.ClientModel;
 
-var alias = "phi-4-mini";
-await FoundryLocalManager.CreateAsync(new Configuration { AppName = "FoundryLocalSamples" }, null, default);
+var alias = "phi-3.5-mini";
+var config = new Configuration
+{
+    AppName = "FoundryLocalSamples",
+    Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+};
+await FoundryLocalManager.CreateAsync(config, NullLogger.Instance, default);
 var manager = FoundryLocalManager.Instance;
 await manager.StartWebServiceAsync(default);
 
@@ -405,7 +417,7 @@ await model.LoadAsync(default);
 var key = new ApiKeyCredential("foundry-local");
 var client = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = new Uri(manager.Urls[0])
+    Endpoint = new Uri(manager.Urls[0] + "/v1")
 });
 
 AIAgent agent = client

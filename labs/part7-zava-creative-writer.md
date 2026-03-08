@@ -247,7 +247,12 @@ All agents import `{ client, modelId } from "./foundryConfig.mjs"`.
 <summary><strong>💜 C# - top of Program.cs</strong></summary>
 
 ```csharp
-await FoundryLocalManager.CreateAsync(new Configuration { AppName = "ZavaCreativeWriter" }, null, default);
+await FoundryLocalManager.CreateAsync(
+    new Configuration
+    {
+        AppName = "ZavaCreativeWriter",
+        Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+    }, NullLogger.Instance, default);
 var manager = FoundryLocalManager.Instance;
 await manager.StartWebServiceAsync(default);
 
@@ -261,7 +266,7 @@ await catalogModel.LoadAsync(default);
 var key = new ApiKeyCredential("foundry-local");
 var chatClient = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = new Uri(manager.Urls[0])
+    Endpoint = new Uri(manager.Urls[0] + "/v1")
 }).GetChatClient(catalogModel.Id);
 ```
 

@@ -5,6 +5,7 @@
 // Usage: dotnet run
 
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 using OpenAI;
 using OpenAI.Chat;
 using System.ClientModel;
@@ -14,7 +15,12 @@ using System.Text.Json;
 var alias = "phi-3.5-mini";
 
 Console.WriteLine("Starting Foundry Local service...");
-await FoundryLocalManager.CreateAsync(new Configuration { AppName = "ZavaCreativeWriter" }, null, default);
+await FoundryLocalManager.CreateAsync(
+    new Configuration
+    {
+        AppName = "ZavaCreativeWriter",
+        Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+    }, NullLogger.Instance, default);
 var manager = FoundryLocalManager.Instance;
 await manager.StartWebServiceAsync(default);
 
@@ -41,7 +47,7 @@ Console.WriteLine($"Model ready: {modelId}");
 var key = new ApiKeyCredential("foundry-local");
 var openAiClient = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = new Uri(manager.Urls[0])
+    Endpoint = new Uri(manager.Urls[0] + "/v1")
 });
 var chatClient = openAiClient.GetChatClient(modelId);
 

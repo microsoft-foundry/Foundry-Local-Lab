@@ -103,7 +103,7 @@ All agents share the same Foundry Local model:
 # Python - FoundryLocalClient handles everything
 from agent_framework_foundry_local import FoundryLocalClient
 
-client = FoundryLocalClient(model_id="phi-4-mini")
+client = FoundryLocalClient(model_id="phi-3.5-mini")
 ```
 
 ```javascript
@@ -119,7 +119,7 @@ const client = new OpenAI({
 var key = new ApiKeyCredential("foundry-local");
 var client = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = new Uri(manager.Urls[0])
+    Endpoint = new Uri(manager.Urls[0] + "/v1")
 });
 var chatClient = client.GetChatClient(model.Id);
 ```
