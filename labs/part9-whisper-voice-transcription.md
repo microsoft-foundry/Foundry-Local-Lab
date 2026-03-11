@@ -94,7 +94,7 @@ pip install openai
 python samples/audio/generate_samples.py
 ```
 
-This creates five WAV files in `samples/audio/`:
+This creates six WAV files in `samples/audio/`:
 
 | File | Scenario |
 |------|----------|
@@ -103,6 +103,7 @@ This creates five WAV files in `samples/audio/`:
 | `zava-support-call.wav` | Support call about the **Zava TitanLock Tool Chest** |
 | `zava-project-planning.wav` | DIYer planning a deck with **Zava EcoBoard Composite Decking** |
 | `zava-workshop-setup.wav` | Walkthrough of a workshop using **all five Zava products** |
+| `zava-full-project-walkthrough.wav` | Extended garage renovation walkthrough using **all Zava products** (~4 min, for long-audio testing) |
 
 > **Tip:** You can also use your own WAV/MP3/M4A files, or record yourself with Windows Voice Recorder.
 
