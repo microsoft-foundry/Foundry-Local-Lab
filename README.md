@@ -46,7 +46,7 @@ By the end of this workshop you will be able to:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/microsoft/foundry-local-workshop.git
+git clone https://github.com/microsoft-foundry/foundry-local-lab.git
 cd foundry-local-lab
 
 # 2. Verify Foundry Local is installed
