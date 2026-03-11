@@ -528,17 +528,35 @@ response = client.chat.completions.create(
 
 ---
 
-## What's Next?
+## Workshop Complete!
 
-You have now mastered tool calling with local models! Combined with the agent patterns from [Part 5](part5-single-agents.md) and [Part 6](part6-multi-agent-workflows.md), you can build sophisticated agentic applications that interact with external systems — all running privately on your hardware.
+Congratulations — you have completed the full Foundry Local Workshop! You have gone from installing the CLI to building chat apps, RAG pipelines, multi-agent systems, speech-to-text transcription, compiling your own custom models, and enabling tool calling — all running entirely on your device.
 
-Consider extending your tools to:
-- Query a local database
-- Read and process files
-- Call internal REST APIs
-- Perform web searches
+| Part | What You Built |
+|------|---------------|
+| 1 | Installed Foundry Local, explored models via CLI |
+| 2 | Mastered the Foundry Local SDK API — service, catalogue, cache, model management |
+| 3 | Connected from Python/JS/C# using the SDK with OpenAI |
+| 4 | Built a RAG pipeline with local knowledge retrieval |
+| 5 | Created AI agents with personas and structured output |
+| 6 | Orchestrated multi-agent pipelines with feedback loops |
+| 7 | Explored a production capstone app — the Zava Creative Writer |
+| 8 | Built evaluation-led development workflows for agents |
+| 9 | Transcribed audio with Whisper — speech-to-text on-device |
+| 10 | Compiled and ran a custom Hugging Face model with ONNX Runtime GenAI |
+| 11 | Enabled local models to call external functions with tool calling |
 
-Each of these would follow the same define → call → execute → respond pattern you have learned here.
+Go back to the [workshop overview](../README.md) to review what you have covered and explore the further reading resources.
+
+---
+
+**Further ideas:**
+- Combine tool calling with agents to build autonomous workflows
+- Query a local database or call internal REST APIs from your tools
+- Try different models (`phi-4-mini`, `deepseek-r1-7b`) to compare quality and speed
+- Build a frontend UI for the Zava Writer API (Python version)
+- Create your own multi-agent application for a domain you care about
+- Deploy to the cloud by swapping Foundry Local for Azure AI Foundry — same code, different endpoint
 
 ---
 

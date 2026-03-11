@@ -798,31 +798,8 @@ The key takeaway is that **any transformer-based model can run through Foundry L
 
 ---
 
-## Workshop Complete!
-
-Congratulations — you have completed the full Foundry Local Workshop! You have gone from installing the CLI to building chat apps, RAG pipelines, multi-agent systems, speech-to-text transcription, and compiling your own custom models — all running entirely on your device.
-
-| Part | What You Built |
-|------|---------------|
-| 1 | Installed Foundry Local, explored models via CLI |
-| 2 | Mastered the Foundry Local SDK API — service, catalogue, cache, model management |
-| 3 | Connected from Python/JS/C# using the SDK with OpenAI |
-| 4 | Built a RAG pipeline with local knowledge retrieval |
-| 5 | Created AI agents with personas and structured output |
-| 6 | Orchestrated multi-agent pipelines with feedback loops |
-| 7 | Explored a production capstone app — the Zava Creative Writer |
-| 8 | Built evaluation-led development workflows for agents |
-| 9 | Transcribed audio with Whisper — speech-to-text on-device |
-| 10 | Compiled and ran a custom Hugging Face model with ONNX Runtime GenAI |
+## Next Steps
 
 Continue to [Part 11: Tool Calling with Local Models](part11-tool-calling.md) to learn how to enable your local models to call external functions.
 
-Go back to the [workshop overview](../README.md) to review what you have covered and explore the further reading resources.
-
----
-
-**Further ideas:**
-- Try different models (`phi-4-mini`, `deepseek-r1-7b`) to compare quality and speed
-- Build a frontend UI for the Zava Writer API (Python version)
-- Create your own multi-agent application for a domain you care about
-- Deploy to the cloud by swapping Foundry Local for Azure AI Foundry - same code, different endpoint
+[← Part 9: Whisper Voice Transcription](part9-whisper-voice-transcription.md) | [Part 11: Tool Calling →](part11-tool-calling.md)
