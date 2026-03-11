@@ -9,6 +9,7 @@ All notable changes to this workshop are documented below.
 ### Fixed
 - **All 21 code samples (7 Python, 7 JavaScript, 7 C#):** Added `model.unload()` / `unload_model()` / `model.UnloadAsync()` cleanup on exit to resolve OGA memory leak warnings (Known Issue #4)
 - **csharp/WhisperTranscription.cs:** Replaced fragile `AppContext.BaseDirectory` relative path with `FindSamplesDirectory()` that walks up directories to locate `samples/audio` reliably (Known Issue #7)
+- **csharp/csharp.csproj:** Replaced hardcoded `<RuntimeIdentifier>win-arm64</RuntimeIdentifier>` with auto-detect fallback using `$(NETCoreSdkRuntimeIdentifier)` so `dotnet run` works on any platform without `-r` flag ([Foundry-Local#497](https://github.com/microsoft/Foundry-Local/issues/497))
 
 ### Changed
 - **Part 8:** Converted eval-driven iteration loop from ASCII box diagram to rendered SVG image

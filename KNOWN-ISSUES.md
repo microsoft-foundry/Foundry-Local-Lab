@@ -98,10 +98,10 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 
 ## 5. C# SDK Requires Explicit RuntimeIdentifier
 
-**Status:** Open (mitigated by comment in `csharp.csproj`)
+**Status:** Open — tracked in [microsoft/Foundry-Local#497](https://github.com/microsoft/Foundry-Local/issues/497)
 **Severity:** Documentation gap
 **Component:** `Microsoft.AI.Foundry.Local` NuGet package
-**Reproduction:** Create a .NET 8 project without `<RuntimeIdentifier>` in the `.csproj`
+**Reproduction:** Create a .NET 8+ project without `<RuntimeIdentifier>` in the `.csproj`
 
 Build fails with:
 
@@ -109,11 +109,30 @@ Build fails with:
 NETSDK1047: Assets file doesn't have a target for 'net8.0/win-arm64'.
 ```
 
-**Impact:** The package requires `<RuntimeIdentifier>` to be explicitly set (e.g., `win-arm64`, `win-x64`). This is unusual for a NuGet package and not documented. Users on different hardware must know to change this value.
+**Root cause:** The RID requirement is expected — the SDK ships native binaries (P/Invoke into `Microsoft.AI.Foundry.Local.Core` and ONNX Runtime), so .NET needs to know which platform-specific library to resolve.
 
-**Expected:** Either:
-- Support RID-less builds via a managed fallback, or
-- Document the requirement prominently in the getting started guide
+This is documented on MS Learn ([How to use native chat completions](https://learn.microsoft.com/en-us/azure/foundry-local/how-to/how-to-use-native-chat-completions?tabs=windows&pivots=programming-language-csharp)), where the run instructions show:
+
+```bash
+dotnet run -r:win-x64
+dotnet run -r:win-arm64
+```
+
+However, users must remember the `-r` flag every time, which is easy to forget.
+
+**Workaround:** Add an auto-detect fallback to your `.csproj` so `dotnet run` works without any flags:
+
+```xml
+<PropertyGroup Condition="'$(RuntimeIdentifier)'==''">
+  <RuntimeIdentifier>$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
+</PropertyGroup>
+```
+
+`$(NETCoreSdkRuntimeIdentifier)` is a built-in MSBuild property that resolves to the host machine's RID automatically. The SDK's own test projects already use this pattern. Explicit `-r` flags are still honoured when provided.
+
+> **Note:** The workshop `.csproj` includes this fallback so `dotnet run` works out of the box on any platform.
+
+**Expected:** The `.csproj` template in the MS Learn docs should include this auto-detect pattern so users do not need to remember the `-r` flag.
 
 ---
 

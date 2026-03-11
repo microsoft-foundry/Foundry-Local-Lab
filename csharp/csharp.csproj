@@ -3,12 +3,17 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
-    <!-- Change to match your platform: win-x64, win-arm64, osx-arm64, osx-x64 -->
-    <RuntimeIdentifier>win-arm64</RuntimeIdentifier>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <!-- Suppress false-positive nullable warnings from Foundry Local SDK types -->
     <NoWarn>CS8602</NoWarn>
+  </PropertyGroup>
+
+  <!-- Auto-detect RuntimeIdentifier from the host machine if not explicitly provided.
+       The SDK ships native binaries, so .NET needs a RID to resolve them.
+       Override with: dotnet run -r:win-x64  or  dotnet run -r:win-arm64 -->
+  <PropertyGroup Condition="'$(RuntimeIdentifier)'==''">
+    <RuntimeIdentifier>$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
   </PropertyGroup>
 
   <ItemGroup>
