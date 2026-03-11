@@ -48,8 +48,8 @@ This is a **hands-on workshop** for building AI applications with [Foundry Local
 ### C#
 - **Location:** `csharp/`, `zava-creative-writer-local/src/csharp/`
 - **Project files:** `csharp/csharp.csproj`, `zava-creative-writer-local/src/csharp/ZavaCreativeWriter.csproj`
-- **Key packages:** `Microsoft.AI.Foundry.Local`, `OpenAI`, `Microsoft.Agents.AI.OpenAI`
-- **Target:** .NET 9.0
+- **Key packages:** `Microsoft.AI.Foundry.Local` (non-Windows), `Microsoft.AI.Foundry.Local.WinML` (Windows — superset with QNN EP), `OpenAI`, `Microsoft.Agents.AI.OpenAI`
+- **Target:** .NET 9.0 (conditional TFM: `net9.0-windows10.0.26100` on Windows, `net9.0` elsewhere)
 - **Run:** `cd csharp && dotnet run [chat|rag|agent|multi]`
 
 ## Coding Conventions

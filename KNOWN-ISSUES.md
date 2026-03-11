@@ -27,34 +27,7 @@ onnxruntime cpuid_info warning: Unknown CPU vendor. cpuinfo_vendor value: 0
 
 ---
 
-## 2. QNN Execution Provider Backend Path Warning
-
-**Status:** Open (partially mitigated — QNN EP autoregisters as of CLI v0.8.117)
-**Severity:** Warning (non-blocking)
-**Component:** ONNX Runtime QNN Execution Provider
-**Reproduction:** Loading any model on Snapdragon hardware with NPU support
-
-```
-[W:onnxruntime:FoundryLocalCore, qnn_execution_provider.cc:370 onnxruntime::QNNExecutionProvider::QNNExecutionProvider]
-Unable to determine backend path from provider options. Using default.
-```
-
-Followed by node assignment warnings:
-
-```
-[W:onnxruntime:, session_state.cc:1316 onnxruntime::VerifyEachNodeIsAssignedToAnEp]
-Some nodes were not assigned to the preferred execution providers which may or may not have a negative impact on performance.
-```
-
-**Impact:** Unclear whether the NPU is actually being utilised or if everything falls back to CPU. The warning offers no actionable guidance for developers.
-
-**Expected:** Either suppress the warning when default fallback is the intended behaviour, or document which backend is actually selected.
-
-> **Update (2026-03-11):** As of CLI v0.8.117, QNN EP autoregistration succeeds (`Successfully downloaded and registered the following EPs: QNNExecutionProvider`). The backend path warning still appears during model loads but the NPU is functional.
-
----
-
-## 3. SingleAgent NullReferenceException on First Run
+## 2. SingleAgent NullReferenceException on First Run
 
 **Status:** Open (intermittent)
 **Severity:** Critical (crash)
@@ -74,7 +47,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 
 ---
 
-## 4. C# SDK Requires Explicit RuntimeIdentifier
+## 3. C# SDK Requires Explicit RuntimeIdentifier
 
 **Status:** Open — tracked in [microsoft/Foundry-Local#497](https://github.com/microsoft/Foundry-Local/issues/497)
 **Severity:** Documentation gap
@@ -114,7 +87,7 @@ However, users must remember the `-r` flag every time, which is easy to forget.
 
 ---
 
-## 5. JavaScript Whisper — Audio Transcription Returns Empty/Binary Output
+## 4. JavaScript Whisper — Audio Transcription Returns Empty/Binary Output
 
 **Status:** Open (regression — worsened since initial report)
 **Severity:** Major
@@ -135,7 +108,7 @@ Originally only the 5th audio file returned empty; as of v0.9.x, all 5 files ret
 
 ---
 
-## 6. C# SDK Only Ships net8.0 — No Official .NET 9 or .NET 10 Target
+## 5. C# SDK Only Ships net8.0 — No Official .NET 9 or .NET 10 Target
 
 **Status:** Open
 **Severity:** Documentation gap
@@ -172,7 +145,7 @@ The net8.0 assembly loads on newer runtimes through .NET's forward-compatibility
 
 ---
 
-## 7. JavaScript ChatClient Streaming Uses Callbacks, Not Async Iterators
+## 6. JavaScript ChatClient Streaming Uses Callbacks, Not Async Iterators
 
 **Status:** Open
 **Severity:** Documentation gap
@@ -193,55 +166,6 @@ await chatClient.completeStreamingChat(messages, (chunk) => {
 **Impact:** Developers familiar with the OpenAI SDK's async iteration pattern (`for await`) will encounter confusing errors. The callback must be a valid function or the SDK throws "Callback must be a valid function."
 
 **Expected:** Document the callback pattern in the SDK reference. Alternatively, support the async iterable pattern for consistency with the OpenAI SDK.
-
----
-
-## 8. C# SDK NPU Model Variant Fails to Load on ARM (QNN EP Not in NuGet Package)
-
-**Status:** Mitigated (code workaround applied)
-**Severity:** Critical (crash on ARM devices)
-**Component:** `Microsoft.AI.Foundry.Local` NuGet v0.9.0 + Foundry Local model catalog
-**Reproduction:** Run any C# sample using `phi-3.5-mini` on Snapdragon X Elite hardware
-
-On ARM devices with NPU support, the Foundry Local catalog resolves the `phi-3.5-mini` alias to the NPU/QNN model variant (`Phi-3.5-mini-instruct-qnn-npu:1`) first. However, the ONNX Runtime GenAI binaries bundled in the C# NuGet package do **not** include the QNN execution provider. This causes `LoadAsync()` to fail:
-
-```
-Microsoft.AI.Foundry.Local.FoundryLocalException:
-  QNN execution provider is not supported in this build
-```
-
-The Foundry Local CLI's *service-hosted* inference works fine with QNN (it bundles its own ONNX Runtime with QNN EP), but the C# SDK's in-process `LoadAsync()` does not.
-
-**Impact:** All C# samples using `phi-3.5-mini` crash on ARM before reaching inference. Whisper and tool-calling samples are unaffected (they use `whisper-medium` and `qwen2.5-0.5b` respectively).
-
-**Workaround applied:** All 7 affected C# files now wrap `LoadAsync()` in a try/catch that detects the failure and uses `model.Variants` + `model.SelectVariant()` to switch to the CPU variant:
-
-```csharp
-try
-{
-    await model.LoadAsync(default);
-}
-catch (FoundryLocalException) when (model.Variants.Count > 1)
-{
-    var cpuVariant = model.Variants.FirstOrDefault(v => v.Id.Contains("generic-cpu"));
-    if (cpuVariant != null)
-    {
-        Console.WriteLine("NPU variant not supported, switching to CPU variant...");
-        model.SelectVariant(cpuVariant);
-        if (!await model.IsCachedAsync(default))
-            await model.DownloadAsync(null, default);
-        await model.LoadAsync(default);
-    }
-    else throw;
-}
-```
-
-**Files with workaround:**
-- `csharp/BasicChat.cs`, `AgentEvaluation.cs`, `MultiAgent.cs`, `RagPipeline.cs`, `SingleAgent.cs`
-- `zava-creative-writer-local/src/csharp/Program.cs`
-- `zava-creative-writer-local/src/csharp-web/Program.cs`
-
-**Expected:** The C# NuGet package should either (a) bundle the QNN EP for ARM targets, or (b) `GetModelAsync()` should automatically skip variants whose EP is not available.
 
 ---
 

@@ -1,16 +1,42 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <!-- Change to match your platform: win-x64, win-arm64, osx-arm64, osx-x64 -->
-    <RuntimeIdentifier>win-arm64</RuntimeIdentifier>
+    <!-- Windows: use windows-specific TFM so WinML (QNN EP plugin) can load -->
+    <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Windows'))">net9.0-windows10.0.26100</TargetFramework>
+    <!-- Non-Windows: plain TFM (WinML is not available) -->
+    <TargetFramework Condition="!$([MSBuild]::IsOSPlatform('Windows'))">net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NoWarn>CS8602</NoWarn>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!-- Auto-detect RuntimeIdentifier from the host machine if not explicitly provided.
+       The SDK ships native binaries, so .NET needs a RID to resolve them.
+       Override with: dotnet run -r:win-x64  or  dotnet run -r:win-arm64 -->
+  <PropertyGroup Condition="'$(RuntimeIdentifier)'==''">
+    <RuntimeIdentifier>$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <!-- WinML requires these properties on Windows -->
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
+    <WindowsPackageType>None</WindowsPackageType>
+    <EnableCoreMrtTooling>false</EnableCoreMrtTooling>
+  </PropertyGroup>
+
+  <!-- Windows: WinML package is a superset that includes the base SDK + QNN EP plugin -->
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <PackageReference Include="Microsoft.AI.Foundry.Local.WinML" Version="[0.9.0, 1.0.0)" />
+    <!-- Work around GPU-Linux package containing a broken win-arm64 native reference -->
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu.Linux" Version="1.23.2" ExcludeAssets="all" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Non-Windows: base SDK only (WinML is Windows-only) -->
+  <ItemGroup Condition="!$([MSBuild]::IsOSPlatform('Windows'))">
     <PackageReference Include="Microsoft.AI.Foundry.Local" Version="[0.9.0, 1.0.0)" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="OpenAI" Version="[2.9.0, 3.0.0)" />
   </ItemGroup>
 

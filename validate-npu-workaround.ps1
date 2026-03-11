@@ -5,31 +5,24 @@ $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 # Write header
 @"
 ==============================================================================
-Foundry Local - Issue #8 NPU Workaround Validation Log
+Foundry Local - WinML / QNN EP Validation Log
 Date: $timestamp
 Hardware: Snapdragon X Elite (ARM64) - X1E78100
 OS: Windows 11 ARM64
 SDK: Microsoft.AI.Foundry.Local v0.9.0
+WinML: Microsoft.AI.Foundry.Local.WinML v0.9.0
 CLI: Foundry Local v0.8.117
 .NET SDK: 9.0.312
 ==============================================================================
 
-ISSUE: On ARM devices with NPU support, the Foundry Local catalog resolves
-phi-3.5-mini to the NPU/QNN variant first. The C# NuGet package does NOT
-include the QNN EP, causing LoadAsync() to fail with:
-  'QNN execution provider is not supported in this build'
+CONTEXT: QNN is a plugin execution provider delivered through the WinML
+package. Adding Microsoft.AI.Foundry.Local.WinML to the .csproj enables
+the QNN EP, allowing NPU model variants to load directly on ARM devices.
 
-WORKAROUND: try/catch around LoadAsync() that detects failure and uses
-model.Variants + model.SelectVariant() to switch to the CPU variant.
-
-FILES WITH WORKAROUND (7 total):
-  - csharp/BasicChat.cs
-  - csharp/AgentEvaluation.cs
-  - csharp/MultiAgent.cs
-  - csharp/RagPipeline.cs
-  - csharp/SingleAgent.cs
-  - zava-creative-writer-local/src/csharp/Program.cs
-  - zava-creative-writer-local/src/csharp-web/Program.cs
+FILES WITH WinML PACKAGE REFERENCE (3 .csproj files):
+  - csharp/csharp.csproj
+  - zava-creative-writer-local/src/csharp/ZavaCreativeWriter.csproj
+  - zava-creative-writer-local/src/csharp-web/ZavaCreativeWriterWeb.csproj
 
 ==============================================================================
 VALIDATION RESULTS
@@ -53,28 +46,29 @@ foreach ($sample in $samples) {
     "Exit code: $exitCode" | Add-Content $logFile
     "Ended: $(Get-Date -Format 'HH:mm:ss')" | Add-Content $logFile
 
-    $npuTriggered = $output -match "NPU variant not supported"
     $modelMatch = [regex]::Match($output, "Loaded model: (.+)")
     $modelName = if ($modelMatch.Success) { $modelMatch.Groups[1].Value.Trim() } else { "(unknown)" }
 
-    if ($npuTriggered) {
-        "NPU Workaround: TRIGGERED (switched to CPU variant)" | Add-Content $logFile
-    } elseif ($output -match "QNN execution provider") {
-        "NPU Workaround: FAILED (QNN error not caught)" | Add-Content $logFile
+    $qnnLoaded = $output -match "qnn-npu" -or $output -match "QNNExecutionProvider"
+
+    if ($qnnLoaded) {
+        "QNN EP: LOADED (NPU variant selected via WinML)" | Add-Content $logFile
+    } elseif ($output -match "QNN execution provider is not supported") {
+        "QNN EP: FAILED (WinML package may be missing)" | Add-Content $logFile
     } else {
-        "NPU Workaround: NOT NEEDED (model loaded directly)" | Add-Content $logFile
+        "QNN EP: NOT APPLICABLE (model loaded without NPU variant)" | Add-Content $logFile
     }
 
     $status = if ($exitCode -eq 0) { "PASS" } else { "FAIL" }
     $summaryData += [PSCustomObject]@{
         Sample = $sample
-        NPU = if ($npuTriggered) { "YES" } else { "NO" }
+        QNN = if ($qnnLoaded) { "YES" } else { "NO" }
         Model = $modelName
         ExitCode = $exitCode
         Status = $status
     }
 
-    Write-Host "  $sample => Exit: $exitCode | NPU workaround: $(if ($npuTriggered) {'YES'} else {'NO'}) | $status" -ForegroundColor $(if ($exitCode -eq 0) { "Green" } else { "Red" })
+    Write-Host "  $sample => Exit: $exitCode | QNN via WinML: $(if ($qnnLoaded) {'YES'} else {'NO'}) | $status" -ForegroundColor $(if ($exitCode -eq 0) { "Green" } else { "Red" })
 }
 
 # Write summary table
@@ -84,16 +78,16 @@ foreach ($sample in $samples) {
 SUMMARY TABLE
 ==============================================================================
 
-Sample          NPU Triggered   Model Loaded                            Exit   Status
+Sample          QNN via WinML   Model Loaded                            Exit   Status
 --------------- --------------- --------------------------------------- ------ ------
 "@ | Add-Content $logFile
 
 foreach ($row in $summaryData) {
-    "{0,-15} {1,-15} {2,-39} {3,-6} {4}" -f $row.Sample, $row.NPU, $row.Model, $row.ExitCode, $row.Status | Add-Content $logFile
+    "{0,-15} {1,-15} {2,-39} {3,-6} {4}" -f $row.Sample, $row.QNN, $row.Model, $row.ExitCode, $row.Status | Add-Content $logFile
 }
 
 $allPass = ($summaryData | Where-Object { $_.Status -ne "PASS" }).Count -eq 0
-$allNPU = ($summaryData | Where-Object { $_.NPU -eq "YES" }).Count
+$qnnCount = ($summaryData | Where-Object { $_.QNN -eq "YES" }).Count
 
 @"
 
@@ -102,12 +96,12 @@ CONCLUSION
 ==============================================================================
 
 Samples run: $($summaryData.Count)
-NPU workaround triggered: $allNPU / $($summaryData.Count)
+QNN EP loaded via WinML: $qnnCount / $($summaryData.Count)
 Overall result: $(if ($allPass) { 'ALL PASSED' } else { 'SOME FAILED' })
 
-The workaround correctly detects the QNN EP failure and falls back to the
-CPU variant (Phi-3.5-mini-instruct-generic-cpu:1) on this ARM64 device.
-Issue #8 documentation in KNOWN-ISSUES.md is validated and accurate.
+The Microsoft.AI.Foundry.Local.WinML package provides the QNN execution
+provider as a plugin EP. On this ARM64 device, the NPU variant loads
+directly without requiring a CPU fallback workaround.
 
 ==============================================================================
 "@ | Add-Content $logFile

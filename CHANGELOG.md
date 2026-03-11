@@ -4,7 +4,7 @@ All notable changes to this workshop are documented below.
 
 ---
 
-## 2026-03-11 — Part 12 & 13, Web UI, Whisper Rewrite, NPU Workaround, and Validation
+## 2026-03-11 — Part 12 & 13, Web UI, Whisper Rewrite, WinML/QNN Fix, and Validation
 
 ### Added
 - **Part 12: Building a Web UI for the Zava Creative Writer** — new lab guide (`labs/part12-zava-ui.md`) with exercises covering streaming NDJSON, browser `ReadableStream`, live agent status badges, and real-time article text streaming
@@ -16,7 +16,7 @@ All notable changes to this workshop are documented below.
 - **Audio sample:** `samples/audio/zava-full-project-walkthrough.wav` — new longer audio sample for transcription testing
 - **Validation script:** `validate-npu-workaround.ps1` — automated PowerShell script to validate the NPU/QNN workaround across all C# samples
 - **Mermaid diagram SVGs:** `images/part12-architecture.svg`, `part12-message-types.svg`, `part12-streaming-sequence.svg`
-- **NPU workaround (Issue #8):** All 7 C# files (`BasicChat.cs`, `AgentEvaluation.cs`, `MultiAgent.cs`, `RagPipeline.cs`, `SingleAgent.cs`, `zava-creative-writer-local/src/csharp/Program.cs`, `zava-creative-writer-local/src/csharp-web/Program.cs`) now wrap `LoadAsync()` in try/catch to detect QNN EP failure and fall back to CPU variant via `model.Variants` + `model.SelectVariant()`
+- **WinML package (Issue #8):** All 3 C# `.csproj` files (`csharp/csharp.csproj`, `zava-creative-writer-local/src/csharp/ZavaCreativeWriter.csproj`, `zava-creative-writer-local/src/csharp-web/ZavaCreativeWriterWeb.csproj`) now use conditional TFM and mutually exclusive package references for cross-platform support. On Windows: `net9.0-windows10.0.26100` TFM + `Microsoft.AI.Foundry.Local.WinML` (superset that includes QNN EP plugin). On non-Windows: `net9.0` TFM + `Microsoft.AI.Foundry.Local` (base SDK). The hardcoded `win-arm64` RID in Zava projects was replaced with auto-detect. A transitive dependency workaround excludes native assets from `Microsoft.ML.OnnxRuntime.Gpu.Linux` which has a broken win-arm64 reference. The previous try/catch NPU workaround has been removed from all 7 C# files.
 
 ### Changed
 - **Part 9 (Whisper):** Major rewrite — JavaScript now uses the SDK's built-in `AudioClient` (`model.createAudioClient()`) instead of manual ONNX Runtime inference; updated architecture descriptions, comparison tables, and pipeline diagrams to reflect JS/C# `AudioClient` approach vs Python ONNX Runtime approach
@@ -25,14 +25,14 @@ All notable changes to this workshop are documented below.
 - **Python Whisper (`foundry-local-whisper.py`):** Expanded with additional audio samples and improved error handling
 - **JavaScript Whisper (`foundry-local-whisper.mjs`):** Rewritten to use `model.createAudioClient()` with `audioClient.transcribe()` instead of manual ONNX Runtime sessions
 - **Python FastAPI (`zava-creative-writer-local/src/api/main.py`):** Updated to serve static UI files alongside the API
-- **Zava C# console (`zava-creative-writer-local/src/csharp/Program.cs`):** Added NPU workaround
+- **Zava C# console (`zava-creative-writer-local/src/csharp/Program.cs`):** Removed NPU workaround (now handled by WinML package)
 - **README.md:** Added Part 12 section with code sample tables and backend additions; added Part 13 section; updated learning objectives and project structure
-- **KNOWN-ISSUES.md:** Added Issue #8 (C# SDK NPU model variant fails to load on ARM — QNN EP not in NuGet package) with full workaround documentation; renumbered and reorganised issues; updated environment details with .NET SDK 10.0.104
+- **KNOWN-ISSUES.md:** Updated Issue #8 (C# SDK NPU model variant — resolved by adding `Microsoft.AI.Foundry.Local.WinML` package which provides QNN EP as a plugin); updated Issue #2 to explain QNN as a WinML plugin EP; renumbered and reorganised issues; updated environment details with .NET SDK 10.0.104
 - **AGENTS.md:** Updated project structure tree with new `zava-creative-writer-local` entries (`ui/`, `csharp-web/`, `server.mjs`)
 
 ### Validated
-- NPU workaround validated on Snapdragon X Elite (ARM64) — model falls back to CPU variant (`Phi-3.5-mini-instruct-generic-cpu:1`) when QNN EP is unavailable
-- C# agent sample runs successfully with NPU workaround (exit code 0)
+- QNN EP resolved on Snapdragon X Elite (ARM64) via `Microsoft.AI.Foundry.Local.WinML` package — NPU variant loads directly without CPU fallback
+- C# agent sample runs successfully with WinML package (exit code 0)
 - Foundry Local CLI v0.8.117 and SDK v0.9.0 on .NET SDK 9.0.312
 
 ---

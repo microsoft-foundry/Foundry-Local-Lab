@@ -93,8 +93,8 @@ There are two NuGet packages:
 
 | Package | Platform | Description |
 |---------|----------|-------------|
-| `Microsoft.AI.Foundry.Local.WinML` | Windows only | Uses Windows Machine Learning (WinML) for hardware acceleration |
 | `Microsoft.AI.Foundry.Local` | Cross-platform | Works on Windows, Linux, macOS |
+| `Microsoft.AI.Foundry.Local.WinML` | Windows only | Adds WinML hardware acceleration; downloads and installs plugin execution providers (e.g. QNN for Qualcomm NPU) |
 
 **Windows setup:**
 
@@ -109,19 +109,38 @@ Edit the `.csproj` file:
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0-windows10.0.26100</TargetFramework>
+    <!-- Windows: windows-specific TFM so WinML (QNN EP plugin) can load -->
+    <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Windows'))">net9.0-windows10.0.26100</TargetFramework>
+    <!-- Non-Windows: plain TFM (WinML is not available) -->
+    <TargetFramework Condition="!$([MSBuild]::IsOSPlatform('Windows'))">net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- WinML requires these properties on Windows -->
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
     <WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
     <WindowsPackageType>None</WindowsPackageType>
     <EnableCoreMrtTooling>false</EnableCoreMrtTooling>
   </PropertyGroup>
-  <ItemGroup>
+
+  <!-- Windows: WinML is a superset (base SDK + QNN EP plugin) -->
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
     <PackageReference Include="Microsoft.AI.Foundry.Local.WinML" Version="[0.9.0,1.0.0)" />
+  </ItemGroup>
+
+  <!-- Non-Windows: base SDK only -->
+  <ItemGroup Condition="!$([MSBuild]::IsOSPlatform('Windows'))">
+    <PackageReference Include="Microsoft.AI.Foundry.Local" Version="[0.9.0,1.0.0)" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.10" />
   </ItemGroup>
 </Project>
 ```
+
+> **Note:** On Windows, the WinML package is a superset that includes the base SDK plus the QNN execution provider. On Linux/macOS, the base SDK is used instead. The conditional TFM and package references keep the project fully cross-platform.
 
 Create a `nuget.config` in the project root:
 
@@ -859,7 +878,7 @@ Some models have NPU-optimised variants for devices with Neural Processing Units
 | qwen2.5-1.5b | ✅ |
 | qwen2.5-7b | ✅ |
 
-> **Tip:** On NPU-capable hardware, the SDK automatically selects the NPU variant when available. You do not need to change your code.
+> **Tip:** On NPU-capable hardware, the SDK automatically selects the NPU variant when available. You do not need to change your code. For C# projects on Windows, add the `Microsoft.AI.Foundry.Local.WinML` NuGet package to enable the QNN execution provider — QNN is delivered as a plugin EP through WinML.
 
 ---
 
@@ -1009,7 +1028,7 @@ When you pass an **alias** (like `phi-3.5-mini`) instead of a full model ID, the
 | Hardware | Selected Execution Provider |
 |----------|---------------------------|
 | NVIDIA GPU (CUDA) | `CUDAExecutionProvider` |
-| Qualcomm NPU | `QNNExecutionProvider` |
+| Qualcomm NPU | `QNNExecutionProvider` (via WinML plugin) |
 | Intel NPU | `OpenVINOExecutionProvider` |
 | AMD GPU | `VitisAIExecutionProvider` |
 | NVIDIA RTX | `NvTensorRTRTXExecutionProvider` |

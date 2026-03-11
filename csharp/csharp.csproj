@@ -2,11 +2,21 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <!-- Windows: use windows-specific TFM so WinML (QNN EP plugin) can load -->
+    <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Windows'))">net9.0-windows10.0.26100</TargetFramework>
+    <!-- Non-Windows: plain TFM (WinML is not available) -->
+    <TargetFramework Condition="!$([MSBuild]::IsOSPlatform('Windows'))">net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <!-- Suppress false-positive nullable warnings from Foundry Local SDK types -->
     <NoWarn>CS8602</NoWarn>
+  </PropertyGroup>
+
+  <!-- WinML requires these properties on Windows -->
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
+    <WindowsPackageType>None</WindowsPackageType>
+    <EnableCoreMrtTooling>false</EnableCoreMrtTooling>
   </PropertyGroup>
 
   <!-- Auto-detect RuntimeIdentifier from the host machine if not explicitly provided.
@@ -16,8 +26,19 @@
     <RuntimeIdentifier>$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!-- Windows: WinML package is a superset that includes the base SDK + QNN EP plugin -->
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <PackageReference Include="Microsoft.AI.Foundry.Local.WinML" Version="[0.9.0, 1.0.0)" />
+    <!-- Work around GPU-Linux package containing a broken win-arm64 native reference -->
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu.Linux" Version="1.23.2" ExcludeAssets="all" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Non-Windows: base SDK only (WinML is Windows-only) -->
+  <ItemGroup Condition="!$([MSBuild]::IsOSPlatform('Windows'))">
     <PackageReference Include="Microsoft.AI.Foundry.Local" Version="[0.9.0, 1.0.0)" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.0.0-rc3" />
     <PackageReference Include="OpenAI" Version="[2.9.0, 3.0.0)" />
   </ItemGroup>

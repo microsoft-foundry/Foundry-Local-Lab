@@ -213,23 +213,7 @@ public static class AgentEvaluation
         }
 
         Console.WriteLine($"Loading model: {alias}...");
-        try
-        {
-            await model.LoadAsync(default);
-        }
-        catch (FoundryLocalException) when (model.Variants.Count > 1)
-        {
-            var cpuVariant = model.Variants.FirstOrDefault(v => v.Id.Contains("generic-cpu"));
-            if (cpuVariant != null)
-            {
-                Console.WriteLine($"NPU variant not supported, switching to CPU variant...");
-                model.SelectVariant(cpuVariant);
-                if (!await model.IsCachedAsync(default))
-                    await model.DownloadAsync(null, default);
-                await model.LoadAsync(default);
-            }
-            else throw;
-        }
+        await model.LoadAsync(default);
         Console.WriteLine($"Loaded model: {model.Id}");
         Console.WriteLine($"Endpoint: {manager.Urls[0]}");
         Console.WriteLine($"Test cases: {GoldenDataset.Length}");
