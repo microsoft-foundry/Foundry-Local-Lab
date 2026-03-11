@@ -47,7 +47,7 @@ By the end of this workshop you will be able to:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/microsoft/foundry-local-workshop.git
-cd foundry-local-workshop
+cd foundry-local-lab
 
 # 2. Verify Foundry Local is installed
 foundry model list              # List available models
