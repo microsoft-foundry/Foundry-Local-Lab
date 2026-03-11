@@ -29,7 +29,7 @@ By the end of this lab you will be able to:
 |-------------|---------|
 | **Foundry Local CLI** | Version **0.8.101 or above** (Whisper models are available from v0.8.101 onwards) |
 | **OS** | Windows 10/11 (x64 or ARM64) |
-| **Language runtime** | **Python 3.9+** and/or **Node.js 18+** and/or **.NET 8 SDK** ([Download .NET](https://dotnet.microsoft.com/download/dotnet/8.0)) |
+| **Language runtime** | **Python 3.9+** and/or **Node.js 18+** and/or **.NET 9 SDK** ([Download .NET](https://dotnet.microsoft.com/download/dotnet/9.0)) |
 | **Completed** | [Part 1: Getting Started](part1-getting-started.md), [Part 2: Foundry Local SDK Deep Dive](part2-foundry-local-sdk.md), and [Part 3: SDKs and APIs](part3-sdk-and-apis.md) |
 
 > **Note:** Whisper models must be downloaded via the **SDK** (not the CLI). The CLI does not support the audio transcription endpoint. Check your version with:

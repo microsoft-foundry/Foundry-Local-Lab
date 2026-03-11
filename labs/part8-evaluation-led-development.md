@@ -61,7 +61,7 @@ And returns a structured score. This mirrors the Editor pattern from Part 7 but 
 | Requirement | Details |
 |-------------|---------|
 | **Foundry Local CLI** | Installed with a model downloaded |
-| **Language runtime** | **Python 3.9+** and/or **Node.js 18+** and/or **.NET 8+ SDK** |
+| **Language runtime** | **Python 3.9+** and/or **Node.js 18+** and/or **.NET 9+ SDK** |
 | **Completed** | [Part 5: Single Agents](part5-single-agents.md) and [Part 6: Multi-Agent Workflows](part6-multi-agent-workflows.md) |
 
 ---
