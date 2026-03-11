@@ -26,6 +26,7 @@ By the end of this workshop you will be able to:
 | 8 | Build evaluation frameworks with golden datasets and LLM-as-judge scoring |
 | 9 | Transcribe audio with Whisper - speech-to-text on-device using the Foundry Local SDK |
 | 10 | Compile and run custom or Hugging Face models with ONNX Runtime GenAI and Foundry Local |
+| 11 | Enable local models to call external functions with the tool-calling pattern |
 
 ---
 
@@ -238,6 +239,27 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 
 ---
 
+### Part 11: Tool Calling with Local Models
+
+**Lab guide:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
+
+- Enable local models to call external functions (tool/function calling)
+- Define tool schemas using the OpenAI function-calling format
+- Handle the multi-turn tool-calling conversation flow
+- Execute tool calls locally and return results to the model
+- Choose the right model for tool-calling scenarios (Qwen 2.5, Phi-4-mini)
+- Use the SDK's native `ChatClient` for tool calling (JavaScript)
+
+**Code samples:**
+
+| Language | File | Description |
+|----------|------|-------------|
+| Python | `python/foundry-local-tool-calling.py` | Tool calling with weather/population tools |
+| C# | `csharp/ToolCalling.cs` | Tool calling with .NET |
+| JavaScript | `javascript/foundry-local-tool-calling.mjs` | Tool calling with ChatClient |
+
+---
+
 ## Project Structure
 
 ```
@@ -248,15 +270,17 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 │   ├── foundry-local-multi-agent.py # Multi-agent workflow
 │   ├── foundry-local-eval.py      # Agent evaluation framework
 │   ├── foundry-local-whisper.py   # Whisper voice transcription
+│   ├── foundry-local-tool-calling.py # Tool/function calling
 │   └── requirements.txt
 ├── csharp/                        # C# examples
-│   ├── Program.cs                 # CLI router (chat|rag|agent|multi|eval|whisper)
+│   ├── Program.cs                 # CLI router (chat|rag|agent|multi|eval|whisper|toolcall)
 │   ├── BasicChat.cs               # Basic chat
 │   ├── RagPipeline.cs             # RAG pipeline
 │   ├── SingleAgent.cs             # Single agent (ChatAgent pattern)
 │   ├── MultiAgent.cs              # Multi-agent workflow
 │   ├── AgentEvaluation.cs         # Agent evaluation framework
 │   ├── WhisperTranscription.cs    # Whisper voice transcription
+│   ├── ToolCalling.cs             # Tool/function calling
 │   └── csharp.csproj
 ├── javascript/                    # JavaScript examples
 │   ├── foundry-local.mjs          # Basic chat
@@ -265,6 +289,7 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 │   ├── foundry-local-multi-agent.mjs # Multi-agent workflow
 │   ├── foundry-local-eval.mjs     # Agent evaluation framework
 │   ├── foundry-local-whisper.mjs  # Whisper voice transcription
+│   ├── foundry-local-tool-calling.mjs # Tool/function calling
 │   └── package.json
 ├── zava-creative-writer-local/ # Production multi-agent app
 │   └── src/
@@ -319,7 +344,7 @@ foundry model run phi-3.5-mini  # Start an interactive chat
 
 ---
 
-## License
+## Licence
 
 This workshop material is provided for educational purposes.
 

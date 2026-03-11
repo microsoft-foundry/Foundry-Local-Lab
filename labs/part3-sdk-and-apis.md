@@ -133,15 +133,7 @@ if is_cached:
     print(f"Model already downloaded: {alias}")
 else:
     print(f"Downloading model: {alias} (this may take several minutes)...")
-    def on_progress(progress):
-        bar_width = 30
-        filled = int(progress / 100 * bar_width)
-        bar = "█" * filled + "░" * (bar_width - filled)
-        sys.stdout.write(f"\rDownloading: [{bar}] {progress:.1f}%")
-        if progress >= 100:
-            sys.stdout.write("\n")
-        sys.stdout.flush()
-    manager.download_model(alias, progress_callback=on_progress)
+    manager.download_model(alias)
     print(f"Download complete: {alias}")
 
 # Step 3: Load the model into memory
@@ -182,46 +174,39 @@ import { OpenAI } from "openai";
 import { FoundryLocalManager } from "foundry-local-sdk";
 
 const alias = "phi-3.5-mini";
-const manager = new FoundryLocalManager();
 
 // Step 1: Start the Foundry Local service
 console.log("Starting Foundry Local service...");
-await manager.startService();
+FoundryLocalManager.create({ appName: "FoundryLocalWorkshop" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
 // Step 2: Check if the model is already downloaded
-const cachedModels = await manager.listCachedModels();
-const catalogInfo = await manager.getModelInfo(alias);
-const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
+const catalog = manager.catalog;
+const model = await catalog.getModel(alias);
 
-if (isAlreadyCached) {
+if (model.isCached) {
   console.log(`Model already downloaded: ${alias}`);
 } else {
   console.log(`Downloading model: ${alias} (this may take several minutes)...`);
-  await manager.downloadModel(alias, undefined, false, (progress) => {
-    const barWidth = 30;
-    const filled = Math.round((progress / 100) * barWidth);
-    const empty = barWidth - filled;
-    const bar = "█".repeat(filled) + "░".repeat(empty);
-    process.stdout.write(`\r[Download] [${bar}] ${progress.toFixed(1)}%`);
-    if (progress >= 100) process.stdout.write("\n");
-  });
+  await model.download();
   console.log(`Download complete: ${alias}`);
 }
 
 // Step 3: Load the model into memory
 console.log(`Loading model: ${alias}...`);
-const modelInfo = await manager.loadModel(alias);
-console.log("Model Info:", modelInfo);
+await model.load();
+console.log(`Model loaded: ${model.id}`);
 
 // Create an OpenAI client pointing to the LOCAL Foundry service
 const client = new OpenAI({
-  baseURL: manager.endpoint,   // Dynamic port - never hardcode!
-  apiKey: manager.apiKey,
+  baseURL: manager.urls[0] + "/v1",   // Dynamic port - never hardcode!
+  apiKey: "foundry-local",
 });
 
 // Generate a streaming chat completion
 const stream = await client.chat.completions.create({
-  model: modelInfo.id,
+  model: model.id,
   messages: [{ role: "user", content: "What is the golden ratio?" }],
   stream: true,
 });
@@ -423,14 +408,16 @@ Console.WriteLine(response.Value.Content[0].Text);
 
 | Method | Purpose |
 |--------|---------|
-| `new FoundryLocalManager()` | Create manager instance |
-| `await manager.startService()` | Start the Foundry Local service |
-| `await manager.listCachedModels()` | List models downloaded on your device |
-| `await manager.getModelInfo(alias)` | Get model ID and metadata |
-| `await manager.downloadModel(alias, ..., progressCb)` | Download a model with optional progress callback |
-| `await manager.loadModel(alias)` | Load a model into memory and return model info |
-| `manager.endpoint` | Get the dynamic endpoint URL |
-| `manager.apiKey` | Get the API key (placeholder for local) |
+| `FoundryLocalManager.create({ appName })` | Create manager instance |
+| `FoundryLocalManager.instance` | Access the singleton manager |
+| `await manager.startWebService()` | Start the Foundry Local service |
+| `await manager.catalog.getModel(alias)` | Get a model from the catalogue |
+| `model.isCached` | Check if the model is already downloaded |
+| `await model.download()` | Download a model |
+| `await model.load()` | Load a model into memory |
+| `model.id` | Get the model ID for OpenAI API calls |
+| `manager.urls[0] + "/v1"` | Get the dynamic endpoint URL |
+| `"foundry-local"` | API key (placeholder for local) |
 
 </details>
 
@@ -439,7 +426,7 @@ Console.WriteLine(response.Value.Content[0].Text);
 
 | Method | Purpose |
 |--------|---------|
-| `FoundryLocalManager.CreateAsync(config)` | Create and initialize the manager |
+| `FoundryLocalManager.CreateAsync(config)` | Create and initialise the manager |
 | `manager.StartWebServiceAsync()` | Start the Foundry Local web service |
 | `manager.GetCatalogAsync()` | Get the model catalog |
 | `catalog.ListModelsAsync()` | List all available models |
@@ -454,15 +441,90 @@ Console.WriteLine(response.Value.Content[0].Text);
 
 ---
 
+### Exercise 4: Using the Native ChatClient (Alternative to OpenAI SDK)
+
+In Exercises 2 and 3 you used the OpenAI SDK for chat completions. The JavaScript and C# SDKs also provide a **native ChatClient** that eliminates the need for the OpenAI SDK entirely.
+
+<details>
+<summary><b>📘 JavaScript - <code>model.createChatClient()</code></b></summary>
+
+```javascript
+import { FoundryLocalManager } from "foundry-local-sdk";
+
+const alias = "phi-3.5-mini";
+
+FoundryLocalManager.create({ appName: "ChatClientDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
+
+const model = await manager.catalog.getModel(alias);
+if (!model.isCached) await model.download();
+await model.load();
+
+// No OpenAI import needed — get a client directly from the model
+const chatClient = model.createChatClient();
+
+// Non-streaming completion
+const response = await chatClient.completeChat([
+  { role: "system", content: "You are a pirate. Answer everything in pirate speak." },
+  { role: "user", content: "What is the golden ratio?" }
+]);
+console.log(response.choices[0].message.content);
+
+// Streaming completion (uses a callback pattern)
+await chatClient.completeStreamingChat(
+  [{ role: "user", content: "What is the golden ratio?" }],
+  (chunk) => {
+    if (chunk.choices?.[0]?.delta?.content) {
+      process.stdout.write(chunk.choices[0].delta.content);
+    }
+  }
+);
+console.log();
+```
+
+> **Note:** The ChatClient's `completeStreamingChat()` uses a **callback** pattern, not an async iterator. Pass a function as the second argument.
+
+</details>
+
+<details>
+<summary><b>💜 C# - <code>model.GetChatClientAsync()</code></b></summary>
+
+```csharp
+var catalog = await manager.GetCatalogAsync(default);
+var model = await catalog.GetModelAsync("phi-3.5-mini", default);
+if (!await model.IsCachedAsync(default))
+    await model.DownloadAsync(null, default);
+await model.LoadAsync(default);
+
+// No OpenAI NuGet needed — get a client directly from the model
+var chatClient = await model.GetChatClientAsync(default);
+
+// Use it like a standard OpenAI ChatClient
+var response = chatClient.CompleteChat("What is the golden ratio?");
+Console.WriteLine(response.Value.Content[0].Text);
+```
+
+</details>
+
+> **When to use which:**
+> | Approach | Best for |
+> |----------|----------|
+> | OpenAI SDK | Full parameter control, production apps, existing OpenAI code |
+> | Native ChatClient | Quick prototyping, fewer dependencies, simpler setup |
+
+---
+
 ## Key Takeaways
 
 | Concept | What You Learned |
 |---------|------------------|
 | Control plane | The Foundry Local SDK handles starting the service and loading models |
 | Data plane | The OpenAI SDK handles chat completions and streaming |
-| Dynamic ports | Always use `manager.endpoint`; never hardcode URLs |
+| Dynamic ports | Always use the SDK to discover the endpoint; never hardcode URLs |
 | Cross-language | The same code pattern works across Python, JavaScript, and C# |
 | OpenAI compatibility | Full OpenAI API compatibility means existing OpenAI code works with minimal changes |
+| Native ChatClient | `createChatClient()` (JS) / `GetChatClientAsync()` (C#) provides an alternative to the OpenAI SDK |
 
 ---
 

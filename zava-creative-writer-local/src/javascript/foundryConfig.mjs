@@ -10,44 +10,36 @@ import { FoundryLocalManager } from "foundry-local-sdk";
 
 const MODEL_ALIAS = "phi-3.5-mini";
 
-const manager = new FoundryLocalManager();
-
-// Step 1: Start the Foundry Local service
+// Step 1: Create a FoundryLocalManager and start the service
 console.log("Starting Foundry Local service...");
-await manager.startService();
+FoundryLocalManager.create({ appName: "ZavaCreativeWriter" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
-// Step 2: Check if the model is already downloaded
-const cachedModels = await manager.listCachedModels();
-const catalogInfo = await manager.getModelInfo(MODEL_ALIAS);
-const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
+// Step 2: Get the model from the catalog
+const catalog = manager.catalog;
+const model = await catalog.getModel(MODEL_ALIAS);
 
-if (isAlreadyCached) {
+if (model.isCached) {
   console.log(`Model already downloaded: ${MODEL_ALIAS}`);
 } else {
   console.log(
     `Downloading model: ${MODEL_ALIAS} (this may take several minutes)...`
   );
-  await manager.downloadModel(MODEL_ALIAS, undefined, false, (progress) => {
-    const barWidth = 30;
-    const filled = Math.round((progress / 100) * barWidth);
-    const empty = barWidth - filled;
-    const bar = "\u2588".repeat(filled) + "\u2591".repeat(empty);
-    process.stdout.write(`\r[Download] [${bar}] ${progress.toFixed(1)}%`);
-    if (progress >= 100) process.stdout.write("\n");
-  });
+  await model.download();
   console.log(`Download complete: ${MODEL_ALIAS}`);
 }
 
 // Step 3: Load the model into memory
 console.log(`Loading model: ${MODEL_ALIAS}...`);
-const modelInfo = await manager.loadModel(MODEL_ALIAS);
-const modelId = modelInfo.id;
+await model.load();
+const modelId = model.id;
 console.log(`Model ready: ${modelId}`);
 
 // Shared OpenAI client pointing at the local endpoint
 const client = new OpenAI({
-  baseURL: manager.endpoint,
-  apiKey: manager.apiKey,
+  baseURL: manager.urls[0] + "/v1",
+  apiKey: "foundry-local",
 });
 
 export { client, modelId, MODEL_ALIAS };

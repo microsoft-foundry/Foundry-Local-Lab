@@ -1,5 +1,4 @@
 
-import sys
 import openai
 from foundry_local import FoundryLocalManager
 
@@ -21,15 +20,7 @@ if is_cached:
     print(f"Model already downloaded: {alias}")
 else:
     print(f"Downloading model: {alias} (this may take several minutes)...")
-    def on_progress(progress):
-        bar_width = 30
-        filled = int(progress / 100 * bar_width)
-        bar = "\u2588" * filled + "\u2591" * (bar_width - filled)
-        sys.stdout.write(f"\rDownloading: [{bar}] {progress:.1f}%")
-        if progress >= 100:
-            sys.stdout.write("\n")
-        sys.stdout.flush()
-    manager.download_model(alias, progress_callback=on_progress)
+    manager.download_model(alias)
     print(f"Download complete: {alias}")
 
 # Step 3: Load the model into memory

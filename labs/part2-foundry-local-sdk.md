@@ -20,7 +20,7 @@ By the end of this lab you will be able to:
 - List, download, load, and unload models programmatically
 - Inspect model metadata using `FoundryModelInfo`
 - Understand the difference between catalog, cache, and loaded models
-- Use the `init()` convenience method (JavaScript) and constructor bootstrap (Python)
+- Use the constructor bootstrap (Python) and `create()` + catalog pattern (JavaScript)
 - Understand the C# SDK redesign and its object-oriented API
 
 ---
@@ -39,9 +39,9 @@ By the end of this lab you will be able to:
 | Aspect | CLI (`foundry` command) | SDK (`foundry-local-sdk`) |
 |--------|------------------------|--------------------------|
 | **Use case** | Exploration, manual testing | Application integration |
-| **Service management** | Manual: `foundry service start` | Automatic: `manager.start_service()` |
-| **Port discovery** | Read from CLI output | `manager.endpoint` property |
-| **Model download** | `foundry model download alias` | `manager.download_model(alias)` with progress callbacks |
+| **Service management** | Manual: `foundry service start` | Automatic: `manager.start_service()` (Python) / `manager.startWebService()` (JS/C#) |
+| **Port discovery** | Read from CLI output | `manager.endpoint` (Python) / `manager.urls[0]` (JS/C#) |
+| **Model download** | `foundry model download alias` | `manager.download_model(alias)` (Python) / `model.download()` (JS/C#) |
 | **Error handling** | Exit codes, stderr | Exceptions, typed errors |
 | **Automation** | Shell scripts | Native language integration |
 | **Deployment** | Requires CLI on end-user machine | C# SDK can be self-contained (no CLI needed) |
@@ -117,7 +117,7 @@ Edit the `.csproj` file:
     <EnableCoreMrtTooling>false</EnableCoreMrtTooling>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AI.Foundry.Local.WinML" Version="0.8.2.1" />
+    <PackageReference Include="Microsoft.AI.Foundry.Local.WinML" Version="[0.9.0,1.0.0)" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.10" />
   </ItemGroup>
 </Project>
@@ -205,37 +205,33 @@ for model in catalog:
 import { FoundryLocalManager } from "foundry-local-sdk";
 
 // Create a manager and start the service
-const manager = new FoundryLocalManager();
-await manager.startService();
+FoundryLocalManager.create({ appName: "SDKDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
-// List all models available in the catalog
-const catalog = await manager.listCatalogModels();
-console.log(`Models available in catalog: ${catalog.length}`);
-
-for (const model of catalog) {
-  console.log(`  - ${model.alias} (${model.id})`);
-  console.log(`    Task: ${model.task}, Size: ${model.fileSizeMb} MB`);
-}
+// Browse the catalog
+const catalog = manager.catalog;
+const model = await catalog.getModel("phi-3.5-mini");
+console.log(`Model alias: ${model.alias}`);
+console.log(`Model ID:    ${model.id}`);
+console.log(`Cached:      ${model.isCached}`);
 ```
 
-#### JavaScript SDK - Service Management Methods
+#### JavaScript SDK - Manager Methods
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `init()` | `(aliasOrModelId?: string) => Promise<FoundryModelInfo \| void>` | Initialize SDK and optionally load a model |
-| `isServiceRunning()` | `() => Promise<boolean>` | Check if the service is running |
-| `startService()` | `() => Promise<void>` | Start the Foundry Local service |
-| `serviceUrl` | `string` | The base URL of the service |
-| `endpoint` | `string` | The API endpoint (serviceUrl + `/v1`) |
-| `apiKey` | `string` | API key (placeholder for local) |
+| `FoundryLocalManager.create()` | `(options: { appName: string }) => void` | Initialise the SDK singleton |
+| `FoundryLocalManager.instance` | `FoundryLocalManager` | Access the singleton manager |
+| `manager.startWebService()` | `() => Promise<void>` | Start the Foundry Local web service |
+| `manager.urls` | `string[]` | Array of base URLs for the service |
 
-#### JavaScript SDK - Catalog Management Methods
+#### JavaScript SDK - Catalog and Model Methods
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `listCatalogModels()` | `() => Promise<FoundryModelInfo[]>` | List all models in the catalog |
-| `refreshCatalog()` | `() => Promise<void>` | Refresh the catalog |
-| `getModelInfo()` | `(aliasOrModelId: string, throwOnNotFound = false) => Promise<FoundryModelInfo \| null>` | Get info for a specific model |
+| `manager.catalog` | `Catalog` | Access the model catalog |
+| `catalog.getModel()` | `(alias: string) => Promise<Model>` | Get a model object by alias |
 
 </details>
 
@@ -285,7 +281,7 @@ foreach (var model in models)
 
 | Method | Description |
 |--------|-------------|
-| `FoundryLocalManager.CreateAsync(config, logger)` | Initialize the manager |
+| `FoundryLocalManager.CreateAsync(config, logger)` | Initialise the manager |
 | `FoundryLocalManager.Instance` | Access the singleton manager |
 | `manager.GetCatalogAsync()` | Get the model catalog |
 | `catalog.ListModelsAsync()` | List all available models |
@@ -361,49 +357,34 @@ import { FoundryLocalManager } from "foundry-local-sdk";
 
 const alias = "phi-3.5-mini";
 
-// Option A: Manual step-by-step
-const manager = new FoundryLocalManager();
-await manager.startService();
+// Step-by-step approach
+FoundryLocalManager.create({ appName: "SDKDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
-const cached = await manager.listCachedModels();
-const catalogInfo = await manager.getModelInfo(alias);
-const isAlreadyCached = cached.some((m) => m.id === catalogInfo?.id);
+const catalog = manager.catalog;
+const model = await catalog.getModel(alias);
 
-if (!isAlreadyCached) {
+if (!model.isCached) {
   console.log(`Downloading ${alias}...`);
-  await manager.downloadModel(alias, undefined, false, (progress) => {
-    process.stdout.write(`\rDownloading: ${progress.toFixed(1)}%`);
-    if (progress >= 100) process.stdout.write("\n");
-  });
+  await model.download();
 }
 
 console.log(`Loading ${alias}...`);
-const modelInfo = await manager.loadModel(alias);
-console.log(`Loaded: ${modelInfo.id}`);
-console.log(`Endpoint: ${manager.endpoint}`);
-
-// Option B: One-liner init (recommended)
-// init() starts the service, downloads, and loads in one call
-const manager2 = new FoundryLocalManager();
-const model = await manager2.init(alias);
-console.log(`Ready! Model: ${model.id}, Endpoint: ${manager2.endpoint}`);
+await model.load();
+console.log(`Loaded: ${model.id}`);
+console.log(`Endpoint: ${manager.urls[0]}/v1`);
 ```
 
-#### JavaScript - Model Management Methods
+#### JavaScript - Model Methods
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `downloadModel()` | `(aliasOrModelId, token?, force?, onProgress?) => Promise<FoundryModelInfo>` | Download with optional progress callback |
-| `loadModel()` | `(aliasOrModelId, ttl?) => Promise<FoundryModelInfo>` | Load into inference server |
-| `unloadModel()` | `(aliasOrModelId, force?) => Promise<void>` | Unload from inference server |
-| `listLoadedModels()` | `() => Promise<FoundryModelInfo[]>` | List all loaded models |
-
-#### JavaScript - Cache Management Methods
-
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| `getCacheLocation()` | `() => Promise<string>` | Get the cache directory path |
-| `listCachedModels()` | `() => Promise<FoundryModelInfo[]>` | List all downloaded models |
+| `model.isCached` | `boolean` | Whether the model is already downloaded |
+| `model.download()` | `() => Promise<void>` | Download the model to local cache |
+| `model.load()` | `() => Promise<void>` | Load into inference server |
+| `model.unload()` | `() => Promise<void>` | Unload from inference server |
+| `model.id` | `string` | The model's unique identifier |
 
 </details>
 
@@ -506,22 +487,15 @@ if info:
 ```javascript
 import { FoundryLocalManager } from "foundry-local-sdk";
 
-const manager = new FoundryLocalManager();
-await manager.startService();
+FoundryLocalManager.create({ appName: "SDKDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
-const info = await manager.getModelInfo("phi-3.5-mini");
-if (info) {
-  console.log(`Alias:              ${info.alias}`);
-  console.log(`Model ID:           ${info.id}`);
-  console.log(`Version:            ${info.version}`);
-  console.log(`Task:               ${info.task}`);
-  console.log(`Device Type:        ${info.deviceType}`);
-  console.log(`Execution Provider: ${info.executionProvider}`);
-  console.log(`File Size (MB):     ${info.fileSizeMb}`);
-  console.log(`Publisher:          ${info.publisher}`);
-  console.log(`License:            ${info.license}`);
-  console.log(`Tool Calling:       ${info.supportsToolCalling}`);
-}
+const catalog = manager.catalog;
+const model = await catalog.getModel("phi-3.5-mini");
+console.log(`Alias:              ${model.alias}`);
+console.log(`Model ID:           ${model.id}`);
+console.log(`Cached:             ${model.isCached}`);
 ```
 
 </details>
@@ -607,42 +581,32 @@ import { FoundryLocalManager } from "foundry-local-sdk";
 
 const alias = "qwen2.5-0.5b"; // Small model for quick testing
 
-const manager = new FoundryLocalManager();
-await manager.startService();
+FoundryLocalManager.create({ appName: "SDKDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
-// 1. Check catalog
-const catalog = await manager.listCatalogModels();
-console.log(`Catalog: ${catalog.length} models`);
+// 1. Get model from catalog
+const catalog = manager.catalog;
+const model = await catalog.getModel(alias);
+console.log(`Model: ${model.alias} (${model.id})`);
+console.log(`Cached: ${model.isCached}`);
 
-// 2. Check cache
-let cached = await manager.listCachedModels();
-console.log(`Cached: ${cached.length} models`);
+// 2. Download if needed
+if (!model.isCached) {
+  console.log(`\nDownloading ${alias}...`);
+  await model.download();
+  console.log("Download complete");
+}
 
-// 3. Download
-console.log(`\nDownloading ${alias}...`);
-await manager.downloadModel(alias, undefined, false, (progress) => {
-  process.stdout.write(`\r  Progress: ${progress.toFixed(1)}%`);
-  if (progress >= 100) process.stdout.write("\n");
-});
-
-// 4. Verify cache
-cached = await manager.listCachedModels();
-console.log(`Cached after download: ${cached.length} models`);
-
-// 5. Load
+// 3. Load it
 console.log(`\nLoading ${alias}...`);
-const modelInfo = await manager.loadModel(alias);
-console.log(`Loaded: ${modelInfo.id}`);
+await model.load();
+console.log(`Loaded: ${model.id}`);
 
-// 6. Check loaded
-let loaded = await manager.listLoadedModels();
-console.log(`\nLoaded models: ${loaded.length}`);
-
-// 7. Unload
+// 4. Unload it
 console.log(`\nUnloading ${alias}...`);
-await manager.unloadModel(alias);
-loaded = await manager.listLoadedModels();
-console.log(`Loaded after unload: ${loaded.length}`);
+await model.unload();
+console.log("Unloaded");
 ```
 
 </details>
@@ -680,29 +644,26 @@ manager = FoundryLocalManager(bootstrap=False)
 </details>
 
 <details>
-<summary><h3>📘 JavaScript - `init()` Method</h3></summary>
+<summary><h3>📘 JavaScript - `create()` + Catalog</h3></summary>
 
 ```javascript
 import { FoundryLocalManager } from "foundry-local-sdk";
 
-const manager = new FoundryLocalManager();
+// create() + startWebService() + catalog.getModel() handles everything:
+// 1. Starts the service
+// 2. Gets the model from the catalog
+// 3. Downloads if needed and loads the model
+FoundryLocalManager.create({ appName: "QuickStart" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
-// init() handles everything:
-// 1. Starts the service if not running
-// 2. Downloads the model if not cached
-// 3. Loads the model into the inference server
-const modelInfo = await manager.init("phi-3.5-mini");
+const model = await manager.catalog.getModel("phi-3.5-mini");
+if (!model.isCached) await model.download();
+await model.load();
 
 // Ready to use immediately
-console.log(`Endpoint: ${manager.endpoint}`);
-console.log(`Model ID: ${modelInfo.id}`);
-```
-
-You can also call `init()` without a model to just start the service:
-
-```javascript
-const manager = new FoundryLocalManager();
-await manager.init(); // Starts service only, no model loaded
+console.log(`Endpoint: ${manager.urls[0]}/v1`);
+console.log(`Model ID: ${model.id}`);
 ```
 
 </details>
@@ -741,7 +702,307 @@ Console.WriteLine($"Model loaded: {model.Id}");
 
 ---
 
-### Exercise 7: Understanding Aliases and Hardware Selection
+### Exercise 7: The Native ChatClient (No OpenAI SDK Needed)
+
+The JavaScript and C# SDKs provide a `createChatClient()` convenience method that returns a native chat client — no need to install or configure the OpenAI SDK separately.
+
+<details>
+<summary><h3>📘 JavaScript - <code>model.createChatClient()</code></h3></summary>
+
+```javascript
+import { FoundryLocalManager } from "foundry-local-sdk";
+
+FoundryLocalManager.create({ appName: "ChatClientDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
+
+const model = await manager.catalog.getModel("phi-3.5-mini");
+if (!model.isCached) await model.download();
+await model.load();
+
+// Create a ChatClient directly from the model — no OpenAI import needed
+const chatClient = model.createChatClient();
+
+// completeChat returns an OpenAI-compatible response object
+const response = await chatClient.completeChat([
+  { role: "user", content: "What is the golden ratio?" }
+]);
+console.log(response.choices[0].message.content);
+
+// Streaming uses a callback pattern
+await chatClient.completeStreamingChat(
+  [{ role: "user", content: "Explain quantum computing briefly." }],
+  (chunk) => {
+    if (chunk.choices?.[0]?.delta?.content) {
+      process.stdout.write(chunk.choices[0].delta.content);
+    }
+  }
+);
+```
+
+The `ChatClient` also supports tool calling — pass tools as the second argument:
+
+```javascript
+const response = await chatClient.completeChat(messages, tools);
+```
+
+</details>
+
+<details>
+<summary><h3>💜 C# - <code>model.GetChatClientAsync()</code></h3></summary>
+
+```csharp
+var catalog = await manager.GetCatalogAsync(default);
+var model = await catalog.GetModelAsync("phi-3.5-mini", default);
+if (!await model.IsCachedAsync(default))
+    await model.DownloadAsync(null, default);
+await model.LoadAsync(default);
+
+// Get a native chat client — no OpenAI NuGet package needed
+var chatClient = await model.GetChatClientAsync(default);
+
+// Use it exactly like the OpenAI ChatClient
+var response = chatClient.CompleteChat("What is the golden ratio?");
+Console.WriteLine(response.Value.Content[0].Text);
+```
+
+</details>
+
+> **When to use which pattern:**
+> - **`createChatClient()`** — Quick prototyping, fewer dependencies, simpler code
+> - **OpenAI SDK** — Full control over parameters (temperature, top_p, stop tokens, etc.), better for production applications
+
+---
+
+### Exercise 8: Model Variants and Hardware Selection
+
+Models can have multiple **variants** optimised for different hardware. The SDK selects the best variant automatically, but you can also inspect and choose manually.
+
+<details>
+<summary><h3>📘 JavaScript</h3></summary>
+
+```javascript
+import { FoundryLocalManager } from "foundry-local-sdk";
+
+FoundryLocalManager.create({ appName: "VariantDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
+
+const model = await manager.catalog.getModel("phi-3.5-mini");
+
+// List all available variants
+console.log(`Model: ${model.alias}`);
+console.log(`Variants: ${model.variants.length}`);
+for (const variant of model.variants) {
+  console.log(`  - ${variant.modelId}`);
+  console.log(`    Device: ${variant.deviceType}, Provider: ${variant.executionProvider}`);
+}
+
+// The SDK automatically selects the best variant for your hardware
+// To override, use selectVariant():
+// model.selectVariant(model.variants[0]);
+```
+
+</details>
+
+<details>
+<summary><h3>💜 C#</h3></summary>
+
+```csharp
+var model = await catalog.GetModelAsync("phi-3.5-mini", default);
+
+Console.WriteLine($"Model: {model.Alias}");
+Console.WriteLine($"Selected variant: {model.SelectedVariant?.Info.ModelId}");
+Console.WriteLine($"All variants:");
+foreach (var variant in model.Variants)
+{
+    Console.WriteLine($"  - {variant.Info.ModelId}");
+    Console.WriteLine($"    Device: {variant.Info.Runtime?.DeviceType}");
+}
+
+// To select a specific variant:
+// model.SelectVariant(model.Variants.First());
+```
+
+</details>
+
+<details>
+<summary><h3>🐍 Python</h3></summary>
+
+In Python, the SDK automatically selects the best variant based on hardware. Use `get_model_info()` to see what was selected:
+
+```python
+from foundry_local import FoundryLocalManager
+
+manager = FoundryLocalManager()
+manager.start_service()
+
+info = manager.get_model_info("phi-3.5-mini")
+print(f"Selected model: {info.id}")
+print(f"Device: {info.device_type}")
+print(f"Provider: {info.execution_provider}")
+```
+
+</details>
+
+#### Models with NPU Variants
+
+Some models have NPU-optimised variants for devices with Neural Processing Units (Qualcomm Snapdragon, Intel Core Ultra):
+
+| Model | NPU Variant Available |
+|-------|:---:|
+| phi-3.5-mini | ✅ |
+| phi-3-mini-128k | ✅ |
+| phi-3-mini-4k | ✅ |
+| deepseek-r1-14b | ✅ |
+| deepseek-r1-7b | ✅ |
+| qwen2.5-1.5b | ✅ |
+| qwen2.5-7b | ✅ |
+
+> **Tip:** On NPU-capable hardware, the SDK automatically selects the NPU variant when available. You do not need to change your code.
+
+---
+
+### Exercise 9: Model Upgrades and Catalog Refresh
+
+The model catalogue is updated periodically. Use these methods to check for and apply updates.
+
+<details>
+<summary><h3>🐍 Python</h3></summary>
+
+```python
+from foundry_local import FoundryLocalManager
+
+manager = FoundryLocalManager()
+manager.start_service()
+
+alias = "phi-3.5-mini"
+
+# Refresh the catalog to get the latest model list
+manager.refresh_catalog()
+
+# Check if a cached model has a newer version available
+if manager.is_model_upgradeable(alias):
+    print(f"{alias} has a newer version available!")
+    manager.upgrade_model(alias)
+    print("Upgrade complete")
+else:
+    print(f"{alias} is up to date")
+```
+
+</details>
+
+<details>
+<summary><h3>📘 JavaScript</h3></summary>
+
+```javascript
+import { FoundryLocalManager } from "foundry-local-sdk";
+
+FoundryLocalManager.create({ appName: "UpgradeDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
+
+// Refresh the catalog to fetch the latest model list
+await manager.catalog.updateModels();
+console.log("Catalog refreshed");
+
+// List all available models after refresh
+const models = await manager.catalog.getModels();
+console.log(`${models.length} models available`);
+```
+
+</details>
+
+---
+
+### Exercise 10: Working with Reasoning Models
+
+The **phi-4-mini-reasoning** model includes chain-of-thought reasoning. It wraps its internal thinking in `<think>...</think>` tags before producing its final answer. This is useful for tasks that require multi-step logic, maths, or problem-solving.
+
+<details>
+<summary><h3>🐍 Python</h3></summary>
+
+```python
+import openai
+from foundry_local import FoundryLocalManager
+
+# phi-4-mini-reasoning is ~4.6 GB
+manager = FoundryLocalManager("phi-4-mini-reasoning")
+
+client = openai.OpenAI(base_url=manager.endpoint, api_key=manager.api_key)
+model_id = manager.get_model_info("phi-4-mini-reasoning").id
+
+response = client.chat.completions.create(
+    model=model_id,
+    messages=[{"role": "user", "content": "What is 17 × 23?"}],
+)
+
+content = response.choices[0].message.content
+
+# The model wraps its thinking in <think>...</think> tags
+if "<think>" in content and "</think>" in content:
+    think_start = content.index("<think>") + len("<think>")
+    think_end = content.index("</think>")
+    thinking = content[think_start:think_end].strip()
+    answer = content[think_end + len("</think>"):].strip()
+    print(f"Thinking: {thinking}")
+    print(f"Answer: {answer}")
+else:
+    print(content)
+```
+
+</details>
+
+<details>
+<summary><h3>📘 JavaScript</h3></summary>
+
+```javascript
+import { OpenAI } from "openai";
+import { FoundryLocalManager } from "foundry-local-sdk";
+
+FoundryLocalManager.create({ appName: "ReasoningDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
+
+const model = await manager.catalog.getModel("phi-4-mini-reasoning");
+if (!model.isCached) await model.download();
+await model.load();
+
+const client = new OpenAI({
+  baseURL: manager.urls[0] + "/v1",
+  apiKey: "foundry-local",
+});
+
+const response = await client.chat.completions.create({
+  model: model.id,
+  messages: [{ role: "user", content: "What is 17 × 23?" }],
+});
+
+const content = response.choices[0].message.content;
+
+// Parse chain-of-thought thinking
+const thinkMatch = content.match(/<think>([\s\S]*?)<\/think>/);
+if (thinkMatch) {
+  console.log(`Thinking: ${thinkMatch[1].trim()}`);
+  console.log(`Answer: ${content.replace(/<think>[\s\S]*?<\/think>/, "").trim()}`);
+} else {
+  console.log(content);
+}
+```
+
+</details>
+
+> **When to use reasoning models:**
+> - Maths and logic problems
+> - Multi-step planning tasks
+> - Complex code generation
+> - Tasks where showing working improves accuracy
+>
+> **Trade-off:** Reasoning models produce more tokens (the `<think>` section) and are slower. For simple Q&A, a standard model like phi-3.5-mini is faster.
+
+---
+
+### Exercise 11: Understanding Aliases and Hardware Selection
 
 When you pass an **alias** (like `phi-3.5-mini`) instead of a full model ID, the SDK automatically selects the best variant for your hardware:
 
@@ -771,7 +1032,7 @@ print(f"Device type: {info.device_type}")
 
 ---
 
-### Exercise 8: C# Configuration Options
+### Exercise 12: C# Configuration Options
 
 The C# SDK's `Configuration` class provides fine-grained control over the runtime:
 
@@ -805,7 +1066,7 @@ var config = new Configuration
 
 ---
 
-### Exercise 9: Browser Usage (JavaScript Only)
+### Exercise 13: Browser Usage (JavaScript Only)
 
 The JavaScript SDK includes a browser-compatible version. In the browser, you must manually start the service via CLI and specify the host URL:
 
@@ -815,20 +1076,20 @@ import { FoundryLocalManager } from "foundry-local-sdk/browser";
 // Start the service manually first:
 //   foundry service start
 // Then use the URL from the CLI output
-const host = "http://localhost:5273";
+FoundryLocalManager.create({ appName: "BrowserDemo" });
+const manager = FoundryLocalManager.instance;
 
-const manager = new FoundryLocalManager({ host });
+// Browse the catalog
+const catalog = manager.catalog;
+const model = await catalog.getModel("phi-3.5-mini");
 
-// These methods work in the browser:
-const catalog = await manager.listCatalogModels();
-await manager.downloadModel("phi-3.5-mini");
-await manager.loadModel("phi-3.5-mini");
-
-const cached = await manager.listCachedModels();
-const loaded = await manager.listLoadedModels();
+if (!model.isCached) {
+  await model.download();
+}
+await model.load();
 ```
 
-> **Browser limitations:** The browser version does **not** support `init()`, `isServiceRunning()`, or `startService()`. You must ensure the Foundry Local service is already running before using the SDK in a browser.
+> **Browser limitations:** The browser version does **not** support `startWebService()`. You must ensure the Foundry Local service is already running before using the SDK in a browser.
 
 ---
 
@@ -852,32 +1113,43 @@ const loaded = await manager.listLoadedModels();
 | **Model** | `load_model(alias_or_model_id, ttl=600)` | Load a model |
 | **Model** | `unload_model(alias_or_model_id)` | Unload a model |
 | **Model** | `list_loaded_models()` | List loaded models |
+| **Model** | `is_model_upgradeable(alias_or_model_id)` | Check if a newer version is available |
+| **Model** | `upgrade_model(alias_or_model_id)` | Upgrade a model to the latest version |
+| **Service** | `httpx_client` | Pre-configured HTTPX client for direct API calls |
 
 ### JavaScript
 
 | Category | Method | Description |
 |----------|--------|-------------|
-| **Init** | `new FoundryLocalManager(options?)` | Create manager |
-| **Init** | `init(aliasOrModelId?)` | Start service + optionally load a model |
-| **Service** | `isServiceRunning()` | Check if service is running |
-| **Service** | `startService()` | Start the service |
-| **Service** | `endpoint` | API endpoint URL |
-| **Service** | `apiKey` | API key |
-| **Catalog** | `listCatalogModels()` | List all available models |
-| **Catalog** | `refreshCatalog()` | Refresh the catalog |
-| **Catalog** | `getModelInfo(aliasOrModelId)` | Get model metadata |
-| **Cache** | `getCacheLocation()` | Cache directory path |
-| **Cache** | `listCachedModels()` | List downloaded models |
-| **Model** | `downloadModel(aliasOrModelId, ...)` | Download with progress callback |
-| **Model** | `loadModel(aliasOrModelId, ttl?)` | Load a model |
-| **Model** | `unloadModel(aliasOrModelId)` | Unload a model |
-| **Model** | `listLoadedModels()` | List loaded models |
+| **Init** | `FoundryLocalManager.create(options)` | Initialise the SDK singleton |
+| **Init** | `FoundryLocalManager.instance` | Access the singleton manager |
+| **Service** | `manager.startWebService()` | Start the web service |
+| **Service** | `manager.urls` | Array of base URLs for the service |
+| **Catalog** | `manager.catalog` | Access the model catalog |
+| **Catalog** | `catalog.getModel(alias)` | Get a model object by alias (returns Promise) |
+| **Model** | `model.isCached` | Whether the model is downloaded |
+| **Model** | `model.download()` | Download the model |
+| **Model** | `model.load()` | Load the model |
+| **Model** | `model.unload()` | Unload the model |
+| **Model** | `model.id` | The model's unique identifier |
+| **Model** | `model.alias` | The model's alias |
+| **Model** | `model.createChatClient()` | Get a native chat client (no OpenAI SDK needed) |
+| **Model** | `model.createAudioClient()` | Get an audio client for transcription |
+| **Model** | `model.removeFromCache()` | Remove the model from the local cache |
+| **Model** | `model.selectVariant(variant)` | Select a specific hardware variant |
+| **Model** | `model.variants` | Array of available variants for this model |
+| **Model** | `model.isLoaded()` | Check if the model is currently loaded |
+| **Catalog** | `catalog.getModels()` | List all available models |
+| **Catalog** | `catalog.getCachedModels()` | List downloaded models |
+| **Catalog** | `catalog.getLoadedModels()` | List currently loaded models |
+| **Catalog** | `catalog.updateModels()` | Refresh the catalog from the service |
+| **Service** | `manager.stopWebService()` | Stop the Foundry Local web service |
 
 ### C# (v0.8.0+)
 
 | Category | Method | Description |
 |----------|--------|-------------|
-| **Init** | `FoundryLocalManager.CreateAsync(config, logger)` | Initialize the manager |
+| **Init** | `FoundryLocalManager.CreateAsync(config, logger)` | Initialise the manager |
 | **Init** | `FoundryLocalManager.Instance` | Access the singleton |
 | **Catalog** | `manager.GetCatalogAsync()` | Get catalog |
 | **Catalog** | `catalog.ListModelsAsync()` | List all models |
@@ -891,6 +1163,8 @@ const loaded = await manager.listLoadedModels();
 | **Model** | `model.GetChatClientAsync()` | Get native chat client |
 | **Model** | `model.GetAudioClientAsync()` | Get audio transcription client |
 | **Model** | `model.GetPathAsync()` | Get local file path |
+| **Catalog** | `catalog.GetModelVariantAsync(alias, variant)` | Get a specific hardware variant |
+| **Catalog** | `catalog.UpdateModelsAsync()` | Refresh the catalog |
 | **Server** | `manager.StartWebServerAsync()` | Start the REST web server |
 | **Server** | `manager.StopWebServerAsync()` | Stop the REST web server |
 | **Config** | `config.ModelCacheDir` | Cache directory |
@@ -903,12 +1177,16 @@ const loaded = await manager.listLoadedModels();
 |---------|-----------------|
 | **SDK vs CLI** | The SDK provides programmatic control - essential for applications |
 | **Control plane** | The SDK manages services, models, and caching |
-| **Dynamic ports** | Always use `manager.endpoint` - never hardcode a port |
+| **Dynamic ports** | Always use `manager.endpoint` (Python) or `manager.urls[0]` (JS/C#) - never hardcode a port |
 | **Aliases** | Use aliases for automatic hardware-optimal model selection |
-| **Quick-start** | Python: `FoundryLocalManager(alias)`, JS: `manager.init(alias)` |
+| **Quick-start** | Python: `FoundryLocalManager(alias)`, JS: `FoundryLocalManager.create()` + `await catalog.getModel(alias)` |
 | **C# redesign** | v0.8.0+ is self-contained - no CLI needed on end-user machines |
 | **Model lifecycle** | Catalog → Download → Load → Use → Unload |
 | **FoundryModelInfo** | Rich metadata: task, device, size, license, tool calling support |
+| **ChatClient** | `createChatClient()` (JS) / `GetChatClientAsync()` (C#) for OpenAI-free usage |
+| **Variants** | Models have hardware-specific variants (CPU, GPU, NPU); selected automatically |
+| **Upgrades** | Python: `is_model_upgradeable()` + `upgrade_model()` to keep models current |
+| **Catalog refresh** | `refresh_catalog()` (Python) / `updateModels()` (JS) to discover new models |
 
 ---
 

@@ -202,7 +202,7 @@ catalog_info = manager.get_model_info(MODEL_ALIAS)
 is_cached = any(m.id == catalog_info.id for m in cached) if catalog_info else False
 
 if not is_cached:
-    manager.download_model(MODEL_ALIAS, progress_callback=_on_progress)
+    manager.download_model(MODEL_ALIAS)
 
 # Step 3: Load the model into memory
 manager.load_model(MODEL_ALIAS)
@@ -223,19 +223,21 @@ All agents import `from foundry_config import client, model_id`.
 import { FoundryLocalManager } from "foundry-local-sdk";
 import { OpenAI } from "openai";
 
-const manager = new FoundryLocalManager();
-await manager.startService();
+FoundryLocalManager.create({ appName: "ZavaCreativeWriter" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
-// Cache check → download → load (same 4-step pattern)
-const cachedModels = await manager.listCachedModels();
-const catalogInfo = await manager.getModelInfo(MODEL_ALIAS);
-const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
-if (!isAlreadyCached) {
-  await manager.downloadModel(MODEL_ALIAS, undefined, false, progressCallback);
+// Check cache → download → load (new SDK pattern)
+const catalog = manager.catalog;
+const model = await catalog.getModel(MODEL_ALIAS);
+if (!model.isCached) {
+  console.log(`Downloading model: ${MODEL_ALIAS}...`);
+  await model.download();
 }
-const modelInfo = await manager.loadModel(MODEL_ALIAS);
+await model.load();
 
-const client = new OpenAI({ baseURL: manager.endpoint, apiKey: manager.apiKey });
+const client = new OpenAI({ baseURL: manager.urls[0] + "/v1", apiKey: "foundry-local" });
+const modelId = model.id;
 export { client, modelId };
 ```
 
@@ -274,7 +276,7 @@ The `chatClient` is then passed to all agent functions in the same file.
 
 </details>
 
-> **Key pattern:** The 4-step model loading (`startService` → cache check → `downloadModel` → `loadModel`) ensures the user sees clear progress and the model is only downloaded once. This is a best practice for any Foundry Local application.
+> **Key pattern:** The model loading pattern (start service → check cache → download → load) ensures the user sees clear progress and the model is only downloaded once. This is a best practice for any Foundry Local application.
 
 ---
 
@@ -351,7 +353,7 @@ This application demonstrates the recommended pattern for building multi-agent s
 | **Orchestrator** | Pipeline coordinator | Manages data flow, sequencing, and feedback loops |
 | **Framework** | Microsoft Agent Framework | Provides the `ChatAgent` abstraction and patterns |
 
-The key insight: **Foundry Local replaces the cloud backend, not the application architecture.** The same agent patterns, orchestration strategies, and structured hand-offs that work with cloud-hosted models work identically with local models - you just point the client at `manager.endpoint` instead of an Azure endpoint.
+The key insight: **Foundry Local replaces the cloud backend, not the application architecture.** The same agent patterns, orchestration strategies, and structured hand-offs that work with cloud-hosted models work identically with local models — you just point the client at the local endpoint instead of an Azure endpoint.
 
 ---
 

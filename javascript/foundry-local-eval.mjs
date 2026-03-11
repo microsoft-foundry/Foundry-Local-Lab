@@ -164,35 +164,35 @@ async function main() {
 
   // Start Foundry Local
   console.log("\nStarting Foundry Local service...");
-  const manager = new FoundryLocalManager();
-  await manager.startService();
+  FoundryLocalManager.create({ appName: "FoundryLocalWorkshop" });
+  const manager = FoundryLocalManager.instance;
+  await manager.startWebService();
 
-  const cachedModels = await manager.listCachedModels();
-  const catalogInfo = await manager.getModelInfo(alias);
-  const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
+  const catalog = manager.catalog;
+  const model = await catalog.getModel(alias);
 
-  if (isAlreadyCached) {
+  if (model.isCached) {
     console.log(`Model already downloaded: ${alias}`);
   } else {
     console.log(
       `Downloading model: ${alias} (this may take several minutes)...`
     );
-    await manager.downloadModel(alias);
+    await model.download();
     console.log(`Download complete: ${alias}`);
   }
 
   console.log(`Loading model: ${alias}...`);
-  const modelInfo = await manager.loadModel(alias);
-  console.log(`Model loaded: ${modelInfo.id}`);
-  console.log(`Endpoint: ${manager.endpoint}`);
+  await model.load();
+  console.log(`Model loaded: ${model.id}`);
+  console.log(`Endpoint: ${manager.urls[0]}`);
   console.log(`Test cases: ${GOLDEN_DATASET.length}`);
   console.log(
     `Prompt variants: ${Object.keys(PROMPT_VARIANTS).length}\n`
   );
 
   const client = new OpenAI({
-    baseURL: manager.endpoint,
-    apiKey: manager.apiKey,
+    baseURL: manager.urls[0] + "/v1",
+    apiKey: "foundry-local",
   });
 
   // Run evaluation for each prompt variant
@@ -214,7 +214,7 @@ async function main() {
       // Run the agent
       const response = await runAgent(
         client,
-        modelInfo.id,
+        model.id,
         systemPrompt,
         testCase.input
       );
@@ -241,7 +241,7 @@ async function main() {
       // LLM-as-judge scoring
       const judgeResult = await llmJudge(
         client,
-        modelInfo.id,
+        model.id,
         testCase.input,
         response
       );

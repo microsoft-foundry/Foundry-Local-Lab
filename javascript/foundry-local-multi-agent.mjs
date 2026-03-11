@@ -36,44 +36,43 @@ class ChatAgent {
 
 // ── Main workflow ──────────────────────────────────────────────────────────
 async function main() {
-  // Start Foundry Local
   const alias = "phi-3.5-mini";
-  const manager = new FoundryLocalManager();
 
-  // Step 1: Start the service
+  // Step 1: Create a FoundryLocalManager and start the service
   console.log("Starting Foundry Local service...");
-  await manager.startService();
+  FoundryLocalManager.create({ appName: "FoundryLocalWorkshop" });
+  const manager = FoundryLocalManager.instance;
+  await manager.startWebService();
 
-  // Step 2: Check if model is already downloaded
-  const cachedModels = await manager.listCachedModels();
-  const catalogInfo = await manager.getModelInfo(alias);
-  const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
+  // Step 2: Get the model from the catalog
+  const catalog = manager.catalog;
+  const model = await catalog.getModel(alias);
 
-  if (isAlreadyCached) {
+  if (model.isCached) {
     console.log(`Model already downloaded: ${alias}`);
   } else {
     console.log(
       `Downloading model: ${alias} (this may take several minutes)...`
     );
-    await manager.downloadModel(alias);
+    await model.download();
     console.log(`Download complete: ${alias}`);
   }
 
   // Step 3: Load the model into memory
   console.log(`Loading model: ${alias}...`);
-  const modelInfo = await manager.loadModel(alias);
-  console.log(`Model: ${modelInfo.id}`);
-  console.log(`Endpoint: ${manager.endpoint}\n`);
+  await model.load();
+  console.log(`Model: ${model.id}`);
+  console.log(`Endpoint: ${manager.urls[0]}\n`);
 
   const client = new OpenAI({
-    baseURL: manager.endpoint,
-    apiKey: manager.apiKey,
+    baseURL: manager.urls[0] + "/v1",
+    apiKey: "foundry-local",
   });
 
   // ── Define agents ──────────────────────────────────────────────────────
   const researcher = new ChatAgent({
     client,
-    modelId: modelInfo.id,
+    modelId: model.id,
     instructions:
       "You are a research assistant. When given a topic, provide a concise " +
       "collection of key facts, statistics, and background information. " +
@@ -83,7 +82,7 @@ async function main() {
 
   const writer = new ChatAgent({
     client,
-    modelId: modelInfo.id,
+    modelId: model.id,
     instructions:
       "You are a skilled blog writer. Using the research notes provided, " +
       "write a short, engaging blog post (3-4 paragraphs). " +
@@ -93,7 +92,7 @@ async function main() {
 
   const editor = new ChatAgent({
     client,
-    modelId: modelInfo.id,
+    modelId: model.id,
     instructions:
       "You are a senior editor. Review the blog post below for clarity, " +
       "grammar, and factual consistency with the research notes. " +

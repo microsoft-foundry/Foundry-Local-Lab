@@ -7,6 +7,7 @@
 //   dotnet run multi     → Part 6: Multi-agent workflow
 //   dotnet run eval      → Part 8: Agent evaluation framework
 //   dotnet run whisper   → Part 9: Whisper voice transcription
+//   dotnet run toolcall  → Part 11: Tool/function calling
 
 var part = args.Length > 0 ? args[0].ToLowerInvariant() : "chat";
 
@@ -30,13 +31,17 @@ switch (part)
     case "whisper":
         await Examples.WhisperTranscription.RunAsync(args);
         break;
+    case "toolcall":
+        await Examples.ToolCalling.RunAsync();
+        break;
     default:
-        Console.WriteLine("Usage: dotnet run [chat|rag|agent|multi|eval|whisper]");
-        Console.WriteLine("  chat    — Part 3: Basic streaming chat completion");
-        Console.WriteLine("  rag     — Part 4: RAG pipeline with local knowledge base");
-        Console.WriteLine("  agent   — Part 5: Single AI agent with system instructions");
-        Console.WriteLine("  multi   — Part 6: Multi-agent Researcher → Writer → Editor");
-        Console.WriteLine("  eval    — Part 8: Agent evaluation framework");
-        Console.WriteLine("  whisper — Part 9: Whisper voice transcription");
+        Console.WriteLine("Usage: dotnet run [chat|rag|agent|multi|eval|whisper|toolcall]");
+        Console.WriteLine("  chat     — Part 3: Basic streaming chat completion");
+        Console.WriteLine("  rag      — Part 4: RAG pipeline with local knowledge base");
+        Console.WriteLine("  agent    — Part 5: Single AI agent with system instructions");
+        Console.WriteLine("  multi    — Part 6: Multi-agent Researcher → Writer → Editor");
+        Console.WriteLine("  eval     — Part 8: Agent evaluation framework");
+        Console.WriteLine("  whisper  — Part 9: Whisper voice transcription");
+        Console.WriteLine("  toolcall — Part 11: Tool/function calling");
         break;
 }

@@ -310,7 +310,7 @@ Try these modifications to deepen your understanding:
 
 ---
 
-## Deep Dive: Optimizing RAG for On-Device Performance
+## Deep Dive: Optimising RAG for On-Device Performance
 
 Running RAG on-device introduces constraints you do not face in the cloud: limited RAM, no dedicated GPU (CPU/NPU execution), and a small model context window. The design decisions below directly address these constraints and are based on patterns from production-style local RAG applications built with Foundry Local.
 

@@ -443,7 +443,7 @@ from openai import OpenAI
 
 client = OpenAI(
     base_url="http://localhost:5273/v1",
-    api_key="not-required",  # Foundry Local does not use API keys
+    api_key="foundry-local",  # Foundry Local does not validate API keys
 )
 
 response = client.chat.completions.create(
@@ -469,7 +469,7 @@ import OpenAI from "openai";
 
 const client = new OpenAI({
   baseURL: "http://localhost:5273/v1",
-  apiKey: "not-required", // Foundry Local does not use API keys
+  apiKey: "foundry-local", // Foundry Local does not validate API keys
 });
 
 const response = await client.chat.completions.create({
@@ -602,28 +602,30 @@ const modelAlias = "qwen3-0.6b";
 
 // Step 1: Start the Foundry Local service
 console.log("Starting Foundry Local service...");
-const manager = new FoundryLocalManager();
-await manager.startService();
+FoundryLocalManager.create({ appName: "CustomModelDemo" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
-// Step 2: Check the cache for the custom model
-const cachedModels = await manager.listCachedModels();
-console.log("Cached models:", cachedModels.map((m) => m.id));
+// Step 2: Get the custom model from the catalog
+const catalog = manager.catalog;
+const model = await catalog.getModel(modelAlias);
+console.log(`Model: ${model.alias} (cached: ${model.isCached})`);
 
 // Step 3: Load the model into memory
 console.log(`Loading model: ${modelAlias}...`);
-const modelInfo = await manager.loadModel(modelAlias);
-console.log("Loaded model:", modelInfo.id);
+await model.load();
+console.log("Loaded model:", model.id);
 
 // Step 4: Create an OpenAI client using the SDK-discovered endpoint
 const client = new OpenAI({
-  baseURL: manager.endpoint,
-  apiKey: manager.apiKey,
+  baseURL: manager.urls[0] + "/v1",
+  apiKey: "foundry-local",
 });
 
 // Step 5: Send a streaming chat completion request
 console.log("\n--- Model Response ---");
 const stream = await client.chat.completions.create({
-  model: modelAlias,
+  model: model.id,
   messages: [
     { role: "system", content: "You are a helpful assistant." },
     { role: "user", content: "Explain how bees make honey, in three sentences." },
@@ -654,6 +656,7 @@ node foundry_sdk_custom_model.mjs
 
 ```csharp
 using Microsoft.AI.Foundry.Local;
+using Microsoft.Extensions.Logging.Abstractions;
 using OpenAI;
 using OpenAI.Chat;
 using System.ClientModel;
@@ -662,26 +665,35 @@ var modelAlias = "qwen3-0.6b";
 
 // Step 1: Start the Foundry Local service
 Console.WriteLine("Starting Foundry Local service...");
-var manager = await FoundryLocalManager.StartServiceAsync();
+await FoundryLocalManager.CreateAsync(
+    new Configuration
+    {
+        AppName = "CustomModelDemo",
+        Web = new Configuration.WebService { Urls = "http://127.0.0.1:0" }
+    }, NullLogger.Instance, default);
+var manager = FoundryLocalManager.Instance;
+await manager.StartWebServiceAsync(default);
 
-// Step 2: Check the cache for the custom model
-var cachedModels = await manager.ListCachedModelsAsync();
-Console.WriteLine($"Cached models: {string.Join(", ", cachedModels.Select(m => m.ModelId))}");
+// Step 2: Get the custom model from the catalog
+var catalog = await manager.GetCatalogAsync(default);
+var model = await catalog.GetModelAsync(modelAlias, default);
 
-// Step 3: Load the model into memory
+// Step 3: Download if needed and load the model into memory
 Console.WriteLine($"Loading model: {modelAlias}...");
-var modelInfo = await manager.LoadModelAsync(aliasOrModelId: modelAlias);
-Console.WriteLine($"Loaded model: {modelInfo?.ModelId}");
-Console.WriteLine($"Endpoint: {manager.Endpoint}");
+var isCached = await model.IsCachedAsync(default);
+if (!isCached)
+    await model.DownloadAsync(null, default);
+await model.LoadAsync(default);
+Console.WriteLine($"Loaded model: {model.Id}");
 
-// Step 4: Create an OpenAI client using the SDK-discovered endpoint
-var key = new ApiKeyCredential(manager.ApiKey);
+// Step 4: Create an OpenAI client
+var key = new ApiKeyCredential("foundry-local");
 var client = new OpenAIClient(key, new OpenAIClientOptions
 {
-    Endpoint = manager.Endpoint,
+    Endpoint = new Uri(manager.Urls.First()),
 });
 
-var chatClient = client.GetChatClient(modelInfo?.ModelId);
+var chatClient = client.GetChatClient(model.Id);
 
 // Step 5: Stream a chat completion response
 Console.WriteLine("\n--- Model Response ---");
@@ -802,6 +814,8 @@ Congratulations — you have completed the full Foundry Local Workshop! You have
 | 8 | Built evaluation-led development workflows for agents |
 | 9 | Transcribed audio with Whisper — speech-to-text on-device |
 | 10 | Compiled and ran a custom Hugging Face model with ONNX Runtime GenAI |
+
+Continue to [Part 11: Tool Calling with Local Models](part11-tool-calling.md) to learn how to enable your local models to call external functions.
 
 Go back to the [workshop overview](../README.md) to review what you have covered and explore the further reading resources.
 

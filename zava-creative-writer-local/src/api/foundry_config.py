@@ -5,7 +5,6 @@ Initializes the FoundryLocalManager once and provides an OpenAI-compatible
 client that every agent can import.
 """
 
-import sys
 import openai
 from foundry_local import FoundryLocalManager
 
@@ -26,17 +25,7 @@ if is_cached:
     print(f"Model already downloaded: {MODEL_ALIAS}")
 else:
     print(f"Downloading model: {MODEL_ALIAS} (this may take several minutes)...")
-
-    def _on_progress(progress):
-        bar_width = 30
-        filled = int(progress / 100 * bar_width)
-        bar = "█" * filled + "░" * (bar_width - filled)
-        sys.stdout.write(f"\rDownloading: [{bar}] {progress:.1f}%")
-        if progress >= 100:
-            sys.stdout.write("\n")
-        sys.stdout.flush()
-
-    manager.download_model(MODEL_ALIAS, progress_callback=_on_progress)
+    manager.download_model(MODEL_ALIAS)
     print(f"Download complete: {MODEL_ALIAS}")
 
 # Step 3: Load the model into memory

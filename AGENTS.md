@@ -9,10 +9,10 @@ This is a **hands-on workshop** for building AI applications with [Foundry Local
 ## Repository Structure
 
 ```
-├── labs/                              # Markdown lab guides (Parts 1–10)
-├── python/                            # Python code samples (Parts 2–6, 8–9)
-├── javascript/                        # JavaScript/Node.js code samples (Parts 2–6, 8–9)
-├── csharp/                            # C# / .NET 9 code samples (Parts 2–6, 8–9)
+├── labs/                              # Markdown lab guides (Parts 1–11)
+├── python/                            # Python code samples (Parts 2–6, 8–9, 11)
+├── javascript/                        # JavaScript/Node.js code samples (Parts 2–6, 8–9, 11)
+├── csharp/                            # C# / .NET 9 code samples (Parts 2–6, 8–9, 11)
 ├── zava-creative-writer-local/        # Part 7 capstone app (Python/JS/C#)
 │   └── src/
 │       ├── api/                       # Python FastAPI multi-agent service
@@ -55,8 +55,8 @@ This is a **hands-on workshop** for building AI applications with [Foundry Local
 ### General
 - All code samples are **self-contained single-file examples** — no shared utility libraries or abstractions.
 - Each sample runs independently after installing its own dependencies.
-- API keys are always set to `"not-required"` — Foundry Local does not use API keys.
-- Base URLs use `http://localhost:<port>/v1` — the port is dynamic and discovered at runtime.
+- API keys are always set to `"foundry-local"` — Foundry Local uses this as a placeholder.
+- Base URLs use `http://localhost:<port>/v1` — the port is dynamic and discovered at runtime via the SDK (`manager.urls[0]` in JS, `manager.endpoint` in Python).
 - The Foundry Local SDK handles service startup and endpoint discovery; prefer SDK patterns over hard-coded ports.
 
 ### Python
@@ -68,6 +68,7 @@ This is a **hands-on workshop** for building AI applications with [Foundry Local
 ### JavaScript
 - ES module syntax: `import ... from "..."`.
 - Use `OpenAI` from `"openai"` and `FoundryLocalManager` from `"foundry-local-sdk"`.
+- SDK init pattern: `FoundryLocalManager.create({ appName })` → `FoundryLocalManager.instance` → `manager.startWebService()` → `await catalog.getModel(alias)`.
 - Streaming: `for await (const chunk of stream)`.
 - Top-level `await` is used throughout.
 
@@ -76,6 +77,23 @@ This is a **hands-on workshop** for building AI applications with [Foundry Local
 - Use `FoundryLocalManager.StartServiceAsync()` for SDK-managed lifecycle.
 - Streaming: `CompleteChatStreaming()` with `foreach (var update in completionUpdates)`.
 - The main `csharp/Program.cs` is a CLI router dispatching to static `RunAsync()` methods.
+
+### Tool Calling
+- Only certain models support tool calling: **Qwen 2.5** family (`qwen2.5-*`) and **Phi-4-mini** (`phi-4-mini`).
+- Tool schemas follow the OpenAI function-calling JSON format (`type: "function"`, `function.name`, `function.description`, `function.parameters`).
+- The conversation uses a multi-turn pattern: user → assistant (tool_calls) → tool (results) → assistant (final answer).
+- The `tool_call_id` in tool result messages must match the `id` from the model's tool call.
+- Python uses the OpenAI SDK directly; JavaScript uses the SDK's native `ChatClient` (`model.createChatClient()`); C# uses the OpenAI SDK with `ChatTool.CreateFunctionTool()`.
+
+### ChatClient (Native SDK Client)
+- JavaScript: `model.createChatClient()` returns a `ChatClient` with `completeChat(messages, tools?)` and `completeStreamingChat(messages, callback)`.
+- C#: `model.GetChatClientAsync()` returns a standard `ChatClient` that can be used without importing the OpenAI NuGet package.
+- Python does not have a native ChatClient — use the OpenAI SDK with `manager.endpoint` and `manager.api_key`.
+- **Important:** JavaScript `completeStreamingChat` uses a **callback pattern**, not async iteration.
+
+### Reasoning Models
+- `phi-4-mini-reasoning` wraps its thinking in `<think>...</think>` tags before the final answer.
+- Parse the tags to separate reasoning from the answer when needed.
 
 ## Lab Guides
 
@@ -101,7 +119,7 @@ When editing lab content:
 |--------|---------|
 | **Python samples** | `cd python && pip install -r requirements.txt && python <script>.py` |
 | **JS samples** | `cd javascript && npm install && node <script>.mjs` |
-| **C# samples** | `cd csharp && dotnet run [chat\|rag\|agent\|multi]` |
+| **C# samples** | `cd csharp && dotnet run [chat\|rag\|agent\|multi\|eval\|whisper\|toolcall]` |
 | **Zava Python** | `cd zava-creative-writer-local/src/api && pip install -r requirements.txt && uvicorn main:app` |
 | **Zava JS** | `cd zava-creative-writer-local/src/javascript && npm install && node main.mjs` |
 | **Zava C#** | `cd zava-creative-writer-local/src/csharp && dotnet run` |

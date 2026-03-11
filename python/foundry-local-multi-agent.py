@@ -68,23 +68,23 @@ async def main():
     research_result = await researcher.run(
         f"Research the following topic and provide key facts:\n{topic}"
     )
-    print(f"\n--- Research Notes ---\n{research_result}\n")
+    print(f"\n--- Research Notes ---\n{research_result.text}\n")
 
     # Step 2 — Write
     print("✍️  Writer is drafting the article...")
     writer_result = await writer.run(
-        f"Write a blog post based on these research notes:\n\n{research_result}"
+        f"Write a blog post based on these research notes:\n\n{research_result.text}"
     )
-    print(f"\n--- Draft Article ---\n{writer_result}\n")
+    print(f"\n--- Draft Article ---\n{writer_result.text}\n")
 
     # Step 3 — Edit
     print("📝 Editor is reviewing the article...")
     editor_result = await editor.run(
         f"Review this article for quality and accuracy.\n\n"
-        f"Research notes:\n{research_result}\n\n"
-        f"Article:\n{writer_result}"
+        f"Research notes:\n{research_result.text}\n\n"
+        f"Article:\n{writer_result.text}"
     )
-    print(f"\n--- Editor Verdict ---\n{editor_result}\n")
+    print(f"\n--- Editor Verdict ---\n{editor_result.text}\n")
 
     print("=" * 60)
     print("✅ Multi-agent workflow complete!")

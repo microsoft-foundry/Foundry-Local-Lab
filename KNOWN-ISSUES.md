@@ -1,6 +1,6 @@
 # Known Issues — Foundry Local Workshop
 
-Issues encountered while building and testing this workshop on a **Snapdragon X Elite (ARM64)** device running Windows, with Foundry Local SDK v0.8.2.1and .NET SDK 10.0.
+Issues encountered while building and testing this workshop on a **Snapdragon X Elite (ARM64)** device running Windows, with Foundry Local SDK v0.9.0 and .NET SDK 10.0.
 
 ---
 
@@ -185,7 +185,7 @@ All other 4 files transcribed correctly. The same file transcribed successfully 
 ## 9. C# SDK Only Ships net8.0 — No Official .NET 9 or .NET 10 Target
 
 **Severity:** Documentation gap
-**Component:** `Microsoft.AI.Foundry.Local` NuGet package v0.8.2.1
+**Component:** `Microsoft.AI.Foundry.Local` NuGet package v0.9.0
 **Install command:** `dotnet add package Microsoft.AI.Foundry.Local`
 
 The NuGet package only ships a single target framework:
@@ -202,20 +202,56 @@ No `net9.0` or `net10.0` TFM is included. By contrast, the companion package `Mi
 
 | Target Framework | Build | Run | Notes |
 |-----------------|-------|-----|-------|
-| net8.0 | ✅ | ✅ | Officially supported — used in workshop samples |
-| net9.0 | ✅ | ❌ | Builds via forward-compat, but .NET 9 runtime not available on test machine (only 8.0.24 and 10.0.3 installed) |
+| net8.0 | ✅ | ✅ | Officially supported |
+| net9.0 | ✅ | ✅ | Builds via forward-compat — used in workshop samples |
 | net10.0 | ✅ | ✅ | Builds and runs via forward-compat with .NET 10.0.3 runtime |
 
 The net8.0 assembly loads on newer runtimes through .NET's forward-compatibility mechanism, so the build succeeds. However, this is undocumented and untested by the SDK team.
 
-### Why the Samples Target net8.0
+### Why the Samples Target net9.0
 
-1. **It is the only officially shipped TFM** in the Foundry Local NuGet package
-2. **.NET 8 is the current LTS release** — the broadest install base
-3. **.NET 9 runtime is not commonly installed** — .NET 9 reached end-of-life (STS), and many machines skip directly from 8 to 10
-4. **.NET 10 (preview/RC)** is too new to target in a workshop that should work for everyone
+1. **.NET 9 is the latest stable release** — most workshop participants will have it installed
+2. **Forward compatibility works** — the net8.0 assembly in the NuGet package runs on the .NET 9 runtime without issues
+3. **.NET 10 (preview/RC)** is too new to target in a workshop that should work for everyone
 
 **Expected:** Future SDK releases should consider adding `net9.0` and `net10.0` TFMs alongside `net8.0` to match the pattern used by `Microsoft.Agents.AI.OpenAI` and to provide validated support for newer runtimes.
+
+---
+
+## 10. JavaScript ChatClient Streaming Uses Callbacks, Not Async Iterators
+
+**Severity:** Documentation gap
+**Component:** `foundry-local-sdk` JavaScript v0.9.x — `ChatClient.completeStreamingChat()`
+
+The `ChatClient` returned by `model.createChatClient()` provides a `completeStreamingChat()` method, but it uses a **callback pattern** rather than returning an async iterable:
+
+```javascript
+// ❌ This does NOT work — throws "stream is not async iterable"
+for await (const chunk of chatClient.completeStreamingChat(messages)) { ... }
+
+// ✅ Correct pattern — pass a callback
+await chatClient.completeStreamingChat(messages, (chunk) => {
+  process.stdout.write(chunk.choices?.[0]?.delta?.content ?? "");
+});
+```
+
+**Impact:** Developers familiar with the OpenAI SDK's async iteration pattern (`for await`) will encounter confusing errors. The callback must be a valid function or the SDK throws "Callback must be a valid function."
+
+**Expected:** Document the callback pattern in the SDK reference. Alternatively, support the async iterable pattern for consistency with the OpenAI SDK.
+
+---
+
+## 11. Tool Calling — Model May Not Support All tool_choice Options
+
+**Severity:** Minor
+**Component:** Local inference server
+**Reproduction:** Use `tool_choice: "required"` or a specific function name with smaller models
+
+Some tool calling models (particularly qwen2.5-0.5b) may not fully support all `tool_choice` values. The `"auto"` setting works reliably, but `"required"` and specific function targeting may be ignored or produce unpredictable results.
+
+**Workaround:** Use `tool_choice: "auto"` (the default) for the most reliable behaviour. Design tool descriptions to be clear enough that the model calls the right tool without forcing.
+
+**Expected:** Document which `tool_choice` options are supported per model.
 
 ---
 
@@ -225,11 +261,11 @@ The net8.0 assembly loads on newer runtimes through .NET's forward-compatibility
 |-----------|---------|
 | OS | Windows 11 ARM64 |
 | Hardware | Snapdragon X Elite (X1E78100) |
-| Foundry Local SDK (C#) | 0.8.2.1 |
+| Foundry Local SDK (C#) | 0.9.0 |
 | Microsoft.Agents.AI.OpenAI | 1.0.0-rc3 |
-| OpenAI C# SDK | 2.8.0 |
+| OpenAI C# SDK | 2.9.0 |
 | .NET SDK | 10.0.103 |
-| foundry-local-sdk (Python) | 0.1.x |
-| foundry-local-sdk (JS) | 0.3.x |
+| foundry-local-sdk (Python) | 0.5.x |
+| foundry-local-sdk (JS) | 0.9.x |
 | Node.js | 18+ |
 | ONNX Runtime | 1.18+ |

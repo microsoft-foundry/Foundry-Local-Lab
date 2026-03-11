@@ -109,8 +109,8 @@ client = FoundryLocalClient(model_id="phi-3.5-mini")
 ```javascript
 // JavaScript - OpenAI SDK pointed at Foundry Local
 const client = new OpenAI({
-  baseURL: manager.endpoint,
-  apiKey: manager.apiKey,
+  baseURL: manager.urls[0] + "/v1",
+  apiKey: "foundry-local",
 });
 ```
 

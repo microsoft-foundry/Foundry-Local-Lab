@@ -73,8 +73,15 @@ foundry model list
 You will see models like:
 - `phi-3.5-mini` - Microsoft's 3.8B parameter model (fast, good quality)
 - `phi-4-mini` - Newer, more capable Phi model
+- `phi-4-mini-reasoning` - Phi model with chain-of-thought reasoning (`<think>` tags)
+- `phi-4` - Microsoft's largest Phi model (10.4 GB)
 - `qwen2.5-0.5b` - Very small and fast (good for low-resource devices)
+- `qwen2.5-7b` - Strong general-purpose model with tool-calling support
+- `qwen2.5-coder-7b` - Optimised for code generation
 - `deepseek-r1-7b` - Strong reasoning model
+- `gpt-oss-20b` - Large open-source model (MIT licence, 12.5 GB)
+- `whisper-base` - Speech-to-text transcription (383 MB)
+- `whisper-large-v3-turbo` - High-accuracy transcription (9 GB)
 
 > **What is a model alias?** Aliases like `phi-3.5-mini` are shortcuts. When you use an alias, Foundry Local automatically downloads the best variant for your specific hardware (CUDA for NVIDIA GPUs, CPU-optimised otherwise). You never need to worry about picking the right variant.
 
@@ -125,7 +132,7 @@ Foundry Local runs as a **local HTTP service** that exposes an OpenAI-compatible
 
 ![Foundry Local Architecture](../images/part1-architecture.png)
 
-> **Important:** Foundry Local assigns a **dynamic port** each time it starts. Never hardcode a port number like `localhost:5272`. Always use the SDK's `manager.endpoint` property to get the current URL.
+> **Important:** Foundry Local assigns a **dynamic port** each time it starts. Never hardcode a port number like `localhost:5272`. Always use the SDK to discover the current URL (e.g. `manager.endpoint` in Python or `manager.urls[0]` in JavaScript).
 
 ---
 

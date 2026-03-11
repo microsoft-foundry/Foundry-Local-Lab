@@ -41,45 +41,44 @@ class ChatAgent {
 // Main
 // ---------------------------------------------------------------------------
 async function main() {
-  // Create a FoundryLocalManager instance — starts the Foundry Local service
   const alias = "phi-3.5-mini";
-  const manager = new FoundryLocalManager();
 
-  // Step 1: Start the service
+  // Step 1: Create a FoundryLocalManager and start the service
   console.log("Starting Foundry Local service...");
-  await manager.startService();
+  FoundryLocalManager.create({ appName: "FoundryLocalWorkshop" });
+  const manager = FoundryLocalManager.instance;
+  await manager.startWebService();
 
-  // Step 2: Check if model is already downloaded
-  const cachedModels = await manager.listCachedModels();
-  const catalogInfo = await manager.getModelInfo(alias);
-  const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
+  // Step 2: Get the model from the catalog
+  const catalog = manager.catalog;
+  const model = await catalog.getModel(alias);
 
-  if (isAlreadyCached) {
+  if (model.isCached) {
     console.log(`Model already downloaded: ${alias}`);
   } else {
     console.log(
       `Downloading model: ${alias} (this may take several minutes)...`
     );
-    await manager.downloadModel(alias);
+    await model.download();
     console.log(`Download complete: ${alias}`);
   }
 
   // Step 3: Load the model into memory
   console.log(`Loading model: ${alias}...`);
-  const modelInfo = await manager.loadModel(alias);
-  console.log("Model Info:", modelInfo);
-  console.log(`Foundry Local endpoint: ${manager.endpoint}`);
+  await model.load();
+  console.log(`Model loaded: ${model.id}`);
+  console.log(`Foundry Local endpoint: ${manager.urls[0]}`);
 
   // Create an OpenAI client pointing to the local Foundry service
   const client = new OpenAI({
-    baseURL: manager.endpoint,
-    apiKey: manager.apiKey,
+    baseURL: manager.urls[0] + "/v1",
+    apiKey: "foundry-local",
   });
 
   // Create an agent with a specific persona
   const agent = new ChatAgent({
     client,
-    modelId: modelInfo.id,
+    modelId: model.id,
     instructions: "You are good at telling jokes.",
     name: "Joker",
   });

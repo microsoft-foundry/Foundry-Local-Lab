@@ -5,61 +5,41 @@ import { FoundryLocalManager } from "foundry-local-sdk";
 // downloaded for your end-user's device hardware.
 const alias = "phi-3.5-mini";
 
-// Create a FoundryLocalManager instance. This will start the Foundry
-// Local service if it is not already running.
-const manager = new FoundryLocalManager();
-
-/**
- * Renders a CLI progress bar for model download.
- * @param {number} progress - Download progress percentage (0-100).
- */
-function renderProgressBar(progress) {
-  const barWidth = 30;
-  const filled = Math.round((progress / 100) * barWidth);
-  const empty = barWidth - filled;
-  const bar = "\u2588".repeat(filled) + "\u2591".repeat(empty);
-  process.stdout.write(`\r[Download] [${bar}] ${progress.toFixed(1)}%`);
-  if (progress >= 100) {
-    process.stdout.write("\n");
-  }
-}
-
-// Step 1: Start the Foundry Local service
+// Step 1: Create a FoundryLocalManager and start the service
 console.log("Starting Foundry Local service...");
-await manager.startService();
+FoundryLocalManager.create({ appName: "FoundryLocalWorkshop" });
+const manager = FoundryLocalManager.instance;
+await manager.startWebService();
 
-// Step 2: Check if the model is already downloaded
-const cachedModels = await manager.listCachedModels();
-const catalogInfo = await manager.getModelInfo(alias);
-const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
+// Step 2: Get the model from the catalog
+const catalog = manager.catalog;
+const model = await catalog.getModel(alias);
 
-// Step 3: Download model if needed (with progress), or skip
-if (isAlreadyCached) {
+// Step 3: Download model if needed, or skip
+if (model.isCached) {
   console.log(`Model already downloaded: ${alias}`);
 } else {
   console.log(
     `Downloading model: ${alias} (this may take several minutes)...`
   );
-  await manager.downloadModel(alias, undefined, false, (progress) => {
-    renderProgressBar(progress);
-  });
+  await model.download();
   console.log(`Download complete: ${alias}`);
 }
 
 // Step 4: Load the model into memory
 console.log(`Loading model: ${alias}...`);
-const modelInfo = await manager.loadModel(alias);
-console.log("Model Info:", modelInfo);
+await model.load();
+console.log(`Model loaded: ${model.id}`);
 
 // Configure the OpenAI client to use the local Foundry service
 const client = new OpenAI({
-  baseURL: manager.endpoint,
-  apiKey: manager.apiKey, // API key is not required for local usage
+  baseURL: manager.urls[0] + "/v1",
+  apiKey: "foundry-local", // API key is not required for local usage
 });
 
 // Generate a streaming chat completion
 const stream = await client.chat.completions.create({
-  model: modelInfo.id,
+  model: model.id,
   messages: [{ role: "user", content: "What is the golden ratio?" }],
   stream: true,
 });

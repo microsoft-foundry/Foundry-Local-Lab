@@ -158,26 +158,26 @@ class ChatAgent {
 }
 
 async function main() {
-  const manager = new FoundryLocalManager();
-  await manager.startService();
+  FoundryLocalManager.create({ appName: "FoundryLocalWorkshop" });
+  const manager = FoundryLocalManager.instance;
+  await manager.startWebService();
 
-  const cachedModels = await manager.listCachedModels();
-  const catalogInfo = await manager.getModelInfo("phi-3.5-mini");
-  const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
-  if (!isAlreadyCached) {
+  const catalog = manager.catalog;
+  const model = await catalog.getModel("phi-3.5-mini");
+  if (!model.isCached) {
     console.log("Downloading model: phi-3.5-mini...");
-    await manager.downloadModel("phi-3.5-mini");
+    await model.download();
   }
-  const modelInfo = await manager.loadModel("phi-3.5-mini");
+  await model.load();
 
   const client = new OpenAI({
-    baseURL: manager.endpoint,
-    apiKey: manager.apiKey,
+    baseURL: manager.urls[0] + "/v1",
+    apiKey: "foundry-local",
   });
 
   const agent = new ChatAgent({
     client,
-    modelId: modelInfo.id,
+    modelId: model.id,
     instructions: "You are good at telling jokes.",
     name: "Joker",
   });
@@ -192,7 +192,7 @@ main();
 **Key points:**
 - JavaScript builds its own `ChatAgent` class mirroring the Python AGF pattern
 - `this.history` stores conversation turns for multi-turn support
-- Explicit `startService()` → cache check → `downloadModel()` → `loadModel()` gives full visibility
+- Explicit `startWebService()` → cache check → `model.download()` → `model.load()` gives full visibility
 
 </details>
 
@@ -339,26 +339,26 @@ import * as readline from "node:readline/promises";
 // (reuse ChatAgent class from Exercise 2)
 
 async function main() {
-  const manager = new FoundryLocalManager();
-  await manager.startService();
+  FoundryLocalManager.create({ appName: "FoundryLocalWorkshop" });
+  const manager = FoundryLocalManager.instance;
+  await manager.startWebService();
 
-  const cachedModels = await manager.listCachedModels();
-  const catalogInfo = await manager.getModelInfo("phi-3.5-mini");
-  const isAlreadyCached = cachedModels.some((m) => m.id === catalogInfo?.id);
-  if (!isAlreadyCached) {
+  const catalog = manager.catalog;
+  const model = await catalog.getModel("phi-3.5-mini");
+  if (!model.isCached) {
     console.log("Downloading model: phi-3.5-mini...");
-    await manager.downloadModel("phi-3.5-mini");
+    await model.download();
   }
-  const modelInfo = await manager.loadModel("phi-3.5-mini");
+  await model.load();
 
   const client = new OpenAI({
-    baseURL: manager.endpoint,
-    apiKey: manager.apiKey,
+    baseURL: manager.urls[0] + "/v1",
+    apiKey: "foundry-local",
   });
 
   const agent = new ChatAgent({
     client,
-    modelId: modelInfo.id,
+    modelId: model.id,
     instructions: "You are a helpful assistant.",
     name: "Assistant",
   });

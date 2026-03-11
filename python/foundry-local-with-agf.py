@@ -30,7 +30,7 @@ async def main():
     # Non-streaming: get the complete response at once
     print("--- Non-streaming ---")
     result = await agent.run("Tell me a joke about a pirate.")
-    print(f"Agent: {result}\n")
+    print(f"Agent: {result.text}\n")
 
     # Streaming: get results as they are generated
     print("--- Streaming ---")
