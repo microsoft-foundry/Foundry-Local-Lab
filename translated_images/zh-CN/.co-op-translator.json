@@ -1,0 +1,68 @@
+{
+  "part1-architecture.f6887b84d23f9e1d.webp": {
+    "original_hash": "8d4030f5f0c34c1ce1bda9ebc969b020",
+    "translation_date": "2026-04-20T18:02:04+00:00",
+    "source_file": "images/part1-architecture.png",
+    "language_code": "zh-CN"
+  },
+  "part3-sdk-architecture.9925e51f20a277e5.webp": {
+    "original_hash": "26c830a7350cc60e956b85dc8c437bbb",
+    "translation_date": "2026-04-20T18:02:19+00:00",
+    "source_file": "images/part3-sdk-architecture.png",
+    "language_code": "zh-CN"
+  },
+  "part4-rag-pipeline.74ac3b5ea63d8b92.webp": {
+    "original_hash": "0fc4aa423c5bd441da5cc454d61dcb85",
+    "translation_date": "2026-04-20T18:02:08+00:00",
+    "source_file": "images/part4-rag-pipeline.png",
+    "language_code": "zh-CN"
+  },
+  "part5-agent-pattern.36289d1421169525.webp": {
+    "original_hash": "5bba87268850fdc2170e9753d41cd199",
+    "translation_date": "2026-04-20T18:01:27+00:00",
+    "source_file": "images/part5-agent-pattern.png",
+    "language_code": "zh-CN"
+  },
+  "part6-feedback-loop.40f9ce0aa4b8ae78.webp": {
+    "original_hash": "486d0db3509105287b7ac3718bc4250e",
+    "translation_date": "2026-04-20T18:02:13+00:00",
+    "source_file": "images/part6-feedback-loop.png",
+    "language_code": "zh-CN"
+  },
+  "part6-multi-agent-flow.8814fb729ce55c93.webp": {
+    "original_hash": "b5a7643219e5453e04252c7042d80e86",
+    "translation_date": "2026-04-20T18:01:58+00:00",
+    "source_file": "images/part6-multi-agent-flow.png",
+    "language_code": "zh-CN"
+  },
+  "part6-sequential-pipeline.1c0bf50e3da3fe47.webp": {
+    "original_hash": "624e4fb5e3ed820be6dd58b2c959ea57",
+    "translation_date": "2026-04-20T18:01:53+00:00",
+    "source_file": "images/part6-sequential-pipeline.png",
+    "language_code": "zh-CN"
+  },
+  "part6-shared-context.63704188ab4995e4.webp": {
+    "original_hash": "e676794e9952b28adb8bf0bf1c7667ef",
+    "translation_date": "2026-04-20T18:01:31+00:00",
+    "source_file": "images/part6-shared-context.png",
+    "language_code": "zh-CN"
+  },
+  "part7-fastapi-architecture.4ab90a3efaeb75ea.webp": {
+    "original_hash": "46505b1dff380217aac0c5ee732cf7fa",
+    "translation_date": "2026-04-20T18:01:37+00:00",
+    "source_file": "images/part7-fastapi-architecture.png",
+    "language_code": "zh-CN"
+  },
+  "part7-zava-architecture.6abd0d700b667bf6.webp": {
+    "original_hash": "5923a513c7279878fa99074de599fd85",
+    "translation_date": "2026-04-20T18:01:45+00:00",
+    "source_file": "images/part7-zava-architecture.png",
+    "language_code": "zh-CN"
+  },
+  "part9-whisper-architecture.d729e8c9b9709027.webp": {
+    "original_hash": "a49e15f7177aac4143b541695fe2f4fc",
+    "translation_date": "2026-04-20T18:01:50+00:00",
+    "source_file": "images/part9-whisper-architecture.png",
+    "language_code": "zh-CN"
+  }
+}
