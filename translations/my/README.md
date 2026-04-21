@@ -2,32 +2,60 @@
   <img src="https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg" alt="Foundry Local" width="280" />
 </p>
 
-# Foundry Local စက်ပေါ် AI အက်ပ်များ ဆောက်လုပ်ခြင်း အလုပ်ရုံဆွေးနွေးပွဲ
+# Foundry Local Workshop - စက်ပေါ်တွင် AI အက်ပလီကေးရှင်းများ တည်ဆောက်ခြင်း
 
-သင်၏ကိုယ်ပိုင်စက်ပေါ်တွင် ဘာသာစကား မော်ဒယ်များ လည်ပတ်စေပြီး [Foundry Local](https://foundrylocal.ai) နှင့် [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) အသုံးပြုကာ အသိပညာပေး အက်ပ်များ ဆောက်လုပ်ခြင်းအတွက် လက်တွေ့လေ့လာသင်ကြားမှု အလုပ်ရုံဆွေးနွေးပွဲ။
+သင့်ရဲ့ကိုယ်ပိုင်ကွန်ပျူတာပေါ်မှာ ဘာသာစကားမော်ဒယ်တွေကို အသုံးပြုပြီး [Foundry Local](https://foundrylocal.ai) နဲ့ [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) ကို အသုံးပြု၍ တိုက်ရိုက် မဟာသင်တန်း။
 
-> **Foundry Local ဆိုတာ ဘာလဲ?** Foundry Local သည် သင့်ဟာ့ဒ်ဝဲပေါ်တွင် ဘာသာစကား မော်ဒယ်များကို အပြည့်အဝ ဒေါင်းလုပ်လုပ်နိုင်သည့်၊ စီမံခန့်ခွဲနိုင်သည့်၊ အသုံးပြုနိုင်သည့် အလင်းလွတ် ရက်တိုက် အချိန်ပြေး ဆော့ဖ်ဝဲဖြစ်သည်။ OpenAI-ကို ကိုက်ညီသော API ကို ဖော်ပြသည်၊ ထို့ကြောင့် OpenAI နှင့် ဆက်သွယ်နိုင်သည့်တစ်မျိုးသမျှ ကိရိယာ သို့မဟုတ် SDK များ အချိန်မရွေး ချိတ်ဆက်နိုင်ပါတယ် - ကလောင်းစာရင်း မလိုအပ်ပါ။
+> **Foundry Local ဆိုသည်မှာ?** Foundry Local သည် ရိုးရှင်းပေါ့ပါးသော ရန်တဆိုင်ညီကွန်ပျူတာဖြစ်ပြီး သင့်ဟာ့ဒ်ဝဲပေါ် လုံးဝမော်ဒယ်များကို ဒေါင်းလုဒ်၊ စီမံခန့်ခွဲ နှင့် စီမံပေးနိုင်သည်။ ၎င်းသည် **OpenAI သင့်တော်သော API** တစ်ခုကို ထုတ်ဖော်ပေးထားပြီး OpenAI နဲ့ အညီစကားပြောနိုင်သည့် မည်သည့်ကိရိယာ သို့မဟုတ် SDK မှမဆို ချိတ်ဆက်နိုင်သည် - မလိုအပ်သော မိုးလုံလေလုံအကောင့် မလိုပါ။
+
+### 🌐 ဘာသာစကား မျိုးစုံ ထောက်ခံမှု
+
+#### GitHub Action မှတဆင့် ထောက်ခံသည် (အလိုအလျောက် သက်ဆိုင်ရာနောက်ဆုံးပေါ်အနေဖြင့်)
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](./README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **ဒေါင်းလုပ်ကိုယ်တိုင် clone လုပ်ချင်ပါသလား?**
+>
+> ဒီ repository မှာ ဘာသာစကား ၅၀ ကျော် ဘာသာပြန်များပါဝင်ပြီး ဒေါင်းလုပ်ဖိုင်အရွယ်အစားကို အများအပြား တိုးမြှင့်ပေးသည်။ ဘာသာပြန်မပါဘဲ clone လုပ်ရန် sparse checkout ကို အသုံးပြုပါ:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> သင့်အတွက် မြန်ဆန်စွာ တတ်မြောက်မှုလုပ်ဆောင်နိုင်ရန် လိုအပ်သည့် အရာအားလုံးကို ဒီလိုရရှိမည်။
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ---
 
-## သင်ယူရမည့်ရည်မှန်းချက်များ
+## သင်ယူမှုပန်းတိုင်များ
 
-ဤအလုပ်ရုံဆွေးနွေးပွဲအဆုံးသတ်သည်အထိ သင်မှာ အောက်ပါအချက်များကို ပြုလုပ်နိုင်ပါလိမ့်မည် - 
+ဒီ workshop အပြီးတွင် သင်မှာ အောက်ဖော်ပြပါ အတတ်ပညာများ ရယူထားမည်ဖြစ်သည်-
 
-| # | ရည်မှန်းချက် |
+| # | ပန်းတိုင် |
 |---|-----------|
-| 1 | Foundry Local ကို 설치၍ CLI ဖြင့် မော်ဒယ်များကို စီမံခန့်ခွဲနိုင်ခြင်း |
-| 2 | Foundry Local SDK API ကို မော်ဒယ် စီမံခန့်ခွဲမှုအတွက် အပရိုဂရမ်ဖြင့်_master လုပ်နိုင်ခြင်း |
-| 3 | Python, JavaScript နှင့် C# SDK များကို အသုံးပြု၍ ဒေသတြင်းအလိုအလျောက် သတင်း များခံ ဆာဗာနှင့် ချိတ်ဆက်နိုင်ခြင်း |
-| 4 | သင့်ကိုယ်ပိုင်ဒေတာအပေါ် အခြေခံသော Retrieval-Augmented Generation (RAG) လမ်းကြောင်းတစ်ခု တည်ဆောက်နိုင်ခြင်း |
-| 5 | ပုံမှန်ညွှန်ကြားချက်များနှင့် စွယ်စုံပုဂ္ဂိုလ်များ ဖြင့် AI အေးဂျင့်များ ဖန်တီးနိုင်ခြင်း |
-| 6 | အမြင့်ကြားအေးဂျင့် လုပ်ငန်းစဉ်များကို တပြိုင်နက် ပြန်လည်တုံ့ပြန်မှု လုပ်ငန်းစဉ်များ နှင့် စီမံခန့်ခွဲနိုင်ခြင်း |
-| 7 | ထုတ်လုပ်မှုအလုပ်အပ်ခြင်း အက်ပ်တစ်ခု - Zava Creative Writer ကို လေ့လာနိုင်ခြင်း |
-| 8 | ရွှေစစ်စစ်ဒေတာ စုစည်းမှုနှင့် LLM-as-judge အမှတ်ပေးမှုဖြင့် သုံးသပ်ရေးလုပ်ငန်းများ တည်ဆောက်နိုင်ခြင်း |
-| 9 | Whisper အသုံးပြု၍ အသံမှ စာသား သို့ လိုက်လျောညီထွေစာ များဖတ်ထုတ်နိုင်ခြင်း - သက်ဆိုင်ရာစက်ပေါ်တွင် |
-| 10 | ONNX Runtime GenAI နှင့် Foundry Local ကိုအသုံးပြုကာ အဝိုင်းထုတ် ထုတ်လုပ်ထားသော မော်ဒယ်များ သို့မဟုတ် Hugging Face မော်ဒယ်များကို ချိတ်ဆက် ပြီး run နိုင်ခြင်း |
-| 11 | ဒေသတွင်း မော်ဒယ်များကို အပြင်လုပ်ဆောင်ချက်များ ခေါ်ယူနိုင် စေသော tool-calling ပုံစံ အသုံးပြုနိုင်ခြင်း |
-| 12 | Zava Creative Writer အတွက် ဘရောင်ဇာအခြေပြု UI တည်ဆောက်နိုင်ခြင်း၊ တိုက်ရိုက်ဒေတာ စီးရီးပေးနိုင်ခြင်း |
+| 1 | Foundry Local ကို install ပြုလုပ်၍ CLI ဖြင့် မော်ဒယ်များ ကို စီမံခန့်ခွဲနိုင်ခြင်း |
+| 2 | Foundry Local SDK API ကိုကောင်းကောင်းအသုံးပြု၍ မော်ဒယ် စီမံခန့်ခွဲမှု လုပ်ငန်းစဉ်များကို သိရှိနိုင်ခြင်း |
+| 3 | Python ၊ JavaScript ၊ C# SDK များ အသုံးပြု၍ local inference server နှင့်ချိတ်ဆက်နိုင်ခြင်း |
+| 4 | သင့်ဒေတာအပေါ် အဖြေများ အခြေခံထား ကဲ့သို့သော Retrieval-Augmented Generation (RAG) pipeline တည်ဆောက်ခြင်း |
+| 5 | အမြဲတမ်း လမ်းညွှန်ချက်များ နှင့် ပုဂ္ဂိုလ်များ ပါဝင်သော AI Agents များ ဖန်တီးခြင်း |
+| 6 | မိတ်ဆက်တမ်း နှင့် ပြန်လည်ထည့်သွင်း Feedback လုပ်ငန်းစဉ်များပါဝင်သည့် multi-agent workflow များ စီမံခန့်ခွဲခြင်း |
+| 7 | ထုတ်လုပ်မှုအဆင့် capstone အက်ပလီကေးရှင်းဖြစ်သည့် Zava Creative Writer ကို လေ့လာမည် |
+| 8 | ရွေးချယ်သော dataset များ နှင့် LLM-as-judge အခြေခံ scoring ဖြင့် အကဲဖြတ်မှု framework များ တည်ဆောက်ခြင်း |
+| 9 | Whisper အသုံးပြု၍ audio ကို စက်ပေါ်မှာတင် စကားသံမှ စာသား ပြောင်းခြင်း |
+| 10 | ONNX Runtime GenAI နှင့် Foundry Local ကို အသုံးပြု၍ စိတ်ကြိုက် သို့မဟုတ် Hugging Face မော်ဒယ်များကို လုပ်ဆောင်ခြင်း |
+| 11 | ဒေသန်ဆိုင်ရာ မော်ဒယ်များမှ ဘယ်သူ့အကြံပြုချက်များကိုမဆို ပြင်ပ Function များ ခေါ်နိုင်အောင် ဖြေရှင်းခြင်း |
+| 12 | Zava Creative Writer အတွက် browser မှတစ်ဆင့် တိုက်ရိုက် streaming ပါဝင်သည့် UI တည်ဆောက်ခြင်း |
 
 ---
 
@@ -35,29 +63,29 @@
 
 | လိုအပ်ချက် | အသေးစိတ် |
 |-------------|---------|
-| **ဟားဒ်ဝဲ** | အနည်းဆုံး 8 GB RAM (16 GB ကို အကြံပြုပြီး); AVX2 ကို ပံ့ပိုးသော CPU သို့မဟုတ် ပံ့ပိုးသော GPU |
-| **စက်မူကွဲ** | Windows 10/11 (x64/ARM), Windows Server 2025, သို့မဟုတ် macOS 13+ |
-| **Foundry Local CLI** | Windows အတွက် `winget install Microsoft.FoundryLocal` ဖြင့်၊ macOS အတွက် `brew tap microsoft/foundrylocal && brew install foundrylocal` ဖြင့် 설치 လုပ်နိုင်ပါသည်။ အသေးစိတ်ကို [getting started guide](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) တွင် ကြည့်ရှုနိုင်ပါသည်။ |
+| **Hardware** | 8 GB RAM အနည်းဆုံး (16 GB အကြံပြု)၊ AVX2 ထောက်ပံ့ CPU သို့မဟုတ် GPU တစ်ခု |
+| **OS** | Windows 10/11 (x64/ARM), Windows Server 2025, သို့မဟုတ် macOS 13 နှင့်အထက် |
+| **Foundry Local CLI** | Windows တွင် `winget install Microsoft.FoundryLocal` သို့မဟုတ် macOS တွင် `brew tap microsoft/foundrylocal && brew install foundrylocal` ဖြင့် ထည့်သွင်းနိုင်သည်။ အသေးစိတ် အတွက် [getting started guide](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) ဖတ်ပါ။ |
 | **ဘာသာစကား runtime** | **Python 3.9+** နှင့်/သို့မဟုတ် **.NET 9.0+** နှင့်/သို့မဟုတ် **Node.js 18+** |
-| **Git** | ဤ repository ကို clone မည့်အတွက် |
+| **Git** | ဒီ repository ကို clone လုပ်ရန် အသုံးပြုသည် |
 
 ---
 
-## စတင်အသုံးပြုခြင်း
+## စတင်လေ့လာခြင်း
 
 ```bash
-# ၁။ ရိုက်ခုံကို ကလုန်းလုပ်ပါ
+# ၁။ repository ကို မိတ္တူ ဆွဲပါ
 git clone https://github.com/microsoft-foundry/foundry-local-lab.git
 cd foundry-local-lab
 
-# ၂။ Foundry Local ကို ထည့်သွင်းပြီးကြောင်း စစ်ဆေးပါ
-foundry model list              # ရရှိနိုင်သော မော်ဒယ်များကို စာရင်းပြုစုပါ
-foundry model run phi-3.5-mini  # အပြန်အလှန် ပြောဆိုမည့် စာနယ်ဇင်းကို စတင်ပါ
+# ၂။ Foundry Local သေချာတက်နေကြောင်း စစ်ဆေးပါ
+foundry model list              # အသုံးပြုနိုင်သော မော်ဒယ်များစာရင်း
+foundry model run phi-3.5-mini  # အပြန်အလှန် စကားပြောဖွင့်ပါ
 
-# ၃။ သင့်ဘာသာစကား လမ်းကြောင်းကို ရွေးချယ်ပါ (ပြည့်စုံဖို့ အပိုင်း ၂ လေ့လာခန်းကို ကြည့်ပါ)
+# ၃။ သင့်ဘာသာစကား လမ်းကြောင်းကို ရွေးပါ (အပြည့်အစုံအတွက် အပိုင်း ၂ လက်ပ်ကို ကြည့်ပါ)
 ```
 
-| ဘာသာစကား | အမြန်စတင်ခြင်း |
+| ဘာသာစကား | ဦးစီးစတင်ရန် |
 |----------|-------------|
 | **Python** | `cd python && pip install -r requirements.txt && python foundry-local.py` |
 | **C#** | `cd csharp && dotnet run` |
@@ -65,61 +93,61 @@ foundry model run phi-3.5-mini  # အပြန်အလှန် ပြောဆ
 
 ---
 
-## အလုပ်ရုံဆွေးနွေးပွဲ အစိတ်အပိုင်းများ
+## Workshop အပိုင်းများ
 
-### အစိတ်အပိုင်း 1: Foundry Local နှင့် စတင်ခြင်း
+### အပိုင်း 1: Foundry Local ဖြင့် စတင်ခြင်း
 
-**Laboratory guide:** [`labs/part1-getting-started.md`](labs/part1-getting-started.md)
+**လက်တွေ့လမ်းညွှန်:** [`labs/part1-getting-started.md`](labs/part1-getting-started.md)
 
-- Foundry Local ဆိုတာဘာလဲ၊ ဘယ်လို လည်ပတ်သလဲ
-- Windows နှင့် macOS တွင် CLI 설치ခြင်း
-- မော်ဒယ်များ အတန်းသတ်, ဒေါင်းလုပ်လုပ်ခြင်း၊ လည်ပတ်ခြင်း များ ရှာဖွေခြင်း
-- မော်ဒယ် အယ်လ်အိုင်(aliases) များနှင့် dynamic ports များ တွန်းလှန်၍ သဘောပေါက်ခြင်း
-
----
-
-### အစိတ်အပိုင်း 2: Foundry Local SDK နက်ရှိုင်းလေ့လာခြင်း
-
-**Laboratory guide:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
-
-- SDK မှ CLI ထက် အကြောင်း ကြောင်း အသုံးပြုမှု
-- Python, JavaScript, C# အတွက် SDK API အပြည့်အစုံ ကိုးကားချက်
-- ဝန်ဆောင်မှု စီမံခန့်ခွဲမှု၊ ကတ်တလော့ ဗျူအိုင်၊ မော်ဒယ် ဘဝစက်ဝိတ် (ဒေါင်းလုပ်, တင်သွင်း, ပယ်ဖျက်)
-- အမြန်စတင်မှု ပုံစံများ - Python constructor bootstrap, JavaScript `init()`, C# `CreateAsync()`
-- `FoundryModelInfo` မီတာဒေတာများ၊ အယ်လ်အိုင်များနှင့် ဟာ့ဒ်ဝဲ အကောင်းဆုံး မော်ဒယ် ရွေးချယ်ခြင်း
+- Foundry Local ဆိုတာ ဘာလဲ၊ ဘယ်လို အလုပ်လုပ်လဲ
+- Windows နှင့် macOS ပေါ်တွင် CLI ထည့်သွင်းခြင်း
+- မော်ဒယ်များကို စူးစမ်းလေ့လာခြင်း - စာရင်းပြုစုခြင်း၊ ဒေါင်းလုပ်လုပ်ခြင်း၊ စတင် အသုံးပြုခြင်း
+- မော်ဒယ် aliases များနှင့် dynamic ports များ ပြဿနာဖြေရှင်းနည်း
 
 ---
 
-### အစိတ်အပိုင်း 3: SDK များနှင့် API များ
+### အပိုင်း 2: Foundry Local SDK အသေးစိတ် လေ့လာခြင်း
 
-**Laboratory guide:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
+**လက်တွေ့လမ်းညွှန်:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
-- Python, JavaScript, C# မှ Foundry Local ဆာဗာ ချိတ်ဆက်ခြင်း
-- Foundry Local SDK အား အသုံးပြု၍ စခရင်တင် ဝန်ဆောင်မှု များကို အပရိုဂရမ်ဖြင့် စီမံခန့်ခွဲခြင်း
-- OpenAI-compatible API ဖြင့် streaming chat မွေ့အဖွဲ့များ လည်ပတ်ခြင်း
-- ဘာသာစကားတစ်ခုချင်းစီအတွက် SDK နည်းဗျုပြုမူ၏ ကိုးကားချက်
+- SDK ကို CLI ထက် ဘာကြောင့် အသုံးပြုသင့်သနည်း
+- Python, JavaScript, C# အတွက် SDK API ပြည့်စုံ ရည်ညွှန်းချက်
+- ဝန်ဆောင်မှု စီမံခန့်ခွဲမှု၊ စာရင်းကြည့်ခြင်း၊ မော်ဒယ် အသက်တာစက်ဝန်း (ဒေါင်းလုပ်၊ ဖွင့်၊ ပိတ်)
+- မြန်ဆန်စတင်အသုံးပြုမှု နည်းလမ်းများ: Python constructor bootstrap, JavaScript `init()`, C# `CreateAsync()`
+- `FoundryModelInfo` မက်တာဒေတာ၊ aliases များနှင့် hardware အတွက် အသင့်တော်ဆုံး မော်ဒယ် ရွေးချယ်မှု
 
-**Code ตัวอย่าง:**
+---
+
+### အပိုင်း 3: SDKs နှင့် APIs
+
+**လက်တွေ့လမ်းညွှန်:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
+
+- Python, JavaScript, C# မှ Foundry Local သို့ ချိတ်ဆက်သုံးခြင်း
+- Foundry Local SDK ကို အသုံးပြု၍ ဝန်ဆောင်မှု မန်နေဂျ်လုပ်ခြင်း
+- OpenAI သင့်တော်သော API မှတစ်ဆင့် streaming chat completions သုံးခြင်း
+- ဘာသာစကားတစ်ခုချင်းစီအတွက် SDK မက်သေါ် အသုံးပြုနည်း
+
+**ကုဒ်နမူနာများ:**
 
 | ဘာသာစကား | ဖိုင် | ဖော်ပြချက် |
 |----------|------|-------------|
 | Python | `python/foundry-local.py` | အခြေခံ streaming chat |
-| C# | `csharp/BasicChat.cs` | .NET နဲ့ streaming chat |
-| JavaScript | `javascript/foundry-local.mjs` | Node.js နဲ့ streaming chat |
+| C# | `csharp/BasicChat.cs` | .NET ဖြင့် streaming chat |
+| JavaScript | `javascript/foundry-local.mjs` | Node.js ဖြင့် streaming chat |
 
 ---
 
-### အစိတ်အပိုင်း 4: Retrieval-Augmented Generation (RAG)
+### အပိုင်း 4: Retrieval-Augmented Generation (RAG)
 
-**Laboratory guide:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
+**လက်တွေ့လမ်းညွှန်:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
 
-- RAG ဆိုတာ ဘာလဲ နှင့် အရေးကြီးချက်
-- မေတ္တာသိပ္ပံစနစ် အတွင်းမှတ်ဉာဏ် မှတ်တမ်းတည်ဆောက်ခြင်း
-- စကားလုံးထိပ်တိုက် ဆွဲယူမှု နှင့် အမှတ်ပေးစနစ်
-- အခြေခံထားသော စနစ် ပရိုမ့်ပ် များ ဖန်တီးခြင်း
-- အစစ်အသုံးပြုလမ်းပြ RAG လမ်းကြောင်း လည်ပတ်ခြင်း
+- RAG ဆိုတာ ဘာလဲ၊ ဘာကြောင့် အရေးကြီးသနည်း
+- မျှဝေမှု လေ့လာမှု အတွက် in-memory knowledge base တည်ဆောက်ခြင်း
+- Keyword-overlap retrieval နှင့် ရမှတ် ချမှတ်ခြင်း
+- တွန်းအားစနစ် ပရောမ့်များ ဖန်တီးခြင်း
+- စက်ပေါ်တွင် သင့်တော်သော RAG pipeline လုပ်ဆောင်ခြင်း
 
-**Code ตัวอย่าง:**
+**ကုဒ်နမူနာများ:**
 
 | ဘာသာစကား | ဖိုင် |
 |----------|------|
@@ -129,175 +157,175 @@ foundry model run phi-3.5-mini  # အပြန်အလှန် ပြောဆ
 
 ---
 
-### အစိတ်အပိုင်း 5: AI အေးဂျင့်များ ဆောက်လုပ်ခြင်း
+### အပိုင်း 5: AI Agents ဖန်တီးခြင်း
 
-**Laboratory guide:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
+**လက်တွေ့လမ်းညွှန်:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
 
-- AI အေးဂျင့်ဆိုတာဘာလဲ (သန့်ရှင်း LLM ခေါ်ဆိုမှုနှင့်မတူ)
-- `ChatAgent` ပုံစံနှင့် Microsoft Agent Framework
-- စနစ်ညွှန်ကြားချက်များ၊ ပုဂ္ဂိုလ်များနှင့် မျိုးစုံပြောဆိုဆက်ဆံမှုများ
-- JSON စနစ်သန့်အမြဲ ထွက်လာမှု
+- AI agent ဆိုသည်မှာ ဘာလဲ (raw LLM ခေါ်ဆိုမှုနှင့် နှိုင်းယှဉ်၍)
+- `ChatAgent` ပုံစံ နှင့် Microsoft Agent Framework
+- စနစ် လမ်းညွှန်ချက်များ၊ ပုဂ္ဂိုလ်ရေးများ၊ turn များစဉ်ဆက်ထပ် စကားပြောခြင်း
+- Agent များမှ စနစ်တကျ ထုတ်ပေးသော output (JSON)
 
-**Code ตัวอย่าง:**
-
-| ဘာသာစကား | ဖိုင် | ဖော်ပြချက် |
-|----------|------|-------------|
-| Python | `python/foundry-local-with-agf.py` | Agent Framework ပါသော တစ်ဦးတည်း အေးဂျင့် |
-| C# | `csharp/SingleAgent.cs` | တစ်ဦးတည်း အေးဂျင့် (ChatAgent ပုံစံ) |
-| JavaScript | `javascript/foundry-local-with-agent.mjs` | တစ်ဦးတည်း အေးဂျင့် (ChatAgent ပုံစံ) |
-
----
-
-### အစိတ်အပိုင်း 6: အမြင့်ကြားအေးဂျင့် လုပ်ငန်းစဉ်များ
-
-**Laboratory guide:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
-
-- အမြင့်ကြားအေးဂျင့် လမ်းကြောင်းများ - သုတေသနသူ → စာရေးသူ → တည်းဖြတ်သူ
-- အဆက်လိုက် စီမံခန့်ခွဲမှု နှင့် ပြန်လည်တုံ့ပြန်မှု ဆော့လုပ်ငန်းများ
-- မျှဝေပြီး ပုံသေသော ပံ့ပိုးမှုများနှင့် လက်တွဲလှုပ်ရှားခြင်းများ
-- ကိုယ်ပိုင် multi-agent လုပ်ငန်းစဉ် တီထွင်ခြင်း
-
-**Code ตัวอย่าง:**
+**ကုဒ်နမူနာများ:**
 
 | ဘာသာစကား | ဖိုင် | ဖော်ပြချက် |
 |----------|------|-------------|
-| Python | `python/foundry-local-multi-agent.py` | သုံးဦးအေးဂျင့် လမ်းကြောင်း |
-| C# | `csharp/MultiAgent.cs` | သုံးဦးအေးဂျင့် လမ်းကြောင်း |
-| JavaScript | `javascript/foundry-local-multi-agent.mjs` | သုံးဦးအေးဂျင့် လမ်းကြောင်း |
+| Python | `python/foundry-local-with-agf.py` | Agent Framework ဖြင့် single agent |
+| C# | `csharp/SingleAgent.cs` | Single agent (ChatAgent ပုံစံ) |
+| JavaScript | `javascript/foundry-local-with-agent.mjs` | Single agent (ChatAgent ပုံစံ) |
 
 ---
 
-### အစိတ်အပိုင်း 7: Zava Creative Writer - Capstone Application
+### အပိုင်း 6: Multi-Agent Workflows
 
-**Laboratory guide:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
+**လက်တွေ့လမ်းညွှန်:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
 
-- အထွက်အလာ လုပ်ငန်းစတိုင် multi-agent အက်ပ်တစ်ခု၊ အထူးပြု အေးဂျင့် ၄ ဦးပါဝင်သည်
-- အဆက်လိုက် pipeline နှင့် ပြန်လည်တုံ့ပြန်မှု ဆော့လုပ်ငန်း မောင်းနှင်မှု
-- Streaming output, ကုန်ပစ္စည်း ကတ်တလော့ရှာဖွေမှု, JSON များဖြန့်ဝေမှု
-- Python (FastAPI), JavaScript (Node.js CLI), နှင့် C# (.NET console) တွင် ပြည့်စုံတည်ဆောက်မှု
+- Multi-agent pipeline များ: Researcher → Writer → Editor
+- စဉ်ဆက်မပြတ် ညှိနှိုင်းမှု နှင့် feedback လုပ်ငန်းစဉ်များ
+- မျှဝေ Configuration နှင့် စနစ်တက်သည့် hand-offs များ
+- ဤအတိုင်း သင့်ကိုယ်ပိုင် multi-agent workflow ရေးဆွဲခြင်း
 
-**Code ตัวอย่าง:**
+**ကုဒ်နမူနာများ:**
 
-| ဘာသာစကား | ဖိုလ်ဒါ | ဖော်ပြချက် |
+| ဘာသာစကား | ဖိုင် | ဖော်ပြချက် |
+|----------|------|-------------|
+| Python | `python/foundry-local-multi-agent.py` | သုံးဦး agent pipeline |
+| C# | `csharp/MultiAgent.cs` | သုံးဦး agent pipeline |
+| JavaScript | `javascript/foundry-local-multi-agent.mjs` | သုံးဦး agent pipeline |
+
+---
+
+### အပိုင်း 7: Zava Creative Writer – Capstone Application
+
+**လက်တွေ့လမ်းညွှန်:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
+
+- ထုတ်လုပ်မှုအဆင့် အမျိုးမျိုး သုံး agent တွေ ပါဝင်သည့် အက်ပလီကေးရှင်းတစ်ခု
+- စဉ်ဆက်မပြတ် pipeline နှင့် evaluator နဲ့ feedback လုပ်ငန်းစဉ်များ
+- streaming output, ကုန်ပစ္စည်း စာရင်း ရှာဖွေရေး, စနစ်တကျ JSON hand-offs
+- Python (FastAPI), JavaScript (Node.js CLI), C# (.NET console) တွင် အပြည့်အစုံ ထားရှိမှု
+
+**ကုဒ်နမူနာများ:**
+
+| ဘာသာစကား | ဖိုဒါ | ဖော်ပြချက် |
 |----------|-----------|-------------|
-| Python | `zava-creative-writer-local/src/api/` | FastAPI ဝက်ဘ် ဝန်ဆောင်မှု နှင့် စီမံခန့်ခွဲသူ |
-| JavaScript | `zava-creative-writer-local/src/javascript/` | Node.js CLI အက်ပ် |
-| C# | `zava-creative-writer-local/src/csharp/` | .NET 9 console app |
+| Python | `zava-creative-writer-local/src/api/` | FastAPI ဝက်ဘ် ဝန်ဆောင်မှု နှင့် orchestrator |
+| JavaScript | `zava-creative-writer-local/src/javascript/` | Node.js CLI အက်ပလီကေးရှင်း |
+| C# | `zava-creative-writer-local/src/csharp/` | .NET 9 console အက်ပလီကေးရှင်း |
 
 ---
 
-### အစိတ်အပိုင်း 8: သုံးသပ်ခြင်း ဦးတည် ဖွံ့ဖြိုးတိုးတက်မှု
+### အပိုင်း 8: အကဲဖြတ်မှု ဦးတည် အောင်မြင်မှု ဖွံ့ဖြိုးတိုးတက်မှု
 
-**Laboratory guide:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
+**လက်တွေ့လမ်းညွှန်:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
 
-- 골든 데이터셋များနှင့် AI အေးဂျင့်များ အတွက် စနစ်တကျ သုံးသပ်ခြင်း ဖွံ့ဖြိုးတိုးတက်မှုစနစ် တည်ဆောက်ခြင်း
-- စည်းကမ်းတစ်ရပ်ရပ် (အရှည်, စကားလုံးအတွင်းခံ အစရှိသည့်) နှင့် LLM-as-judge အမှတ်ပေးမှု
-- ပရိုမ့်အား ပုံမှန် နှိုင်းယှဉ်ခြင်း နှင့် စုပေါင်း အမှတ်ဇယား
-- Zava Editor အေးဂျင့် ပုံစံကို အစိတ်အပိုင်း 7 မှ offline စစ်ဆေးမှု အစုအဖွဲ့အဖြစ် တိုးချဲ့ခြင်း
-- Python, JavaScript, C# လမ်းကြောင်း
+- AI agent များအတွက် systematical evaluation framework များ ဖန်တီးခြင်း၊ golden datasets အသုံးပြုခြင်း
+- စည်းမျဉ်းအရ စစ်ဆေးမှုများ (အရှည်၊ keyword coverage, တားမြစ်ချက်များ) + LLM-as-judge scoring
+- prompt အသစ်များကို side-by-side နှိုင်းယှဉ်ပြီး စုစုပေါင်း စကောများ ရရှိစေခြင်း
+- အပိုင်း 7 တွင် ဖော်ပြခဲ့သည့် Zava Editor agent ပုံစံကို offline test suite ထဲသို့ တိုးချဲ့ခြင်း
+- Python, JavaScript နှင့် C# လူ့သင်တန်းများ
 
-**Code ตัวอย่าง:**
+**ကုဒ်နမူနာများ:**
 
 | ဘာသာစကား | ဖိုင် | ဖော်ပြချက် |
 |----------|------|-------------|
-| Python | `python/foundry-local-eval.py` | သုံးသပ်ရေး စနစ် |
-| C# | `csharp/AgentEvaluation.cs` | သုံးသပ်ရေး စနစ် |
-| JavaScript | `javascript/foundry-local-eval.mjs` | သုံးသပ်ရေး စနစ် |
+| Python | `python/foundry-local-eval.py` | အကဲဖြတ်မှု framework |
+| C# | `csharp/AgentEvaluation.cs` | အကဲဖြတ်မှု framework |
+| JavaScript | `javascript/foundry-local-eval.mjs` | အကဲဖြတ်မှု framework |
 
 ---
 
-### အစိတ်အပိုင်း 9: Whisper ဖြင့် အသံ အသံဖော်ပြခြင်း
+### အပိုင်း 9: Whisper ဖြင့် အသံမှတ်တန်းထုတ်ခြင်း
 
-**Laboratory guide:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
+**လက်တွေ့လမ်းညွှန်:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
+- OpenAI Whisper ကို ဒေသန္တရမှာ ပြေးနေတဲ့ Speech-to-text transcription
+- ကိုယ်ပိုင် device ထဲမှ အယုတ်မဖြစ်စေဘဲ ပုဂ္ဂလိကအဆင့်ရှိသော အသံကို ပြုပြင်ခြင်း
+- Python, JavaScript, နှင့် C# မှာ `client.audio.transcriptions.create()` (Python/JS) နှင့် `AudioClient.TranscribeAudioAsync()` (C#) ကို အသုံးပြုခြင်း
+- လက်တွေ့သင်ကြားရန် Zava theme များပါဝင်သည့် နမူနာ အသံဖိုင်များပါဝင်သည်
 
-- ဒေသတွင်း OpenAI Whisper ဖြင့် အသံမှ စာသား သို့ ဖော်ပြခြင်း
-- ကိုယ်ပိုင် သတင်းအချက်အလက်ကြီးရှု ထိန်းသိမ်းစေသော ကြားနာမှု
-- Python, JavaScript, C# မှ `client.audio.transcriptions.create()` (Python/JS) နှင့် `AudioClient.TranscribeAudioAsync()` (C#) အသုံးပြု
-- Zava မှ နမူနာ အသံ ဖိုင်များ ပါဝင်သည်
+**ကုဒ်နမူနာများ:**
 
-**Code ตัวอย่าง:**
-
-| ဘာသာစကား | ဖိုင် | ဖော်ပြချက် |
+| Language | File | Description |
 |----------|------|-------------|
-| Python | `python/foundry-local-whisper.py` | Whisper အသံ ဖော်ပြမှု |
-| C# | `csharp/WhisperTranscription.cs` | Whisper အသံ ဖော်ပြမှု |
-| JavaScript | `javascript/foundry-local-whisper.mjs` | Whisper အသံ ဖော်ပြမှု |
+| Python | `python/foundry-local-whisper.py` | Whisper အသံ transcription |
+| C# | `csharp/WhisperTranscription.cs` | Whisper အသံ transcription |
+| JavaScript | `javascript/foundry-local-whisper.mjs` | Whisper အသံ transcription |
 
-> **မှတ်ချက်:** ဤ လေ့ကျင့်ခန်းတွင် **Foundry Local SDK** ကို အသုံးပြုကာ Whisper မော်ဒယ်ကို အပရိုဂရမ်ဖြင့် ဒေါင်းလုပ်လုပ်၍ တင်သွင်းပြီး ဒေသတွင်း OpenAI-compatible endpoint သို့ အသံ ပို့၍ ဖော်ပြချက်များ ရယူသည်။ Whisper မော်ဒယ် (`whisper`) သည် Foundry Local ကတ်တလော့တွင်စာရင်းဝင်ပြီး စက်ပေါ်တွင်သာ လည်ပတ်သည် - ကလောင်း API key များ သို့မဟုတ် ကွန်ရက် မလိုအပ်ပါ။
-
----
-
-### အစိတ်အပိုင်း 10: အသုံးပြုသူ သို့မဟုတ် Hugging Face မော်ဒယ်များ အသုံးပြုခြင်း
-
-**Laboratory guide:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
-
-- Hugging Face မော်ဒယ်များကို ONNX Runtime GenAI မော်ဒယ် တည်ဆောက်စက်ဖြင့် ပြုလုပ်ထားသော ONNX ဖော်မတ်တွင် ကွန်ပိုင်လုပ်ခြင်း
-- ဟာ့ဒ်ဝဲအလိုက် ကွန်ပိုင်လုပ်မှု (CPU, NVIDIA GPU, DirectML, WebGPU) နှင့် အရည်အသွေးချိန်ညှိမှု (int4, fp16, bf16)
-- Foundry Local အတွက် chat-template ဖိုင် ဖန်တီးခြင်း
-- ကွန်ပိုင်လုပ်ထားသော မော်ဒယ်များကို Foundry Local ကတ်တလော့ မှ ထည့်သွင်းခြင်း
-- CLI, REST API, OpenAI SDK ဖြင့် လည်ပတ်နိုင်ခြင်း
-- ကိုးကားပုံစံ - Qwen/Qwen3-0.6B ကို အစမှ အဆုံး compile လုပ်ခြင်း
+> **မှတ်ချက်:** ဤလက်တွေ့အလုပ်ရုံသည် **Foundry Local SDK** ကို အသုံးပြု၍ Whisper မော်ဒယ်ကို အလိုအလျောက် ဒေါင်းလုတ်ဆွဲပြီး လုပ်ဆောင်သည်၊ ထို့နောက် ဒေသန္တရ OpenAI-ကိုက်ညီသော endpoint သို့ အသံကို ပို့ပြီး transcription ပြုလုပ်သည်။ Whisper မော်ဒယ် (`whisper`) သည် Foundry Local catalog တွင် ပါဝင်ပြီး စက်ပစ္စည်းပေါ်တွင် ပုံသေကောင်းစွာ ပြေးဆွဲနိုင်သည် - cloud API key မလိုအပ်ဘဲ နှင့် network ဝင်ရန် မလိုအပ်ပါ။
 
 ---
 
-### အစိတ်အပိုင်း 11: ဒေသတွင်း မော်ဒယ်များနှင့် tool-calling ဖြင့် ပုံစံ
+### အပိုင်း ၁၀: စိတ်ကြိုက် သို့မဟုတ် Hugging Face မော်ဒယ်များ အသုံးပြုခြင်း
 
-**Laboratory guide:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
+**လက်တွေ့လမ်းညွှန်:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
 
-- ဒေသတွင်း မော်ဒယ်များ စက်ပေါ်မှ အပြင်လုပ်ဆောင်ချက်များခေါ်ရန် (tool/function calling) စနစ်ဖွင့်ခြင်း
-- OpenAI function-calling ကွက်တိပုံစံဖြင့် tool schemas သတ်မှတ်ခြင်း
-- multi-turn tool-calling ဆွေးနွေးမှု လည်ပတ်မှုကို ကိုင်တွယ်ခြင်း
-- ဒေသတွင်းမှ tool ခေါ်ယူမှု တည်ဆောက်ပြီး မော်ဒယ်ထံ ပြန်ရလဒ်ပေးခြင်း
-- tool-calling အတွက် သင့်တော်သည့် မော်ဒယ်များ ရွေးချယ်ခြင်း (Qwen 2.5, Phi-4-mini)
-- SDK ၏ မူရင်း `ChatClient` ကို Tool calling အတွက် အသုံးပြုခြင်း (JavaScript)
+- Hugging Face မော်ဒယ်များကို ONNX Runtime GenAI မော်ဒယ် တည်ဆောက်သူ ဖြင့် စနစ်တကျ ONNX ပုံစံသို့ လုပ်ငန်းဆောင်ရွက်ခြင်း
+- စက်ပစ္စည်းအလိုက် ကွန်ပိုင်လ်ခြင်း (CPU, NVIDIA GPU, DirectML, WebGPU) နှင့် သတ်မှတ်ခြင်း (int4, fp16, bf16)
+- Foundry Local အတွက် chat-template ဖိုင်များ ဖန်တီးခြင်း
+- ကွန်ပိုင်လ်ပြီး မော်ဒယ်များကို Foundry Local cache ထဲသို့ ထည့်သွင်းခြင်း
+- CLI, REST API နှင့် OpenAI SDK မှတစ်ဆင့် စိတ်ကြိုက် မော်ဒယ်များ တိုးတက်အသုံးပြုခြင်း
+- ကိုးကား နမူနာ - Qwen/Qwen3-0.6B ကွန်ပိုင်လ်ပြီး အဆုံးထိပြုလုပ်ခြင်း
 
-**Code ตัวอย่าง:**
+---
 
-| ဘာသာစကား | ဖိုင် | ဖော်ပြချက် |
+### အပိုင်း ၁၁: ဒေသန္တရ မော်ဒယ်များဖြင့် Tool Calling
+
+**လက်တွေ့လမ်းညွှန်:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
+
+- ဒေသန္တရ မော်ဒယ်များကို အပြင်မှ ဖန်ဆင်းထားသော function များအား ခေါ်ယူခွင့် (tool/function calling) ခွင့်ပြုခြင်း
+- OpenAI function-calling ပုံစံဖြင့် tool schema များ သတ်မှတ်ရေးဆွဲခြင်း
+- အပတ်ပေါင်း tool-calling စကားပြောစဉ် လည်ပတ်ခြင်းကို ကိုင်တွယ်မှု
+- ဒေသန္တရတွင် tool call များ ဆောင်ရွက်ပြီး မော်ဒယ်သို့ ရလဒ်များ ပြန်ပေးပို့ခြင်း
+- Tool-calling အခြေအနေများအတွက် သင့်တော်သော မော်ဒယ် ရွေးချယ်ခြင်း (Qwen 2.5, Phi-4-mini)
+- SDK ရဲ့ ပုံမှန် `ChatClient` ကို tool calling အတွက် အသုံးပြုခြင်း (JavaScript)
+
+**ကုဒ်နမူနာများ:**
+
+| Language | File | Description |
 |----------|------|-------------|
-| Python | `python/foundry-local-tool-calling.py` | မိုးလေဝသ/လူဦးရေ ကိရိယာများဖြင့် Tool calling |
-| C# | `csharp/ToolCalling.cs` | .NET ဖြင့် Tool calling |
-| JavaScript | `javascript/foundry-local-tool-calling.mjs` | ChatClient ဖြင့် Tool calling |
+| Python | `python/foundry-local-tool-calling.py` | ရာသီဥတု/လူဦးရေ ကိရိယာများ ဖြင့် tool calling |
+| C# | `csharp/ToolCalling.cs` | .NET ဖြင့် tool calling |
+| JavaScript | `javascript/foundry-local-tool-calling.mjs` | ChatClient ဖြင့် tool calling |
 
 ---
 
-### အစိတ်အပိုင်း 12: Zava Creative Writer အတွက် ဝက်ဘ် UI တည်ဆောက်ခြင်း
+### အပိုင်း ၁၂: Zava Creative Writer အတွက် Web UI တည်ဆောက်ခြင်း
 
-**Laboratory guide:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
+**လက်တွေ့လမ်းညွှန်:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
 
-- Zava Creative Writer အတွက် ဘရောင်ဇာအခြေပြု အရှေ့ဆုံး မျက်နှာပြင်ထည့်သွင်းခြင်း
-- Python (FastAPI), JavaScript (Node.js HTTP), နှင့် C# (ASP.NET Core) မှ မျှဝေ UI ကို ဝန်ဆောင်မှုပေးခြင်း
-- Fetch API နှင့် ReadableStream ကို အသုံးပြုကာ စီးရီး NDJSON များ ဘရောင်ဇာတွင် သုံးစွဲခြင်း
-- တိုက်ရိုက် အေးဂျင့် အခြေအနေ အမှတ်အသားနှင့် လက်ရှိ ဆောင်းပါးစာသား စီးရီး ပေးပို့ခြင်း
+- Zava Creative Writer အတွက် browser-based front end ကို ထည့်သွင်းခြင်း
+- Python (FastAPI), JavaScript (Node.js HTTP), နှင့် C# (ASP.NET Core) မှာ ပြန်လည် ဝန်ဆောင်မှုပေးခြင်း
+- Browser တွင် Fetch API နှင့် ReadableStream ဖြင့် streaming NDJSON ကို စားသုံးခြင်း
+- တိုက်ရိုက် အေးဂျင့် အခြေအနေ စာရင်းနှင့် စာရေးဆောင်းပါး live streaming ဖော်ပြမှု
 
-**ကုဒ် (မျှဝေ UI):**
+**ကုဒ် (shared UI):**
 
-| ဖိုင် | ဖော်ပြချက် |
+| File | Description |
 |------|-------------|
-| `zava-creative-writer-local/ui/index.html` | စာမျက်နှာ layout |
-| `zava-creative-writer-local/ui/style.css` | ပုံသဏ္ဍာန်ပေးခြင်း |
-| `zava-creative-writer-local/ui/app.js` | စီးရီးဖတ်သူ နှင့် DOM update လုပ်ဆောင်ချက် |
+| `zava-creative-writer-local/ui/index.html` | စာမျက်နှာ တည်ဆောက်ပုံ |
+| `zava-creative-writer-local/ui/style.css` | ပုံစံ သတ်မှတ်ခြင်း |
+| `zava-creative-writer-local/ui/app.js` | Stream reader နှင့် DOM update နည်းပညာ |
 
-**နောက်ခံပိုင်း ထည့်သွင်းချက်များ:**
+**နောက်ခံ အပိုင်း ပေါင်းထည့်မှုများ:**
 
-| ဘာသာစကား | ဖိုင် | ဖော်ပြချက် |
+| Language | File | Description |
 |----------|------|-------------|
-| Python | `zava-creative-writer-local/src/api/main.py` | static UI ကို ဝန်ဆောင်မှုပေးရန် အပ်ဒိတ်လုပ်ထားသည် |
-| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | စီမံခန့်ခွဲသူ ဦးဆောင် HTTP ဆာဗာ အသစ် |
+| Python | `zava-creative-writer-local/src/api/main.py` | Static UI သို့ ဝန်ဆောင်မှုပေးရေး အပ်ဒိတ္ဖြည့်သွင်းခြင်း |
+| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | Orchestrator ကို တည်ဆောက်သည့် HTTP Server အသစ် |
 | C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | ASP.NET Core minimal API project အသစ် |
 
 ---
 
-### အစိတ်အပိုင်း 13: အလုပ်ရုံဆွေးနွေးပွဲ ပြီးဆုံးပါပြီ
-**Lab guide:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
+### အပိုင်း ၁၃: အလုပ်ရုံပြီးစီးခြင်း
 
-- သင့်တည်ဆောက်ခဲ့သောအစိတ်အပိုင်း ၁၂ အားလုံး၏အကျဉ်းချုပ်
-- သင့်အပလီကေးရှင်းများကို တိုးချဲ့နိုင်ရန်ထပ်မံအကြံပြုချက်များ
-- အရင်းအမြစ်များနှင့်စာရွက်စာတမ်းများနှင့်လင့်ခ်များ
+**လက်တွေ့လမ်းညွှန်:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
+
+- ၁၂ အပိုင်းအတွင်း တည်ဆောက်ခဲ့သည်များ စုစည်းတင်ပြချက်
+- သင့်အက်ပလီကေးရှင်းများ တိုးချဲ့ဖွံ့ဖြိုးရန် အတွေးအခေါ်များ
+- အချက်အလက်အသုံးအနှုန်းနှင့် စာရွက်စာတမ်း များလင့်ခ်များ
 
 ---
 
-## Project Structure
+## Project ဖွဲ့စည်းပုံ
 
 ```
 ├── python/                        # Python examples
@@ -377,32 +405,32 @@ foundry model run phi-3.5-mini  # အပြန်အလှန် ပြောဆ
 
 ---
 
-## Resources
+## အရင်းအမြစ်များ
 
 | Resource | Link |
 |----------|------|
-| Foundry Local website | [foundrylocal.ai](https://foundrylocal.ai) |
-| Model catalog | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
+| Foundry Local ဝဘ်ဆိုက် | [foundrylocal.ai](https://foundrylocal.ai) |
+| မော်ဒယ် catalog | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
 | Foundry Local GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
-| Getting started guide | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
-| Foundry Local SDK Reference | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
+| စတင်လေ့လာမှု လမ်းညွှန် | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
+| Foundry Local SDK ကိုးကားစာမျက်နှာ | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
 | Microsoft Agent Framework | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 | OpenAI Whisper | [github.com/openai/whisper](https://github.com/openai/whisper) |
 | ONNX Runtime GenAI | [github.com/microsoft/onnxruntime-genai](https://github.com/microsoft/onnxruntime-genai) |
 
 ---
 
-## Licence
+## အသုံးပြုခွင့်
 
-ဒီဆောင်းပါးပစ္စည်းသည် ပညာရေးဆိုင်ရာရည်ရွယ်ချက်များအတွက်ရရှိသည်။
+ဤ workshop ပစ္စည်းများသည် ပညာရေး အသုံးပြုရန် ဗဟုသုတ ရည်ရွယ်၍ ဖြန့်ဝေထားပါသည်။
 
 ---
 
-**အဆင်ပြေစေဖို့ ဆောက်လုပ်ကြပါစို့! 🚀**
+**ပျော်ရွှင်စရာ တည်ဆောက်မှု! 🚀**
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **မှတ်ချက်**  
-ဒီစာရွက်စာတမ်းကို AI ဘာသာပြန်အမှုဆောင် [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျနော်တို့သည် တိကျမှန်ကန်မှု ရှိအောင် ကြိုးစားပေမယ့် အလိုအလျောက် ဘာသာပြန်ချက်များတွင် အမှားများ သို့မဟုတ် တိကျမှု မရှိမှုများ ရှိနိုင်ကြောင်း ကျေးဇူးပြု၍ သိရှိ ပေးပါ။ မူရင်းစာရွက်စာတမ်းသည် မိမိဘာသာစကားဖြင့် ရှိသော အရာ ဖြစ်ပြီး ကန့်သတ်ထားသော အချက်အလက်များအတွက် ဖြစ်ပါက ပရော်ဖက်ရှင်နယ် လူ့ဘာသာပြန်ခြင်းကို အကြံပြုပါသည်။ ဒီဘာသာပြန်ချက်ကို အသုံးပြုခြင်းကြောင့် ဖြစ်ပေါ်လာနိုင်သော နားလည်မှုမမှန်ခြင်းများ သို့မဟုတ် မှားယွင်းသောအဓိပ္ပါယ်ဆောင်မှုများအတွက် ကျနော်တို့ တာဝန်မယူပါ။
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် အားဖြည့်ကြ努力သော်လည်း၊ အလိုအလျောက် ဘာသာပြန်ခြင်းတွင် အမှားများ သို့မဟုတ် မမှန်ကန်သော အချက်အလက်များ ပါရှိနိုင်ကြောင်း သိရှိပါရန် သတိပေးအပ်ပါသည်။ မူရင်းစာတမ်းကို၎င်း၏ မူလဘာသာဖြင့်သာ အတည်ပြုရမည့် အရင်းအမြစ် အဖြစ်ယူဆရန် လိုအပ်ပါသည်။ အရေးကြီးသည့် အချက်အလက်များအတွက် လူ့ဘာသာပြန်ကို အသုံးပြုရန် အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုရာမှ ဖြစ်ပေါ်လာနိုင်သည့် နားမလည်မှုများ သို့မဟုတ် မမှန်ကန်သည့် အယူအဆများအတွက် ကျွန်ုပ်တို့ တာဝန်မယူပါ။
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
