@@ -2,59 +2,87 @@
   <img src="https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg" alt="Foundry Local" width="280" />
 </p>
 
-# Foundry Local ورکشاپ - ڈیوائس پر AI ایپس بنائیں
+# فاؤنڈری لوکل ورکشاپ - آن ڈیوائس AI ایپس بنائیں
 
-ایک عملی ورکشاپ جس میں آپ اپنی مشین پر لینگویج ماڈلز چلانا اور [Foundry Local](https://foundrylocal.ai) اور [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) کے ساتھ ذہین ایپلیکیشنز بنانا سیکھیں گے۔
+اپنے مشین پر زبان کے ماڈلز چلانے اور [Foundry Local](https://foundrylocal.ai) اور [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) کے ساتھ ذہین ایپلیکیشنز بنانے کے لیے ایک عملی ورکشاپ۔
 
-> **Foundry Local کیا ہے؟** Foundry Local ایک ہلکا پھلکا رن ٹائم ہے جو آپ کو زبان کے ماڈلز مکمل طور پر اپنے ہارڈویئر پر ڈاؤن لوڈ، مینیج اور سرو کرنے دیتا ہے۔ یہ ایک **OpenAI-مطابق API** فراہم کرتا ہے جس سے کوئی بھی ٹول یا SDK جو OpenAI کی بات کرتا ہو جڑ سکتا ہے - کسی کلاؤڈ اکاؤنٹ کی ضرورت نہیں۔
+> **Foundry Local کیا ہے؟** فاؤنڈری لوکل ایک ہلکا پھلکا رن ٹائم ہے جو آپ کو اپنے ہارڈویئر پر زبان کے ماڈلز مکمل طور پر ڈاؤن لوڈ، منظم اور پیش کرنے دیتا ہے۔ یہ ایک **OpenAI-مطابق API** فراہم کرتا ہے تاکہ کوئی بھی ٹول یا SDK جو OpenAI کے ساتھ بات کرتا ہے، کنیکٹ کر سکے - کوئی کلاؤڈ اکاؤنٹ ضروری نہیں۔
+
+### 🌐 کثیراللسانی حمایت
+
+#### GitHub ایکشن کے ذریعے معاونت حاصل (خودکار اور ہمیشہ تازہ ترین)
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](./README.md) | [Vietnamese](../vi/README.md)
+
+> **مقامی طور پر کلون کرنا پسند کریں؟**
+>
+> اس ذخیرے میں 50+ زبانوں کے ترجمے شامل ہیں جو ڈاؤن لوڈ سائز کو نمایاں طور پر بڑھاتے ہیں۔ ترجمے کے بغیر کلون کرنے کے لئے sparse checkout استعمال کریں:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> یہ آپ کو تیز تر ڈاؤن لوڈ کے ساتھ کورس مکمل کرنے کے لیے ہر چیز فراہم کرتا ہے۔
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ---
 
 ## سیکھنے کے مقاصد
 
-اس ورکشاپ کے اختتام تک آپ کر سکیں گے:
+اس ورکشاپ کے اختتام تک آپ قابل ہوں گے:
 
 | # | مقصد |
 |---|-----------|
-| 1 | Foundry Local انسٹال کریں اور CLI سے ماڈلز کا انتظام کریں |
+| 1 | Foundry Local انسٹال کریں اور CLI کے ذریعے ماڈلز کا انتظام کریں |
 | 2 | پروگراماتی ماڈل مینجمنٹ کے لیے Foundry Local SDK API میں مہارت حاصل کریں |
-| 3 | Python، JavaScript، اور C# SDKs کے ذریعے لوکل انفرنس سرور سے رابطہ قائم کریں |
-| 4 | Retrieval-Augmented Generation (RAG) پائپ لائن بنائیں جو جوابات کو آپ کے اپنے ڈیٹا سے منسلک کرے |
-| 5 | مستقل ہدایات اور شخصیات کے ساتھ AI ایجنٹس بنائیں |
-| 6 | فیڈبیک لوپس کے ساتھ ملٹی-ایجنٹ ورک فلو کو منظم کریں |
-| 7 | ایک پروڈکشن کیپ اسٹون ایپ - Zava Creative Writer دریافت کریں |
-| 8 | سنہری ڈیٹاسیٹس اور LLM-as-judge اسکورنگ کے ساتھ ایویلیوایشن فریم ورک بنائیں |
-| 9 | Foundry Local SDK کے ذریعے Whisper کا استعمال کرتے ہوئے آڈیو ٹرانسکرائب کریں - ڈیوائس پر اسپِیچ ٹو ٹیکسٹ |
-| 10 | ONNX Runtime GenAI اور Foundry Local کے ساتھ کسٹم یا Hugging Face ماڈلز کمپائل اور چلائیں |
-| 11 | ٹول کالنگ پیٹرن کے ذریعے لوکل ماڈلز کو بیرونی فنکشنز کال کرنے کے قابل بنائیں |
-| 12 | حقیقی وقت اسٹریمنگ کے ساتھ Zava Creative Writer کے لیے براؤزر بیسڈ UI بنائیں |
+| 3 | Python، JavaScript، اور C# SDKs کے ذریعے لوکل انفرنس سرور سے کنیکٹ کریں |
+| 4 | Retrieval-Augmented Generation (RAG) پائپ لائن بنائیں جو جوابوں کی بنیاد آپ کے اپنے ڈیٹا پر رکھتی ہو |
+| 5 | مستقل ہدایات اور شخصیات کے ساتھ AI ایجنٹ بنائیں |
+| 6 | فیڈبیک لوپس کے ساتھ ملٹی ایجنٹ ورک فلو کی ترتیب دیں |
+| 7 | پروڈکشن کیپ اسٹون ایپ - Zava Creative Writer کو دریافت کریں |
+| 8 | گولڈن ڈیٹا سیٹس اور LLM-as-judge اسکورنگ کے ساتھ ایویلیوایشن فریم ورکس بنائیں |
+| 9 | Whisper کے ذریعے آڈیو کی ٹرانسکرپشن کریں - فاؤنڈری لوکل SDK کے تحت آن ڈیوائس اسپیچ ٹو ٹیکسٹ |
+| 10 | ONNX Runtime GenAI اور Foundry Local کے ساتھ کسٹم یا Hugging Face ماڈلز کو کمپائل اور چلائیں |
+| 11 | ٹول-کالنگ پیٹرن کے ساتھ لوکل ماڈلز کو خارجی فنکشنز کال کرنے کے قابل بنائیں |
+| 12 | Zava Creative Writer کے لیے براوزر-بیسڈ UI بنائیں جس میں ریئل ٹائم سٹریمنگ ہو |
 
 ---
 
-## ضروریات
+## پیشگی ضروریات
 
 | ضرورت | تفصیلات |
 |-------------|---------|
-| **ہارڈویئر** | کم از کم 8 GB RAM (16 GB سفارش کی جاتی ہے)؛ AVX2-قابل CPU یا سپورٹڈ GPU |
-| **OS** | Windows 10/11 (x64/ARM)، Windows Server 2025، یا macOS 13+ |
-| **Foundry Local CLI** | Windows پر `winget install Microsoft.FoundryLocal` یا macOS پر `brew tap microsoft/foundrylocal && brew install foundrylocal` کے ذریعے انسٹال کریں۔ تفصیلات کے لیے [شروع کرنے کی رہنمائی](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) دیکھیں۔ |
-| **لینگویج رن ٹائم** | **Python 3.9+** اور/یا **.NET 9.0+** اور/یا **Node.js 18+** |
-| **Git** | اس ریپوزیٹری کو کلون کرنے کے لیے |
+| **ہارڈویئر** | کم از کم 8 جی بی RAM (16 جی بی تجویز کردہ)؛ AVX2-قابل CPU یا حمایت یافتہ GPU |
+| **آپریٹنگ سسٹم** | Windows 10/11 (x64/ARM)، Windows Server 2025، یا macOS 13+ |
+| **Foundry Local CLI** | Windows پر `winget install Microsoft.FoundryLocal` یا macOS پر `brew tap microsoft/foundrylocal && brew install foundrylocal` کے ذریعے انسٹال کریں۔ تفصیلات کے لیے [getting started guide](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) دیکھیں۔ |
+| **زبان رن ٹائم** | **Python 3.9+** اور/یا **.NET 9.0+** اور/یا **Node.js 18+** |
+| **Git** | اس ذخیرے کو کلون کرنے کے لیے |
 
 ---
 
 ## شروع کریں
 
 ```bash
-# 1۔ مخزن کو کلون کریں
+# 1. مخزن کی نقل بنائیں
 git clone https://github.com/microsoft-foundry/foundry-local-lab.git
 cd foundry-local-lab
 
-# 2۔ تصدیق کریں کہ Foundry Local انسٹال ہے
+# 2. یہ تصدیق کریں کہ Foundry Local انسٹال ہے
 foundry model list              # دستیاب ماڈلز کی فہرست بنائیں
 foundry model run phi-3.5-mini  # ایک تعاملی چیٹ شروع کریں
 
-# 3۔ اپنی زبان کا ٹریک منتخب کریں (مکمل سیٹ اپ کے لیے پارٹ 2 لیب دیکھیں)
+# 3. اپنی زبان کا ٹریک منتخب کریں (مکمل ترتیبات کے لیے حصہ 2 کی لیب دیکھیں)
 ```
 
 | زبان | جلد آغاز |
@@ -67,26 +95,26 @@ foundry model run phi-3.5-mini  # ایک تعاملی چیٹ شروع کریں
 
 ## ورکشاپ کے حصے
 
-### حصہ 1: Foundry Local کے ساتھ آغاز
+### حصہ 1: Foundry Local کے ساتھ شروع کریں
 
 **لیب گائیڈ:** [`labs/part1-getting-started.md`](labs/part1-getting-started.md)
 
 - Foundry Local کیا ہے اور یہ کیسے کام کرتا ہے
-- Windows اور macOS پر CLI کی تنصیب
-- ماڈلز کی تلاش - فہرست بنانا، ڈاؤن لوڈ کرنا، چلانا
-- ماڈل عرفیات اور ڈائنامک پورٹس کو سمجھنا
+- Windows اور macOS پر CLI انسٹال کرنا
+- ماڈلز کا جائزہ لینا - فہرست، ڈاؤن لوڈ، چلانا
+- ماڈل علیاسز اور ڈائنامک پورٹس کو سمجھنا
 
 ---
 
-### حصہ 2: Foundry Local SDK کی گہرائی میں جائزہ
+### حصہ 2: Foundry Local SDK کی تفصیلی جانچ
 
 **لیب گائیڈ:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
-- ایپلیکیشن ڈیولپمنٹ کے لیے CLI کے بجائے SDK کیوں استعمال کریں
-- Python، JavaScript، اور C# کے لیے مکمل SDK API حوالہ
-- سروس مینجمنٹ، کیٹلاگ براؤزنگ، ماڈل کا لائف سائیکل (ڈاؤن لوڈ، لوڈ، انلوڈ)
-- جلد شروع کرنے کے نمونے: Python کنسٹرکٹر بُوٹ اسٹر‍یپ، JavaScript `init()`, C# `CreateAsync()`
-- `FoundryModelInfo` میٹا ڈیٹا، عرفیات، اور ہارڈویئر-مناسب ماڈل کا انتخاب
+- ایپلیکیشن ڈیولپمنٹ کے لیے CLI کی بجائے SDK کیوں استعمال کریں
+- Python، JavaScript، اور C# کے لیے مکمل SDK API ریفرنس
+- سروس مینجمنٹ، کیٹلاگ براؤزنگ، ماڈل لائف سائیکل (ڈاؤن لوڈ، لوڈ، ان لوڈ)
+- جلد آغاز کے پیٹرنز: Python کنسٹرکٹر بوٹ سٹراپ، JavaScript `init()`, C# `CreateAsync()`
+- `FoundryModelInfo` میٹا ڈیٹا، علیاسز، اور ہارڈویئر-مثالی ماڈل کا انتخاب
 
 ---
 
@@ -94,18 +122,18 @@ foundry model run phi-3.5-mini  # ایک تعاملی چیٹ شروع کریں
 
 **لیب گائیڈ:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
 
-- Python، JavaScript، اور C# سے Foundry Local سے رابطہ
-- Foundry Local SDK کا استعمال کرتے ہوئے سروس کو پروگراماتی طور پر مینیج کرنا
-- OpenAI-مطابق API کے ذریعے اسٹریمنگ چیٹ کمپلیشنز
+- Python، JavaScript، اور C# سے Foundry Local سے کنیکٹ ہونا
+- Foundry Local SDK کے ذریعے پروگراماتی طور پر سروس کا انتظام کرنا
+- OpenAI-مطابق API کے ذریعے سٹریمنگ چیٹ کمپلیشنز
 - ہر زبان کے لیے SDK میتھڈ ریفرنس
 
-**کوڈ مثالیں:**
+**کوڈ نمونے:**
 
-| زبان | فائل | تفصیل |
+| زبان | فائل | وضاحت |
 |----------|------|-------------|
-| Python | `python/foundry-local.py` | بنیادی اسٹریمنگ چیٹ |
-| C# | `csharp/BasicChat.cs` | .NET کے ساتھ اسٹریمنگ چیٹ |
-| JavaScript | `javascript/foundry-local.mjs` | Node.js کے ساتھ اسٹریمنگ چیٹ |
+| Python | `python/foundry-local.py` | بنیادی سٹریمنگ چیٹ |
+| C# | `csharp/BasicChat.cs` | .NET کے ساتھ سٹریمنگ چیٹ |
+| JavaScript | `javascript/foundry-local.mjs` | Node.js کے ساتھ سٹریمنگ چیٹ |
 
 ---
 
@@ -114,12 +142,12 @@ foundry model run phi-3.5-mini  # ایک تعاملی چیٹ شروع کریں
 **لیب گائیڈ:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
 
 - RAG کیا ہے اور کیوں اہم ہے
-- ان میموری نالج بیس بنانا
-- کی ورڈ-اوورلیپ ریٹریول کے ساتھ اسکورنگ
-- گراؤنڈڈ سسٹم پرامپٹس کی ترکیب
-- ڈیوائس پر مکمل RAG پائپ لائن چلانا
+- ان-میموری نالج بیس بنانا
+- اسکورنگ کے ساتھ کی ورڈ-اوورلیپ رٹریوال
+- گراؤنڈڈ سسٹم پرامپٹس مرتب کرنا
+- آن ڈیوائس مکمل RAG پائپ لائن چلانا
 
-**کوڈ مثالیں:**
+**کوڈ نمونے:**
 
 | زبان | فائل |
 |----------|------|
@@ -129,41 +157,41 @@ foundry model run phi-3.5-mini  # ایک تعاملی چیٹ شروع کریں
 
 ---
 
-### حصہ 5: AI ایجنٹس کی تعمیر
+### حصہ 5: AI ایجنٹس بنانا
 
 **لیب گائیڈ:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
 
-- AI ایجنٹ کیا ہے (ایک خام LLM کال کے مقابلے میں)
+- AI ایجنٹ کیا ہے (رو ای ایل ایل ایم کال کے مقابلے میں)
 - `ChatAgent` پیٹرن اور Microsoft Agent Framework
-- سسٹم ہدایات، شخصیات، اور کثیر نکاتی مکالمے
-- ایجنٹس سے منظم آؤٹ پٹ (JSON)
+- سسٹم ہدایات، شخصیات، اور ملٹی ٹرن گفتگو
+- ایجنٹس سے منظم شدہ آؤٹ پٹ (JSON)
 
-**کوڈ مثالیں:**
+**کوڈ نمونے:**
 
-| زبان | فائل | تفصیل |
+| زبان | فائل | وضاحت |
 |----------|------|-------------|
-| Python | `python/foundry-local-with-agf.py` | Agent Framework کے ساتھ واحد ایجنٹ |
-| C# | `csharp/SingleAgent.cs` | واحد ایجنٹ (ChatAgent پیٹرن) |
-| JavaScript | `javascript/foundry-local-with-agent.mjs` | واحد ایجنٹ (ChatAgent پیٹرن) |
+| Python | `python/foundry-local-with-agf.py` | ایجنٹ فریم ورک کے ساتھ ایک ایجنٹ |
+| C# | `csharp/SingleAgent.cs` | ایک ایجنٹ (ChatAgent پیٹرن) |
+| JavaScript | `javascript/foundry-local-with-agent.mjs` | ایک ایجنٹ (ChatAgent پیٹرن) |
 
 ---
 
-### حصہ 6: ملٹی-ایجنٹ ورک فلوز
+### حصہ 6: ملٹی ایجنٹ ورک فلو
 
 **لیب گائیڈ:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
 
 - ملٹی ایجنٹ پائپ لائنز: ریسرچر → رائٹر → ایڈیٹر
-- ترتیبی تنظیم اور فیڈبیک لوپس
-- مشترکہ کنفیگریشن اور منظم ہینڈ آفز
-- اپنا ملٹی-ایجنٹ ورک فلو ڈیزائن کرنا
+- تسلسلی رابطہ کاری اور فیڈبیک لوپس
+- مشترکہ کنفیگریشن اور منظم ہینڈ آف
+- اپنا ملٹی ایجنٹ ورک فلو ڈیزائن کریں
 
-**کوڈ مثالیں:**
+**کوڈ نمونے:**
 
-| زبان | فائل | تفصیل |
+| زبان | فائل | وضاحت |
 |----------|------|-------------|
-| Python | `python/foundry-local-multi-agent.py` | تین ایجنٹ پائپ لائن |
-| C# | `csharp/MultiAgent.cs` | تین ایجنٹ پائپ لائن |
-| JavaScript | `javascript/foundry-local-multi-agent.mjs` | تین ایجنٹ پائپ لائن |
+| Python | `python/foundry-local-multi-agent.py` | تین ایجنٹس کی پائپ لائن |
+| C# | `csharp/MultiAgent.cs` | تین ایجنٹس کی پائپ لائن |
+| JavaScript | `javascript/foundry-local-multi-agent.mjs` | تین ایجنٹس کی پائپ لائن |
 
 ---
 
@@ -171,59 +199,58 @@ foundry model run phi-3.5-mini  # ایک تعاملی چیٹ شروع کریں
 
 **لیب گائیڈ:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
 
-- 4 خاص ایجنٹوں کے ساتھ پروڈکشن طرز کی ملٹی-ایجنٹ ایپ
-- ترتیبی پائپ لائن اور ایویلیویٹر کی طرف سے چلائے جانے والے فیڈبیک لوپس
-- اسٹریمنگ آؤٹ پٹ، پروڈکٹ کیٹلاگ تلاش، منظم JSON ہینڈ آفز
+- چار ماہر ایجنٹس کے ساتھ پروڈکشن طرز کی ملٹی ایجنٹ ایپ
+- تسلسلی پائپ لائن جس میں ایویلیوایٹر سے باہر آنے والے فیڈبیک لوپس شامل ہیں
+- سٹریمنگ آؤٹ پٹ، پروڈکٹ کیٹلاگ سرچ، ساختہ JSON ہینڈ آف
 - Python (FastAPI)، JavaScript (Node.js CLI)، اور C# (.NET کنسول) میں مکمل نفاذ
 
-**کوڈ مثالیں:**
+**کوڈ نمونے:**
 
-| زبان | ڈائریکٹری | تفصیل |
+| زبان | ڈائریکٹری | وضاحت |
 |----------|-----------|-------------|
-| Python | `zava-creative-writer-local/src/api/` | FastAPI ویب سروس اور آرکیسٹریٹر |
+| Python | `zava-creative-writer-local/src/api/` | FastAPI ویب سروس کے ساتھ آرکیسٹریٹر |
 | JavaScript | `zava-creative-writer-local/src/javascript/` | Node.js CLI ایپلیکیشن |
 | C# | `zava-creative-writer-local/src/csharp/` | .NET 9 کنسول ایپلیکیشن |
 
 ---
 
-### حصہ 8: ایویلیویشن-مبنی ترقی
+### حصہ 8: ایویلیوایشن-لیڈ ڈیولپمنٹ
 
 **لیب گائیڈ:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
 
-- سنہری ڈیٹاسیٹس کے ساتھ AI ایجنٹس کے لیے منظم ایویلیویشن فریم ورک بنائیں
-- اصول پر مبنی چیکس (لمبائی، کی ورڈ کوریج، ممنوعہ الفاظ) + LLM-as-judge اسکورنگ
-- پرامپٹ ویرینٹس کی سائڈ بائی سائڈ موازنہ اور مجموعی اسکورکارڈز
-- حصہ 7 کے Zava Editor ایجنٹ پیٹرن کو آف لائن ٹیسٹ سوئٹ میں توسیع دینا
-- Python، JavaScript، اور C# کے ٹریکس
+- گولڈن ڈیٹا سیٹس کے ذریعے AI ایجنٹس کے لیے ایک منظم جائزہ فریم ورک بنائیں
+- قاعدہ بنیاد پر چیکس (لمبائی، کی ورڈ کورج، ممنوعہ الفاظ) + LLM-as-judge اسکورنگ
+- پرامپٹ کی قسموں کا ایک ساتھ موازنہ اور مجموعی اسکورکارڈز
+- حصہ 7 کے Zava Editor ایجنٹ پیٹرن کو آف لائن ٹیسٹ سوئٹ میں توسیع دیتا ہے
+- Python، JavaScript، اور C# کے تراکز
 
-**کوڈ مثالیں:**
+**کوڈ نمونے:**
 
-| زبان | فائل | تفصیل |
+| زبان | فائل | وضاحت |
 |----------|------|-------------|
-| Python | `python/foundry-local-eval.py` | ایویلیویشن فریم ورک |
-| C# | `csharp/AgentEvaluation.cs` | ایویلیویشن فریم ورک |
-| JavaScript | `javascript/foundry-local-eval.mjs` | ایویلیویشن فریم ورک |
+| Python | `python/foundry-local-eval.py` | ایویلیوایشن فریم ورک |
+| C# | `csharp/AgentEvaluation.cs` | ایویلیوایشن فریم ورک |
+| JavaScript | `javascript/foundry-local-eval.mjs` | ایویلیوایشن فریم ورک |
 
 ---
 
 ### حصہ 9: Whisper کے ساتھ وائس ٹرانسکرپشن
 
 **لیب گائیڈ:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
+- OpenAI Whisper کو مقامی طور پر چلانے والی تقریر سے متن میں منتقلی
+- پرائیویسی کو اولین ترجیح دینے والی آڈیو پراسیسنگ - آڈیو کبھی بھی آپ کے آلے کو نہیں چھوڑتی
+- Python، JavaScript، اور C# ٹریکس کے لیے `client.audio.transcriptions.create()` (Python/JS) اور `AudioClient.TranscribeAudioAsync()` (C#)
+- ہاتھوں سے مشق کے لیے Zava تھیم والے نمونہ آڈیو فائلز شامل ہیں
 
-- OpenAI Whisper کا استعمال کرتے ہوئے مقامی طور پر چلنے والا سپیچ ٹو ٹیکسٹ ٹرانسکرپشن
-- پرائیویسی کو اولین ترجیح دیتے ہوئے آڈیو پروسیسنگ - آڈیو کبھی بھی آپ کے ڈیوائس سے باہر نہیں جاتا
-- Python، JavaScript، اور C# ٹریکس، `client.audio.transcriptions.create()` (Python/JS) اور `AudioClient.TranscribeAudioAsync()` (C#)
-- عملی مشق کے لیے Zava تھیم والے سیمپل آڈیو فائلز شامل
+**کوڈ کے نمونے:**
 
-**کوڈ مثالیں:**
-
-| زبان | فائل | تفصیل |
+| زبان | فائل | وضاحت |
 |----------|------|-------------|
-| Python | `python/foundry-local-whisper.py` | Whisper وائس ٹرانسکرپشن |
-| C# | `csharp/WhisperTranscription.cs` | Whisper وائس ٹرانسکرپشن |
-| JavaScript | `javascript/foundry-local-whisper.mjs` | Whisper وائس ٹرانسکرپشن |
+| Python | `python/foundry-local-whisper.py` | Whisper آواز کی تحریر بندی |
+| C# | `csharp/WhisperTranscription.cs` | Whisper آواز کی تحریر بندی |
+| JavaScript | `javascript/foundry-local-whisper.mjs` | Whisper آواز کی تحریر بندی |
 
-> **نوٹ:** یہ لیب **Foundry Local SDK** کا استعمال کرتی ہے تاکہ پروگراماتی طور پر Whisper ماڈل ڈاؤن لوڈ اور لوڈ کیا جا سکے، پھر ٹرانسکرپشن کے لیے آڈیو کو لوکل OpenAI-مطابق اینڈپوائنٹ پر بھیجتی ہے۔ Whisper ماڈل (`whisper`) Foundry Local کیٹلاگ میں شامل ہے اور مکمل طور پر ڈیوائس پر چلتا ہے - کسی کلاؤڈ API کیز یا نیٹ ورک رسائی کی ضرورت نہیں۔
+> **نوٹ:** یہ لیب **Foundry Local SDK** استعمال کرتی ہے تاکہ پروگرام کے ذریعے Whisper ماڈل ڈاؤن لوڈ اور لوڈ کیا جائے، پھر آڈیو کو تحریر کے لیے مقامی OpenAI-مطابق اینڈپوائنٹ پر بھیجا جائے۔ Whisper ماڈل (`whisper`) Foundry Local کیٹلاگ میں شامل ہے اور مکمل طور پر آلہ پر چلتا ہے - کسی کلاؤڈ API کیز یا نیٹ ورک کے بغیر۔
 
 ---
 
@@ -231,73 +258,74 @@ foundry model run phi-3.5-mini  # ایک تعاملی چیٹ شروع کریں
 
 **لیب گائیڈ:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
 
-- ONNX Runtime GenAI ماڈل بلڈر کے ذریعے Hugging Face ماڈلز کو بہتر ONNX فارمیٹ میں کمپائل کرنا
-- ہارڈویئر مخصوص کمپائلیشن (CPU, NVIDIA GPU, DirectML, WebGPU) اور کوانٹائزیشن (int4، fp16، bf16)
-- Foundry Local کے لیے چیٹ ٹیمپلیٹ کنفیگریشن فائلیں بنانا
-- کمپائل کردہ ماڈلز کو Foundry Local کیشے میں شامل کرنا
+- Hugging Face ماڈلز کو ONNX رن ٹائم GenAI ماڈل بلڈر کی مدد سے بہتر ONNX فارمیٹ میں مرتب کرنا
+- مخصوص ہارڈویئر کے لیے کمپائلیشن (CPU، NVIDIA GPU، DirectML، WebGPU) اور کوانٹائزیشن (int4, fp16, bf16)
+- Foundry Local کے لیے چیٹ-ٹیمپلیٹ کنفیگریشن فائلز تیار کرنا
+- کمپائل شدہ ماڈلز کو Foundry Local کیش میں شامل کرنا
 - CLI، REST API، اور OpenAI SDK کے ذریعے کسٹم ماڈلز چلانا
-- حوالہ مثال: Qwen/Qwen3-0.6B کا مکمل کمپائلیشن
+- حوالہ کے طور پر: Qwen/Qwen3-0.6B کو ابتدا سے انتہا تک مرتب کرنا
 
 ---
 
-### حصہ 11: لوکل ماڈلز کے ساتھ ٹول کالنگ
+### حصہ 11: مقامی ماڈلز کے ذریعے ٹول کالنگ
 
 **لیب گائیڈ:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
 
-- لوکل ماڈلز کو بیرونی فنکشنز کال کرنے کے قابل بنائیں (ٹول/فنکشن کالنگ)
-- OpenAI فنکشن کالنگ فارمیٹ استعمال کرتے ہوئے ٹول اسکیمز کی تعریف کریں
-- کثیر نکاتی ٹول کالنگ مکالمے کے بہاؤ کو سنبھالیں
-- لوکل طور پر ٹول کالز انجام دیں اور ماڈل کو نتائج واپس کریں
-- ٹول کالنگ حالات کے لیے مناسب ماڈل کا انتخاب کریں (Qwen 2.5, Phi-4-mini)
-- ٹول کالنگ کے لیے SDK کا مقامی `ChatClient` استعمال کریں (JavaScript)
+- مقامی ماڈلز کو بیرونی فنکشن کالز کی اجازت دینا (ٹول/فنکشن کالنگ)
+- ٹول سکیموں کی تعریف OpenAI فنکشن-کالنگ فارمیٹ کے مطابق کرنا
+- کثیر دورانیہ ٹول کالنگ مکالمے کا انتظام کرنا
+- ٹول کالز کو مقامی طور پر چلانا اور ماڈل کو نتائج واپس بھیجنا
+- ٹول کالنگ کے منظرناموں کے لیے مناسب ماڈل کا انتخاب (Qwen 2.5, Phi-4-mini)
+- SDK کی مقامی `ChatClient` کو استعمال کرتے ہوئے ٹول کالنگ کرنا (JavaScript)
 
-**کوڈ مثالیں:**
+**کوڈ کے نمونے:**
 
-| زبان | فائل | تفصیل |
+| زبان | فائل | وضاحت |
 |----------|------|-------------|
-| Python | `python/foundry-local-tool-calling.py` | موسم/آبادی کے ٹولز کے ساتھ ٹول کالنگ |
+| Python | `python/foundry-local-tool-calling.py` | موسمی/آبادی کے ٹولز کے ساتھ ٹول کالنگ |
 | C# | `csharp/ToolCalling.cs` | .NET کے ساتھ ٹول کالنگ |
 | JavaScript | `javascript/foundry-local-tool-calling.mjs` | ChatClient کے ساتھ ٹول کالنگ |
 
 ---
 
-### حصہ 12: Zava Creative Writer کے لیے ویب UI کی تعمیر
+### حصہ 12: Zava تخلیقی رائٹر کے لیے ویب UI بنانا
 
 **لیب گائیڈ:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
 
-- Zava Creative Writer کے لیے براؤزر بیسڈ فرنٹ اینڈ شامل کریں
-- Python (FastAPI)، JavaScript (Node.js HTTP)، اور C# (ASP.NET Core) سے مشترکہ UI کو سرو کریں
-- Fetch API اور ReadableStream کے ساتھ براؤزر میں اسٹریمنگ NDJSON کو استعمال کریں
-- لائیو ایجنٹ کی حالت کے بیجز اور حقیقی وقت میں آرٹیکل ٹیکسٹ اسٹریمنگ
+- Zava تخلیقی رائٹر کے لیے براؤزر پر مبنی فرنٹ اینڈ شامل کرنا
+- Python (FastAPI)، JavaScript (Node.js HTTP)، اور C# (ASP.NET Core) سے مشترکہ UI کی سروس فراہم کرنا
+- براؤزر میں Fetch API اور ReadableStream کے ذریعے NDJSON کی اسٹریم استعمال کرنا
+- لائیو ایجنٹ اسٹیٹس بیجز اور حقیقی وقت میں مضمون کی اسٹریمنگ
 
 **کوڈ (مشترکہ UI):**
 
-| فائل | تفصیل |
+| فائل | وضاحت |
 |------|-------------|
-| `zava-creative-writer-local/ui/index.html` | صفحہ کا خاکہ |
+| `zava-creative-writer-local/ui/index.html` | صفحہ کا لے آؤٹ |
 | `zava-creative-writer-local/ui/style.css` | اسٹائلنگ |
-| `zava-creative-writer-local/ui/app.js` | اسٹریمنگ ریڈر اور DOM اپ ڈیٹ لاجک |
+| `zava-creative-writer-local/ui/app.js` | اسٹریم ریڈر اور DOM اپڈیٹ منطق |
 
 **بیک اینڈ میں اضافے:**
 
-| زبان | فائل | تفصیل |
+| زبان | فائل | وضاحت |
 |----------|------|-------------|
-| Python | `zava-creative-writer-local/src/api/main.py` | اسٹاٹک UI کو سرو کرنے کے لیے اپڈیٹ کیا گیا |
-| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | آرکیسٹریٹر کو لپیٹتے ہوئے نیا HTTP سرور |
-| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | نیا ASP.NET Core منیمال API پروجیکٹ |
+| Python | `zava-creative-writer-local/src/api/main.py` | سٹیٹک UI کی سروس کے لیے اپڈیٹ کیا گیا |
+| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | آراستہ کار کے لیے نیا HTTP سرور |
+| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | نیا ASP.NET Core مِنیمل API پروجیکٹ |
 
 ---
 
 ### حصہ 13: ورکشاپ مکمل
+
 **لیب گائیڈ:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
 
-- آپ نے جو کچھ تمام 12 حصوں میں بنایا ہے اس کا خلاصہ
-- آپ کی ایپلی کیشنز کو بڑھانے کے مزید خیالات
-- وسائل اور دستاویزات کے لنکس
+- آپ نے 12 حصوں میں جو کچھ تعمیر کیا اس کا خلاصہ
+- آپ کی ایپلیکیشنز کو مزید توسیع دینے کے آئیڈیاز
+- وسائل اور دستاویزات کے روابط
 
 ---
 
-## پروجیکٹ کی ساخت
+## پروجیکٹ کا ڈھانچہ
 
 ```
 ├── python/                        # Python examples
@@ -381,14 +409,14 @@ foundry model run phi-3.5-mini  # ایک تعاملی چیٹ شروع کریں
 
 | وسیلہ | لنک |
 |----------|------|
-| فاؤنڈری لوکل ویب سائٹ | [foundrylocal.ai](https://foundrylocal.ai) |
+| Foundry Local ویب سائٹ | [foundrylocal.ai](https://foundrylocal.ai) |
 | ماڈل کیٹلاگ | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
-| فاؤنڈری لوکل گٹ ہب | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
-| شروع کرنے کی گائیڈ | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
-| فاؤنڈری لوکل SDK حوالہ | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
-| مائیکروسافٹ ایجنٹ فریم ورک | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
-| اوپن اے آئی وسپر | [github.com/openai/whisper](https://github.com/openai/whisper) |
-| ONNX رن ٹائم GenAI | [github.com/microsoft/onnxruntime-genai](https://github.com/microsoft/onnxruntime-genai) |
+| Foundry Local GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
+| شروع کرنے کی رہنمائی | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
+| Foundry Local SDK ریفرنس | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
+| Microsoft ایجنٹ فریم ورک | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
+| OpenAI Whisper | [github.com/openai/whisper](https://github.com/openai/whisper) |
+| ONNX Runtime GenAI | [github.com/microsoft/onnxruntime-genai](https://github.com/microsoft/onnxruntime-genai) |
 
 ---
 
@@ -398,4 +426,11 @@ foundry model run phi-3.5-mini  # ایک تعاملی چیٹ شروع کریں
 
 ---
 
-**خوش رہیں اور بناتے رہیں! 🚀**
+**خوشی سے تعمیر کریں! 🚀**
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**انہتمامی دستبرداری**:  
+یہ دستاویز AI ترجمہ خدمت [Co-op Translator](https://github.com/Azure/co-op-translator) کے ذریعے ترجمہ کی گئی ہے۔ اگرچہ ہم درستگی کے لیے کوشاں ہیں، براہ کرم نوٹ کریں کہ خودکار ترجمے میں غلطیاں یا کمی بیشی ہو سکتی ہے۔ اصل دستاویز اپنی مادری زبان میں مستند اور معتبر ماخذ سمجھا جائے گا۔ اہم معلومات کے لیے پیشہ ور انسانی ترجمہ کی سفارش کی جاتی ہے۔ اس ترجمے کے استعمال سے پیدا ہونے والی کسی بھی غلط فہمی یا غلط تشریح کی وجہ سے ہم ذمہ دار نہیں ہیں۔
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

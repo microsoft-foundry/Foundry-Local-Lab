@@ -21,20 +21,21 @@ A hands-on workshop for running language models on your own machine and building
 >
 > **Bash / macOS / Linux:**
 > ```bash
-> git clone --filter=blob:none --sparse https://github.com/microsoft/mcp-for-beginners.git
-> cd mcp-for-beginners
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
 > git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
 > ```
 >
 > **CMD (Windows):**
 > ```cmd
-> git clone --filter=blob:none --sparse https://github.com/microsoft/mcp-for-beginners.git
-> cd mcp-for-beginners
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
 >
 > This gives you everything you need to complete the course with a much faster download.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
+
 ---
 
 ## Learning Objectives
