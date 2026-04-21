@@ -4,9 +4,37 @@
 
 # Foundry Local Workshop - Vytvárajte AI aplikácie priamo na zariadení
 
-Praktický workshop pre spúšťanie jazykových modelov na vašom vlastnom zariadení a tvorbu inteligentných aplikácií s [Foundry Local](https://foundrylocal.ai) a [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
+Praktický workshop na spúšťanie jazykových modelov na vlastnom zariadení a vytváranie inteligentných aplikácií pomocou [Foundry Local](https://foundrylocal.ai) a [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
 
-> **Čo je Foundry Local?** Foundry Local je ľahké runtime prostredie, ktoré umožňuje sťahovať, spravovať a poskytovať jazykové modely úplne na vašom hardvéri. Ponúka **OpenAI-kompatibilné API**, takže sa k nemu môže pripojiť ktorýkoľvek nástroj alebo SDK, ktorý komunikuje s OpenAI - nie je potrebný žiadny cloudový účet.
+> **Čo je Foundry Local?** Foundry Local je ľahký runtime, ktorý vám umožňuje sťahovať, spravovať a obsluhovať jazykové modely úplne lokálne na vašom hardvéri. Poskytuje **API kompatibilné s OpenAI**, takže sa môže pripojiť akýkoľvek nástroj alebo SDK, ktoré podporuje OpenAI – bez potreby cloudového účtu.
+
+### 🌐 Podpora viacerých jazykov
+
+#### Podporované cez GitHub Action (automatizované a vždy aktuálne)
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](./README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **Preferujete klonovanie lokálne?**
+>
+> Tento repozitár obsahuje viac ako 50 jazykových prekladov, čo výrazne zvyšuje veľkosť sťahovania. Ak chcete klonovať bez prekladov, použite sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> Tým získate všetko potrebné na dokončenie kurzu so značne rýchlejším sťahovaním.
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ---
 
@@ -17,36 +45,36 @@ Na konci tohto workshopu budete schopní:
 | # | Cieľ |
 |---|-----------|
 | 1 | Nainštalovať Foundry Local a spravovať modely cez CLI |
-| 2 | Ovládnuť Foundry Local SDK API pre programatickú správu modelov |
-| 3 | Pripojiť sa k lokálnemu inference serveru pomocou Python, JavaScript a C# SDK |
-| 4 | Vytvoriť Retrieval-Augmented Generation (RAG) pipeline, ktorý zakladá odpovede na vlastných dátach |
-| 5 | Vytvoriť AI agentov s perzistentnými inštrukciami a personami |
-| 6 | Orchestrovať workflowy s viacerými agentmi s spätnoväzbovými slučkami |
-| 7 | Preskúmať produkčnú capstone aplikáciu - Zava Creative Writer |
-| 8 | Vytvárať vyhodnocovacie rámce s "golden" datasetmi a hodnotením LLM ako sudca |
-| 9 | Prepisovať audio pomocou Whisper - prevod reči na text priamo na zariadení s Foundry Local SDK |
-| 10 | Kompilovať a spúšťať vlastné alebo Hugging Face modely pomocou ONNX Runtime GenAI a Foundry Local |
-| 11 | Umožniť lokálnym modelom volať externé funkcie pomocou vzoru tool-calling |
-| 12 | Vybudovať prehliadačové UI pre Zava Creative Writer s realtime streamovaním |
+| 2 | Ovládnuť API Foundry Local SDK na programatickú správu modelov |
+| 3 | Pripojiť sa k lokálnemu inferenčnému serveru pomocou Python, JavaScript a C# SDK |
+| 4 | Vytvoriť Retrieval-Augmented Generation (RAG) pipeline, ktorá zakladá odpovede na vlastných dátach |
+| 5 | Vytvoriť AI agenty s trvalými inštrukciami a personami |
+| 6 | Orchestruvať multi-agentné pracovné postupy so spätnou väzbou |
+| 7 | Preskúmať produkčnú záverečnú aplikáciu - Zava Creative Writer |
+| 8 | Vytvárať evaluačné rámce so zlatými datasetmi a LLM ako rozhodcom |
+| 9 | Prepisovať audio pomocou Whisper – prevod reči na text priamo na zariadení cez Foundry Local SDK |
+| 10 | Kompilovať a spúšťať vlastné alebo Hugging Face modely s ONNX Runtime GenAI a Foundry Local |
+| 11 | Umožniť lokálnym modelom volať externé funkcie pomocou patrónu tool-calling |
+| 12 | Vytvoriť webové UI pre Zava Creative Writer s prenosom v reálnom čase |
 
 ---
 
-## Požiadavky
+## Predpoklady
 
-| Požiadavka | Detail |
+| Požiadavka | Detaily |
 |-------------|---------|
 | **Hardvér** | Minimálne 8 GB RAM (odporúča sa 16 GB); CPU s podporou AVX2 alebo podporovaná GPU |
 | **OS** | Windows 10/11 (x64/ARM), Windows Server 2025 alebo macOS 13+ |
-| **Foundry Local CLI** | Inštalácia cez `winget install Microsoft.FoundryLocal` (Windows) alebo `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Viac v [návode na začiatok](https://learn.microsoft.com/en-us/azure/foundry-local/get-started). |
+| **Foundry Local CLI** | Inštalácia cez `winget install Microsoft.FoundryLocal` (Windows) alebo `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Pozrite si [návod na začiatok](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) pre podrobnosti. |
 | **Runtime jazyka** | **Python 3.9+** a/alebo **.NET 9.0+** a/alebo **Node.js 18+** |
-| **Git** | Pre klonovanie tohto repozitára |
+| **Git** | Na klonovanie tohto repozitára |
 
 ---
 
-## Začína sa
+## Začíname
 
 ```bash
-# 1. Klonujte úložisko
+# 1. Klonujte repozitár
 git clone https://github.com/microsoft-foundry/foundry-local-lab.git
 cd foundry-local-lab
 
@@ -54,7 +82,7 @@ cd foundry-local-lab
 foundry model list              # Zoznam dostupných modelov
 foundry model run phi-3.5-mini  # Spustite interaktívny chat
 
-# 3. Vyberte si jazykovú stopu (pozri časť 2 laboratórium pre úplné nastavenie)
+# 3. Vyberte svoju jazykovú stopu (pozri časť 2 laboratória pre úplnú inštaláciu)
 ```
 
 | Jazyk | Rýchly štart |
@@ -69,34 +97,34 @@ foundry model run phi-3.5-mini  # Spustite interaktívny chat
 
 ### Časť 1: Začíname s Foundry Local
 
-**Laboratórny návod:** [`labs/part1-getting-started.md`](labs/part1-getting-started.md)
+**Návod:** [`labs/part1-getting-started.md`](labs/part1-getting-started.md)
 
 - Čo je Foundry Local a ako funguje
 - Inštalácia CLI na Windows a macOS
-- Preskúmanie modelov - zoznam, sťahovanie, spúšťanie
+- Preskúmanie modelov – zoznam, sťahovanie, spúšťanie
 - Pochopenie aliasov modelov a dynamických portov
 
 ---
 
 ### Časť 2: Hlboký ponor do Foundry Local SDK
 
-**Laboratórny návod:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
+**Návod:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
-- Prečo použiť SDK namiesto CLI pri vývoji aplikácií
-- Kompletná referenčná dokumentácia SDK API pre Python, JavaScript a C#
-- Správa služby, prehliadanie katalógu, životný cyklus modelu (sťahovanie, načítanie, uvoľňovanie)
-- Vzory rýchleho štartu: Python konštruktor bootstrap, JavaScript `init()`, C# `CreateAsync()`
-- `FoundryModelInfo` metadáta, aliasy a výber modelu optimalizovaného pre hardvér
+- Prečo používať SDK namiesto CLI na vývoj aplikácií
+- Kompletná referenčná API SDK pre Python, JavaScript a C#
+- Správa služby, prezeranie katalógu, životný cyklus modelov (stiahnutie, načítanie, uvoľnenie)
+- Rýchle štartovacie vzory: bootstrap konštruktora Python, `init()` JavaScript, `CreateAsync()` C#
+- `FoundryModelInfo` metadata, aliasy a výber optimálneho modelu podľa hardvéru
 
 ---
 
 ### Časť 3: SDK a API
 
-**Laboratórny návod:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
+**Návod:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
 
 - Pripojenie k Foundry Local z Python, JavaScript a C#
-- Použitie Foundry Local SDK na programatickú správu služby
-- Streamovanie chat dokončení cez OpenAI-kompatibilné API
+- Používanie Foundry Local SDK na programatickú správu služby
+- Streaming chatových dokončení cez API kompatibilné s OpenAI
 - Referencia metód SDK pre každý jazyk
 
 **Ukážky kódu:**
@@ -105,18 +133,18 @@ foundry model run phi-3.5-mini  # Spustite interaktívny chat
 |----------|------|-------------|
 | Python | `python/foundry-local.py` | Základný streaming chat |
 | C# | `csharp/BasicChat.cs` | Streaming chat s .NET |
-| JavaScript | `javascript/foundry-local.mjs` | Streaming chat v Node.js |
+| JavaScript | `javascript/foundry-local.mjs` | Streaming chat s Node.js |
 
 ---
 
 ### Časť 4: Retrieval-Augmented Generation (RAG)
 
-**Laboratórny návod:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
+**Návod:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
 
 - Čo je RAG a prečo je dôležitý
-- Vytváranie pamäťovej znalostnej bázy
-- Vyhľadávanie cez prekrývanie kľúčových slov s bodovaním
-- Kompozícia uzemnených systémových promptov
+- Vytváranie znalostnej databázy v pamäti
+- Vyhľadávanie podľa kľúčových slov s hodnotením
+- Tvorba zakotvených systémových promptov
 - Spustenie kompletnej RAG pipeline priamo na zariadení
 
 **Ukážky kódu:**
@@ -129,148 +157,147 @@ foundry model run phi-3.5-mini  # Spustite interaktívny chat
 
 ---
 
-### Časť 5: Tvorba AI agentov
+### Časť 5: Vytváranie AI agentov
 
-**Laboratórny návod:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
+**Návod:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
 
-- Čo je AI agent (oproti priamej LLM požiadavke)
+- Čo je AI agent (oproti priamej výzve na LLM)
 - Vzor `ChatAgent` a Microsoft Agent Framework
-- Systémové inštrukcie, persony a viackrokové konverzácie
+- Systémové inštrukcie, persony a viackrokové rozhovory
 - Štruktúrovaný výstup (JSON) od agentov
 
 **Ukážky kódu:**
 
 | Jazyk | Súbor | Popis |
 |----------|------|-------------|
-| Python | `python/foundry-local-with-agf.py` | Jediný agent s Agent Framework |
-| C# | `csharp/SingleAgent.cs` | Jediný agent (ChatAgent vzor) |
-| JavaScript | `javascript/foundry-local-with-agent.mjs` | Jediný agent (ChatAgent vzor) |
+| Python | `python/foundry-local-with-agf.py` | Jeden agent s Agent Framework |
+| C# | `csharp/SingleAgent.cs` | Jeden agent (vzor ChatAgent) |
+| JavaScript | `javascript/foundry-local-with-agent.mjs` | Jeden agent (vzor ChatAgent) |
 
 ---
 
-### Časť 6: Workflowy s viacerými agentmi
+### Časť 6: Multi-agentné pracovné postupy
 
-**Laboratórny návod:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
+**Návod:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
 
-- Pipeline s viacerými agentmi: Výskumník → Spisovateľ → Editor
-- Sekvenčná orchestrácia a spätnoväzbové slučky
-- Zdieľaná konfigurácia a štruktúrované predávanie úloh
-- Navrhnutie vlastného multiagentného workflowu
+- Multi-agentné pipeline: Výskumník → Spisovateľ → Editor
+- Sekvenčná orchestrácia a spätné slučky
+- Zdieľaná konfigurácia a štruktúrované predávanie
+- Návrh vlastného multi-agentného pracovného postupu
 
 **Ukážky kódu:**
 
 | Jazyk | Súbor | Popis |
 |----------|------|-------------|
-| Python | `python/foundry-local-multi-agent.py` | Pipeline s tromi agentmi |
-| C# | `csharp/MultiAgent.cs` | Pipeline s tromi agentmi |
-| JavaScript | `javascript/foundry-local-multi-agent.mjs` | Pipeline s tromi agentmi |
+| Python | `python/foundry-local-multi-agent.py` | Trojagentový pipeline |
+| C# | `csharp/MultiAgent.cs` | Trojagentový pipeline |
+| JavaScript | `javascript/foundry-local-multi-agent.mjs` | Trojagentový pipeline |
 
 ---
 
-### Časť 7: Zava Creative Writer - Capstone aplikácia
+### Časť 7: Zava Creative Writer - záverečná aplikácia
 
-**Laboratórny návod:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
+**Návod:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
 
-- Produkčná multiagentná aplikácia so 4 špecializovanými agentmi
-- Sekvenčná pipeline so spätnoväzbovými slučkami riadenými hodnotiteľom
-- Streamovaný výstup, vyhľadávanie v katalógu produktov, štruktúrované JSON predávanie
-- Plná implementácia v Pythone (FastAPI), JavaScript (Node.js CLI) a C# (.NET konzola)
+- Produkčná multi-agentná aplikácia so 4 špecializovanými agentmi
+- Sekvenčný pipeline so spätnými slučkami riadenými evaluátorom
+- Streaming výstup, vyhľadávanie v produktovom katalógu, štruktúrované JSON odovzdávanie
+- Plná implementácia v Pythone (FastAPI), JavaScripte (Node.js CLI) a C# (.NET konzola)
 
 **Ukážky kódu:**
 
-| Jazyk | Adresár | Popis |
+| Jazyk | Zložka | Popis |
 |----------|-----------|-------------|
-| Python | `zava-creative-writer-local/src/api/` | FastAPI web služba s orchestrátorom |
+| Python | `zava-creative-writer-local/src/api/` | FastAPI webová služba s orchestrátorom |
 | JavaScript | `zava-creative-writer-local/src/javascript/` | Node.js CLI aplikácia |
 | C# | `zava-creative-writer-local/src/csharp/` | .NET 9 konzolová aplikácia |
 
 ---
 
-### Časť 8: Vývoj riadený hodnotením
+### Časť 8: Vývoj riadený evaluáciou
 
-**Laboratórny návod:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
+**Návod:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
 
-- Vytvorenie systematického vyhodnocovacieho rámca pre AI agentov pomocou golden datasetov
-- Pravidlové kontroly (dĺžka, pokrytie kľúčových slov, zakázané výrazy) + hodnotenie LLM ako sudca
-- Porovnanie variant promptov vedľa seba s agregovanými hodnoteniami
-- Rozšírenie vzoru Zava Editor agenta z Časti 7 o offline testovaciu sadu
-- Python, JavaScript a C# vetvy
+- Vytvoriť systematický evaluačný rámec pre AI agentov s použitím zlatých datasetov
+- Pravidlové kontroly (dĺžka, pokrytie kľúčových slov, zakázané výrazy) + skóre LLM ako rozhodcu
+- Porovnanie variantov promptu vedľa seba s agregovanými hodnoteniami
+- Rozšírenie vzoru Zava Editor agent z Časti 7 do offline testovacej sady
+- Pátracky pre Python, JavaScript a C#
 
 **Ukážky kódu:**
 
 | Jazyk | Súbor | Popis |
 |----------|------|-------------|
-| Python | `python/foundry-local-eval.py` | Vyhodnocovací rámec |
-| C# | `csharp/AgentEvaluation.cs` | Vyhodnocovací rámec |
-| JavaScript | `javascript/foundry-local-eval.mjs` | Vyhodnocovací rámec |
+| Python | `python/foundry-local-eval.py` | Evaluačný rámec |
+| C# | `csharp/AgentEvaluation.cs` | Evaluačný rámec |
+| JavaScript | `javascript/foundry-local-eval.mjs` | Evaluačný rámec |
 
 ---
 
-### Časť 9: Prepis hlasu s Whisper
+### Časť 9: Prepis hlasu pomocou Whisper
 
-**Laboratórny návod:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
-
-- Prepis reči na text pomocou OpenAI Whisper spusteného lokálne
-- Spracovanie audio súkromia - audio nikdy neopúšťa vaše zariadenie
-- Python, JavaScript a C# vetvy s `client.audio.transcriptions.create()` (Python/JS) a `AudioClient.TranscribeAudioAsync()` (C#)
-- Obsahuje ukážkové audio súbory na prax s témou Zava
+**Návod:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
+- Prepis reči na text pomocou OpenAI Whisper bežiaceho lokálne
+- Spracovanie zvuku s dôrazom na súkromie – zvuk nikdy neopustí vaše zariadenie
+- Python, JavaScript a C# príklady s `client.audio.transcriptions.create()` (Python/JS) a `AudioClient.TranscribeAudioAsync()` (C#)
+- Obsahuje ukážkové zvukové súbory s témou Zava na praktické cvičenia
 
 **Ukážky kódu:**
 
 | Jazyk | Súbor | Popis |
 |----------|------|-------------|
-| Python | `python/foundry-local-whisper.py` | Prepis hlasu Whisper |
-| C# | `csharp/WhisperTranscription.cs` | Prepis hlasu Whisper |
-| JavaScript | `javascript/foundry-local-whisper.mjs` | Prepis hlasu Whisper |
+| Python | `python/foundry-local-whisper.py` | Prepis hlasu pomocou Whisper |
+| C# | `csharp/WhisperTranscription.cs` | Prepis hlasu pomocou Whisper |
+| JavaScript | `javascript/foundry-local-whisper.mjs` | Prepis hlasu pomocou Whisper |
 
-> **Poznámka:** Tento laboratórny blok využíva **Foundry Local SDK** na programatické stiahnutie a načítanie Whisper modelu, potom odosiela audio na lokálny OpenAI-kompatibilný endpoint pre prepis. Model Whisper (`whisper`) je uvedený v katalógu Foundry Local a beží úplne lokálne - nie sú potrebné žiadne cloud API kľúče ani sieťový prístup.
+> **Poznámka:** Tento workshop používa **Foundry Local SDK** na programatické stiahnutie a načítanie modelu Whisper, potom odosiela zvuk na lokálny OpenAI-kompatibilný endpoint na prepis. Model Whisper (`whisper`) je uvedený v katalógu Foundry Local a beží úplne na zariadení – nie sú potrebné žiadne cloudové API kľúče ani sieťový prístup.
 
 ---
 
 ### Časť 10: Použitie vlastných alebo Hugging Face modelov
 
-**Laboratórny návod:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
+**Návod k workshopu:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
 
-- Kompilácia Hugging Face modelov do optimalizovaného ONNX formátu pomocou ONNX Runtime GenAI model buildera
-- Hardvérová špecifická kompilácia (CPU, NVIDIA GPU, DirectML, WebGPU) a kvantizácia (int4, fp16, bf16)
-- Vytvorenie konfiguračných súborov chat-šablón pre Foundry Local
-- Pridanie skompilovaných modelov do cache Foundry Local
+- Kompilácia modelov Hugging Face do optimalizovaného formátu ONNX pomocou ONNX Runtime GenAI konštruktora modelov
+- Hardvérovo špecifická kompilácia (CPU, NVIDIA GPU, DirectML, WebGPU) a kvantizácia (int4, fp16, bf16)
+- Vytváranie konfiguračných súborov šablón chatov pre Foundry Local
+- Pridávanie kompilovaných modelov do cache Foundry Local
 - Spúšťanie vlastných modelov cez CLI, REST API a OpenAI SDK
-- Referenčný príklad: end-to-end kompilácia Qwen/Qwen3-0.6B
+- Referenčný príklad: kompletná kompilácia Qwen/Qwen3-0.6B
 
 ---
 
 ### Časť 11: Volanie nástrojov s lokálnymi modelmi
 
-**Laboratórny návod:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
+**Návod k workshopu:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
 
-- Umožniť lokálnym modelom volať externé funkcie (volanie nástrojov/funkcií)
-- Definovanie schém nástrojov pomocou formátu OpenAI function-calling
-- Riešenie multi-turn konverzácie pri volaní nástrojov
-- Lokálne vykonávanie volaní nástrojov a vrátenie výsledkov modelu
-- Výber správneho modelu pre scenáre tool-calling (Qwen 2.5, Phi-4-mini)
-- Použitie natívneho `ChatClient` SDK pre volania nástrojov (JavaScript)
+- Povolenie lokálnych modelov volať externé funkcie (volanie nástrojov/funkcií)
+- Definovanie schém nástrojov pomocou OpenAI formátu volania funkcií
+- Spracovanie konverzácie viacerých kôl volania nástrojov
+- Lokálne vykonávanie volaní nástrojov a vracanie výsledkov modelu
+- Výber správneho modelu pre scenáre volania nástrojov (Qwen 2.5, Phi-4-mini)
+- Použitie natívneho `ChatClient` z SDK pre volanie nástrojov (JavaScript)
 
 **Ukážky kódu:**
 
 | Jazyk | Súbor | Popis |
 |----------|------|-------------|
-| Python | `python/foundry-local-tool-calling.py` | Volanie nástrojov so službou počasia/populácie |
+| Python | `python/foundry-local-tool-calling.py` | Volanie nástrojov pre počasie/populáciu |
 | C# | `csharp/ToolCalling.cs` | Volanie nástrojov s .NET |
 | JavaScript | `javascript/foundry-local-tool-calling.mjs` | Volanie nástrojov s ChatClient |
 
 ---
 
-### Časť 12: Vytváranie webového UI pre Zava Creative Writer
+### Časť 12: Budovanie webového UI pre Zava Creative Writer
 
-**Laboratórny návod:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
+**Návod k workshopu:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
 
-- Pridanie prehliadačového frontendu pre Zava Creative Writer
-- Podávanie zdieľaného UI z Python (FastAPI), JavaScript (Node.js HTTP) a C# (ASP.NET Core)
-- Konzumovanie streamovaného NDJSON v prehliadači cez Fetch API a ReadableStream
-- Živé statusové značky agenta a realtime streamovanie textu článkov
+- Pridanie prehliadačového front-endu pre Zava Creative Writer
+- Servovanie spoločného UI z Pythonu (FastAPI), JavaScriptu (Node.js HTTP) a C# (ASP.NET Core)
+- Spracovanie streamovaného NDJSON v prehliadači pomocou Fetch API a ReadableStream
+- Živé stavové odznaky agenta a streamovanie textu článku v reálnom čase
 
-**Kód (zdieľané UI):**
+**Kód (spoločné UI):**
 
 | Súbor | Popis |
 |------|-------------|
@@ -278,20 +305,21 @@ foundry model run phi-3.5-mini  # Spustite interaktívny chat
 | `zava-creative-writer-local/ui/style.css` | Štýlovanie |
 | `zava-creative-writer-local/ui/app.js` | Logika čítania streamu a aktualizácie DOM |
 
-**Backend doplnky:**
+**Doplnky backendu:**
 
 | Jazyk | Súbor | Popis |
 |----------|------|-------------|
-| Python | `zava-creative-writer-local/src/api/main.py` | Aktualizované podávanie statického UI |
-| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | Nový HTTP server s orchestrátorom |
+| Python | `zava-creative-writer-local/src/api/main.py` | Aktualizované servovanie statického UI |
+| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | Nový HTTP server obalujúci orchestrátor |
 | C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | Nový ASP.NET Core minimal API projekt |
 
 ---
 
 ### Časť 13: Workshop dokončený
-**Lab manuál:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
 
-- Zhrnutie všetkého, čo ste postavili počas všetkých 12 častí
+**Návod k workshopu:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
+
+- Zhrnutie všetkého, čo ste vytvorili vo všetkých 12 častiach
 - Ďalšie nápady na rozšírenie vašich aplikácií
 - Odkazy na zdroje a dokumentáciu
 
@@ -381,10 +409,10 @@ foundry model run phi-3.5-mini  # Spustite interaktívny chat
 
 | Zdroj | Odkaz |
 |----------|------|
-| Web Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |
+| Webová stránka Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |
 | Katalóg modelov | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
 | Foundry Local GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
-| Sprievodca začiatkom | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
+| Návod na začiatok | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
 | Referencia Foundry Local SDK | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
 | Microsoft Agent Framework | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 | OpenAI Whisper | [github.com/openai/whisper](https://github.com/openai/whisper) |
@@ -394,8 +422,15 @@ foundry model run phi-3.5-mini  # Spustite interaktívny chat
 
 ## Licencia
 
-Tento materiál z workshopu je poskytovaný na vzdelávacie účely.
+Materiál z tohto workshopu je poskytovaný na vzdelávacie účely.
 
 ---
 
-**Veľa šťastia pri budovaní! 🚀**
+**Prajeme príjemné tvorenie! 🚀**
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Zrieknutie sa zodpovednosti**:  
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
