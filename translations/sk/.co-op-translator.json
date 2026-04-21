@@ -1,0 +1,110 @@
+{
+  "AGENTS.md": {
+    "original_hash": "51e726c26da85bef821caac57baa39db",
+    "translation_date": "2026-04-20T23:31:53+00:00",
+    "source_file": "AGENTS.md",
+    "language_code": "sk"
+  },
+  "CHANGELOG.md": {
+    "original_hash": "d71d7813697428021813a271fcd21641",
+    "translation_date": "2026-04-20T23:30:31+00:00",
+    "source_file": "CHANGELOG.md",
+    "language_code": "sk"
+  },
+  "KNOWN-ISSUES.md": {
+    "original_hash": "910508b22e3f7a11483270ec5dd64a3e",
+    "translation_date": "2026-04-20T23:33:15+00:00",
+    "source_file": "KNOWN-ISSUES.md",
+    "language_code": "sk"
+  },
+  "README.md": {
+    "original_hash": "0b61923b9eede59c8981d411f7ed9b50",
+    "translation_date": "2026-04-20T23:28:13+00:00",
+    "source_file": "README.md",
+    "language_code": "sk"
+  },
+  "labs/part1-getting-started.md": {
+    "original_hash": "8bb51c2986d590e7427f2c310405ff35",
+    "translation_date": "2026-04-20T23:48:59+00:00",
+    "source_file": "labs/part1-getting-started.md",
+    "language_code": "sk"
+  },
+  "labs/part10-custom-models.md": {
+    "original_hash": "50b6b8c000e830a6d0a006f61f90fb6d",
+    "translation_date": "2026-04-20T23:45:49+00:00",
+    "source_file": "labs/part10-custom-models.md",
+    "language_code": "sk"
+  },
+  "labs/part11-tool-calling.md": {
+    "original_hash": "76b99d47232c9cdbd7cf256c60754dac",
+    "translation_date": "2026-04-20T23:53:58+00:00",
+    "source_file": "labs/part11-tool-calling.md",
+    "language_code": "sk"
+  },
+  "labs/part12-zava-ui.md": {
+    "original_hash": "722558450347847c766126581b648479",
+    "translation_date": "2026-04-20T23:51:10+00:00",
+    "source_file": "labs/part12-zava-ui.md",
+    "language_code": "sk"
+  },
+  "labs/part13-workshop-complete.md": {
+    "original_hash": "62a263c74e4c316919b4a50fbe087ca2",
+    "translation_date": "2026-04-21T00:00:23+00:00",
+    "source_file": "labs/part13-workshop-complete.md",
+    "language_code": "sk"
+  },
+  "labs/part2-foundry-local-sdk.md": {
+    "original_hash": "cc7223ff75151be6f72a95f092404359",
+    "translation_date": "2026-04-20T23:59:43+00:00",
+    "source_file": "labs/part2-foundry-local-sdk.md",
+    "language_code": "sk"
+  },
+  "labs/part3-sdk-and-apis.md": {
+    "original_hash": "0e34ea4e4c14ff0c6ca8fb81969c2273",
+    "translation_date": "2026-04-21T00:07:47+00:00",
+    "source_file": "labs/part3-sdk-and-apis.md",
+    "language_code": "sk"
+  },
+  "labs/part4-rag-fundamentals.md": {
+    "original_hash": "c7d4865c4889c9713038d7cb66df91d1",
+    "translation_date": "2026-04-21T00:05:25+00:00",
+    "source_file": "labs/part4-rag-fundamentals.md",
+    "language_code": "sk"
+  },
+  "labs/part5-single-agents.md": {
+    "original_hash": "9d1c7f9a673e94f94ca95d85225046ee",
+    "translation_date": "2026-04-20T23:41:17+00:00",
+    "source_file": "labs/part5-single-agents.md",
+    "language_code": "sk"
+  },
+  "labs/part6-multi-agent-workflows.md": {
+    "original_hash": "524e4918d3461b8cb48bc18a8db1447e",
+    "translation_date": "2026-04-20T23:34:49+00:00",
+    "source_file": "labs/part6-multi-agent-workflows.md",
+    "language_code": "sk"
+  },
+  "labs/part7-zava-creative-writer.md": {
+    "original_hash": "667abb39cf4d1815837d226b583aa5aa",
+    "translation_date": "2026-04-20T23:48:02+00:00",
+    "source_file": "labs/part7-zava-creative-writer.md",
+    "language_code": "sk"
+  },
+  "labs/part8-evaluation-led-development.md": {
+    "original_hash": "8a934508465bc4b4b35e62617f1b7f97",
+    "translation_date": "2026-04-21T00:02:16+00:00",
+    "source_file": "labs/part8-evaluation-led-development.md",
+    "language_code": "sk"
+  },
+  "labs/part9-whisper-voice-transcription.md": {
+    "original_hash": "58bb878155306e934c7c0c3c1fa748fe",
+    "translation_date": "2026-04-20T23:39:43+00:00",
+    "source_file": "labs/part9-whisper-voice-transcription.md",
+    "language_code": "sk"
+  },
+  "samples/audio/README.md": {
+    "original_hash": "5829b59ccd6422f02028a451bee1110a",
+    "translation_date": "2026-04-21T00:08:20+00:00",
+    "source_file": "samples/audio/README.md",
+    "language_code": "sk"
+  }
+}
