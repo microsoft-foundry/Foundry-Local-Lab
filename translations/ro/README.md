@@ -2,59 +2,87 @@
   <img src="https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg" alt="Foundry Local" width="280" />
 </p>
 
-# Atelier Foundry Local - Construiește Aplicații AI Pe Dispozitiv
+# Atelier Foundry Local - Construiește aplicații AI pe dispozitiv
 
-Un atelier practic pentru a rula modele lingvistice pe propriul tău calculator și a construi aplicații inteligente cu [Foundry Local](https://foundrylocal.ai) și [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
+Un atelier practic pentru rularea modelelor de limbaj pe propriul computer și crearea de aplicații inteligente cu [Foundry Local](https://foundrylocal.ai) și [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
 
-> **Ce este Foundry Local?** Foundry Local este un runtime ușor care îți permite să descarci, gestionezi și să servești modele lingvistice complet pe hardware-ul tău. Oferă o **API compatibilă OpenAI** astfel încât orice unealtă sau SDK care suportă OpenAI se poate conecta - nu este nevoie de cont cloud.
+> **Ce este Foundry Local?** Foundry Local este un runtime ușor care îți permite să descarci, să gestionezi și să servești modele de limbaj direct pe hardware-ul tău. Oferă o **API compatibilă cu OpenAI** astfel încât orice instrument sau SDK care comunică cu OpenAI se poate conecta - nu este nevoie de un cont cloud.
+
+### 🌐 Suport Multi-limbă
+
+#### Suportat prin GitHub Action (Automatizat și Întotdeauna Actualizat)
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](./README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **Preferi să clonezi local?**
+>
+> Acest depozit include peste 50 de traduceri de limbă, ceea ce crește semnificativ dimensiunea descărcării. Pentru a clona fără traduceri, folosește sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> Astfel vei avea tot ce îți trebuie pentru a finaliza cursul, cu o descărcare mult mai rapidă.
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ---
 
 ## Obiective de Învățare
 
-La sfârșitul acestui atelier vei putea:
+La finalul acestui atelier vei putea:
 
 | # | Obiectiv |
 |---|-----------|
-| 1 | Instalează Foundry Local și gestionează modelele folosind CLI-ul |
-| 2 | Stăpânește API-ul Foundry Local SDK pentru gestionarea programatică a modelelor |
+| 1 | Instalează Foundry Local și gestionează modelele cu CLI |
+| 2 | Stăpânește API-ul Foundry Local SDK pentru management programatic al modelelor |
 | 3 | Conectează-te la serverul local de inferență folosind SDK-urile Python, JavaScript și C# |
-| 4 | Construiește un flux Retrieval-Augmented Generation (RAG) care să ancoreze răspunsuri în datele tale |
+| 4 | Construiește un pipeline Retrieval-Augmented Generation (RAG) care fundamentează răspunsurile pe datele tale proprii |
 | 5 | Creează agenți AI cu instrucțiuni și personalități persistente |
-| 6 | Orchestrează fluxuri multi-agent cu bucle de feedback |
+| 6 | Orchestrază fluxuri de lucru multi-agent cu bucle de feedback |
 | 7 | Explorează o aplicație capstone de producție - Zava Creative Writer |
-| 8 | Construiește cadre de evaluare cu seturi de date de aur și scorare LLM-ca-judecător |
-| 9 | Transcrie audio cu Whisper - conversie vorbire-text pe dispozitiv folosind Foundry Local SDK |
+| 8 | Construiește cadre de evaluare cu seturi de date aurite și scoruri LLM ca judecător |
+| 9 | Transcrie audio cu Whisper - recunoaștere vocală pe dispozitiv folosind Foundry Local SDK |
 | 10 | Compilează și rulează modele personalizate sau Hugging Face cu ONNX Runtime GenAI și Foundry Local |
-| 11 | Permite modelelor locale să apeleze funcții externe prin pattern-ul tool-calling |
+| 11 | Permite modelelor locale să apeleze funcții externe cu modelul tool-calling |
 | 12 | Construiește o interfață bazată pe browser pentru Zava Creative Writer cu streaming în timp real |
 
 ---
 
-## Cerințe Prealabile
+## Cerințe
 
 | Cerință | Detalii |
 |-------------|---------|
-| **Hardware** | Minim 8 GB RAM (16 GB recomandat); CPU compatibil AVX2 sau GPU suportat |
+| **Hardware** | Minimum 8 GB RAM (recomandat 16 GB); CPU compatibil AVX2 sau GPU suportat |
 | **Sistem de operare** | Windows 10/11 (x64/ARM), Windows Server 2025 sau macOS 13+ |
-| **Foundry Local CLI** | Instalează folosind `winget install Microsoft.FoundryLocal` (Windows) sau `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Vezi [ghidul de început](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) pentru detalii. |
-| **Limbaj de rulare** | **Python 3.9+** și/sau **.NET 9.0+** și/sau **Node.js 18+** |
+| **Foundry Local CLI** | Instalează cu `winget install Microsoft.FoundryLocal` (Windows) sau `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Vezi [ghidul de început](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) pentru detalii. |
+| **Runtime limbaj** | **Python 3.9+** și/sau **.NET 9.0+** și/sau **Node.js 18+** |
 | **Git** | Pentru clonarea acestui depozit |
 
 ---
 
-## Introducere
+## Începutul Lucrului
 
 ```bash
-# 1. Clonează depozitul
+# 1. Clonați depozitul
 git clone https://github.com/microsoft-foundry/foundry-local-lab.git
 cd foundry-local-lab
 
-# 2. Verifică dacă Foundry Local este instalat
-foundry model list              # Listează modelele disponibile
-foundry model run phi-3.5-mini  # Pornește o conversație interactivă
+# 2. Verificați dacă Foundry Local este instalat
+foundry model list              # Listați modelele disponibile
+foundry model run phi-3.5-mini  # Porniți o discuție interactivă
 
-# 3. Alege-ți limba de studiu (vezi laboratorul Partea 2 pentru configurarea completă)
+# 3. Alegeți fluxul de limbă (vedeți laboratorul Partea 2 pentru configurare completă)
 ```
 
 | Limbaj | Pornire rapidă |
@@ -65,7 +93,7 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 
 ---
 
-## Părțile Atelierului
+## Părți ale Atelierului
 
 ### Partea 1: Început cu Foundry Local
 
@@ -74,19 +102,19 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 - Ce este Foundry Local și cum funcționează
 - Instalarea CLI pe Windows și macOS
 - Explorarea modelelor - listare, descărcare, rulare
-- Înțelegerea aliasurilor modelelor și porturilor dinamice
+- Înțelegerea alias-urilor modelelor și a porturilor dinamice
 
 ---
 
-### Partea 2: Explorare detaliată Foundry Local SDK
+### Partea 2: Deep Dive în SDK Foundry Local
 
 **Ghid lab:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
-- De ce să folosești SDK-ul în locul CLI-ului pentru dezvoltarea aplicațiilor
+- De ce să folosești SDK în loc de CLI pentru dezvoltarea aplicațiilor
 - Referință completă API SDK pentru Python, JavaScript și C#
-- Gestionarea serviciilor, navigarea în catalog, ciclul de viață al modelului (descărcare, încărcare, descărcare)
-- Modele rapide de start: bootstrap constructor Python, `init()` JavaScript, `CreateAsync()` C#
-- Metadatele `FoundryModelInfo`, aliasuri și selectarea modelului optim pentru hardware
+- Managementul serviciilor, navigarea catalogului, ciclul de viață al modelelor (descărcare, încărcare, descărcare din memorie)
+- Modele rapide de pornire: bootstrap constructor Python, `init()` JavaScript, `CreateAsync()` C#
+- Metadatele `FoundryModelInfo`, alias-uri și selecția modelelor optime pentru hardware
 
 ---
 
@@ -95,17 +123,17 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 **Ghid lab:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
 
 - Conectarea la Foundry Local din Python, JavaScript și C#
-- Folosirea Foundry Local SDK pentru a gestiona serviciul programatic
-- Transmisiuni chat în streaming prin API-ul compatibil OpenAI
+- Utilizarea Foundry Local SDK pentru a gestiona serviciul programatic
+- Streaming chat completions prin API compatibil OpenAI
 - Referință metode SDK pentru fiecare limbaj
 
 **Exemple de cod:**
 
 | Limbaj | Fișier | Descriere |
 |----------|------|-------------|
-| Python | `python/foundry-local.py` | Chat streaming de bază |
-| C# | `csharp/BasicChat.cs` | Chat streaming cu .NET |
-| JavaScript | `javascript/foundry-local.mjs` | Chat streaming cu Node.js |
+| Python | `python/foundry-local.py` | Chat de streaming de bază |
+| C# | `csharp/BasicChat.cs` | Chat de streaming cu .NET |
+| JavaScript | `javascript/foundry-local.mjs` | Chat de streaming cu Node.js |
 
 ---
 
@@ -115,9 +143,9 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 
 - Ce este RAG și de ce este important
 - Construirea unei baze de cunoștințe în memorie
-- Recuperare cu suprapunere de cuvinte cheie și scorare
-- Compoziția prompturilor de sistem ancorate
-- Rularea unui flux complet RAG pe dispozitiv
+- Recuperare prin suprapunere de cuvinte cheie cu scorare
+- Compunerea prompturilor sistem fundamentate
+- Rularea unui pipeline RAG complet pe dispozitiv
 
 **Exemple de cod:**
 
@@ -133,9 +161,9 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 
 **Ghid lab:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
 
-- Ce este un agent AI (vs. apelul direct LLM)
-- Pattern-ul `ChatAgent` și Microsoft Agent Framework
-- Instrucțiuni de sistem, personalități și conversații cu mai multe tururi
+- Ce este un agent AI (versus un apel brut LLM)
+- Modelul `ChatAgent` și Microsoft Agent Framework
+- Instrucțiuni sistem, personalități și conversații multi-tur
 - Ieșire structurată (JSON) de la agenți
 
 **Exemple de cod:**
@@ -143,19 +171,19 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 | Limbaj | Fișier | Descriere |
 |----------|------|-------------|
 | Python | `python/foundry-local-with-agf.py` | Agent unic cu Agent Framework |
-| C# | `csharp/SingleAgent.cs` | Agent unic (pattern ChatAgent) |
-| JavaScript | `javascript/foundry-local-with-agent.mjs` | Agent unic (pattern ChatAgent) |
+| C# | `csharp/SingleAgent.cs` | Agent unic (model ChatAgent) |
+| JavaScript | `javascript/foundry-local-with-agent.mjs` | Agent unic (model ChatAgent) |
 
 ---
 
-### Partea 6: Fluxuri Multi-Agent
+### Partea 6: Fluxuri de lucru Multi-Agent
 
 **Ghid lab:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
 
-- Pipelines multi-agent: Cercetător → Scriitor → Editor
-- Orchestrare sequentială și bucle de feedback
-- Configurare partajată și predări structurate
-- Proiectarea propriului tău flux multi-agent
+- Pipeline-uri multi-agent: Cercetător → Scriitor → Editor
+- Orchestrare secvențială și bucle de feedback
+- Configurație partajată și predări structurate
+- Proiectează propriul tău flux de lucru multi-agent
 
 **Exemple de cod:**
 
@@ -171,10 +199,10 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 
 **Ghid lab:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
 
-- O aplicație multi-agent tip producție cu 4 agenți specializați
+- O aplicație multi-agent de producție cu 4 agenți specializați
 - Pipeline secvențial cu bucle de feedback conduse de evaluator
-- Ieșire în streaming, căutare în catalog produse, predări JSON structurate
-- Implementare completă în Python (FastAPI), JavaScript (Node.js CLI) și C# (consolă .NET)
+- Ieșire în streaming, căutare catalog produse, predări JSON structurate
+- Implementare completă în Python (FastAPI), JavaScript (CLI Node.js) și C# (consolă .NET)
 
 **Exemple de cod:**
 
@@ -186,15 +214,15 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 
 ---
 
-### Partea 8: Dezvoltare Condusă de Evaluare
+### Partea 8: Dezvoltare condusă de evaluare
 
 **Ghid lab:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
 
-- Construiește un cadru sistematic de evaluare pentru agenți AI folosind seturi de date de aur
-- Verificări bazate pe reguli (lungime, acoperire cuvânt cheie, termeni interziși) + scorare LLM-ca-judecător
-- Comparare paralelă a variantelor de prompt cu foi de scor agregate
-- Extinde pattern-ul agentului Editor Zava din Partea 7 într-un pachet de teste offline
-- Trase Python, JavaScript și C#
+- Construiește un cadru sistematic de evaluare pentru agenții AI folosind seturi de date aurite
+- Verificări bazate pe reguli (lungime, acoperire cuvinte cheie, termeni interziși) + scorare LLM ca judecător
+- Comparare paralelă a variantelor de prompt cu rapoarte agregate
+- Extinde modelul agent Zava Editor din Partea 7 într-un test offline
+- Trasee Python, JavaScript și C#
 
 **Exemple de cod:**
 
@@ -206,98 +234,98 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 
 ---
 
-### Partea 9: Transcriere Vocală cu Whisper
+### Partea 9: Transcriere vocală cu Whisper
 
 **Ghid lab:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
-
-- Transcriere vorbire-text folosind OpenAI Whisper în modul local
-- Procesare audio cu prioritate pentru confidențialitate - audio-ul nu părăsește niciodată dispozitivul tău
-- Trase Python, JavaScript și C# cu `client.audio.transcriptions.create()` (Python/JS) și `AudioClient.TranscribeAudioAsync()` (C#)
-- Include fișiere audio tematice Zava pentru practică practică
+- Transcriere speech-to-text folosind OpenAI Whisper care rulează local
+- Procesare audio cu confidențialitate - audio-ul nu părăsește niciodată dispozitivul tău
+- Trasee Python, JavaScript și C# cu `client.audio.transcriptions.create()` (Python/JS) și `AudioClient.TranscribeAudioAsync()` (C#)
+- Include fișiere audio de probă tematice Zava pentru practică hands-on
 
 **Exemple de cod:**
 
-| Limbaj | Fișier | Descriere |
+| Language | File | Description |
 |----------|------|-------------|
 | Python | `python/foundry-local-whisper.py` | Transcriere vocală Whisper |
 | C# | `csharp/WhisperTranscription.cs` | Transcriere vocală Whisper |
 | JavaScript | `javascript/foundry-local-whisper.mjs` | Transcriere vocală Whisper |
 
-> **Notă:** Acest laborator folosește **Foundry Local SDK** pentru a descărca și încărca programatic modelul Whisper, apoi trimite audio către endpoint-ul local compatibil OpenAI pentru transcriere. Modelul Whisper (`whisper`) este listat în catalogul Foundry Local și rulează complet pe dispozitiv - nu sunt necesare chei API cloud sau acces la rețea.
+> **Notă:** Acest laborator utilizează **Foundry Local SDK** pentru a descărca și încărca programatic modelul Whisper, apoi trimite audio către endpoint-ul local compatibil OpenAI pentru transcriere. Modelul Whisper (`whisper`) este listat în catalogul Foundry Local și rulează complet pe dispozitiv - nu sunt necesare chei API cloud sau acces la rețea.
 
 ---
 
-### Partea 10: Folosirea modelelor personalizate sau Hugging Face
+### Partea 10: Utilizarea modelelor personalizate sau Hugging Face
 
-**Ghid lab:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
+**Ghidul laboratorului:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
 
 - Compilarea modelelor Hugging Face în format ONNX optimizat folosind ONNX Runtime GenAI model builder
 - Compilare specifică hardware-ului (CPU, GPU NVIDIA, DirectML, WebGPU) și cuantizare (int4, fp16, bf16)
 - Crearea fișierelor de configurare chat-template pentru Foundry Local
 - Adăugarea modelelor compilate în cache-ul Foundry Local
 - Rularea modelelor personalizate prin CLI, REST API și OpenAI SDK
-- Exemplu de referință: compilarea completă a Qwen/Qwen3-0.6B
+- Exemplu de referință: compilarea Qwen/Qwen3-0.6B end-to-end
 
 ---
 
-### Partea 11: Apelarea uneltelor cu Modele Locale
+### Partea 11: Apelarea uneltelor cu modele locale
 
-**Ghid lab:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
+**Ghidul laboratorului:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
 
-- Permite modelelor locale să apeleze funcții externe (tool/function calling)
-- Definirea schemelor uneltelor folosind formatul OpenAI function-calling
-- Gestionarea fluxului conversațional multi-turn de apelare unelte
-- Executarea apelurilor de unelte local și întoarcerea rezultatelor către model
-- Alegerea modelului potrivit pentru scenarii tool-calling (Qwen 2.5, Phi-4-mini)
-- Folosirea nativei `ChatClient` a SDK pentru tool-calling (JavaScript)
+- Permiterea ca modelele locale să apeleze funcții externe (apelarea uneltelor/functii)
+- Definirea schemelor uneltelor folosind formatul OpenAI pentru apelarea funcțiilor
+- Gestionarea fluxului conversațional multi-turn pentru apelarea uneltelor
+- Executarea apelurilor uneltelor local și returnarea rezultatelor către model
+- Alegerea modelului potrivit pentru scenarii de apelare unelte (Qwen 2.5, Phi-4-mini)
+- Utilizarea `ChatClient` nativ din SDK pentru apelarea uneltelor (JavaScript)
 
 **Exemple de cod:**
 
-| Limbaj | Fișier | Descriere |
+| Language | File | Description |
 |----------|------|-------------|
-| Python | `python/foundry-local-tool-calling.py` | Apelare unelte cu uneltele meteo/populație |
+| Python | `python/foundry-local-tool-calling.py` | Apelare unelte cu unelte meteo/populație |
 | C# | `csharp/ToolCalling.cs` | Apelare unelte cu .NET |
 | JavaScript | `javascript/foundry-local-tool-calling.mjs` | Apelare unelte cu ChatClient |
 
 ---
 
-### Partea 12: Construirea unei UI Web pentru Zava Creative Writer
+### Partea 12: Construirea unei interfețe web pentru Zava Creative Writer
 
-**Ghid lab:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
+**Ghidul laboratorului:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
 
-- Adaugă un front-end bazat pe browser pentru Zava Creative Writer
-- Servește UI-ul partajat din Python (FastAPI), JavaScript (Node.js HTTP) și C# (ASP.NET Core)
-- Consumă NDJSON stream în browser cu Fetch API și ReadableStream
-- Insigne starea agentului live și streaming text articol în timp real
+- Adăugarea unei interfețe front-end bazate pe browser pentru Zava Creative Writer
+- Servirea interfeței UI partajate din Python (FastAPI), JavaScript (Node.js HTTP) și C# (ASP.NET Core)
+- Consumarea fluxului NDJSON în browser cu Fetch API și ReadableStream
+- Badge-uri de stare agent live și streaming în timp real al textului articolului
 
 **Cod (UI partajat):**
 
-| Fișier | Descriere |
+| File | Description |
 |------|-------------|
 | `zava-creative-writer-local/ui/index.html` | Layout-ul paginii |
 | `zava-creative-writer-local/ui/style.css` | Stilizare |
-| `zava-creative-writer-local/ui/app.js` | Logică cititor stream și actualizare DOM |
+| `zava-creative-writer-local/ui/app.js` | Logică citire stream și actualizare DOM |
 
 **Adăugiri backend:**
 
-| Limbaj | Fișier | Descriere |
+| Language | File | Description |
 |----------|------|-------------|
-| Python | `zava-creative-writer-local/src/api/main.py` | Actualizat pentru servirea UI static |
-| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | Server HTTP nou care învelește orchestratorul |
-| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | Proiect nou ASP.NET Core minimal API |
+| Python | `zava-creative-writer-local/src/api/main.py` | Actualizat pentru a servi UI static |
+| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | Nou server HTTP ce înfășoară orchestratorul |
+| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | Proiect nou API minimal ASP.NET Core |
 
 ---
 
-### Partea 13: Atelier finalizat
-**Ghid de laborator:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
+### Partea 13: Workshop terminat
 
-- Rezumatul a tot ce ai construit în toate cele 12 părți
-- Idei suplimentare pentru extinderea aplicațiilor tale
+**Ghidul laboratorului:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
+
+- Rezumat al tot ceea ce ați construit în toate cele 12 părți
+- Idei suplimentare pentru extinderea aplicațiilor
 - Linkuri către resurse și documentație
 
 ---
 
-## Structura Proiectului
+## Structura proiectului
 
 ```
 ├── python/                        # Python examples
@@ -379,12 +407,12 @@ foundry model run phi-3.5-mini  # Pornește o conversație interactivă
 
 ## Resurse
 
-| Resursă | Link |
+| Resource | Link |
 |----------|------|
-| Site-ul Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |
-| Catalog de modele | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
-| Foundry Local GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
-| Ghid de început | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
+| Site Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |
+| Catalog modele | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
+| GitHub Foundry Local | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
+| Ghid de pornire | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
 | Referință SDK Foundry Local | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
 | Microsoft Agent Framework | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 | OpenAI Whisper | [github.com/openai/whisper](https://github.com/openai/whisper) |
@@ -399,3 +427,10 @@ Acest material de workshop este oferit în scopuri educaționale.
 ---
 
 **Construiește cu plăcere! 🚀**
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Declinare de responsabilitate**:  
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională umană. Nu suntem responsabili pentru eventuale neînțelegeri sau interpretări greșite rezultate din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
