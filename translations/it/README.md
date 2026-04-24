@@ -2,11 +2,39 @@
   <img src="https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg" alt="Foundry Local" width="280" />
 </p>
 
-# Workshop Foundry Local - Costruisci App AI On-Device
+# Foundry Local Workshop - Costruisci App AI sul Dispositivo
 
-Un workshop pratico per eseguire modelli di linguaggio sulla tua macchina e costruire applicazioni intelligenti con [Foundry Local](https://foundrylocal.ai) e il [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
+Un workshop pratico per eseguire modelli linguistici sulla tua macchina e costruire applicazioni intelligenti con [Foundry Local](https://foundrylocal.ai) e il [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
 
-> **Cos'è Foundry Local?** Foundry Local è un runtime leggero che ti permette di scaricare, gestire e servire modelli di linguaggio interamente sul tuo hardware. Espone un'**API compatibile con OpenAI** così qualsiasi strumento o SDK che utilizza OpenAI può connettersi - senza bisogno di un account cloud.
+> **Cos'è Foundry Local?** Foundry Local è un runtime leggero che ti permette di scaricare, gestire e servire modelli linguistici interamente sul tuo hardware. Espone un'**API compatibile con OpenAI** così qualsiasi strumento o SDK che usa OpenAI può connettersi - nessun account cloud necessario.
+
+### 🌐 Supporto Multilingue
+
+#### Supportato tramite GitHub Action (Automatizzato e Sempre Aggiornato)
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](./README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **Preferisci Clonare Localmente?**
+>
+> Questo repository include più di 50 traduzioni linguistiche che aumentano significativamente la dimensione del download. Per clonare senza traduzioni, usa sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> Questo ti dà tutto il necessario per completare il corso con un download molto più veloce.
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ---
 
@@ -16,18 +44,18 @@ Al termine di questo workshop sarai in grado di:
 
 | # | Obiettivo |
 |---|-----------|
-| 1 | Installare Foundry Local e gestire i modelli tramite CLI |
-| 2 | Padroneggiare l'API SDK di Foundry Local per la gestione programmata dei modelli |
-| 3 | Collegarti al server di inferenza locale usando gli SDK Python, JavaScript e C# |
-| 4 | Costruire una pipeline Retrieval-Augmented Generation (RAG) che basi le risposte sui tuoi dati |
-| 5 | Creare agenti AI con istruzioni e personalità persistenti |
-| 6 | Orchestrare flussi di lavoro multi-agente con cicli di feedback |
-| 7 | Esplorare un'app di produzione capstone - lo Zava Creative Writer |
+| 1 | Installare Foundry Local e gestire modelli con la CLI |
+| 2 | Padroneggiare l'API SDK di Foundry Local per la gestione programmatica dei modelli |
+| 3 | Connettersi al server di inferenza locale usando gli SDK Python, JavaScript e C# |
+| 4 | Costruire una pipeline di Retrieval-Augmented Generation (RAG) che fonda le risposte sui propri dati |
+| 5 | Creare agenti AI con istruzioni e persone persistenti |
+| 6 | Orchestrare flussi di lavoro multi-agente con loop di feedback |
+| 7 | Esplorare un'app capstone di produzione: lo Zava Creative Writer |
 | 8 | Costruire framework di valutazione con dataset golden e punteggi LLM-as-judge |
-| 9 | Trascrivere audio con Whisper - riconoscimento vocale on-device usando il Foundry Local SDK |
-| 10 | Compilare ed eseguire modelli personalizzati o Hugging Face con ONNX Runtime GenAI e Foundry Local |
-| 11 | Abilitare i modelli locali a chiamare funzioni esterne con il pattern tool-calling |
-| 12 | Costruire un UI browser-based per lo Zava Creative Writer con streaming in tempo reale |
+| 9 | Trascrivere audio con Whisper - riconoscimento vocale on-device usando l'SDK Foundry Local |
+| 10 | Compilare ed eseguire modelli custom o Hugging Face con ONNX Runtime GenAI e Foundry Local |
+| 11 | Abilitare modelli locali a chiamare funzioni esterne con il pattern tool-calling |
+| 12 | Costruire un'interfaccia browser per Zava Creative Writer con streaming in tempo reale |
 
 ---
 
@@ -35,15 +63,15 @@ Al termine di questo workshop sarai in grado di:
 
 | Requisito | Dettagli |
 |-------------|---------|
-| **Hardware** | Minimo 8 GB di RAM (16 GB raccomandati); CPU con supporto AVX2 o GPU supportata |
-| **OS** | Windows 10/11 (x64/ARM), Windows Server 2025, o macOS 13+ |
-| **Foundry Local CLI** | Installa tramite `winget install Microsoft.FoundryLocal` (Windows) o `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Consulta la [guida introduttiva](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) per i dettagli. |
-| **Runtime linguaggi** | **Python 3.9+** e/o **.NET 9.0+** e/o **Node.js 18+** |
+| **Hardware** | Minimo 8 GB RAM (consigliati 16 GB); CPU con supporto AVX2 o GPU supportata |
+| **SO** | Windows 10/11 (x64/ARM), Windows Server 2025, o macOS 13+ |
+| **Foundry Local CLI** | Installa tramite `winget install Microsoft.FoundryLocal` (Windows) oppure `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Vedi la [guida introduttiva](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) per dettagli. |
+| **Runtime linguistici** | **Python 3.9+** e/o **.NET 9.0+** e/o **Node.js 18+** |
 | **Git** | Per clonare questo repository |
 
 ---
 
-## Iniziare
+## Per Iniziare
 
 ```bash
 # 1. Clona il repository
@@ -54,7 +82,7 @@ cd foundry-local-lab
 foundry model list              # Elenca i modelli disponibili
 foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
-# 3. Scegli il tuo percorso linguistico (vedi il laboratorio Parte 2 per la configurazione completa)
+# 3. Scegli il percorso linguistico (consulta il laboratorio Parte 2 per la configurazione completa)
 ```
 
 | Linguaggio | Avvio Rapido |
@@ -67,14 +95,14 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 ## Parti del Workshop
 
-### Parte 1: Introduzione a Foundry Local
+### Parte 1: Prime Nozioni su Foundry Local
 
 **Guida al laboratorio:** [`labs/part1-getting-started.md`](labs/part1-getting-started.md)
 
 - Cos'è Foundry Local e come funziona
 - Installazione della CLI su Windows e macOS
-- Esplorazione dei modelli - elenco, download, esecuzione
-- Comprendere gli alias dei modelli e le porte dinamiche
+- Esplorare modelli - elencare, scaricare, eseguire
+- Comprendere alias dei modelli e porte dinamiche
 
 ---
 
@@ -82,11 +110,11 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 **Guida al laboratorio:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
-- Perché usare l’SDK invece della CLI per lo sviluppo di applicazioni
-- Riferimento completo dell’API SDK per Python, JavaScript e C#
-- Gestione del servizio, navigazione del catalogo, ciclo di vita del modello (download, caricamento, scaricamento)
-- Pattern di avvio rapido: bootstrap costruttore Python, `init()` JavaScript, `CreateAsync()` C#
-- Metadata `FoundryModelInfo`, alias e selezione del modello ottimale per hardware
+- Perché usare l’SDK rispetto alla CLI per lo sviluppo di applicazioni
+- Riferimento completo API SDK per Python, JavaScript e C#
+- Gestione del servizio, navigazione catalogo, ciclo di vita del modello (scaricare, caricare, scaricare dalla memoria)
+- Pattern di avvio rapido: bootstrap del costruttore Python, `init()` in JavaScript, `CreateAsync()` in C#
+- Metadati `FoundryModelInfo`, alias, e selezione modello ottimale per hardware
 
 ---
 
@@ -95,7 +123,7 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 **Guida al laboratorio:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
 
 - Connessione a Foundry Local da Python, JavaScript e C#
-- Utilizzo dell’SDK Foundry Local per gestire il servizio in modo programmato
+- Uso dell’SDK Foundry Local per gestire il servizio programmaticamente
 - Completamenti chat in streaming tramite API compatibile OpenAI
 - Riferimento metodi SDK per ogni linguaggio
 
@@ -103,9 +131,9 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 | Linguaggio | File | Descrizione |
 |----------|------|-------------|
-| Python | `python/foundry-local.py` | Chat streaming base |
-| C# | `csharp/BasicChat.cs` | Chat streaming con .NET |
-| JavaScript | `javascript/foundry-local.mjs` | Chat streaming con Node.js |
+| Python | `python/foundry-local.py` | Chat in streaming base |
+| C# | `csharp/BasicChat.cs` | Chat in streaming con .NET |
+| JavaScript | `javascript/foundry-local.mjs` | Chat in streaming con Node.js |
 
 ---
 
@@ -114,9 +142,9 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 **Guida al laboratorio:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
 
 - Cos’è RAG e perché è importante
-- Costruzione di una knowledge base in memoria
-- Recupero basato su sovrapposizione di parole chiave con punteggio
-- Composizione di prompt di sistema basati su dati concreti
+- Costruzione di una base di conoscenza in memoria
+- Recupero tramite sovrapposizione di parole chiave con punteggio
+- Composizione di prompt di sistema contestualizzati
 - Esecuzione completa di una pipeline RAG on-device
 
 **Esempi di codice:**
@@ -133,7 +161,7 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 **Guida al laboratorio:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
 
-- Cos’è un agente AI (a differenza di una semplice chiamata a LLM)
+- Cos’è un agente AI (rispetto a una semplice chiamata LLM)
 - Pattern `ChatAgent` e Microsoft Agent Framework
 - Istruzioni di sistema, personalità e conversazioni multi-turno
 - Output strutturato (JSON) dagli agenti
@@ -142,28 +170,28 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 | Linguaggio | File | Descrizione |
 |----------|------|-------------|
-| Python | `python/foundry-local-with-agf.py` | Singolo agente con Agent Framework |
-| C# | `csharp/SingleAgent.cs` | Singolo agente (pattern ChatAgent) |
-| JavaScript | `javascript/foundry-local-with-agent.mjs` | Singolo agente (pattern ChatAgent) |
+| Python | `python/foundry-local-with-agf.py` | Agente singolo con Agent Framework |
+| C# | `csharp/SingleAgent.cs` | Agente singolo (pattern ChatAgent) |
+| JavaScript | `javascript/foundry-local-with-agent.mjs` | Agente singolo (pattern ChatAgent) |
 
 ---
 
-### Parte 6: Flussi di Lavoro Multi-Agente
+### Parte 6: Flussi Multi-Agente
 
 **Guida al laboratorio:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
 
-- Pipeline multi-agente: Ricercatore → Scrittore → Editore
-- Orchestrazione sequenziale e cicli di feedback
+- Pipeline multi-agente: Ricercatore → Scrittore → Editor
+- Orchestrazione sequenziale e loop di feedback
 - Configurazione condivisa e passaggi strutturati
-- Progettazione del proprio flusso di lavoro multi-agente
+- Progettare il proprio flusso multi-agente
 
 **Esempi di codice:**
 
 | Linguaggio | File | Descrizione |
 |----------|------|-------------|
-| Python | `python/foundry-local-multi-agent.py` | Pipeline a tre agenti |
-| C# | `csharp/MultiAgent.cs` | Pipeline a tre agenti |
-| JavaScript | `javascript/foundry-local-multi-agent.mjs` | Pipeline a tre agenti |
+| Python | `python/foundry-local-multi-agent.py` | Pipeline con tre agenti |
+| C# | `csharp/MultiAgent.cs` | Pipeline con tre agenti |
+| JavaScript | `javascript/foundry-local-multi-agent.mjs` | Pipeline con tre agenti |
 
 ---
 
@@ -171,10 +199,10 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 **Guida al laboratorio:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
 
-- Un’app multi-agente in stile produzione con 4 agenti specializzati
-- Pipeline sequenziale con cicli di feedback guidati da valutatori
-- Output in streaming, ricerca nel catalogo prodotti, passaggi JSON strutturati
-- Implementazione completa in Python (FastAPI), JavaScript (Node.js CLI), e C# (.NET console)
+- App multi-agente in stile produzione con 4 agenti specializzati
+- Pipeline sequenziale con loop di feedback guidati da valutatore
+- Output in streaming, ricerca catalogo prodotti, passaggi JSON strutturati
+- Implementazione completa in Python (FastAPI), JavaScript (CLI Node.js), e C# (console .NET)
 
 **Esempi di codice:**
 
@@ -190,11 +218,11 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 **Guida al laboratorio:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
 
-- Costruire un framework di valutazione sistematica per agenti AI usando dataset golden
-- Controlli basati su regole (lunghezza, copertura parole chiave, termini vietati) + punteggi LLM-as-judge
+- Costruire un framework sistematico di valutazione per agenti AI usando dataset golden
+- Controlli basati su regole (lunghezza, copertura parole chiave, termini proibiti) + punteggio LLM-as-judge
 - Confronto affiancato di varianti di prompt con schede punteggio aggregate
-- Estende il pattern agente Zava Editor della Parte 7 in una suite di test offline
-- Tracce Python, JavaScript e C#
+- Estende il pattern agente Editor Zava della Parte 7 in una suite di test offline
+- Percorsi Python, JavaScript e C#
 
 **Esempi di codice:**
 
@@ -209,51 +237,50 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 ### Parte 9: Trascrizione Vocale con Whisper
 
 **Guida al laboratorio:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
-
-- Trascrizione da parlato a testo usando OpenAI Whisper in locale
-- Elaborazione audio incentrata sulla privacy - l’audio non lascia mai il tuo dispositivo
+- Trascrizione vocale in testo con OpenAI Whisper eseguito localmente
+- Elaborazione audio con privacy prioritaria - l'audio non lascia mai il tuo dispositivo
 - Tracce Python, JavaScript e C# con `client.audio.transcriptions.create()` (Python/JS) e `AudioClient.TranscribeAudioAsync()` (C#)
 - Include file audio di esempio a tema Zava per esercitazioni pratiche
 
 **Esempi di codice:**
 
-| Linguaggio | File | Descrizione |
+| Language | File | Description |
 |----------|------|-------------|
 | Python | `python/foundry-local-whisper.py` | Trascrizione vocale Whisper |
 | C# | `csharp/WhisperTranscription.cs` | Trascrizione vocale Whisper |
 | JavaScript | `javascript/foundry-local-whisper.mjs` | Trascrizione vocale Whisper |
 
-> **Nota:** Questo laboratorio usa il **Foundry Local SDK** per scaricare e caricare programmaticamente il modello Whisper, quindi invia audio all’endpoint locale compatibile OpenAI per la trascrizione. Il modello Whisper (`whisper`) è elencato nel catalogo Foundry Local e funziona interamente on-device - nessuna chiave API cloud o accesso a rete richiesti.
+> **Nota:** Questo laboratorio utilizza il **Foundry Local SDK** per scaricare e caricare programmaticamente il modello Whisper, quindi invia l'audio all'endpoint locale compatibile con OpenAI per la trascrizione. Il modello Whisper (`whisper`) è elencato nel catalogo Foundry Local e viene eseguito interamente sul dispositivo - non sono necessarie chiavi API cloud né accesso alla rete.
 
 ---
 
 ### Parte 10: Uso di Modelli Personalizzati o Hugging Face
 
-**Guida al laboratorio:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
+**Guida del laboratorio:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
 
-- Compilazione di modelli Hugging Face in formato ONNX ottimizzato usando ONNX Runtime GenAI model builder
+- Compilazione di modelli Hugging Face nel formato ONNX ottimizzato utilizzando il generatore di modelli GenAI ONNX Runtime
 - Compilazione specifica per hardware (CPU, GPU NVIDIA, DirectML, WebGPU) e quantizzazione (int4, fp16, bf16)
 - Creazione di file di configurazione template chat per Foundry Local
 - Aggiunta di modelli compilati alla cache di Foundry Local
-- Esecuzione di modelli personalizzati tramite CLI, REST API, e SDK OpenAI
-- Esempio di riferimento: compilazione end-to-end di Qwen/Qwen3-0.6B
+- Esecuzione di modelli personalizzati tramite CLI, REST API e OpenAI SDK
+- Esempio di riferimento: compilazione completa di Qwen/Qwen3-0.6B
 
 ---
 
-### Parte 11: Tool Calling con Modelli Locali
+### Parte 11: Chiamate di Strumenti con Modelli Locali
 
-**Guida al laboratorio:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
+**Guida del laboratorio:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
 
-- Abilitare modelli locali a chiamare funzioni esterne (tool/function calling)
-- Definire schemi strumenti usando il formato OpenAI function-calling
-- Gestire il flusso di conversazione multi-turno di tool-calling
-- Eseguire chiamate strumenti localmente e restituire risultati al modello
-- Scegliere il modello giusto per scenari tool-calling (Qwen 2.5, Phi-4-mini)
-- Usare il `ChatClient` nativo dell’SDK per tool calling (JavaScript)
+- Abilitare i modelli locali a chiamare funzioni esterne (tool/function calling)
+- Definire schemi degli strumenti usando il formato di chiamata funzione OpenAI
+- Gestire il flusso di conversazione multi-turno per le chiamate agli strumenti
+- Eseguire chiamate agli strumenti localmente e restituire i risultati al modello
+- Scegliere il modello giusto per scenari di chiamata a strumenti (Qwen 2.5, Phi-4-mini)
+- Usare il `ChatClient` nativo dell'SDK per le chiamate a strumenti (JavaScript)
 
 **Esempi di codice:**
 
-| Linguaggio | File | Descrizione |
+| Language | File | Description |
 |----------|------|-------------|
 | Python | `python/foundry-local-tool-calling.py` | Tool calling con strumenti meteo/popolazione |
 | C# | `csharp/ToolCalling.cs` | Tool calling con .NET |
@@ -261,43 +288,44 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 ---
 
-### Parte 12: Costruire una UI Web per lo Zava Creative Writer
+### Parte 12: Costruire un'interfaccia Web per il Zava Creative Writer
 
-**Guida al laboratorio:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
+**Guida del laboratorio:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
 
-- Aggiungere un front end browser-based allo Zava Creative Writer
-- Servire l’UI condivisa da Python (FastAPI), JavaScript (Node.js HTTP), e C# (ASP.NET Core)
-- Consumare streaming NDJSON nel browser con Fetch API e ReadableStream
-- Badge stato agenti live e streaming testo articolo in tempo reale
+- Aggiungere un front end basato su browser per il Zava Creative Writer
+- Erogare l'interfaccia condivisa da Python (FastAPI), JavaScript (Node.js HTTP) e C# (ASP.NET Core)
+- Consumare NDJSON in streaming nel browser con Fetch API e ReadableStream
+- Badge di stato agente live e streaming in tempo reale del testo dell’articolo
 
 **Codice (UI condivisa):**
 
-| File | Descrizione |
+| File | Description |
 |------|-------------|
-| `zava-creative-writer-local/ui/index.html` | Layout pagina |
-| `zava-creative-writer-local/ui/style.css` | Stile |
-| `zava-creative-writer-local/ui/app.js` | Lettore stream e logica aggiornamento DOM |
+| `zava-creative-writer-local/ui/index.html` | Layout della pagina |
+| `zava-creative-writer-local/ui/style.css` | Styling |
+| `zava-creative-writer-local/ui/app.js` | Lettore di streaming e logica di aggiornamento DOM |
 
-**Integrazioni backend:**
+**Aggiunte backend:**
 
-| Linguaggio | File | Descrizione |
+| Language | File | Description |
 |----------|------|-------------|
-| Python | `zava-creative-writer-local/src/api/main.py` | Aggiornato per servire UI statica |
+| Python | `zava-creative-writer-local/src/api/main.py` | Aggiornato per erogare UI statica |
 | JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | Nuovo server HTTP che incapsula l’orchestrator |
-| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | Nuovo progetto API minimale ASP.NET Core |
+| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | Nuovo progetto API minimal ASP.NET Core |
 
 ---
 
-### Parte 13: Workshop Completo
-**Guida al laboratorio:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
+### Parte 13: Workshop Completato
 
-- Riepilogo di tutto ciò che hai costruito attraverso tutte le 12 parti
-- Ulteriori idee per estendere le tue applicazioni
+**Guida del laboratorio:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
+
+- Riepilogo di tutto ciò che hai costruito nelle 12 parti
+- Idee aggiuntive per estendere le tue applicazioni
 - Link a risorse e documentazione
 
 ---
 
-## Struttura del progetto
+## Struttura del Progetto
 
 ```
 ├── python/                        # Python examples
@@ -381,9 +409,9 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 | Risorsa | Link |
 |----------|------|
-| Sito web Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |
+| Sito Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |
 | Catalogo modelli | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
-| Foundry Local GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
+| Foundry Local su GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
 | Guida introduttiva | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
 | Riferimento SDK Foundry Local | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
 | Microsoft Agent Framework | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
@@ -394,7 +422,7 @@ foundry model run phi-3.5-mini  # Avvia una chat interattiva
 
 ## Licenza
 
-Questo materiale del laboratorio è fornito a scopo educativo.
+Questo materiale del workshop è fornito a scopo educativo.
 
 ---
 
@@ -403,6 +431,6 @@ Questo materiale del laboratorio è fornito a scopo educativo.
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Avvertenza**:  
-Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Pur impegnandoci per l’accuratezza, si prega di essere consapevoli che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche si raccomanda una traduzione professionale effettuata da un umano. Non siamo responsabili per eventuali malintesi o interpretazioni errate derivanti dall’uso di questa traduzione.
+**Disclaimer**:  
+Questo documento è stato tradotto utilizzando il servizio di traduzione automatica [Co-op Translator](https://github.com/Azure/co-op-translator). Pur impegnandoci per l'accuratezza, si prega di considerare che le traduzioni automatiche possono contenere errori o inesattezze. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, è consigliata la traduzione professionale umana. Non siamo responsabili per eventuali malintesi o interpretazioni errate derivanti dall'uso di questa traduzione.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

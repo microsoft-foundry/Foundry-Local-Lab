@@ -2,11 +2,39 @@
   <img src="https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg" alt="Foundry Local" width="280" />
 </p>
 
-# סדנת Foundry Local - בניית יישומי AI במכשיר
+# סדנת Foundry Local – בניית יישומי AI במכשיר
 
-סדנה מעשית להרצת דגמי שפה על המחשב האישי שלך ולבניית יישומים אינטליגנטיים עם [Foundry Local](https://foundrylocal.ai) ו-[Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
+סדנה מעשית להרצת דגמי שפה על המחשב האישי שלך ובניית אפליקציות חכמות עם [Foundry Local](https://foundrylocal.ai) ו-[Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
 
-> **מה זה Foundry Local?** Foundry Local הוא runtime קל משקל המאפשר להוריד, לנהל ולהפעיל דגמי שפה כוללים במכשיר שלך. הוא חושף **API תואם OpenAI** כך שכל כלי או SDK המדבר OpenAI יכול להתחבר — ללא צורך בחשבון ענן.
+> **מה זה Foundry Local?** Foundry Local הוא זמן ריצה קל משקל המאפשר לך להוריד, לנהל ולשרת דגמי שפה באופן מלא על החומרה שלך. הוא מציע **API תואם OpenAI** כך שכל כלי או SDK שמדבר OpenAI יכולים להתחבר – ללא צורך בחשבון ענן.
+
+### 🌐 תמיכה רב-לשונית
+
+#### נתמך באמצעות GitHub Action (אוטומטי ותמיד מעודכן)
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[ערבית](../ar/README.md) | [בנגלית](../bn/README.md) | [בולגרית](../bg/README.md) | [בורמזית (מיאנמר)](../my/README.md) | [סינית (מפושטת)](../zh-CN/README.md) | [סינית (מסורתית, הונג קונג)](../zh-HK/README.md) | [סינית (מסורתית, מקאו)](../zh-MO/README.md) | [סינית (מסורתית, טאיוואן)](../zh-TW/README.md) | [קרואטית](../hr/README.md) | [צ'כית](../cs/README.md) | [דנית](../da/README.md) | [הולנדית](../nl/README.md) | [אסטונית](../et/README.md) | [פינית](../fi/README.md) | [צרפתית](../fr/README.md) | [גרמנית](../de/README.md) | [יוונית](../el/README.md) | [עברית](./README.md) | [הינדית](../hi/README.md) | [הונגרית](../hu/README.md) | [אינדונזית](../id/README.md) | [איטלקית](../it/README.md) | [יפנית](../ja/README.md) | [קנדית](../kn/README.md) | [חמרית](../km/README.md) | [קוריאנית](../ko/README.md) | [ליטאית](../lt/README.md) | [מלאית](../ms/README.md) | [מלאלאם](../ml/README.md) | [מרתית](../mr/README.md) | [נפאלית](../ne/README.md) | [פידג'ין ניגרי](../pcm/README.md) | [נורווגית](../no/README.md) | [פרסית (פארסית)](../fa/README.md) | [פולנית](../pl/README.md) | [פורטוגזית (ברזיל)](../pt-BR/README.md) | [פורטוגזית (פורטוגל)](../pt-PT/README.md) | [פנג'אבית (גורמוקי)](../pa/README.md) | [רומנית](../ro/README.md) | [רוסית](../ru/README.md) | [סרבית (קירילית)](../sr/README.md) | [סלובקית](../sk/README.md) | [סלובנית](../sl/README.md) | [ספרדית](../es/README.md) | [סווהילית](../sw/README.md) | [שבדית](../sv/README.md) | [טגלוג (פיליפינית)](../tl/README.md) | [טמילית](../ta/README.md) | [טלוגו](../te/README.md) | [תאית](../th/README.md) | [טורקית](../tr/README.md) | [אוקראינית](../uk/README.md) | [אורדו](../ur/README.md) | [וויאטנמית](../vi/README.md)
+
+> **מעדיף לשכפל מקומית?**
+>
+> מאגר זה כולל מעל 50 תרגומים לשפות שמגדילים משמעותית את גודל ההורדה. כדי לשכפל ללא תרגומים, השתמש ב-sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> זה נותן לך את כל מה שאתה צריך כדי להשלים את הקורס במהירות הורדה גבוהה הרבה יותר.
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ---
 
@@ -16,18 +44,18 @@
 
 | # | יעד |
 |---|-----------|
-| 1 | להתקין את Foundry Local ולנהל דגמים דרך CLI |
+| 1 | להתקין את Foundry Local ולנהל דגמים עם CLI |
 | 2 | לשלוט ב-Foundry Local SDK API לניהול דגמים בתכנות |
-| 3 | להתחבר לשרת האינפרנס המקומי באמצעות SDK של Python, JavaScript ו-C# |
-| 4 | לבנות צינור RAG (יצירה מוגברת של החזרה) המושתת על הנתונים שלך |
-| 5 | ליצור סוכני AI עם הוראות פרסיסטנטיות ופרסונות |
-| 6 | לארגן תהליכי עבודה עם סוכנים מרובים עם לולאות משוב |
-| 7 | לחקור אפליקציית קפסטון בשימוש ייצור – Zava Creative Writer |
-| 8 | לבנות מסגרות הערכה עם מערכי נתונים זהב ודירוג LLM כ"שופט" |
-| 9 | להמיר קול לטקסט עם Whisper – זיהוי דיבור במכשיר ע"י Foundry Local SDK |
-| 10 | לקמפל ולהריץ דגמים מותאמים או Hugging Face עם ONNX Runtime GenAI ו-Foundry Local |
-| 11 | לאפשר לדגמים מקומיים לקרוא לפונקציות חיצוניות בדפוס קריאת כלי |
-| 12 | לבנות ממשק משתמש בדפדפן ל-Zava Creative Writer עם זרימה בזמן אמת |
+| 3 | להתחבר לשרת האינפרנס המקומי בעזרת SDKs של Python, JavaScript ו-C# |
+| 4 | לבנות צינור Retrieval-Augmented Generation (RAG) המאפשר מענה מבוסס על הנתונים האישיים שלך |
+| 5 | ליצור סוכני AI עם הוראות ופרסונות קבועות |
+| 6 | לארגן זרימות עבודה של סוכנים מרובים עם לולאות משוב |
+| 7 | לחקור אפליקציית קאפסטון בייצור – Zava Creative Writer |
+| 8 | לבנות מסגרות הערכה עם ערכי זהב ודירוג LLM כשופט |
+| 9 | לתמלל קול עם Whisper – דיבור לטקסט במכשיר תוך שימוש ב-Foundry Local SDK |
+| 10 | לקמפל ולהריץ דגמים מותאמים אישית או Hugging Face עם ONNX Runtime GenAI ו-Foundry Local |
+| 11 | לאפשר דגמים מקומיים לבצע קריאות לפונקציות חיצוניות עם דפוס tool-calling |
+| 12 | לבנות ממשק משתמש מבוסס דפדפן ל-Zava Creative Writer עם סטרימינג בזמן אמת |
 
 ---
 
@@ -35,26 +63,26 @@
 
 | דרישה | פרטים |
 |-------------|---------|
-| **חומרה** | זיכרון RAM מינימלי 8 GB (מומלץ 16 GB); CPU עם AVX2 או GPU נתמך |
-| **מערכת הפעלה** | Windows 10/11 (x64/ARM), Windows Server 2025, או macOS 13 ומעלה |
-| **Foundry Local CLI** | התקנה באמצעות `winget install Microsoft.FoundryLocal` (Windows) או `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). ראה את מדריך [התחלה](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) לפרטים. |
+| **חומרה** | מינימום 8GB RAM (מומלץ 16GB); CPU תומך AVX2 או GPU נתמך |
+| **מערכת הפעלה** | Windows 10/11 (x64/ARM), Windows Server 2025, או macOS 13+ |
+| **Foundry Local CLI** | התקן דרך `winget install Microsoft.FoundryLocal` (Windows) או `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). ראה את [מדריך ההתחלה](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) לפרטים. |
 | **סביבת ריצה לשפה** | **Python 3.9+** ו/או **.NET 9.0+** ו/או **Node.js 18+** |
-| **Git** | לשכפול המאגר |
+| **Git** | לשכפל את המאגר |
 
 ---
 
-## התחלה
+## התחלה מהירה
 
 ```bash
 # 1. שכפל את המאגר
 git clone https://github.com/microsoft-foundry/foundry-local-lab.git
 cd foundry-local-lab
 
-# 2. אמת שה-foundry Local מותקן
-foundry model list              # הצג דגמים זמינים
+# 2. אמת ש-Foundry Local מותקן
+foundry model list              # הצג את הדגמים הזמינים
 foundry model run phi-3.5-mini  # התחל שיחה אינטראקטיבית
 
-# 3. בחר את מסלול השפה שלך (ראה מעבדת חלק 2 להגדרה מלאה)
+# 3. בחר את מסלול השפה שלך (ראה את מעבדת חלק 2 להתקנה מלאה)
 ```
 
 | שפה | התחלה מהירה |
@@ -73,20 +101,20 @@ foundry model run phi-3.5-mini  # התחל שיחה אינטראקטיבית
 
 - מה זה Foundry Local ואיך הוא עובד
 - התקנת CLI ב-Windows ו-macOS
-- חקר דגמים – רשימה, הורדה, הרצה
-- הבנת שמות כינויים של דגמים ונמלים דינמיים
+- בחינת דגמים – רשימה, הורדה, הרצה
+- הבנת כינויים לדגמים ויציאות דינמיות
 
 ---
 
-### חלק 2: ניתוח מעמיק של Foundry Local SDK
+### חלק 2: מעמיק ב-Foundry Local SDK
 
 **מדריך מעבדה:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
-- למה להשתמש ב-SDK במקום ב-CLI לפיתוח אפליקציות
-- הפניה מלאה ל-SDK API עבור Python, JavaScript ו-C#
-- ניהול שירות, דפדוף בקטלוג, מחזור חיים של דגם (הורדה, טעינה, פריקה)
-- דפוסי התחלה מהירה: אתחול ב-Python, `init()` ב-JavaScript, `CreateAsync()` ב-C#
-- מטא-נתוני `FoundryModelInfo`, כינויים ובחירת דגם מיטבית לפי חומרה
+- למה להשתמש ב-SDK על פני CLI לפיתוח אפליקציות
+- הפניה מלאה ל-API של SDK ב-Python, JavaScript ו-C#
+- ניהול שירות, גלישה בקטלוג, מחזור חיים של דגם (הורדה, טעינה, פריקה)
+- דפוסי התחלה מהירה: Bootstrap ב-Python, `init()` ב-JavaScript, `CreateAsync()` ב-C#
+- מטא-דאטה של `FoundryModelInfo`, כינויים ובחירת דגם מיטבית לחומרה
 
 ---
 
@@ -94,32 +122,32 @@ foundry model run phi-3.5-mini  # התחל שיחה אינטראקטיבית
 
 **מדריך מעבדה:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
 
-- התחברות ל-Foundry Local מ-Python, JavaScript ו-C#
+- התחברות ל-Foundry Local ב-Python, JavaScript ו-C#
 - שימוש ב-Foundry Local SDK לניהול השירות בתכנות
-- שיחות צ'אט מתמשכות דרך API תואם OpenAI
-- הפניה לשיטות SDK בכל שפה
+- סטרימינג של תגובות צ'אט דרך API תואם OpenAI
+- הפניה לשיטות SDK לכל שפה
 
-**דוגמות קוד:**
+**דוגמאות קוד:**
 
 | שפה | קובץ | תיאור |
 |----------|------|-------------|
-| Python | `python/foundry-local.py` | צ׳אט בסיסי עם סטרימינג |
-| C# | `csharp/BasicChat.cs` | צ׳אט סטרימינג ב-.NET |
-| JavaScript | `javascript/foundry-local.mjs` | צ׳אט סטרימינג ב-Node.js |
+| Python | `python/foundry-local.py` | צ'אט בסיסי בזרם |
+| C# | `csharp/BasicChat.cs` | צ'אט בזרם עם .NET |
+| JavaScript | `javascript/foundry-local.mjs` | צ'אט בזרם עם Node.js |
 
 ---
 
-### חלק 4: יצירה מוגברת של החזרה (RAG)
+### חלק 4: Retrieval-Augmented Generation (RAG)
 
 **מדריך מעבדה:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
 
-- מה זה RAG ולמה זה חשוב
-- בניית מאגר ידע בזיכרון
-- איסוף בהתבסס על חפיפה במילות מפתח עם דירוג
-- הרכבת הפעלות מערכת מונחות-נתונים
-- הפעלת צינור RAG שלם במכשיר
+- מה זה RAG ומדוע הוא חשוב
+- בניית בסיס ידע בזיכרון
+- שליפת מילות מפתח עם ניקוד
+- יצירת פקודות מערכת מונחות
+- הרצת צינור RAG מלא במכשיר
 
-**דוגמות קוד:**
+**דוגמאות קוד:**
 
 | שפה | קובץ |
 |----------|------|
@@ -135,10 +163,10 @@ foundry model run phi-3.5-mini  # התחל שיחה אינטראקטיבית
 
 - מהו סוכן AI (בניגוד לקריאה ישירה ל-LLM)
 - דפוס `ChatAgent` ו-Microsoft Agent Framework
-- הוראות מערכת, פרסונות ושיחות עם סבבים מרובים
+- הוראות מערכת, פרסונות ושיחות רב-סיבוביות
 - פלט מובנה (JSON) מהסוכנים
 
-**דוגמות קוד:**
+**דוגמאות קוד:**
 
 | שפה | קובץ | תיאור |
 |----------|------|-------------|
@@ -148,55 +176,55 @@ foundry model run phi-3.5-mini  # התחל שיחה אינטראקטיבית
 
 ---
 
-### חלק 6: תהליכי עבודה עם סוכנים מרובים
+### חלק 6: זרימות עבודה של סוכנים מרובים
 
 **מדריך מעבדה:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
 
-- צינורות עבודה עם סוכנים מרובים: חוקר → כותב → עורך
-- תיאום רציף ולולאות משוב
-- תצורה משותפת והעברות מבניות
-- עיצוב תהליך עבודה עם סוכנים מרובים משלך
+- צינורות עם סוכנים מרובים: חוקר → כותב → עורך
+- ארגון עוקב ולולאות משוב
+- שיתוף תצורה ומעברים מובנים
+- עיצוב זרימת עבודה של סוכנים מרובים משלך
 
-**דוגמות קוד:**
+**דוגמאות קוד:**
 
 | שפה | קובץ | תיאור |
 |----------|------|-------------|
-| Python | `python/foundry-local-multi-agent.py` | צינור עבודה עם שלושה סוכנים |
-| C# | `csharp/MultiAgent.cs` | צינור עבודה עם שלושה סוכנים |
-| JavaScript | `javascript/foundry-local-multi-agent.mjs` | צינור עבודה עם שלושה סוכנים |
+| Python | `python/foundry-local-multi-agent.py` | צינור שלושה סוכנים |
+| C# | `csharp/MultiAgent.cs` | צינור שלושה סוכנים |
+| JavaScript | `javascript/foundry-local-multi-agent.mjs` | צינור שלושה סוכנים |
 
 ---
 
-### חלק 7: Zava Creative Writer - אפליקציית קפסטון
+### חלק 7: Zava Creative Writer – אפליקציית קאפסטון
 
 **מדריך מעבדה:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
 
-- אפליקציית ייצור עם 4 סוכנים מתמחים
-- צינור רציף עם לולאות משוב מונעות על-ידי מעריך
-- פלט סטרימינג, חיפוש קטלוג מוצר, העברות JSON מובנות
-- יישום מלא ב-Python (FastAPI), JavaScript (CLI ב-Node.js) ו-C# (קונסולת .NET)
+- אפליקציה בסגנון ייצור עם 4 סוכנים מתמחים
+- צינור עוקב עם לולאות משוב מונעות על ידי מעריך
+- פלט בזרם, חיפוש קטלוג מוצר, מעברים מובנים ב-JSON
+- יישום מלא ב-Python (FastAPI), JavaScript (Node.js CLI) ו-C# (.NET קונסולה)
 
-**דוגמות קוד:**
+**דוגמאות קוד:**
 
 | שפה | ספרייה | תיאור |
 |----------|-----------|-------------|
-| Python | `zava-creative-writer-local/src/api/` | שירות ווב FastAPI עם מווסת |
-| JavaScript | `zava-creative-writer-local/src/javascript/` | אפליקציית CLI ב-Node.js |
-| C# | `zava-creative-writer-local/src/csharp/` | אפליקציית קונסולה ב-.NET 9 |
+| Python | `zava-creative-writer-local/src/api/` | שירות רשת FastAPI עם אורסטרטור |
+| JavaScript | `zava-creative-writer-local/src/javascript/` | אפליקציית CLI של Node.js |
+| C# | `zava-creative-writer-local/src/csharp/` | אפליקציית קונסולה .NET 9 |
 
 ---
 
-### חלק 8: פיתוח מונחה הערכה
+### חלק 8: פיתוח מודרך הערכה
 
 **מדריך מעבדה:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
 
-- לבנות מסגרת הערכה שיטתית לסוכני AI עם מערכי נתונים זהב
-- בדיקות מבוססות חוק (אורך, כיסוי מילות מפתח, מונחים אסורים) + ניקוד LLM כשופט
-- השוואה צד-אל-צד של וריאציות פרומפט עם כרטיסי ניקוד מצטברים
-- מרחיב את דפוס סוכן העורך של Zava מהחלק ה-7 למערכת בדיקה לא מקוונת
-- מסלולי Python, JavaScript ו-C#
+- לבנות מסגרת הערכה שיטתית לסוכני AI עם ערכי זהב
+- בדיקות מבוססות כללים (אורך, כיסוי מילות מפתח, מונחים אסורים) + דירוג LLM כשופט
+- השוואה צד לצד של וריאציות פקודות עם כרטיסי ניקוד מצטברים
+- מרחיב את דפוס סוכן העורך של Zava מהחלק 7 אל ערכת בדיקות לא מקוונת
+- מסלולים ב-Python, JavaScript ו-C#
 
-**דוגמות קוד:**
+**דוגמאות קוד:**
 
 | שפה | קובץ | תיאור |
 |----------|------|-------------|
@@ -209,95 +237,95 @@ foundry model run phi-3.5-mini  # התחל שיחה אינטראקטיבית
 ### חלק 9: תמלול קול עם Whisper
 
 **מדריך מעבדה:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
+- תמלול דיבור לטקסט באמצעות OpenAI Whisper הפועל מקומית  
+- עיבוד שמע תוך שמירה על פרטיות - השמע לעולם לא עוזב את המכשיר שלך  
+- מסלולי Python, JavaScript ו-C# עם `client.audio.transcriptions.create()` (Python/JS) ו-`AudioClient.TranscribeAudioAsync()` (C#)  
+- כולל קבצי שמע לדוגמה בסגנון זאבה לתרגול מעשי  
 
-- תמלול דיבור לטקסט באמצעות OpenAI Whisper הפועל באופן מקומי
-- עיבוד שמע בפרטיות - השמע אינו עוזב את המכשיר שלך
-- מסלולי Python, JavaScript ו-C# עם `client.audio.transcriptions.create()` (Python/JS) ו-`AudioClient.TranscribeAudioAsync()` (C#)
-- כולל קבצי דוגמה בנושא Zava לתרגול מעשי
+**דוגמאות קוד:**  
 
-**דוגמות קוד:**
+| Language | File | Description |  
+|----------|------|-------------|  
+| Python | `python/foundry-local-whisper.py` | תמלול קולי של Whisper |  
+| C# | `csharp/WhisperTranscription.cs` | תמלול קולי של Whisper |  
+| JavaScript | `javascript/foundry-local-whisper.mjs` | תמלול קולי של Whisper |  
 
-| שפה | קובץ | תיאור |
-|----------|------|-------------|
-| Python | `python/foundry-local-whisper.py` | תמלול קול ב-Whisper |
-| C# | `csharp/WhisperTranscription.cs` | תמלול קול ב-Whisper |
-| JavaScript | `javascript/foundry-local-whisper.mjs` | תמלול קול ב-Whisper |
-
-> **הערה:** מעבדה זו משתמשת ב-**Foundry Local SDK** להורדה וטעינה בתכנות של מודל Whisper, ואז שולחת שמע לנקודת קצה תואמת OpenAI מקומית לתמלול. מודל Whisper (`whisper`) רשום בקטלוג Foundry Local ופועל כולו במכשיר — ללא מפתחות API ענן או גישה לרשת.
-
----
-
-### חלק 10: שימוש בדגמים מותאמים או Hugging Face
-
-**מדריך מעבדה:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
-
-- קימפול דגמי Hugging Face לפורמט ONNX אופטימלי עם ONNX Runtime GenAI
-- קומפילציה מותאמת חומרה (CPU, NVIDIA GPU, DirectML, WebGPU) וכימות (int4, fp16, bf16)
-- יצירת קבצי תצורה לתבנית צ׳אט ל-Foundry Local
-- הוספת דגמים מקומפלים למטמון Foundry Local
-- הרצת דגמים מותאמים דרך CLI, REST API ו-OpenAI SDK
-- דוגמה להפניה: קימפול Qwen/Qwen3-0.6B מקצה לקצה
+> **הערה:** מעבדה זו משתמשת ב **Foundry Local SDK** להורדה וטעינה תכ-programmatית של מודל Whisper, ולאחר מכן שולחת שמע לנקודת קצה תואמת OpenAI הפועלת באופן מקומי לתמלול. מודל Whisper (`whisper`) מופיע בקטלוג Foundry Local ופועל כולו על המכשיר - לא נדרשים מפתחות API לענן או גישה לרשת.
 
 ---
 
-### חלק 11: קריאת כלי עם דגמים מקומיים
+### חלק 10: שימוש במודלים מותאמים אישית או Hugging Face  
 
-**מדריך מעבדה:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
+**מדריך מעבדה:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)  
 
-- לאפשר לדגמים מקומיים לקרוא לפונקציות חיצוניות (קריאת כלי/פונקציה)
-- להגדיר סכמת כלי באמצעות פורמט קריאת פונקציות OpenAI
-- ניהול שיחת קריאת כלי בסבבים מרובים
-- ביצוע קריאות כלי במכשיר והחזרת תוצאות לדגם
-- לבחור את הדגם המתאים לתרחישי קריאת כלי (Qwen 2.5, Phi-4-mini)
-- שימוש ב-`ChatClient` של ה-SDK לקריאת כלי (JavaScript)
-
-**דוגמות קוד:**
-
-| שפה | קובץ | תיאור |
-|----------|------|-------------|
-| Python | `python/foundry-local-tool-calling.py` | קריאת כלי עם כלים למזג אוויר ואוכלוסייה |
-| C# | `csharp/ToolCalling.cs` | קריאת כלי ב-.NET |
-| JavaScript | `javascript/foundry-local-tool-calling.mjs` | קריאת כלי עם ChatClient |
+- הידור מודלים של Hugging Face לפורמט ONNX אופטימלי באמצעות בונה מודלי GenAI ל-ONNX Runtime  
+- הידור מותאם לחומרה (CPU, NVIDIA GPU, DirectML, WebGPU) וקואנטיזציה (int4, fp16, bf16)  
+- יצירת קבצי תצורת תבנית שיחה עבור Foundry Local  
+- הוספת מודלים מוכללים למטמון Foundry Local  
+- הרצת מודלים מותאמים באמצעות CLI, REST API ו-SDK של OpenAI  
+- דוגמה להדגמה: הידור מלא של Qwen/Qwen3-0.6B   
 
 ---
 
-### חלק 12: בניית ממשק WEB ל-Zava Creative Writer
+### חלק 11: קריאת כלים עם מודלים מקומיים  
 
-**מדריך מעבדה:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
+**מדריך מעבדה:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)  
 
-- הוספת ממשק משתמש בדפדפן ל-Zava Creative Writer
-- הגשת ממשק משותף מ-Python (FastAPI), JavaScript (Node.js HTTP), ו-C# (ASP.NET Core)
-- צריכת NDJSON בזרם בדפדפן עם Fetch API ו-ReadableStream
-- תגי מצב חיים לסוכן וזרימת טקסט בזמן אמת
+- לאפשר למודלים מקומיים לקרוא לפונקציות חיצוניות (קריאת כלים / פונקציות)  
+- הגדרת סכמות כלים בפורמט קריאת הפונקציות של OpenAI  
+- טיפול בזרימת שיחה של קריאת כלים רב-סבבית  
+- ביצוע קריאות כלים במכשיר והחזרת תוצאות למודל  
+- בחירת המודל הנכון לתרחישי קריאת כלים (Qwen 2.5, Phi-4-mini)  
+- שימוש ב`ChatClient` המובנה ב-SDK לקריאת כלים (JavaScript)  
 
-**קוד (ממשק משותף):**
+**דוגמאות קוד:**  
 
-| קובץ | תיאור |
-|------|-------------|
-| `zava-creative-writer-local/ui/index.html` | פריסת דף |
-| `zava-creative-writer-local/ui/style.css` | עיצוב |
-| `zava-creative-writer-local/ui/app.js` | קורא זרם ועדכון DOM |
-
-**תוספות ב-backend:**
-
-| שפה | קובץ | תיאור |
-|----------|------|-------------|
-| Python | `zava-creative-writer-local/src/api/main.py` | מעודכן להגיש ממשק סטטי |
-| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | שרת HTTP חדש העוטף את המווסת |
-| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | פרויקט ASP.NET Core מינימלי חדש |
+| Language | File | Description |  
+|----------|------|-------------|  
+| Python | `python/foundry-local-tool-calling.py` | קריאת כלים עם כלים למזג אוויר ואוכלוסייה |  
+| C# | `csharp/ToolCalling.cs` | קריאת כלים עם .NET |  
+| JavaScript | `javascript/foundry-local-tool-calling.mjs` | קריאת כלים עם ChatClient |  
 
 ---
 
-### חלק 13: סיום הסדנה
-**מדריך המעבדה:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
+### חלק 12: בניית ממשק אינטרנטי ל-Zava Creative Writer  
 
-- סיכום של כל מה שבנית בכל 12 החלקים
-- רעיונות נוספים להרחבת היישומים שלך
-- קישורים למשאבים ותיעוד
+**מדריך מעבדה:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)  
+
+- הוספת ממשק קדמי בדפדפן ל-Zava Creative Writer  
+- הפצת ממשק מאוחד מ-Python (FastAPI), JavaScript (Node.js HTTP) ו-C# (ASP.NET Core)  
+- צריכת NDJSON זורם בדפדפן באמצעות Fetch API ו-ReadableStream  
+- סמלוני סטטוס חיים של סוכן וזרימת טקסט למאמר בזמן אמת  
+
+**קוד (ממשק משותף):**  
+
+| File | Description |  
+|------|-------------|  
+| `zava-creative-writer-local/ui/index.html` | פריסת עמוד |  
+| `zava-creative-writer-local/ui/style.css` | עיצוב |  
+| `zava-creative-writer-local/ui/app.js` | לוגיקת קורא זרם ועדכון DOM |  
+
+**הוספות בשרת:**  
+
+| Language | File | Description |  
+|----------|------|-------------|  
+| Python | `zava-creative-writer-local/src/api/main.py` | עודכן להפצת ממשק סטטי |  
+| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | שרת HTTP חדש שעוטף את האורקסטרטור |  
+| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | פרויקט API מינימלי חדש ב-ASP.NET Core |  
 
 ---
 
-## מבנה הפרויקט
+### חלק 13: סיום הסדנה  
+
+**מדריך מעבדה:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)  
+
+- סיכום כל מה שבנית בכל 12 החלקים  
+- רעיונות להרחבה נוספת של האפליקציות שלך  
+- קישורים למשאבים ולתיעוד  
+
+---
+
+## מבנה הפרויקט  
 
 ```
 ├── python/                        # Python examples
@@ -374,28 +402,35 @@ foundry model run phi-3.5-mini  # התחל שיחה אינטראקטיבית
 ├── LICENSE                        # MIT licence
 └── README.md
 ```
+  
+---
+
+## משאבים  
+
+| Resource | Link |  
+|----------|------|  
+| אתר Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |  
+| קטלוג מודלים | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |  
+| Foundry Local ב-GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |  
+| מדריך התחלה מהירה | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |  
+| הפניה ל-SDK של Foundry Local | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |  
+| מסגרת העבודה של Microsoft Agent | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |  
+| OpenAI Whisper | [github.com/openai/whisper](https://github.com/openai/whisper) |  
+| ONNX Runtime GenAI | [github.com/microsoft/onnxruntime-genai](https://github.com/microsoft/onnxruntime-genai) |  
 
 ---
 
-## משאבים
+## רישיון  
 
-| משאב | קישור |
-|----------|------|
-| אתר Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |
-| קטלוג מודלים | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
-| Foundry Local ב-GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
-| מדריך התחלה מהירה | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
-| הפניות SDK של Foundry Local | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
-| מסגרת סוכן של Microsoft | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
-| OpenAI Whisper | [github.com/openai/whisper](https://github.com/openai/whisper) |
-| ONNX Runtime GenAI | [github.com/microsoft/onnxruntime-genai](https://github.com/microsoft/onnxruntime-genai) |
+חומר הסדנה מוצע למטרות חינוכיות בלבד.  
 
 ---
 
-## רישיון
-
-חומר סדנת העבודה הזה מסופק למטרות חינוכיות.
+**בנייה מהנה! 🚀**
 
 ---
 
-**בניית מוצלחת! 🚀**
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**כתב ויתור**:  
+מסמך זה תורגם באמצעות שירות התרגום האוטומטי [Co-op Translator](https://github.com/Azure/co-op-translator). בעוד שאנו שואפים לדיוק, יש להיות מודעים לכך שתרגומים אוטומטיים עשויים להכיל שגיאות או אי-דיוקים. המסמך המקורי בשפת המקור נחשב למקור הסמכותי. למידע קריטי מומלץ להיעזר בתרגום מקצועי אנושי. איננו אחראים לכל הבנה שגויה או פרשנות שגויה הנובעת מהשימוש בתרגום זה.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

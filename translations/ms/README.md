@@ -2,11 +2,39 @@
   <img src="https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg" alt="Foundry Local" width="280" />
 </p>
 
-# Bengkel Foundry Local - Bina Apl AI Pada Peranti
+# Bengkel Foundry Local - Bina Aplikasi AI Pada Peranti
 
-Satu bengkel praktikal untuk menjalankan model bahasa pada mesin anda sendiri dan membina aplikasi pintar dengan [Foundry Local](https://foundrylocal.ai) dan [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
+Satu bengkel amali untuk menjalankan model bahasa pada mesin anda sendiri dan membina aplikasi pintar dengan [Foundry Local](https://foundrylocal.ai) dan [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
 
-> **Apakah Foundry Local?** Foundry Local adalah runtime ringan yang membolehkan anda memuat turun, mengurus, dan menyediakan model bahasa sepenuhnya pada perkakasan anda. Ia membuka API **mesra OpenAI** supaya mana-mana alat atau SDK yang menyokong OpenAI boleh disambungkan - tiada akaun awan diperlukan.
+> **Apakah Foundry Local?** Foundry Local ialah runtime ringan yang membolehkan anda memuat turun, mengurus, dan menghidangkan model bahasa sepenuhnya pada perkakasan anda. Ia mendedahkan API **serasi OpenAI** supaya mana-mana alat atau SDK yang menggunakan OpenAI boleh disambungkan - tiada akaun awan diperlukan.
+
+### 🌐 Sokongan Pelbagai Bahasa
+
+#### Disokong melalui Tindakan GitHub (Automatik & Sentiasa Terkini)
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](./README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **Lebih suka Klon Secara Tempatan?**
+>
+> Repositori ini merangkumi lebih 50 terjemahan bahasa yang secara signifikan meningkatkan saiz muat turun. Untuk klon tanpa terjemahan, gunakan sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> Ini memberikan anda segala yang diperlukan untuk menyelesaikan kursus dengan muat turun yang lebih pantas.
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ---
 
@@ -16,16 +44,16 @@ Menjelang akhir bengkel ini anda akan dapat:
 
 | # | Objektif |
 |---|-----------|
-| 1 | Pasang Foundry Local dan urus model dengan CLI |
-| 2 | Kuasai API SDK Foundry Local untuk pengurusan model secara pengaturcaraan |
+| 1 | Pasang Foundry Local dan uruskan model menggunakan CLI |
+| 2 | Kuasai API Foundry Local SDK untuk pengurusan model secara programatik |
 | 3 | Sambungkan ke pelayan inferens tempatan menggunakan SDK Python, JavaScript, dan C# |
-| 4 | Bina saluran Retrieval-Augmented Generation (RAG) yang berasas pada data anda sendiri |
-| 5 | Cipta ejen AI dengan arahan dan persona berterusan |
-| 6 | Atur aliran kerja multi-ejen dengan gelung maklum balas |
-| 7 | Terokai aplikasi capstone pengeluaran - Zava Creative Writer |
-| 8 | Bina kerangka penilaian dengan set data emas dan pemarkahan LLM-sebagai-juri |
-| 9 | Transkripsi audio dengan Whisper - pertuturan ke teks secara atas peranti menggunakan Foundry Local SDK |
-| 10 | Kompil dan jalankan model tersuai atau Hugging Face dengan ONNX Runtime GenAI dan Foundry Local |
+| 4 | Bina saluran Penghasilan Ditambah Pencarian (RAG) yang kedudukan jawapan berdasarkan data anda sendiri |
+| 5 | Cipta ejen AI dengan arahan berterusan dan persona |
+| 6 | Orkestrasi aliran kerja multi-ejen dengan gelung maklum balas |
+| 7 | Terokai aplikasi capstone produksi - Zava Creative Writer |
+| 8 | Bina kerangka penilaian dengan set data emas dan penilaian LLM-sebagai-hakim |
+| 9 | Transkripsi audio dengan Whisper - pertuturan-ke-teks pada peranti menggunakan Foundry Local SDK |
+| 10 | Kompilasi dan jalankan model khusus atau Hugging Face dengan ONNX Runtime GenAI dan Foundry Local |
 | 11 | Benarkan model tempatan memanggil fungsi luaran dengan corak panggilan alat |
 | 12 | Bina UI berasaskan pelayar untuk Zava Creative Writer dengan penstriman masa nyata |
 
@@ -33,13 +61,13 @@ Menjelang akhir bengkel ini anda akan dapat:
 
 ## Prasyarat
 
-| Keperluan | Butiran |
+| Keperluan | Perincian |
 |-------------|---------|
-| **Perkakasan** | Minimum 8 GB RAM (16 GB disyorkan); CPU yang menyokong AVX2 atau GPU yang disokong |
-| **OS** | Windows 10/11 (x64/ARM), Windows Server 2025, atau macOS 13+ |
-| **Foundry Local CLI** | Pasang melalui `winget install Microsoft.FoundryLocal` (Windows) atau `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Lihat [panduan permulaan](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) untuk butiran. |
-| **Persekitaran Bahasa** | **Python 3.9+** dan/atau **.NET 9.0+** dan/atau **Node.js 18+** |
-| **Git** | Untuk memuat turun repositori ini |
+| **Perkakasan** | Minimum 8 GB RAM (16 GB disyorkan); CPU AVX2-mampu atau GPU yang disokong |
+| **Sistem Pengendalian** | Windows 10/11 (x64/ARM), Windows Server 2025, atau macOS 13+ |
+| **Foundry Local CLI** | Pasang melalui `winget install Microsoft.FoundryLocal` (Windows) atau `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Lihat [panduan mula](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) untuk butiran. |
+| **Runtime Bahasa** | **Python 3.9+** dan/atau **.NET 9.0+** dan/atau **Node.js 18+** |
+| **Git** | Untuk mengklon repositori ini |
 
 ---
 
@@ -51,13 +79,13 @@ git clone https://github.com/microsoft-foundry/foundry-local-lab.git
 cd foundry-local-lab
 
 # 2. Sahkan Foundry Local telah dipasang
-foundry model list              # Senarai model yang tersedia
+foundry model list              # Senaraikan model yang ada
 foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 
-# 3. Pilih trek bahasa anda (lihat makmal Bahagian 2 untuk persediaan penuh)
+# 3. Pilih laluan bahasa anda (rujuk makmal Bahagian 2 untuk tetapan penuh)
 ```
 
-| Bahasa | Mulakan Pantas |
+| Bahasa | Mula Cepat |
 |----------|-------------|
 | **Python** | `cd python && pip install -r requirements.txt && python foundry-local.py` |
 | **C#** | `cd csharp && dotnet run` |
@@ -71,22 +99,22 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 
 **Panduan makmal:** [`labs/part1-getting-started.md`](labs/part1-getting-started.md)
 
-- Apakah Foundry Local dan cara ia berfungsi
+- Apakah Foundry Local dan bagaimana ia berfungsi
 - Memasang CLI pada Windows dan macOS
-- Meneroka model - menyenaraikan, memuat turun, menjalankan
+- Meneroka model - senarai, muat turun, jalankan
 - Memahami alias model dan port dinamik
 
 ---
 
-### Bahagian 2: Pendalaman Foundry Local SDK
+### Bahagian 2: Penyelaman Mendalam Foundry Local SDK
 
 **Panduan makmal:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
 - Mengapa menggunakan SDK berbanding CLI untuk pembangunan aplikasi
-- Rujukan API SDK lengkap untuk Python, JavaScript, dan C#
-- Pengurusan perkhidmatan, penerokaan katalog, kitar hidup model (muat turun, muat, nyah muat)
-- Corak permulaan cepat: bootstrap pembina Python, `init()` JavaScript, `CreateAsync()` C#
-- Metadata `FoundryModelInfo`, alias, dan pemilihan model optimum untuk perkakasan
+- Rujukan penuh API SDK untuk Python, JavaScript, dan C#
+- Pengurusan perkhidmatan, melayari katalog, kitaran hidup model (muat turun, muat, nyahmuat)
+- Corak mula cepat: bootstrap konstruktor Python, `init()` JavaScript, `CreateAsync()` C#
+- Metadata `FoundryModelInfo`, alias, dan pemilihan model optima perkakasan
 
 ---
 
@@ -96,7 +124,7 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 
 - Menyambung ke Foundry Local dari Python, JavaScript, dan C#
 - Menggunakan Foundry Local SDK untuk mengurus perkhidmatan secara programatik
-- Penstriman lengkap sembang melalui API mesra OpenAI
+- Penstriman penyelesaian sembang melalui API serasi OpenAI
 - Rujukan kaedah SDK untuk setiap bahasa
 
 **Contoh kod:**
@@ -109,15 +137,15 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 
 ---
 
-### Bahagian 4: Retrieval-Augmented Generation (RAG)
+### Bahagian 4: Penghasilan Ditambah Pencarian (RAG)
 
 **Panduan makmal:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
 
-- Apakah RAG dan kepentingannya
-- Membina pangkalan pengetahuan dalam memori
+- Apakah RAG dan mengapa ia penting
+- Membina pangkalan pengetahuan dalam ingatan
 - Pencarian tumpang tindih kata kunci dengan pemarkahan
-- Menyusun arahan sistem berasas
-- Menjalankan saluran RAG lengkap secara atas peranti
+- Menyusun arahan sistem berasaskan data
+- Menjalankan saluran RAG penuh pada peranti
 
 **Contoh kod:**
 
@@ -129,14 +157,14 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 
 ---
 
-### Bahagian 5: Membangun Ejen AI
+### Bahagian 5: Membina Ejen AI
 
 **Panduan makmal:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
 
-- Apakah ejen AI (berbanding panggilan LLM terus)
+- Apakah ejen AI (berbanding panggilan LLM mentah)
 - Corak `ChatAgent` dan Microsoft Agent Framework
 - Arahan sistem, persona, dan perbualan berbilang giliran
-- Output berstruktur (JSON) dari ejen
+- Output berstruktur (JSON) daripada ejen
 
 **Contoh kod:**
 
@@ -152,10 +180,10 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 
 **Panduan makmal:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
 
-- Saluran multi-ejen: Penyelidik → Penulis → Editor
-- Penyusunan berperingkat dan gelung maklum balas
-- Konfigurasi dikongsi dan penyerahan berstruktur
-- Reka bentuk aliran kerja multi-ejen anda sendiri
+- Saluran multi-ejen: Penyelidik → Penulis → Penyunting
+- Orkestrasi berurutan dan gelung maklum balas
+- Konfigurasi berkongsi dan serah tangan berstruktur
+- Reka bentuk aliran kerja multi-ejen sendiri
 
 **Contoh kod:**
 
@@ -171,16 +199,16 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 
 **Panduan makmal:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
 
-- Aplikasi multi-ejen gaya pengeluaran dengan 4 ejen khusus
-- Saluran berperingkat dengan gelung maklum balas dipandu penilai
-- Output penstriman, carian katalog produk, penyerahan JSON berstruktur
+- Aplikasi multi-ejen gaya produksi dengan 4 ejen khusus
+- Saluran berurutan dengan gelung maklum balas dipacu penilai
+- Output penstriman, carian katalog produk, serah tangan JSON berstruktur
 - Pelaksanaan penuh dalam Python (FastAPI), JavaScript (Node.js CLI), dan C# (konsol .NET)
 
 **Contoh kod:**
 
 | Bahasa | Direktori | Penerangan |
 |----------|-----------|-------------|
-| Python | `zava-creative-writer-local/src/api/` | Perkhidmatan web FastAPI dengan pengatur |
+| Python | `zava-creative-writer-local/src/api/` | Perkhidmatan web FastAPI dengan pengorkestrasi |
 | JavaScript | `zava-creative-writer-local/src/javascript/` | Aplikasi CLI Node.js |
 | C# | `zava-creative-writer-local/src/csharp/` | Aplikasi konsol .NET 9 |
 
@@ -191,9 +219,9 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 **Panduan makmal:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
 
 - Bina kerangka penilaian sistematik untuk ejen AI menggunakan set data emas
-- Pemeriksaan berasaskan peraturan (panjang, liputan kata kunci, istilah terlarang) + pemarkahan LLM-sebagai-juri
-- Perbandingan sebaris varian prompt dengan skor agregat
-- Melanjutkan corak ejen Editor Zava dari Bahagian 7 ke suite ujian luar talian
+- Semakan berasaskan peraturan (panjang, liputan kata kunci, istilah dilarang) + penilaian LLM-sebagai-hakim
+- Perbandingan sebaris varian arahan dengan skor agregat
+- Memperluas corak ejen Penyunting Zava dari Bahagian 7 ke suite ujian luar talian
 - Laluan Python, JavaScript, dan C#
 
 **Contoh kod:**
@@ -209,11 +237,10 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 ### Bahagian 9: Transkripsi Suara dengan Whisper
 
 **Panduan makmal:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
-
-- Transkripsi pertuturan ke teks menggunakan OpenAI Whisper yang berjalan secara tempatan
-- Pemprosesan audio berfokus privasi - audio tidak pernah meninggalkan peranti anda
-- Laluan Python, JavaScript, dan C# dengan `client.audio.transcriptions.create()` (Python/JS) dan `AudioClient.TranscribeAudioAsync()` (C#)
-- Termasuk fail audio sampel bertema Zava untuk latihan praktikal
+- Transkripsi ucapan ke teks menggunakan OpenAI Whisper yang dijalankan secara setempat
+- Pemprosesan audio berpandukan privasi - audio tidak pernah meninggalkan peranti anda
+- Jejak Python, JavaScript, dan C# dengan `client.audio.transcriptions.create()` (Python/JS) dan `AudioClient.TranscribeAudioAsync()` (C#)
+- Merangkumi fail audio contoh bertema Zava untuk latihan praktikal
 
 **Contoh kod:**
 
@@ -223,7 +250,7 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 | C# | `csharp/WhisperTranscription.cs` | Transkripsi suara Whisper |
 | JavaScript | `javascript/foundry-local-whisper.mjs` | Transkripsi suara Whisper |
 
-> **Nota:** Makmal ini menggunakan **Foundry Local SDK** untuk memuat turun dan memuat model Whisper secara programatik, kemudian menghantar audio ke titik hujung mesra OpenAI tempatan untuk transkripsi. Model Whisper (`whisper`) disenaraikan dalam katalog Foundry Local dan berjalan sepenuhnya atas peranti - tiada kekunci API awan atau akses rangkaian diperlukan.
+> **Nota:** Makmal ini menggunakan **Foundry Local SDK** untuk memuat turun dan memuatkan model Whisper secara program, kemudian menghantar audio ke titik akhir OpenAI yang serasi secara setempat untuk transkripsi. Model Whisper (`whisper`) disenaraikan dalam katalog Foundry Local dan dijalankan sepenuhnya pada peranti - tiada kunci API awan atau akses rangkaian diperlukan.
 
 ---
 
@@ -231,25 +258,25 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 
 **Panduan makmal:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
 
-- Menyusun model Hugging Face ke format ONNX dioptimumkan menggunakan pembina model ONNX Runtime GenAI
-- Kompilasi khusus perkakasan (CPU, GPU NVIDIA, DirectML, WebGPU) dan kuantisasi (int4, fp16, bf16)
-- Mencipta fail konfigurasi templat sembang untuk Foundry Local
-- Menambah model terkompil ke cache Foundry Local
-- Menjalankan model tersuai melalui CLI, REST API, dan SDK OpenAI
-- Contoh rujukan: menyusun Qwen/Qwen3-0.6B dari awal hingga akhir
+- Menyusun model Hugging Face ke format ONNX yang dioptimumkan menggunakan pembina model ONNX Runtime GenAI
+- Penyusunan khusus perkakasan (CPU, GPU NVIDIA, DirectML, WebGPU) dan kuantisasi (int4, fp16, bf16)
+- Membuat fail konfigurasi templat-bualan untuk Foundry Local
+- Menambah model yang disusun ke cache Foundry Local
+- Menjalankan model tersuai melalui CLI, REST API, dan OpenAI SDK
+- Contoh rujukan: penyusunan Qwen/Qwen3-0.6B dari awal hingga akhir
 
 ---
 
-### Bahagian 11: Panggilan Alat dengan Model Tempatan
+### Bahagian 11: Panggilan Alat dengan Model Setempat
 
 **Panduan makmal:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
 
-- Benarkan model tempatan memanggil fungsi luaran (panggilan alat/fungsi)
-- Takrifkan skema alat menggunakan format panggilan fungsi OpenAI
-- Kendalikan aliran perbualan panggilan alat berbilang giliran
-- Laksanakan panggilan alat secara tempatan dan kembalikan hasil kepada model
-- Pilih model yang sesuai untuk senario panggilan alat (Qwen 2.5, Phi-4-mini)
-- Gunakan `ChatClient` asli SDK untuk panggilan alat (JavaScript)
+- Membolehkan model setempat memanggil fungsi luaran (panggilan alat/fungsi)
+- Mendefinisikan skema alat menggunakan format panggilan fungsi OpenAI
+- Mengendalikan aliran perbualan panggilan alat berbilang giliran
+- Melaksanakan panggilan alat secara setempat dan mengembalikan keputusan kepada model
+- Memilih model yang tepat untuk senario panggilan alat (Qwen 2.5, Phi-4-mini)
+- Menggunakan `ChatClient` natif SDK untuk panggilan alat (JavaScript)
 
 **Contoh kod:**
 
@@ -261,39 +288,40 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 
 ---
 
-### Bahagian 12: Membangun UI Web untuk Zava Creative Writer
+### Bahagian 12: Membangunkan UI Web untuk Penulis Kreatif Zava
 
 **Panduan makmal:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
 
-- Tambah antaramuka pengguna berasaskan pelayar untuk Zava Creative Writer
-- Sajikan UI berkongsi dari Python (FastAPI), JavaScript (Node.js HTTP), dan C# (ASP.NET Core)
-- Gunakan streaming NDJSON di pelayar dengan Fetch API dan ReadableStream
-- Lencana status ejen langsung dan penstriman teks artikel masa nyata
+- Menambah antaramuka hadapan berasaskan penyemak imbas untuk Penulis Kreatif Zava
+- Menyajikan UI dikongsi dari Python (FastAPI), JavaScript (Node.js HTTP), dan C# (ASP.NET Core)
+- Menggunakan streaming NDJSON di penyemak imbas dengan Fetch API dan ReadableStream
+- Lencana status agen langsung dan penstriman teks artikel masa nyata
 
-**Kod (UI berkongsi):**
+**Kod (UI dikongsi):**
 
 | Fail | Penerangan |
 |------|-------------|
 | `zava-creative-writer-local/ui/index.html` | Susun atur halaman |
 | `zava-creative-writer-local/ui/style.css` | Gaya |
-| `zava-creative-writer-local/ui/app.js` | Pembaca aliran dan logik kemas kini DOM |
+| `zava-creative-writer-local/ui/app.js` | Pembaca aliran dan logik kemaskini DOM |
 
 **Penambahan backend:**
 
 | Bahasa | Fail | Penerangan |
 |----------|------|-------------|
-| Python | `zava-creative-writer-local/src/api/main.py` | Dikemaskini untuk menyediakan UI statik |
-| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | Pelayan HTTP baru membalut pengatur |
-| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | Projek API mudah ASP.NET Core baru |
+| Python | `zava-creative-writer-local/src/api/main.py` | Dikemas kini untuk menyajikan UI statik |
+| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | Pelayan HTTP baru membalut pengaturcara |
+| C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | Projek API minimal ASP.NET Core baru |
 
 ---
 
-### Bahagian 13: Bengkel Selesai
+### Bahagian 13: Bengkel Lengkap
+
 **Panduan makmal:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
 
-- Ringkasan segala yang telah anda bina sepanjang 12 bahagian
-- Idea lanjut untuk mengembangkan aplikasi anda
-- Pautan kepada sumber dan dokumentasi
+- Ringkasan segala yang telah anda bina merentasi semua 12 bahagian
+- Idea lanjut untuk memperluas aplikasi anda
+- Pautan ke sumber dan dokumentasi
 
 ---
 
@@ -384,7 +412,7 @@ foundry model run phi-3.5-mini  # Mulakan sembang interaktif
 | Laman web Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |
 | Katalog model | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
 | Foundry Local GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
-| Panduan memulakan | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
+| Panduan permulaan | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
 | Rujukan SDK Foundry Local | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
 | Rangka Kerja Ejen Microsoft | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 | OpenAI Whisper | [github.com/openai/whisper](https://github.com/openai/whisper) |
@@ -404,5 +432,5 @@ Bahan bengkel ini disediakan untuk tujuan pendidikan.
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan manusia profesional adalah disarankan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidakakuratan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan profesional oleh manusia adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

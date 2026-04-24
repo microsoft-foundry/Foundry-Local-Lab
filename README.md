@@ -35,6 +35,7 @@ A hands-on workshop for running language models on your own machine and building
 >
 > This gives you everything you need to complete the course with a much faster download.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
+
 ---
 
 ## Learning Objectives

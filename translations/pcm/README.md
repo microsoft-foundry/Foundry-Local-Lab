@@ -4,61 +4,90 @@
 
 # Foundry Local Workshop - Build AI Apps On-Device
 
-Na hands-on workshop wey go show how you fit run language models for your own machine and build smart apps with [Foundry Local](https://foundrylocal.ai) and the [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
+Na hands-on workshop wey go help you run language models for your own machine and build smart applications wit [Foundry Local](https://foundrylocal.ai) and di [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
 
-> **Wetín be Foundry Local?** Foundry Local na light-weight runtime wey make you fit download, manage, and serve language models complete for your hardware. E get **OpenAI-compatible API** so any tool or SDK wey sabi OpenAI fit connect - no need cloud account.
+> **Wetin be Foundry Local?** Foundry Local na small runtime wey make you fit download, manage, and run language models complete for your own hardware. E get **OpenAI-compatible API** so any tool or SDK wey sabi OpenAI fit connect - no cloud account needed.
+
+### 🌐 Multi-Language Support
+
+#### Supported via GitHub Action (Automated & Always Up-to-Date)
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](./README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **You prefer make you Clone Am for Your Machine?**
+>
+> Dis repository get pass 50 language translations wey go make di download size big well well. If you want clone without di translations, make you use sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> Dis one go give you everything wey you need to finish di course faster.
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ---
 
-## Wetin You Go Learn
+## Learning Objectives
 
 By di time you finish dis workshop, you go fit:
 
-| # | Wetin You Go Fit Do |
-|---|---------------------|
-| 1 | Install Foundry Local and manage models with di CLI |
+| # | Objective |
+|---|-----------|
+| 1 | Install Foundry Local and manage models with the CLI |
 | 2 | Master di Foundry Local SDK API for programmatic model management |
-| 3 | Connect to di local inference server with Python, JavaScript, and C# SDKs |
-| 4 | Build Retrieval-Augmented Generation (RAG) pipeline wey dey base answer for your own data |
-| 5 | Create AI agents wey get persistent instructions and personas |
-| 6 | Orchestrate multi-agent workflows with feedback loops |
-| 7 | Explore production level capstone app - Zava Creative Writer |
-| 8 | Build evaluation frameworks with golden datasets and LLM-as-judge scoring |
-| 9 | Transcribe audio with Whisper - speech-to-text on-device using Foundry Local SDK |
+| 3 | Connect to di local inference server using di Python, JavaScript, and C# SDKs |
+| 4 | Build Retrieval-Augmented Generation (RAG) pipeline wey dey base answers on your own data |
+| 5 | Create AI agents with instructions wey no go change and personas |
+| 6 | Run multiple-agent workflows with feedback loops |
+| 7 | Check out one production-level app - di Zava Creative Writer |
+| 8 | Build evaluation frameworks using golden datasets and LLM-as-judge scoring |
+| 9 | Transcribe audio with Whisper - speech-to-text on-device using di Foundry Local SDK |
 | 10 | Compile and run custom or Hugging Face models with ONNX Runtime GenAI and Foundry Local |
-| 11 | Enable local models to call external functions with tool-calling pattern |
-| 12 | Build browser-based UI for Zava Creative Writer with real-time streaming |
+| 11 | Make local models fit call external functions with di tool-calling pattern |
+| 12 | Build one browser-based UI for di Zava Creative Writer wit real-time streaming |
 
 ---
 
-## Wetin You Need Get Ready
+## Prerequisites
 
 | Requirement | Details |
 |-------------|---------|
-| **Hardware** | 8 GB RAM minimum (16 GB better); AVX2-capable CPU or supported GPU |
+| **Hardware** | 8 GB RAM minimum (16 GB better); AVX2-capable CPU or one GPU wey dem support |
 | **OS** | Windows 10/11 (x64/ARM), Windows Server 2025, or macOS 13+ |
-| **Foundry Local CLI** | Install with `winget install Microsoft.FoundryLocal` (Windows) or `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Check [getting started guide](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) for details. |
+| **Foundry Local CLI** | Install am with `winget install Microsoft.FoundryLocal` (Windows) or `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Check di [getting started guide](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) for more info. |
 | **Language runtime** | **Python 3.9+** and/or **.NET 9.0+** and/or **Node.js 18+** |
 | **Git** | To clone this repository |
 
 ---
 
-## How To Start
+## Getting Started
 
 ```bash
-# 1. Make copy of di repo
+# 1. Copy di repository
 git clone https://github.com/microsoft-foundry/foundry-local-lab.git
 cd foundry-local-lab
 
-# 2. Check say Foundry Local don install
-foundry model list              # Show di models wey dey
-foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
+# 2. Make sure say Foundry Local don install
+foundry model list              # Show di models wey dey available
+foundry model run phi-3.5-mini  # Start interactive chat
 
-# 3. Pick di language way you want (check Part 2 lab for full setup)
+# 3. Pick your language track (look Part 2 lab for full setup)
 ```
 
-| Language | How To Start Quick |
-|----------|--------------------|
+| Language | Quick Start |
+|----------|-------------|
 | **Python** | `cd python && pip install -r requirements.txt && python foundry-local.py` |
 | **C#** | `cd csharp && dotnet run` |
 | **JavaScript** | `cd javascript && npm install && node foundry-local.mjs` |
@@ -67,26 +96,26 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 
 ## Workshop Parts
 
-### Part 1: How To Start with Foundry Local
+### Part 1: Getting Started with Foundry Local
 
 **Lab guide:** [`labs/part1-getting-started.md`](labs/part1-getting-started.md)
 
 - Wetin be Foundry Local and how e dey work
-- How to install CLI for Windows and macOS
-- How to explore models - list, download, run
+- How to install di CLI for Windows and macOS
+- Explore models - list am, download am, run am
 - Understand model aliases and dynamic ports
 
 ---
 
-### Part 2: Deep Dive into Foundry Local SDK
+### Part 2: Foundry Local SDK Deep Dive
 
 **Lab guide:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
-- Why you go prefer SDK instead CLI for app development
+- Why you suppose use SDK pass di CLI for app development
 - Full SDK API reference for Python, JavaScript, and C#
-- How to manage service, browse catalog, model lifecycle (download, load, unload)
-- Quick-start methods: Python constructor bootstrap, JavaScript `init()`, C# `CreateAsync()`
-- `FoundryModelInfo` metadata, aliases, and how to choose hardware-friendly models
+- Service management, catalog browsing, model lifecycle (download, load, unload)
+- Quick-start patterns: Python constructor bootstrap, JavaScript `init()`, C# `CreateAsync()`
+- `FoundryModelInfo` metadata, aliases, and best hardware model selection
 
 ---
 
@@ -94,9 +123,9 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 
 **Lab guide:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
 
-- How to connect Foundry Local from Python, JavaScript, and C#
-- Use Foundry Local SDK to manage service programmatically
-- Stream chat completions with OpenAI-compatible API
+- How to connect to Foundry Local from Python, JavaScript, and C#
+- How to use Foundry Local SDK to manage the service programmatically
+- Streaming chat completions through OpenAI-compatible API
 - SDK method reference for each language
 
 **Code samples:**
@@ -113,11 +142,11 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 
 **Lab guide:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
 
-- Wetin RAG be and why e important
+- Wetin be RAG and why e important
 - Build in-memory knowledge base
 - Keyword-overlap retrieval with scoring
 - Compose grounded system prompts
-- Run complete RAG pipeline on-device
+- Run full RAG pipeline on-device
 
 **Code samples:**
 
@@ -133,9 +162,9 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 
 **Lab guide:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
 
-- Wetin AI agent be (compare am to raw LLM call)
-- The `ChatAgent` pattern and Microsoft Agent Framework
-- System instructions, personas, multi-turn conversations
+- Wetin be AI agent (compared to direct LLM call)
+- Di `ChatAgent` pattern and Microsoft Agent Framework
+- System instructions, personas, and multi-turn talks
 - Structured output (JSON) from agents
 
 **Code samples:**
@@ -152,8 +181,8 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 
 **Lab guide:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
 
-- Multi-agent pipelines: Researcher → Writer → Editor
-- Sequential orchestration and feedback loops
+- Multi-agent pipeline: Researcher → Writer → Editor
+- Sequential organisation and feedback loops
 - Shared configuration and structured hand-offs
 - Design your own multi-agent workflow
 
@@ -181,8 +210,8 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 | Language | Directory | Description |
 |----------|-----------|-------------|
 | Python | `zava-creative-writer-local/src/api/` | FastAPI web service with orchestrator |
-| JavaScript | `zava-creative-writer-local/src/javascript/` | Node.js CLI application |
-| C# | `zava-creative-writer-local/src/csharp/` | .NET 9 console application |
+| JavaScript | `zava-creative-writer-local/src/javascript/` | Node.js CLI app |
+| C# | `zava-creative-writer-local/src/csharp/` | .NET 9 console app |
 
 ---
 
@@ -190,10 +219,10 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 
 **Lab guide:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
 
-- Build systematic evaluation framework for AI agents with golden datasets
-- Rule-based checks (length, keyword coverage, forbidden terms) + LLM-as-judge scoring
-- Side-by-side prompt variant comparison with aggregate scorecards
-- Extend Zava Editor agent pattern from Part 7 to offline test suite
+- Build systematic evaluation framework for AI agents using golden datasets
+- Rule-based checks (length, keyword coverage, forbidden words) + LLM-as-judge scoring
+- Side-by-side comparison of prompt versions with aggregate scorecards
+- Extend di Zava Editor agent pattern from Part 7 into offline test suite
 - Python, JavaScript, and C# tracks
 
 **Code samples:**
@@ -209,11 +238,10 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 ### Part 9: Voice Transcription with Whisper
 
 **Lab guide:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
-
-- Speech-to-text transcription with OpenAI Whisper run locally
-- Privacy-first audio processing - audio no dey leave your device
+- Speech-to-text transcription wey dey use OpenAI Whisper wey dey run locally
+- Privacy-first audio processing - audio no go ever comot from your device
 - Python, JavaScript, and C# tracks with `client.audio.transcriptions.create()` (Python/JS) and `AudioClient.TranscribeAudioAsync()` (C#)
-- Zava-themed sample audio files for hands-on practice
+- Get Zava-themed sample audio files wey you fit use practice hand for hand
 
 **Code samples:**
 
@@ -223,7 +251,7 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 | C# | `csharp/WhisperTranscription.cs` | Whisper voice transcription |
 | JavaScript | `javascript/foundry-local-whisper.mjs` | Whisper voice transcription |
 
-> **Note:** Dis lab dey use **Foundry Local SDK** to programmatically download and load Whisper model, den e send audio to local OpenAI-compatible endpoint for transcription. Whisper model (`whisper`) dey inside Foundry Local catalog and e run complete on-device - no need cloud API keys or network access.
+> **Note:** Dis lab dey use the **Foundry Local SDK** to programmatically download and load the Whisper model, den e dey send audio to the local OpenAI-compatible endpoint for transcription. The Whisper model (`whisper`) dey listed for the Foundry Local catalog and e dey run full on-device - no cloud API keys or network access need.
 
 ---
 
@@ -231,12 +259,12 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 
 **Lab guide:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
 
-- Compile Hugging Face models to optimized ONNX format using ONNX Runtime GenAI model builder
+- Compiling Hugging Face models to optimized ONNX format using the ONNX Runtime GenAI model builder
 - Hardware-specific compilation (CPU, NVIDIA GPU, DirectML, WebGPU) and quantisation (int4, fp16, bf16)
-- Create chat-template configuration files for Foundry Local
-- Add compiled models to Foundry Local cache
-- Run custom models via CLI, REST API, and OpenAI SDK
-- Reference example: compile Qwen/Qwen3-0.6B end-to-end
+- Creating chat-template configuration files for Foundry Local
+- Adding compiled models to the Foundry Local cache
+- Running custom models via the CLI, REST API, and OpenAI SDK
+- Example wey fit be reference: compiling Qwen/Qwen3-0.6B end-to-end
 
 ---
 
@@ -245,11 +273,11 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 **Lab guide:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
 
 - Enable local models to call external functions (tool/function calling)
-- Define tool schemas with OpenAI function-calling format
-- Handle multi-turn tool-calling conversation flow
-- Execute tool calls locally and return results to model
-- Choose correct model for tool-calling (Qwen 2.5, Phi-4-mini)
-- Use SDK native `ChatClient` for tool calling (JavaScript)
+- Define tool schemas using the OpenAI function-calling format
+- Handle the multi-turn tool-calling conversation flow
+- Execute tool calls locally and return results to the model
+- Choose the correct model for tool-calling scenarios (Qwen 2.5, Phi-4-mini)
+- Use the SDK's native `ChatClient` for tool calling (JavaScript)
 
 **Code samples:**
 
@@ -261,13 +289,13 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 
 ---
 
-### Part 12: Build Web UI for Zava Creative Writer
+### Part 12: Building a Web UI for the Zava Creative Writer
 
 **Lab guide:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
 
-- Add browser-based front end to Zava Creative Writer
-- Serve shared UI from Python (FastAPI), JavaScript (Node.js HTTP), and C# (ASP.NET Core)
-- Consume streaming NDJSON in browser with Fetch API and ReadableStream
+- Add browser-based front end for the Zava Creative Writer
+- Serve the shared UI from Python (FastAPI), JavaScript (Node.js HTTP), and C# (ASP.NET Core)
+- Consume streaming NDJSON in the browser with the Fetch API and ReadableStream
 - Live agent status badges and real-time article text streaming
 
 **Code (shared UI):**
@@ -283,16 +311,17 @@ foundry model run phi-3.5-mini  # Start better chat wey you fit yan wit
 | Language | File | Description |
 |----------|------|-------------|
 | Python | `zava-creative-writer-local/src/api/main.py` | Updated to serve static UI |
-| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | New HTTP server wrapping orchestrator |
+| JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | New HTTP server wrapping the orchestrator |
 | C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | New ASP.NET Core minimal API project |
 
 ---
 
-### Part 13: Workshop Don Finish
+### Part 13: Workshop Complete
+
 **Lab guide:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
 
-- Summary of everything wey you don build for all di 12 parts
-- More ideas to take extend your applications
+- Summary of everything wey you don build for all 12 parts
+- More ideas to extend your applications
 - Links to resources and documentation
 
 ---
@@ -399,3 +428,10 @@ Dis workshop material na for educational purposes.
 ---
 
 **Happy building! 🚀**
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Disclaimer**:  
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg sabi say automated translations fit get mistake or no too correct. Di original document for dia own language na im be di correct source. For important information, e good make person wey sabi human translation do am. We no go take any blame for any misunderstanding or wrong meaning wey fit show because of dis translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

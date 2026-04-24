@@ -2,11 +2,39 @@
   <img src="https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg" alt="Foundry Local" width="280" />
 </p>
 
-# Warsha ya Foundry Local - Jenga Programu za AI Ndani ya Kifaa
+# Warsha ya Foundry Local - Jenga Programu za AI Kwenye Kifaa
 
-Warsha ya vitendo ya kuendesha mifano ya lugha kwenye mashine yako mwenyewe na kujenga programu za akili zenye akili kwa kutumia [Foundry Local](https://foundrylocal.ai) na [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
+Warsha ya vitendo ya kuendesha mifano ya lugha kwenye mashine yako mwenyewe na kujenga programu zenye akili kwa kutumia [Foundry Local](https://foundrylocal.ai) na [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/).
 
-> **Foundry Local ni nini?** Foundry Local ni mazingira mepesi yanayokuwezesha kupakua, kusimamia, na kuendesha mifano ya lugha moja kwa moja kwenye vifaa vyako. Inatoa **API inayofanana na OpenAI** ili zana yoyote au SDK inayozungumza OpenAI iweze kuunganishwa - hakuna akaunti ya wingu inayohitajika.
+> **Foundry Local ni nini?** Foundry Local ni mazingira nyepesi ya kuendesha yanayokuruhusu kupakua, kusimamia, na kuhudumia mifano ya lugha kwa kabisa kwenye vifaa vyako. Inatoa **API inayolingana na OpenAI** hivyo chombo chochote au SDK kinachozungumza OpenAI kinaweza kuunganishwa - hakihitaji akaunti ya wingu.
+
+### 🌐 Msaada wa Lugha Nyingi
+
+#### Inatangiwa kupitia Kitendo cha GitHub (Kiotomatiki & Daima Kinasasishwa)
+
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](./README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **Unapendelea Kwenye Nakala Mitaa?**
+>
+> Rejesta hii inajumuisha tafsiri za lugha zaidi ya 50 ambayo huongeza sana ukubwa wa kupakua. Ili kunakili bila tafsiri, tumia sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft-foundry/Foundry-Local-Lab.git
+> cd Foundry-Local-Lab
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> Hii inakupa kila kitu unachohitaji kukamilisha kozi kwa upakuaji wa kasi zaidi.
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ---
 
@@ -16,34 +44,34 @@ Mwisho wa warsha hii utaweza:
 
 | # | Lengo |
 |---|-----------|
-| 1 | Sakinisha Foundry Local na simamia mifano kupitia CLI |
-| 2 | Tambua API ya Foundry Local SDK kwa usimamizi wa mifano kwa programu |
-| 3 | Unganisha na seva ya ucheshi ya ndani kwa kutumia SDK za Python, JavaScript, na C# |
-| 4 | Jenga bomba la Uzalishaji Kwa Msaada wa Urejeshwaji (RAG) unaosimamia majibu kulingana na data yako mwenyewe |
-| 5 | Tengeneza mawakala wa AI wenye maelekezo na tabia za kudumu |
-| 6 | Ratibu michakato ya mawakala wengi yenye mizunguko ya maoni |
-| 7 | Chunguza programu ya uzalishaji wa mwisho - Mwandishi wa Ubunifu wa Zava |
-| 8 | Jenga mifumo ya tathmini kwa kutumia seti za dhahabu na alama za LLM kama mwamuzi |
-| 9 | Badilisha sauti kuwa maandishi kwa Whisper - hotuba-kuwa-maandishi mojawapo kwa kutumia Foundry Local SDK |
-| 10 | Kisanyi naendeshe mifano maalum au ya Hugging Face kwa ONNX Runtime GenAI na Foundry Local |
-| 11 | Ruhusu mifano ya ndani kupiga simu kwa kazi za nje kwa kutumia muundo wa simu za zana |
-| 12 | Jenga kiolesura cha kivinjari kwa Mwandishi wa Ubunifu wa Zava na uondoaji wa papo kwa papo |
+| 1 | Sakinisha Foundry Local na usimamishe mifano kwa CLI |
+| 2 | Shuuru API ya SDK ya Foundry Local kwa usimamizi wa mifano kwa mpango |
+| 3 | Unganisha kwenye seva la inference la ndani kwa kutumia SDK za Python, JavaScript, na C# |
+| 4 | Jenga mnyororo wa Matengenezo ya Ukuaji wa Uzalishaji (RAG) unaosimamia majibu kwa data yako mwenyewe |
+| 5 | Tengeneza mawakala wa AI wenye maelekezo ya kudumu na utu wa matumizi |
+| 6 | Ratibu mtiririko wa kazi wa mawakala wengi na mizunguko ya maoni |
+| 7 | Chunguza programu ya uzalishaji wa daraja la juu - Mwandishi wa Ubunifu wa Zava |
+| 8 | Jenga mfumo wa tathmini kwa kutumia seti za dhahabu na alama za LLM kama hakimu |
+| 9 | Andika sauti kwa maandishi kwa Whisper - hotuba-kwa-maandishi kwenye kifaa kwa kutumia SDK ya Foundry Local |
+| 10 | Kusanya na endesha mifano maalum au ya Hugging Face kwa ONNX Runtime GenAI na Foundry Local |
+| 11 | Wezesha mifano ya ndani kupiga simu za nje kwa mtindo wa kuitwa kwa zana |
+| 12 | Jenga muonekano wa kivinjari kwa Mwandishi wa Ubunifu wa Zava kwa mtiririko wa moja kwa moja |
 
 ---
 
-## Mahitaji ya Awali
+## Masharti
 
-| Mahitaji | Maelezo |
+| Sharti | Maelezo |
 |-------------|---------|
-| **Vifaa** | Kidogo kwa RAM 8 GB (Inapendekezwa 16 GB); CPU yenye uwezo wa AVX2 au GPU inayoungwa mkono |
-| **Mfumo wa uendeshaji** | Windows 10/11 (x64/ARM), Windows Server 2025, au macOS 13+ |
-| **CLI ya Foundry Local** | Sakinisha kwa `winget install Microsoft.FoundryLocal` (Windows) au `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Tazama [mwongozo wa kuanza](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) kwa maelezo. |
-| **Mazingira ya lugha** | **Python 3.9+** na/au **.NET 9.0+** na/au **Node.js 18+** |
-| **Git** | Kwa kunakili hazina hii |
+| **Vifaa** | Angalau 8 GB RAM (16 GB inashauriwa); CPU yenye uwezo wa AVX2 au GPU inayoungwa mkono |
+| **Mfumo wa Uendeshaji** | Windows 10/11 (x64/ARM), Windows Server 2025, au macOS 13+ |
+| **CLI ya Foundry Local** | Sakinisha kupitia `winget install Microsoft.FoundryLocal` (Windows) au `brew tap microsoft/foundrylocal && brew install foundrylocal` (macOS). Angalia [mwongozo wa kuanza](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) kwa maelezo. |
+| **Runtime ya Lugha** | **Python 3.9+** na/au **.NET 9.0+** na/au **Node.js 18+** |
+| **Git** | Kwa kunakili rejesta hii |
 
 ---
 
-## Kuanza
+## Jinsi ya Kuanzisha
 
 ```bash
 # 1. Nakili hifadhidata
@@ -52,9 +80,9 @@ cd foundry-local-lab
 
 # 2. Thibitisha Foundry Local imewekwa
 foundry model list              # Orodhesha mifano iliyopo
-foundry model run phi-3.5-mini  # Anzisha mazungumzo ya kuingiliana
+foundry model run phi-3.5-mini  # Anza mazungumzo ya kuingiliana
 
-# 3. Chagua mwelekeo wa lugha yako (ona maabara ya Sehemu ya 2 kwa usanidi kamili)
+# 3. Chagua njia ya lugha yako (angalia kiwanda cha Sehemu ya 2 kwa usanidi kamili)
 ```
 
 | Lugha | Anza Haraka |
@@ -67,59 +95,59 @@ foundry model run phi-3.5-mini  # Anzisha mazungumzo ya kuingiliana
 
 ## Sehemu za Warsha
 
-### Sehemu 1: Kuanzishwa na Foundry Local
+### Sehemu ya 1: Kuanzisha na Foundry Local
 
 **Mwongozo wa maabara:** [`labs/part1-getting-started.md`](labs/part1-getting-started.md)
 
 - Foundry Local ni nini na jinsi inavyofanya kazi
-- Kuweka CLI kwenye Windows na macOS
+- Kusakinisha CLI kwenye Windows na macOS
 - Kuchunguza mifano - orodha, kupakua, kuendesha
-- Kuelewa majina mbadala ya mifano na bandari zenye mabadiliko
+- Kuelewa majina ya kifupi ya mifano na bandari zinazobadilika
 
 ---
 
-### Sehemu 2: Ufundishaji wa Kina wa Foundry Local SDK
+### Sehemu ya 2: Ukingo wa SDK wa Foundry Local
 
 **Mwongozo wa maabara:** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
 - Kwa nini kutumia SDK badala ya CLI kwa maendeleo ya programu
 - Marejeleo kamili ya API ya SDK kwa Python, JavaScript, na C#
-- Usimamizi wa huduma, kuvinjari katalogi, mzunguko wa maisha wa mfano (kupakua, kupakia, kuondoa)
-- Mifano ya kuanza haraka: uanzishaji wa muundaji wa Python, `init()` ya JavaScript, `CreateAsync()` ya C#
-- Metadata ya `FoundryModelInfo`, majina mbadala, na uchaguzi wa mfano bora kwa vifaa
+- Usimamizi wa huduma, kuvinjari orodha, mizunguko ya maisha ya mfano (pakua, chomeka, toa)
+- Mifumo ya kuanza haraka: kujenga Python, JavaScript `init()`, C# `CreateAsync()`
+- Metadata ya `FoundryModelInfo`, majina ya kifupi, na mchaguzi wa modeli bora kwa vifaa
 
 ---
 
-### Sehemu 3: SDK na API
+### Sehemu ya 3: SDK na API
 
 **Mwongozo wa maabara:** [`labs/part3-sdk-and-apis.md`](labs/part3-sdk-and-apis.md)
 
-- Kuunganishwa na Foundry Local kutoka Python, JavaScript, na C#
-- Kutumia Foundry Local SDK kusimamia huduma kwa njia ya programu
-- Uondoaji wa mazungumzo kupitia API inayofanana na OpenAI
-- Marejeleo ya njia za SDK kwa kila lugha
+- Kuunganisha na Foundry Local kutoka Python, JavaScript, na C#
+- Kutumia SDK ya Foundry Local kusimamia huduma kwa mpango
+- Mkondo wa mazungumzo ya moja kwa moja kwa API inayolingana na OpenAI
+- Marejeleo ya mbinu za SDK kwa kila lugha
 
-**Mifano ya Msimbo:**
+**Mifano ya Kanuni:**
 
 | Lugha | Faili | Maelezo |
 |----------|------|-------------|
-| Python | `python/foundry-local.py` | Mazungumzo ya msingi yanayoendelea |
-| C# | `csharp/BasicChat.cs` | Mazungumzo yanayoendelea na .NET |
-| JavaScript | `javascript/foundry-local.mjs` | Mazungumzo yanayoendelea na Node.js |
+| Python | `python/foundry-local.py` | Mazungumzo ya mto wa msingi |
+| C# | `csharp/BasicChat.cs` | Mazungumzo ya mto na .NET |
+| JavaScript | `javascript/foundry-local.mjs` | Mazungumzo ya mto na Node.js |
 
 ---
 
-### Sehemu 4: Uzalishaji Kwa Msaada wa Urejeshwaji (RAG)
+### Sehemu ya 4: Utoaji wa Maarifa (RAG)
 
 **Mwongozo wa maabara:** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
 
 - RAG ni nini na kwa nini ni muhimu
-- Kujenga hifadhidata ya maarifa ya kumbukumbu
-- Urejeshaji wa maneno muhimu na alama
-- Kuunda maelekezo ya mfumo yenye msingi wa taarifa
-- Kuendesha bomba kamili la RAG ndani ya kifaa
+- Kujenga msingi wa maarifa ndani ya kumbukumbu
+- Urejeshaji wa maneno muhimu kwa alama
+- Kuunda maelekezo ya mfumo yaliyo na msingi
+- Kuendesha mnyororo kamili wa RAG kwenye kifaa
 
-**Mifano ya Msimbo:**
+**Mifano ya Kanuni:**
 
 | Lugha | Faili |
 |----------|------|
@@ -129,54 +157,54 @@ foundry model run phi-3.5-mini  # Anzisha mazungumzo ya kuingiliana
 
 ---
 
-### Sehemu 5: Kujenga Wakala wa AI
+### Sehemu ya 5: Kujenga Wakala wa AI
 
 **Mwongozo wa maabara:** [`labs/part5-single-agents.md`](labs/part5-single-agents.md)
 
-- Wakili wa AI ni nini (kulinganisha na wito rahisi kwa LLM)
-- Mfano wa `ChatAgent` na Microsoft Agent Framework
-- Maelekezo ya mfumo, tabia, na mazungumzo ya mzunguko nyingi
-- Toleo lililopangwa (JSON) kutoka kwa mawakala
+- Wakafu wa AI ni nini (tofa mtu moja kwa moja wa LLM)
+- Mfumo wa ChatAgent na Microsoft Agent Framework
+- Maelekezo ya mfumo, utu wa mawakala, na mazungumzo ya mizunguko mingi
+- Matokeo yaliyo na muundo (JSON) kutoka kwa mawakala
 
-**Mifano ya Msimbo:**
+**Mifano ya Kanuni:**
 
 | Lugha | Faili | Maelezo |
 |----------|------|-------------|
-| Python | `python/foundry-local-with-agf.py` | Wakili mmoja na Agent Framework |
-| C# | `csharp/SingleAgent.cs` | Wakili mmoja (mfano wa ChatAgent) |
-| JavaScript | `javascript/foundry-local-with-agent.mjs` | Wakili mmoja (mfano wa ChatAgent) |
+| Python | `python/foundry-local-with-agf.py` | Wakafu mmoja na Agent Framework |
+| C# | `csharp/SingleAgent.cs` | Wakafu mmoja (mfumo wa ChatAgent) |
+| JavaScript | `javascript/foundry-local-with-agent.mjs` | Wakafu mmoja (mfumo wa ChatAgent) |
 
 ---
 
-### Sehemu 6: Michakato ya Wakala Wengi
+### Sehemu ya 6: Mtiririko wa Kazi wa Wakala Wengi
 
 **Mwongozo wa maabara:** [`labs/part6-multi-agent-workflows.md`](labs/part6-multi-agent-workflows.md)
 
-- Mifumo ya mawakala wengi: Mtafiti → Mwandishi → Mhariri
-- Ratiba ya mfululizo na mizunguko ya maoni
-- Mipangilio ya pamoja na mikatanisho iliyo pangiliwa
-- Ubunifu wa mfumo wako wa kazi wa mawakala wengi
+- Mnyororo wa mawakala wengi: Mtafiti → Mwandishi → Mhariri
+- Uratibu wa mfululizo na mizunguko ya maoni
+- Usaidizi wa usanidi ulio sambazwa na mawasilisho yaliyo na muundo
+- Kubuni mtiririko wako wa mawakala wengi
 
-**Mifano ya Msimbo:**
+**Mifano ya Kanuni:**
 
 | Lugha | Faili | Maelezo |
 |----------|------|-------------|
-| Python | `python/foundry-local-multi-agent.py` | Bomba la mawakala watatu |
-| C# | `csharp/MultiAgent.cs` | Bomba la mawakala watatu |
-| JavaScript | `javascript/foundry-local-multi-agent.mjs` | Bomba la mawakala watatu |
+| Python | `python/foundry-local-multi-agent.py` | Mnyororo wa mawakala watatu |
+| C# | `csharp/MultiAgent.cs` | Mnyororo wa mawakala watatu |
+| JavaScript | `javascript/foundry-local-multi-agent.mjs` | Mnyororo wa mawakala watatu |
 
 ---
 
-### Sehemu 7: Mwandishi wa Ubunifu wa Zava - Programu ya Mwisho
+### Sehemu ya 7: Mwandishi wa Ubunifu wa Zava - Programu ya Capstone
 
 **Mwongozo wa maabara:** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
 
-- Programu yenye mawakala wengi wa kitaalamu wanne
-- Bomba la mfululizo lenye mizunguko ya maoni inayosimamiwa na mtaalam wa tathmini
-- Toleo la papo kwa papo, utafutaji wa katalogi ya bidhaa, mikatanisho ya JSON iliyopangwa
-- Utekelezaji kamili katika Python (FastAPI), JavaScript (CLI ya Node.js), na C# (konsoli ya .NET)
+- Programu ya mtindo wa uzalishaji yenye mawakala 4 maalum
+- Mnyororo wa mfululizo na mizunguko ya maoni inayosimamiwa na mtathmini
+- Matokeo ya mtiririko, utafutaji wa orodha ya bidhaa, mawasilisho yaliyo na muundo wa JSON
+- Utekelezaji kamili kwa Python (FastAPI), JavaScript (Node.js CLI), na C# (konsoli ya .NET)
 
-**Mifano ya Msimbo:**
+**Mifano ya Kanuni:**
 
 | Lugha | Saraka | Maelezo |
 |----------|-----------|-------------|
@@ -186,17 +214,17 @@ foundry model run phi-3.5-mini  # Anzisha mazungumzo ya kuingiliana
 
 ---
 
-### Sehemu 8: Maendeleo Yanayoongozwa na Tathmini
+### Sehemu ya 8: Maendeleo ya Kutegemea Tathmini
 
 **Mwongozo wa maabara:** [`labs/part8-evaluation-led-development.md`](labs/part8-evaluation-led-development.md)
 
-- Jenga mfumo wa tathmini wa kitaalamu kwa mawakala wa AI kwa kutumia seti za dhahabu
-- Ukaguzi wa sheria (urefu, kifunika maneno, maneno yasiyoruhusiwa) + alama za LLM kama mwamuzi
-- Ulinganifu pambano wa aina za kuamsha kwa alama za jumla
-- Inapanua mfano wa mhariri wa Zava kutoka Sehemu ya 7 kuwa kundi la majaribio ya nje ya mtandao
-- Njia kwa Python, JavaScript, na C#
+- Jenga mfumo wa tathmini wa mfumo kwa mawakala wa AI kwa kutumia seti za dhahabu
+- Ukaguzi unaotegemea sheria (urefu, usambazaji wa maneno muhimu, maneno yasiyoruhusiwa) + alama za LLM kama hakimu
+- Ulinganisho sambamba wa aina za maelekezo kwa karatasi za alama jumla
+- Inanukuu mfumo wa mfuatiliaji Zava Editor kutoka Sehemu ya 7 hadi jaribio la nje la mtandao
+- Njia za Python, JavaScript, na C#
 
-**Mifano ya Msimbo:**
+**Mifano ya Kanuni:**
 
 | Lugha | Faili | Maelezo |
 |----------|------|-------------|
@@ -206,69 +234,68 @@ foundry model run phi-3.5-mini  # Anzisha mazungumzo ya kuingiliana
 
 ---
 
-### Sehemu 9: Uandikishaji wa Sauti kwa Whisper
+### Sehemu ya 9: Kutoa Matini kwa Sauti kwa Whisper
 
 **Mwongozo wa maabara:** [`labs/part9-whisper-voice-transcription.md`](labs/part9-whisper-voice-transcription.md)
+- Ubadilishaji wa hotuba-kwa-maandishi ukitumia OpenAI Whisper unaoendesha kwa ndani
+- Usindikaji wa sauti unaolinda faragha - sauti haijiungi na kifaa chako
+- Nyimbo za Python, JavaScript, na C# zikiwa na `client.audio.transcriptions.create()` (Python/JS) na `AudioClient.TranscribeAudioAsync()` (C#)
+- Inajumuisha faili za sauti za mfano zenye mandhari ya Zava kwa mazoezi ya vitendo
 
-- Uandikishaji wa hotuba-kuwa-maandishi ukitumia OpenAI Whisper unaoendesha kwa ndani
-- Uendeshaji wa sauti uliojitahidi kuthamini faragha - sauti haiondoki kwenye kifaa
-- Njia za Python, JavaScript, na C# na `client.audio.transcriptions.create()` (Python/JS) na `AudioClient.TranscribeAudioAsync()` (C#)
-- Inajumuisha faili za sauti mfano kwa mazoezi ya vitendo kwa mada ya Zava
-
-**Mifano ya Msimbo:**
+**Mifano ya msimbo:**
 
 | Lugha | Faili | Maelezo |
 |----------|------|-------------|
-| Python | `python/foundry-local-whisper.py` | Uandikishaji wa sauti wa Whisper |
-| C# | `csharp/WhisperTranscription.cs` | Uandikishaji wa sauti wa Whisper |
-| JavaScript | `javascript/foundry-local-whisper.mjs` | Uandikishaji wa sauti wa Whisper |
+| Python | `python/foundry-local-whisper.py` | Ubadilishaji wa sauti kwa kutumia Whisper |
+| C# | `csharp/WhisperTranscription.cs` | Ubadilishaji wa sauti kwa kutumia Whisper |
+| JavaScript | `javascript/foundry-local-whisper.mjs` | Ubadilishaji wa sauti kwa kutumia Whisper |
 
-> **Kumbuka:** Maabara hii inatumia **Foundry Local SDK** kupakua na kupakia mfano wa Whisper kwa njia ya programu, halafu kutuma sauti kwenye sehemu ya ndani ya API inayofanana na OpenAI kwa ajili ya uandikishaji. Mfano wa Whisper (`whisper`) umeorodheshwa katika katalogi ya Foundry Local na unafanya kazi kabisa ndani ya kifaa - hakuna funguo za API za wingu au upatikanaji wa mtandao unahitajika.
+> **Kumbuka:** maabara hii inatumia **Foundry Local SDK** kupakua na kupakia mfano wa Whisper kupitia programu, kisha kutuma sauti kwa kituo cha OpenAI kilicho ndani kwa ajili ya ubadilishaji. Mfano wa Whisper (`whisper`) umeorodheshwa kwenye katalo ya Foundry Local na unaendesha kabisa kwenye kifaa chako - hakuna funguo za API za wingu wala upatikanaji wa mtandao unaohitajika.
 
 ---
 
-### Sehemu 10: Kutumia Mifano Maalum au ya Hugging Face
+### Sehemu ya 10: Kutumia Mifano Maalum au ya Hugging Face
 
 **Mwongozo wa maabara:** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
 
-- Kusanyiko wa mifano ya Hugging Face hadi muundo bora wa ONNX kwa kutumia kivundikaji cha mifano cha ONNX Runtime GenAI
-- Uundaji maalum kwa vifaa (CPU, GPU ya NVIDIA, DirectML, WebGPU) na upimaji (int4, fp16, bf16)
-- Kuunda faili za usanidi wa template ya mazungumzo kwa Foundry Local
-- Kuongeza mifano iliyosanyikwa kwenye cache ya Foundry Local
+- Kuunda mifano ya Hugging Face kwa muundo ulioboreshwa wa ONNX kwa kutumia mtengenezaji wa modeli ya ONNX Runtime GenAI
+- Uundaji maalum kwa vifaa (CPU, NVIDIA GPU, DirectML, WebGPU) na kupunguza ukubwa (int4, fp16, bf16)
+- Kuunda faili za usanidi wa templeti ya mazungumzo kwa Foundry Local
+- Kuongeza mifano iliyoundwa kwenye hifadhidata ya Foundry Local
 - Kuendesha mifano maalum kupitia CLI, REST API, na OpenAI SDK
-- Mfano wa rejea: kusanyiko kamili wa Qwen/Qwen3-0.6B kutoka mwanzo hadi mwisho
+- Mfano wa marejeleo: kuunda modeli ya Qwen/Qwen3-0.6B hatua kwa hatua
 
 ---
 
-### Sehemu 11: Kupiga Simu za Zana kwa Mifano ya Ndani
+### Sehemu ya 11: Kupiga Simu za Zana Kwa Mifano ya Ndani
 
 **Mwongozo wa maabara:** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
 
-- Ruhusu mifano ya ndani kupiga simu kwa kazi za nje (kupiga simu za zana/funcksheni)
-- Eleza taswira za zana kwa kutumia muundo wa simu ya OpenAI
-- Dhibiti mzunguko wa mazungumzo ya simu za zana mzunguko nyingi
-- Endesha simu za zana ndani na rudisha matokeo kwa mfano
-- Chagua mfano unaofaa kwa mazingira ya simu za zana (Qwen 2.5, Phi-4-mini)
-- Tumia `ChatClient` ya asili ya SDK kwa simu za zana (JavaScript)
+- Kuruhusu mifano ya ndani kupiga simu kwa kazi za nje (kupiga simu kwa zana/kazi)
+- Eleza mbinu za zana kwa kutumia muundo wa kupiga simu wa kazi wa OpenAI
+- Simamia mzungumzo wa multi-turn wa kupiga simu kwa zana
+- Tekeleza simu za zana ndani na rudisha matokeo kwa mfano
+- Chagua mfano sahihi kwa hali za kupiga simu kwa zana (Qwen 2.5, Phi-4-mini)
+- Tumia `ChatClient` ya asili ya SDK kwa kupiga simu za zana (JavaScript)
 
-**Mifano ya Msimbo:**
+**Mifano ya msimbo:**
 
 | Lugha | Faili | Maelezo |
 |----------|------|-------------|
-| Python | `python/foundry-local-tool-calling.py` | Kupiga simu za zana za hali ya hewa/sasa watu |
-| C# | `csharp/ToolCalling.cs` | Kupiga simu za zana na .NET |
-| JavaScript | `javascript/foundry-local-tool-calling.mjs` | Kupiga simu za zana na ChatClient |
+| Python | `python/foundry-local-tool-calling.py` | Kupiga simu kwa zana za hali ya hewa/idadi ya watu |
+| C# | `csharp/ToolCalling.cs` | Kupiga simu kwa zana na .NET |
+| JavaScript | `javascript/foundry-local-tool-calling.mjs` | Kupiga simu kwa zana na ChatClient |
 
 ---
 
-### Sehemu 12: Kujenga UI ya Wavuti kwa Mwandishi wa Ubunifu wa Zava
+### Sehemu ya 12: Kujenga UI ya Wavuti kwa Mwandishi wa Ubunifu wa Zava
 
 **Mwongozo wa maabara:** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
 
 - Ongeza sehemu ya mbele ya kivinjari kwa Mwandishi wa Ubunifu wa Zava
-- Hutumie UI iliyoshirikiwa kutoka Python (FastAPI), JavaScript (HTTP ya Node.js), na C# (ASP.NET Core)
-- Tumia mtiririko wa NDJSON katika kivinjari kwa kutumia API ya Fetch na ReadableStream
-- Bango la hali ya wakala wa moja kwa moja na uondoaji wa maandishi ya makala kwa wakati halisi
+- Tumikia UI iliyoshirikiwa kutoka Python (FastAPI), JavaScript (Node.js HTTP), na C# (ASP.NET Core)
+- Tumia usambazaji wa NDJSON kwenye kivinjari kwa kutumia Fetch API na ReadableStream
+- Bango la hali ya wakala hai na usambazaji wa maandishi wa makala kwa wakati halisi
 
 **Msimbo (UI iliyoshirikiwa):**
 
@@ -276,23 +303,24 @@ foundry model run phi-3.5-mini  # Anzisha mazungumzo ya kuingiliana
 |------|-------------|
 | `zava-creative-writer-local/ui/index.html` | Mpangilio wa ukurasa |
 | `zava-creative-writer-local/ui/style.css` | Mtindo |
-| `zava-creative-writer-local/ui/app.js` | Msomaji wa mtiririko na mantiki ya sasisho la DOM |
+| `zava-creative-writer-local/ui/app.js` | Msomaji wa mto na mantiki ya sasisho la DOM |
 
-**Maboresho ya nyuma:**
+**Kuongeza upande wa nyuma:**
 
 | Lugha | Faili | Maelezo |
 |----------|------|-------------|
-| Python | `zava-creative-writer-local/src/api/main.py` | Imesasishwa kuhudumia UI takatifu |
+| Python | `zava-creative-writer-local/src/api/main.py` | Imesasishwa kuhudumia UI ya statiki |
 | JavaScript | `zava-creative-writer-local/src/javascript/server.mjs` | Seva mpya ya HTTP inayozunguka mratibu |
 | C# | `zava-creative-writer-local/src/csharp-web/Program.cs` | Mradi mpya wa API ndogo ya ASP.NET Core |
 
 ---
 
-### Sehemu 13: Warsha Imekamilika
+### Sehemu ya 13: Warsha Imeisha
+
 **Mwongozo wa maabara:** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
 
-- Muhtasari wa yote uliyoyajenga katika sehemu zote 12
-- Mawazo zaidi ya kuongeza matumizi yako
+- Muhtasari wa kila kitu uliojenga katika sehemu zote 12
+- Mibono zaidi ya kuongeza programu zako
 - Viungo vya rasilimali na nyaraka
 
 ---
@@ -382,11 +410,11 @@ foundry model run phi-3.5-mini  # Anzisha mazungumzo ya kuingiliana
 | Rasilimali | Kiungo |
 |----------|------|
 | Tovuti ya Foundry Local | [foundrylocal.ai](https://foundrylocal.ai) |
-| Katalogi ya mfano | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
+| Katalogi ya modeli | [foundrylocal.ai/models](https://www.foundrylocal.ai/models) |
 | Foundry Local GitHub | [github.com/microsoft/foundry-local](https://github.com/microsoft/foundry-local) |
 | Mwongozo wa kuanza | [Microsoft Learn - Foundry Local](https://learn.microsoft.com/en-us/azure/foundry-local/get-started) |
-| Marejeleo ya SDK ya Foundry Local | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
-| Mfumo wa Mawakala wa Microsoft | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
+| Marejeleo ya Foundry Local SDK | [Microsoft Learn - SDK Reference](https://learn.microsoft.com/en-us/azure/foundry-local/reference/reference-sdk) |
+| Mfumo wa Wakala wa Microsoft | [Microsoft Learn - Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 | OpenAI Whisper | [github.com/openai/whisper](https://github.com/openai/whisper) |
 | ONNX Runtime GenAI | [github.com/microsoft/onnxruntime-genai](https://github.com/microsoft/onnxruntime-genai) |
 
@@ -394,7 +422,7 @@ foundry model run phi-3.5-mini  # Anzisha mazungumzo ya kuingiliana
 
 ## Leseni
 
-Nyenzo hii ya warsha imetolewa kwa madhumuni ya kielimu.
+Nyenzo za warsha hii zinatolewa kwa madhumuni ya elimu.
 
 ---
 
@@ -403,6 +431,6 @@ Nyenzo hii ya warsha imetolewa kwa madhumuni ya kielimu.
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Kielekezo cha Hukumu**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Wakati tunajitahidi usahihi, tafadhali fahamu kwamba tafsiri za moja kwa moja zinaweza kuwa na makosa au upungufu. Hati ya awali katika lugha yake asili inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, inashauriwa kutumia tafsiri ya kitaalamu inayofanywa na watu. Hatubeba dhamana yoyote kwa kuelewa vibaya au tafsiri potofu zinazotokana na matumizi ya tafsiri hii.
+**Tangazo la Kukana**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Wakati tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za moja kwa moja zinaweza kuwa na makosa au upotoshaji. Hati ya asili katika lugha yake ya asili inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayotolewa na binadamu inapendekezwa. Hatuna dhamana kwa maelewano potofu au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
