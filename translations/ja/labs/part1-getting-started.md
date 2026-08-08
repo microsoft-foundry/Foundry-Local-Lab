@@ -1,4 +1,4 @@
-# Part 1: Foundry Localの使い方入門
+# パート1: Foundry Localの使い方入門
 
 ![Foundry Local](https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg)
 
@@ -149,4 +149,11 @@ Foundry Localは<strong>ローカルHTTPサービス</strong>として動作し�
 
 ## 次のステップ
 
-[Part 2: Foundry Local SDK Deep Dive](part2-foundry-local-sdk.md) に進み、モデル管理、サービス操作、キャッシュ管理をプログラムから行うSDK APIを習得しましょう。
+[パート2: Foundry Local SDK 詳細解説](part2-foundry-local-sdk.md) に進み、モデル管理、サービス操作、キャッシュ管理をプログラムから行うSDK APIを習得しましょう。
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
