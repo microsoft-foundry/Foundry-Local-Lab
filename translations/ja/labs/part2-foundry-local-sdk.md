@@ -1,12 +1,12 @@
 ![Foundry Local](https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg)
 
-# パート 2: Foundry Local SDK 詳細解説
+# パート2: Foundry Local SDK 詳細解説
 
 > **目標:** Foundry Local SDK をマスターして、プログラムからモデル、サービス、キャッシュを管理できるようになること。そして、なぜアプリ構築には CLI より SDK の使用が推奨されているのか理解すること。
 
 ## 概要
 
-パート 1 では **Foundry Local CLI** を使ってモデルをダウンロードし、対話的に実行しました。CLI は探索に適していますが、本格的なアプリ開発では <strong>プログラム制御</strong> が必要です。Foundry Local SDK はこれを実現します。SDK は <strong>コントロールプレーン</strong>（サービスの起動、モデルの検出、ダウンロード、ロード）を管理し、アプリコードは <strong>データプレーン</strong>（プロンプトの送信、完了の受信）に集中できます。
+パート1 では **Foundry Local CLI** を使ってモデルをダウンロードし、対話的に実行しました。CLI は探索に適していますが、本格的なアプリ開発では <strong>プログラム制御</strong> が必要です。Foundry Local SDK はこれを実現します。SDK は <strong>コントロールプレーン</strong>（サービスの起動、モデルの検出、ダウンロード、ロード）を管理し、アプリコードは <strong>データプレーン</strong>（プロンプトの送信、完了の受信）に集中できます。
 
 このラボでは Python、JavaScript、C# の SDK API 全体を学びます。最後には使える全てのメソッドを理解し、適切な使い分けができるようになります。
 
@@ -29,7 +29,7 @@
 
 | 要件 | 詳細 |
 |------|------|
-| **Foundry Local CLI** | インストール済みで PATH にあること ([パート 1](part1-getting-started.md)) |
+| **Foundry Local CLI** | インストール済みで PATH にあること ([パート1](part1-getting-started.md)) |
 | <strong>言語ランタイム</strong> | **Python 3.9+** かつ/または **Node.js 18+** かつ/または **.NET 9.0+** |
 
 ---
@@ -1224,3 +1224,10 @@ await model.load();
 ## 次のステップ
 
 [パート3: OpenAIを使ったSDKの利用](part3-sdk-and-apis.md) に進み、SDKをOpenAIクライアントライブラリに接続して最初のチャット完了アプリケーションを構築しましょう。
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
