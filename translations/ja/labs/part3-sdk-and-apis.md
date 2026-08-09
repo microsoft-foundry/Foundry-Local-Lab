@@ -1,6 +1,6 @@
 ![Foundry Local](https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg)
 
-# パート3: OpenAIと共にFoundry Local SDKを使う
+# パート3: OpenAIを使ったFoundry Local SSDKの利用
 
 ## 概要
 
@@ -530,4 +530,11 @@ Console.WriteLine(response.Value.Content[0].Text);
 
 ## 次のステップ
 
-続けて [パート4: RAGアプリケーション構築](part4-rag-fundamentals.md) を学び、完全デバイス内で動作するRetrieval-Augmented Generationパイプラインを構築する方法を学んでください。
+続けて [パート4: RAGアプリケーションを構築する](part4-rag-fundamentals.md) を学び、完全デバイス内で動作するRetrieval-Augmented Generationパイプラインを構築する方法を学んでください。
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
