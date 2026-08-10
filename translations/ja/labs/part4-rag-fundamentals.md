@@ -23,7 +23,7 @@
 
 ## 前提条件
 
-- [パート3: Foundry Local SDKとOpenAIの使用](part3-sdk-and-apis.md)を完了していること
+- [パート3: OpenAIを使ったFoundry Local SSDKの利用](part3-sdk-and-apis.md)を完了していること
 - Foundry Local CLIがインストールされ、`phi-3.5-mini`モデルがダウンロード済みであること
 
 ---
@@ -444,4 +444,11 @@ TF-IDFは各チャンクを、そのチャンク内での単語の重要度を�
 
 ## 次のステップ
 
-[Part 5: Building AI Agents](part5-single-agents.md) に進み、Microsoft Agent Frameworkを使ったペルソナ、指示、多段会話を備えたインテリジェントエージェントの構築方法を学びましょう。
+[パート5：AIエージェントを構築する](part5-single-agents.md) に進み、Microsoft Agent Frameworkを使ったペルソナ、指示、多段会話を備えたインテリジェントエージェントの構築方法を学びましょう。
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
