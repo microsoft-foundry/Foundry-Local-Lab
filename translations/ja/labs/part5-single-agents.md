@@ -536,3 +536,10 @@ catch (JsonException)
 ## 次のステップ
 
 **[パート6：マルチエージェントワークフロー](part6-multi-agent-workflows.md)** では、専門的な役割を持つ複数のエージェントを組み合わせて協調的なパイプラインを構築します。
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
