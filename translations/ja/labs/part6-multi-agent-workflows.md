@@ -301,4 +301,11 @@ Console.WriteLine($"\n--- Headlines ---\n{headlines}");
 
 ## 次のステップ
 
-[パート7: Zava Creative Writer - キャップストーンアプリケーション](part7-zava-creative-writer.md) へ進み、4つの専門家エージェント、ストリーミング出力、製品検索、フィードバックループを備えた本格的なマルチエージェントアプリをPython、JavaScript、C#で体験してください。
+[パート7: Zava Creative Writer - 総仕上げアプリケーション](part7-zava-creative-writer.md) へ進み、4つの専門家エージェント、ストリーミング出力、製品検索、フィードバックループを備えた本格的なマルチエージェントアプリをPython、JavaScript、C#で体験してください。
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
