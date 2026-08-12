@@ -1,6 +1,6 @@
 ![Foundry Local](https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg)
 
-# Part 8: Foundry Localによる評価主導開発
+# パート8: Foundry Localによる評価主導開発
 
 > **目標:** 同じローカルモデルをテスト対象エージェントと審査役の両方に使用して、AIエージェントを体系的にテスト・評価するフレームワークを構築し、出荷前にプロンプトを自信を持って反復できるようにすること。
 
@@ -8,7 +8,7 @@
 
 AIエージェントを構築する際に、「まあ大体合っている」では不十分です。<strong>評価主導開発</strong>ではエージェントの出力をコードのように扱い、まずテストを書き、品質を測定し、スコアがしきい値を満たして初めて出荷します。
 
-Zava Creative Writer（Part 7）では、<strong>Editorエージェント</strong>がすでに軽量な評価者として機能し、ACCEPTまたはREVISEを判断しています。このラボではそのパターンを形式化し、任意のエージェントやパイプラインに適用可能な再現可能な評価フレームワークにします。
+Zava Creative Writer（パート7）では、<strong>Editorエージェント</strong>がすでに軽量な評価者として機能し、ACCEPTまたはREVISEを判断しています。このラボではそのパターンを形式化し、任意のエージェントやパイプラインに適用可能な再現可能な評価フレームワークにします。
 
 | 問題 | 解決策 |
 |---------|----------|
@@ -48,7 +48,7 @@ LLMを使用せず高速で決定的に検証できるチェック：
 - エージェントの応答
 - 評価基準
 
-そして構造化されたスコアを返します。これはPart 7のEditorパターンに似ていますが、テストスイート全体に体系的に適用されます。
+そして構造化されたスコアを返します。これはパート7のEditorパターンに似ていますが、テストスイート全体に体系的に適用されます。
 
 ### 4. 評価主導のイテレーションループ
 
@@ -62,7 +62,7 @@ LLMを使用せず高速で決定的に検証できるチェック：
 |-------------|---------|
 | **Foundry Local CLI** | モデルをダウンロード済みでインストールされている |
 | <strong>言語実行環境</strong> | **Python 3.9+**、および/または **Node.js 18+**、および/または **.NET 9+ SDK** |
-| <strong>完了済み</strong> | [Part 5: Single Agents](part5-single-agents.md) と [Part 6: Multi-Agent Workflows](part6-multi-agent-workflows.md) |
+| <strong>完了済み</strong> | [パート5: シングルエージェント](part5-single-agents.md) と [パート6: マルチエージェント ワークフロー](part6-multi-agent-workflows.md) |
 
 ---
 
@@ -194,7 +194,7 @@ and provides practical advice, but could include safety equipment.
 **検討すべき質問:**
 1. いつルールベースチェックをLLM審査より信用するか？
 2. モデルは自身の出力を信頼して審査できるか？限界は何か？
-3. Part 7のEditorエージェントパターンと比べてどうか？
+3. パート7のEditorエージェントパターンと比べてどうか？
 
 ---
 
@@ -249,7 +249,7 @@ Zava Creative WriterのEditorエージェント（`zava-creative-writer-local/sr
 {"decision": "accept/revise", "editorFeedback": "...", "researchFeedback": "..."}
 ```
 
-これはPart 8のLLM審査と<strong>同じコンセプト</strong>ですが、オフラインのテストスイートでなく本番パイプラインに組み込まれています。両者とも：
+これはパート8のLLM審査と<strong>同じコンセプト</strong>ですが、オフラインのテストスイートでなく本番パイプラインに組み込まれています。両者とも：
 
 - モデルから構造化されたJSON出力を使用
 - システムプロンプトに定義された品質基準を適用
@@ -283,4 +283,11 @@ Zava Creative WriterのEditorエージェント（`zava-creative-writer-local/sr
 
 ## 次のラボ
 
-[Part 9: Whisperでの音声文字起こし](part9-whisper-voice-transcription.md)に進み、Foundry Local SDKを使ったオンデバイスの音声認識を体験しましょう。
+[パート9: Whisperでの音声文字起こし](part9-whisper-voice-transcription.md)に進み、Foundry Local SDKを使ったオンデバイスの音声認識を体験しましょう。
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
