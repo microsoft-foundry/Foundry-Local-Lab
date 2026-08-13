@@ -1,6 +1,6 @@
 ![Foundry Local](https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg)
 
-# パート9：WhisperとFoundry Localを使った音声文字起こし
+# パート9：WhisperとFoundry Localによる音声文字起こし
 
 > **目的:** Foundry Localを通じてローカルで動作するOpenAI Whisperモデルを用いて、オーディオファイルを完全にデバイス内で文字起こしすること。クラウドは一切不要。
 
@@ -29,7 +29,7 @@ Foundry Localはテキスト生成だけでなく、<strong>音声認識</strong
 | **Foundry Local CLI** | バージョン **0.8.101以降** （Whisperモデルはv0.8.101以降から利用可能） |
 | **OS** | Windows 10/11 (x64 または ARM64) |
 | <strong>ランタイム</strong> | **Python 3.9以上** および/または **Node.js 18以上** および/または **.NET 9 SDK** ([Download .NET](https://dotnet.microsoft.com/download/dotnet/9.0)) |
-| <strong>事前完了</strong> | [Part 1: Getting Started](part1-getting-started.md)、[Part 2: Foundry Local SDK Deep Dive](part2-foundry-local-sdk.md)、および [Part 3: SDKs and APIs](part3-sdk-and-apis.md) |
+| <strong>事前完了</strong> | [パート1: はじめかた](part1-getting-started.md)、[パート2: Foundry Local SDK 詳細解説](part2-foundry-local-sdk.md)、および [パート3: SDKおよびAPI](part3-sdk-and-apis.md) |
 
 > **注意:** Whisperモデルのダウンロードは<strong>SDK</strong>経由で行う必要があります（CLIではできません）。CLIは音声文字起こしエンドポイントに対応していません。バージョン確認は次のコマンドで:
 > ```bash
@@ -272,7 +272,7 @@ Whisperの文字起こしは言語によって異なるアプローチをとり�
 
 > **重要:** `AudioClient`の言語設定（例："en"）は必ず行ってください。言語を明示しないと、モデルは言語を自動検出しようとして文字化けする可能性があります。
 
-> **SDKの使い方:** Pythonは`FoundryLocalManager(alias)`で起動し、`get_cache_location()`でONNXモデルファイルのパスを取得。JavaScriptとC#はSDKの`AudioClient`を `model.createAudioClient()`（JS）または `model.GetAudioClientAsync()`（C#）で取得し、文字起こしパイプライン全体を処理します。[Part 2: Foundry Local SDK Deep Dive](part2-foundry-local-sdk.md)参照。
+> **SDKの使い方:** Pythonは`FoundryLocalManager(alias)`で起動し、`get_cache_location()`でONNXモデルファイルのパスを取得。JavaScriptとC#はSDKの`AudioClient`を `model.createAudioClient()`（JS）または `model.GetAudioClientAsync()`（C#）で取得し、文字起こしパイプライン全体を処理します。[パート2: Foundry Local SDK 詳細解説](part2-foundry-local-sdk.md)参照。
 
 ---
 
@@ -778,7 +778,7 @@ Console.WriteLine(response.Text);
    | JavaScript | Express.js | `app.post("/v1/audio/transcriptions")` と `multer` |
    | C# | ASP.NET Minimal API | `app.MapPost("/v1/audio/transcriptions")` と `IFormFile` |
 
-5. <strong>マルチターンの文字起こし連携</strong> - Part 4 のチャットエージェントと組み合わせて、まず音声を文字起こししてからテキストをエージェントに渡して解析や要約を行う。
+5. <strong>マルチターンの文字起こし連携</strong> - パート4 のチャットエージェントと組み合わせて、まず音声を文字起こししてからテキストをエージェントに渡して解析や要約を行う。
 
 ---
 
@@ -846,4 +846,11 @@ Console.WriteLine(response.Text);
 
 ## 次のステップ
 
-[Part 10: Using Custom or Hugging Face Models](part10-custom-models.md) に進み、Hugging Face から独自モデルをコンパイルし Foundry Local で実行する方法を学びましょう。
+[パート10：カスタムモデルまたはHugging Faceモデルの利用](part10-custom-models.md) に進み、Hugging Face から独自モデルをコンパイルし Foundry Local で実行する方法を学びましょう。
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
