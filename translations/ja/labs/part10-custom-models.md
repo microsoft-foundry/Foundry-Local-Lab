@@ -1,6 +1,6 @@
 ![Foundry Local](https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg)
 
-# パート10：Foundry LocalでカスタムモデルまたはHugging Faceモデルを使用する
+# パート10：Foundry LocalでのカスタムモデルまたはHugging Faceモデルの利用
 
 > **目標:** Hugging FaceモデルをFoundry Localが必要とする最適化済みONNX形式にコンパイルし、チャットテンプレートを設定し、ローカルキャッシュに追加して、CLI、REST API、OpenAI SDKを使って推論を実行するまでの手順を学びます。
 
@@ -792,3 +792,10 @@ Console.WriteLine();
 [パート11: ローカルモデルでのツール呼び出し](part11-tool-calling.md) を続けて、ローカルモデルから外部関数を呼び出す方法を学習しましょう。
 
 [← パート9: Whisper音声文字起こし](part9-whisper-voice-transcription.md) | [パート11: ツール呼び出し →](part11-tool-calling.md)
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
