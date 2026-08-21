@@ -106,7 +106,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 
 ---
 
-### パート2：Foundry Local SDKを深掘り
+### パート2：Foundry Local SDK 詳細解説
 
 **ラボガイド：** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
@@ -137,7 +137,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 
 ---
 
-### パート4：リトリーバル拡張生成（RAG）
+### パート4：検索拡張生成（RAG）
 
 **ラボガイド：** [`labs/part4-rag-fundamentals.md`](labs/part4-rag-fundamentals.md)
 
@@ -195,7 +195,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 
 ---
 
-### パート7：Zava Creative Writer - キャップストーンアプリ
+### パート7：Zava Creative Writer - 総仕上げアプリケーション
 
 **ラボガイド：** [`labs/part7-zava-creative-writer.md`](labs/part7-zava-creative-writer.md)
 
@@ -254,7 +254,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 
 ---
 
-### パート 10: カスタムまたはHugging Faceモデルの使用
+### パート10: カスタムまたはHugging Faceモデルの使用
 
 **ラボガイド：** [`labs/part10-custom-models.md`](labs/part10-custom-models.md)
 
@@ -267,7 +267,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 
 ---
 
-### パート 11: ローカルモデルでのツール呼び出し
+### パート11: ローカルモデルでのツール呼び出し
 
 **ラボガイド：** [`labs/part11-tool-calling.md`](labs/part11-tool-calling.md)
 
@@ -288,7 +288,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 
 ---
 
-### パート 12: ZavaクリエイティブライターのWeb UI構築
+### パート12: ZavaクリエイティブライターのWeb UI構築
 
 **ラボガイド：** [`labs/part12-zava-ui.md`](labs/part12-zava-ui.md)
 
@@ -315,7 +315,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 
 ---
 
-### パート 13: ワークショップ完了
+### パート13: ワークショップ完了
 
 **ラボガイド：** [`labs/part13-workshop-complete.md`](labs/part13-workshop-complete.md)
 
@@ -357,7 +357,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 │   ├── foundry-local-tool-calling.mjs # Tool/function calling
 │   └── package.json
 ├── zava-creative-writer-local/ # Production multi-agent app
-│   ├── ui/                        # Shared browser UI (Part 12)
+│   ├── ui/                        # Shared browser UI (パート12)
 │   │   ├── index.html             # Page layout
 │   │   ├── style.css              # Styling
 │   │   └── app.js                 # Stream reader and DOM updates
@@ -370,13 +370,13 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 │       │   └── agents/            # Researcher, Product, Writer, Editor
 │       ├── javascript/            # Node.js CLI and web server
 │       │   ├── main.mjs           # CLI entry point
-│       │   ├── server.mjs         # HTTP server with UI (Part 12)
+│       │   ├── server.mjs         # HTTP server with UI (パート12)
 │       │   ├── foundryConfig.mjs
 │       │   └── package.json
 │       ├── csharp/                # .NET 9 console app
 │       │   ├── Program.cs
 │       │   └── ZavaCreativeWriter.csproj
-│       └── csharp-web/            # .NET 9 web API (Part 12)
+│       └── csharp-web/            # .NET 9 web API (パート12)
 │           ├── Program.cs
 │           └── ZavaCreativeWriterWeb.csproj
 ├── labs/                          # Step-by-step lab guides
@@ -394,7 +394,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 │   ├── part12-zava-ui.md
 │   └── part13-workshop-complete.md
 ├── samples/
-│   └── audio/                     # Zava-themed WAV files for Part 9
+│   └── audio/                     # Zava-themed WAV files for パート9
 │       ├── generate_samples.py    # TTS script (pyttsx3) to create WAVs
 │       └── README.md              # Sample descriptions
 ├── AGENTS.md                      # Coding agent instructions
