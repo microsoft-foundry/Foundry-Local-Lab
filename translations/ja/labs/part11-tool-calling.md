@@ -72,8 +72,8 @@
 
 | 要件 | 詳細 |
 |-------------|---------|
-| **Foundry Local CLI** | インストール済み、`PATH`に設定されている ([Part 1](part1-getting-started.md)) |
-| **Foundry Local SDK** | Python、JavaScript、または C# SDK がインストールされている ([Part 2](part2-foundry-local-sdk.md)) |
+| **Foundry Local CLI** | インストール済み、`PATH`に設定されている ([パート1](part1-getting-started.md)) |
+| **Foundry Local SDK** | Python、JavaScript、または C# SDK がインストールされている ([パート2](part2-foundry-local-sdk.md)) |
 | <strong>ツール呼び出し対応モデル</strong> | qwen2.5-0.5b（自動的にダウンロードされます） |
 
 ---
@@ -511,8 +511,15 @@ response = client.chat.completions.create(
 
 ---
 
-続いて [パート12：ZavaクリエイティブライターのWeb UI構築](part12-zava-ui.md) でリアルタイムストリーミング対応のマルチエージェントパイプラインにブラウザフロントエンドを追加しましょう。
+続いて [パート12：Zava Creative Writer用Web UIの構築](part12-zava-ui.md) でリアルタイムストリーミング対応のマルチエージェントパイプラインにブラウザフロントエンドを追加しましょう。
 
 ---
 
-[← パート10：カスタムモデル](part10-custom-models.md) | [パート12：ZavaライターUI →](part12-zava-ui.md)
+[← パート10：カスタムモデル](part10-custom-models.md) | [パート12：Zava Writer UI →](part12-zava-ui.md)
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**:  
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な点が含まれる可能性があることをご了承ください。原文はその言語における正式な文書として扱われるべきです。重要な情報については専門の人間翻訳をお勧めします。本翻訳の利用による誤解や誤訳については一切責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
