@@ -23,6 +23,6 @@ python samples/audio/generate_samples.py
 
 ## Notes
 
-- WAV files are **committed** to the repo (listed in `. To create new .wav files run the script above to regenerate new scripts or modify to create new scripts.
+- WAV files are **committed** to the repo (listed in `.gitignore`). To create new .wav files run the script above to regenerate new scripts or modify to create new scripts.
 - The script uses **Microsoft David** (US English) voice at 160 WPM for clear transcription results.
 - All scenarios reference products from [`zava-creative-writer-local/src/api/agents/writer/products.json`](../../zava-creative-writer-local/src/api/agents/writer/products.json).
