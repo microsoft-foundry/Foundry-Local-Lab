@@ -23,6 +23,6 @@ python samples/audio/generate_samples.py
 
 ## 注意事項
 
-- WAVファイルはリポジトリに<strong>コミット</strong>されています（一覧は `. ... 。新しい.wavファイルを作成するには、上記スクリプトを実行して新しいスクリプトを再生成するか、変更してください）。
+- WAVファイルはリポジトリに<strong>コミット</strong>されています（`.gitignore`に記載されています）。新しい.wavファイルを作成するには、上記スクリプトを実行して新しいスクリプトを再生成するか、変更してください）。
 - スクリプトは文字起こし結果をクリアにするため、160WPMの<strong>Microsoft David</strong>（米国英語）音声を使用しています。
 - すべてのシナリオは [`zava-creative-writer-local/src/api/agents/writer/products.json`](../../../../zava-creative-writer-local/src/api/agents/writer/products.json) の製品を参照しています。
