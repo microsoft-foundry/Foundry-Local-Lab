@@ -106,7 +106,7 @@ foundry model run phi-3.5-mini  # インタラクティブチャットを開始�
 
 ---
 
-### パート2：Foundry Local SDKを深掘り
+### パート2：Foundry Local SDKの詳細解説
 
 **ラボガイド：** [`labs/part2-foundry-local-sdk.md`](labs/part2-foundry-local-sdk.md)
 
