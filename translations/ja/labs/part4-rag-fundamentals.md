@@ -444,4 +444,4 @@ TF-IDFは各チャンクを、そのチャンク内での単語の重要度を�
 
 ## 次のステップ
 
-[Part 5: Building AI Agents](part5-single-agents.md) に進み、Microsoft Agent Frameworkを使ったペルソナ、指示、多段会話を備えたインテリジェントエージェントの構築方法を学びましょう。
+[パート5：AIエージェントの構築](part5-single-agents.md) に進み、Microsoft Agent Frameworkを使ったペルソナ、指示、多段会話を備えたインテリジェントエージェントの構築方法を学びましょう。
