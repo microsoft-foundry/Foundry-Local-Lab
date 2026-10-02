@@ -29,7 +29,7 @@ Foundry Localはテキスト生成だけでなく、<strong>音声認識</strong
 | **Foundry Local CLI** | バージョン **0.8.101以降** （Whisperモデルはv0.8.101以降から利用可能） |
 | **OS** | Windows 10/11 (x64 または ARM64) |
 | <strong>ランタイム</strong> | **Python 3.9以上** および/または **Node.js 18以上** および/または **.NET 9 SDK** ([Download .NET](https://dotnet.microsoft.com/download/dotnet/9.0)) |
-| <strong>事前完了</strong> | [Part 1: Getting Started](part1-getting-started.md)、[Part 2: Foundry Local SDK Deep Dive](part2-foundry-local-sdk.md)、および [Part 3: SDKs and APIs](part3-sdk-and-apis.md) |
+| <strong>事前完了</strong> | [パート1：はじめに](part1-getting-started.md)、[パート2：Foundry Local SDKの詳細解説](part2-foundry-local-sdk.md)、および [パート3：SDKとAPI](part3-sdk-and-apis.md) |
 
 > **注意:** Whisperモデルのダウンロードは<strong>SDK</strong>経由で行う必要があります（CLIではできません）。CLIは音声文字起こしエンドポイントに対応していません。バージョン確認は次のコマンドで:
 > ```bash
@@ -272,7 +272,7 @@ Whisperの文字起こしは言語によって異なるアプローチをとり�
 
 > **重要:** `AudioClient`の言語設定（例："en"）は必ず行ってください。言語を明示しないと、モデルは言語を自動検出しようとして文字化けする可能性があります。
 
-> **SDKの使い方:** Pythonは`FoundryLocalManager(alias)`で起動し、`get_cache_location()`でONNXモデルファイルのパスを取得。JavaScriptとC#はSDKの`AudioClient`を `model.createAudioClient()`（JS）または `model.GetAudioClientAsync()`（C#）で取得し、文字起こしパイプライン全体を処理します。[Part 2: Foundry Local SDK Deep Dive](part2-foundry-local-sdk.md)参照。
+> **SDKの使い方:** Pythonは`FoundryLocalManager(alias)`で起動し、`get_cache_location()`でONNXモデルファイルのパスを取得。JavaScriptとC#はSDKの`AudioClient`を `model.createAudioClient()`（JS）または `model.GetAudioClientAsync()`（C#）で取得し、文字起こしパイプライン全体を処理します。[パート2：Foundry Local SDKの詳細解説](part2-foundry-local-sdk.md)参照。
 
 ---
 
@@ -846,4 +846,4 @@ Console.WriteLine(response.Text);
 
 ## 次のステップ
 
-[Part 10: Using Custom or Hugging Face Models](part10-custom-models.md) に進み、Hugging Face から独自モデルをコンパイルし Foundry Local で実行する方法を学びましょう。
+[パート10：カスタムまたはHugging Faceモデルの使用](part10-custom-models.md) に進み、Hugging Face から独自モデルをコンパイルし Foundry Local で実行する方法を学びましょう。
