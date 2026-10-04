@@ -324,7 +324,7 @@ models/
     added_tokens.json
 ```
 
-> **Note:** 他のいくつかのコンパイルツールとは異なり、モデルビルダーはネストされたサブディレクトリを作成しません。すべてのファイルは出力フォルダーに直接配置されており、これはFoundry Localが期待する形と完全に一致します。
+> **注意:** 他のいくつかのコンパイルツールとは異なり、モデルビルダーはネストされたサブディレクトリを作成しません。すべてのファイルは出力フォルダーに直接配置されており、これはFoundry Localが期待する形と完全に一致します。
 
 ---
 
@@ -396,7 +396,7 @@ curl -X POST http://localhost:5273/v1/chat/completions \
   -d '{"model": "qwen3-0.6b", "messages": [{"role": "user", "content": "What are three interesting facts about honeybees?"}], "temperature": 0.7, "max_tokens": 200}'
 ```
 
-> **Windows note:** 上記の`curl`コマンドはbashの構文です。WindowsではPowerShellの`Invoke-RestMethod`コマンドレットを使用してください。
+> **Windowsに関する注意:** 上記の`curl`コマンドはbashの構文です。WindowsではPowerShellの`Invoke-RestMethod`コマンドレットを使用してください。
 
 **PowerShell:**
 
@@ -507,7 +507,7 @@ Console.WriteLine(response.Value.Content[0].Text);
 
 </details>
 
-> **Key point:** Foundry LocalはOpenAI互換のAPIを公開しているので、内蔵モデルに使えるコードはそのままカスタムモデルにも使えます。`model` パラメータだけ変更してください。
+> **重要なポイント:** Foundry LocalはOpenAI互換のAPIを公開しているので、内蔵モデルに使えるコードはそのままカスタムモデルにも使えます。`model` パラメータだけ変更してください。
 
 ---
 
@@ -515,7 +515,7 @@ Console.WriteLine(response.Value.Content[0].Text);
 
 これまでのラボでは、Foundry Local SDKでサービス起動、エンドポイント検出、モデル管理を自動で行いました。カスタムコンパイル済みモデルでも同様にできます。SDKはサービス起動とエンドポイント検出を処理するので、コードに `localhost:5273` などのポート番号をハードコードする必要はありません。
 
-> **Note:** 以下の例を実行する前に必ずFoundry Local SDKをインストールしてください：
+> **注意:** 以下の例を実行する前に必ずFoundry Local SDKをインストールしてください：
 > - **Python:** `pip install foundry-local openai`
 > - **JavaScript:** `npm install foundry-local-sdk openai`
 > - **C#:** NuGetパッケージ`Microsoft.AI.Foundry.Local` と `OpenAI` を追加
@@ -710,7 +710,7 @@ Console.WriteLine();
 
 </details>
 
-> **Key point:** Foundry Local SDKはエンドポイントを動的に検出するため、ポート番号をハードコードしません。これは運用環境で推奨される方法です。カスタムモデルも内蔵カタログモデルと同様にSDK経由で動作します。
+> **重要なポイント:** Foundry Local SDKはエンドポイントを動的に検出するため、ポート番号をハードコードしません。これは運用環境で推奨される方法です。カスタムモデルも内蔵カタログモデルと同様にSDK経由で動作します。
 
 ---
 
