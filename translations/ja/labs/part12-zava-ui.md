@@ -1,10 +1,10 @@
 ![Foundry Local](https://www.foundrylocal.ai/logos/foundry-local-logo-color.svg)
 
-# Part 12: Zava Creative WriterのWeb UI構築
+# パート12: Zava Creative WriterのWeb UI構築
 
 > **目標:** Zava Creative Writerにブラウザベースのフロントエンドを追加し、マルチエージェントパイプラインの実行状況をリアルタイムで確認できるようにします。エージェントのステータスバッジと記事テキストのストリーミングがライブで表示され、すべてが単一のローカルWebサーバーから提供されます。
 
-[Part 7](part7-zava-creative-writer.md)では、Zava Creative Writerを<strong>CLIアプリケーション</strong>（JavaScript、C#）および<strong>ヘッドレスAPI</strong>（Python）として探索しました。このラボでは、共有の<strong>バニラHTML/CSS/JavaScript</strong>フロントエンドをそれぞれのバックエンドに接続し、ユーザーがターミナルではなくブラウザを介してパイプラインと対話できるようにします。
+[パート7](part7-zava-creative-writer.md)では、Zava Creative Writerを<strong>CLIアプリケーション</strong>（JavaScript、C#）および<strong>ヘッドレスAPI</strong>（Python）として探索しました。このラボでは、共有の<strong>バニラHTML/CSS/JavaScript</strong>フロントエンドをそれぞれのバックエンドに接続し、ユーザーがターミナルではなくブラウザを介してパイプラインと対話できるようにします。
 
 ---
 
@@ -51,7 +51,7 @@ UIは単一の静的ファイルセット（`index.html`、`style.css`、`app.js
 
 ## 前提条件
 
-- [Part 7: Zava Creative Writer](part7-zava-creative-writer.md)を完了していること
+- [パート7: Zava Creative Writer](part7-zava-creative-writer.md)を完了していること
 - Foundry Local CLIがインストールされ、`phi-3.5-mini`モデルがダウンロード済み
 - 最新のWebブラウザ（Chrome, Edge, Firefox, Safari）
 
@@ -376,7 +376,7 @@ case "writer":
 
 ---
 
-続いて[Part 13: Workshop Complete](part13-workshop-complete.md)でこのワークショップ全体のまとめを確認してください。
+続いて[パート13: Workshop Complete](part13-workshop-complete.md)でこのワークショップ全体のまとめを確認してください。
 
 ---
 [← パート11：ツール呼び出し](part11-tool-calling.md) | [パート13：ワークショップ完了 →](part13-workshop-complete.md)
